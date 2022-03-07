@@ -1,11 +1,11 @@
 site_name: CMS Tracker DPG - knowledge transfer workshop
 nav:
   - Home: index.md
-  - Getting-started:
+  - Getting started:
     - getting-started/index.md
     - getting-started/software.md
-    - getting-started/validation.md
-  - Documentation:
+    - getting-started/workflows.md
+  - Documentation on CMSSW modules:
     - documentation/gpuClustering.md
     - documentation/gpuClustering02.md
     - documentation/calibPixels.md

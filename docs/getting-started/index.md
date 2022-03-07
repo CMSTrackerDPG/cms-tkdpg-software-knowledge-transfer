@@ -10,13 +10,20 @@ A step-by-step guide on how to access GPU equipped machines at CERN, CMS or how 
 
 See the [CERN cloud insfrastructure resources guide](https://clouddocs.web.cern.ch/gpu/README.html) on how to request GPU resources.
 
-1. lxplus
+### lxplus
 
 The lxplus service offers `lxplus-gpu.cern.ch` for shared GPU instances - with limited isolation and performance.
 
 One can connect similary as would do to the `lxplus.cern.ch` host domain.
 
     ssh <username>@lxplus-gpu.cern.ch [-X]
+	
+You may need to initialize kerberos and execute bash again:
+
+```bash
+kinit
+exec bash
+```
 
 ## Access machines at CMS P5
 
