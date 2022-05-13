@@ -8,34 +8,12 @@ In contrast to some previous approaches (see [archived](archive/index.md)) this 
 
 It is recommended and in some cases necessary to follow these courses and read these manuals before browsing the content here:
 
-### 1. Introduction to GPUs by NYU
-
-[Introduction to GPUs by New York University](https://nyu-cds.github.io/python-gpu/02-cuda/)
-
-![Introduction to GPUs by New York University header](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n00.png)
-
-
-### 2. Previous Patatrack Knowledge transfer
-
-![Indico header of Patatrack Knowledge transfer](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n01.png)
-
-Access here: [https://indico.cern.ch/event/863657/](https://indico.cern.ch/event/863657/)
-
-#### Presentations
-
-[Direct link to Welcome and Introduction to Parallel Programming](https://indico.cern.ch/event/863657/contributions/3666693/attachments/1958928/3254985/introduction_parallel_programming_and_workshop.pdf)
-
-![Presentation 01](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n02.png)
-
-[Direck link to Introduction to GPU programming using CUDA](https://indico.cern.ch/event/863657/contributions/3666693/attachments/1958928/3254986/introduction_CUDA_slides.pdf)
-
-![Presentation 02](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n03.png)
-
-[Direct link to SoA model for Pixel Reconstruction (and beyond?)](https://indico.cern.ch/event/863657/contributions/3666696/attachments/1959745/3256623/SoAModelforPxReco.pdf)
-
-[Direct link to A fully Heterogeneous Pixel Reconstruction](https://indico.cern.ch/event/863657/contributions/3666696/attachments/1959745/3256622/PixelFullHeterogeneousWF.pdf)
-
-![Presentation 02](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n04.png)
+1. [Introduction to GPUs by NYU](https://nyu-cds.github.io/python-gpu/02-cuda/)
+2. [Previous Patatrack Knowledge transfer](https://indico.cern.ch/event/863657/)
+3. [Direct link to Welcome and Introduction to Parallel Programming](https://indico.cern.ch/event/863657/contributions/3666693/attachments/1958928/3254985/introduction_parallel_programming_and_workshop.pdf)
+4. [Direck link to Introduction to GPU programming using CUDA](https://indico.cern.ch/event/863657/contributions/3666693/attachments/1958928/3254986/introduction_CUDA_slides.pdf)
+5. [Direct link to SoA model for Pixel Reconstruction (and beyond?)](https://indico.cern.ch/event/863657/contributions/3666696/attachments/1959745/3256623/SoAModelforPxReco.pdf)
+6. [Direct link to A fully Heterogeneous Pixel Reconstruction](https://indico.cern.ch/event/863657/contributions/3666696/attachments/1959745/3256622/PixelFullHeterogeneousWF.pdf)
 
 #### Hands-on
 
@@ -47,36 +25,21 @@ Solve all exercises here [https://patatrack.web.cern.ch/patatrack/wiki/cuda_trai
 
 [Part 3](https://patatrack.web.cern.ch/patatrack/wiki/cuda_training_dpg_12_2019_part3/)
 
-![Patatrack Wiki](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n06.png)
+[Patatrack Wiki](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n06.png)
 
-### 3. Caltech - GPU Programming [CS 179]
+### Caltech - GPU Programming [CS 179]
 
-![Caltech course image](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n07.png)
+[Caltech course](http://courses.cms.caltech.edu/cs179/)
 
-[http://courses.cms.caltech.edu/cs179/](http://courses.cms.caltech.edu/cs179/)
+### Patatrack website and Wiki
 
-### 4. Patatrack website and Wiki
+[Patatrack Wiki](https://patatrack.web.cern.ch/patatrack/wiki/).
+[Patatrack Website](https://patatrack.web.cern.ch/patatrack/index.html).
 
-![Patatrack Wiki](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n09.png)
+### CUDA algorithms in CMSSW documentation
 
-Access Wiki here: [https://patatrack.web.cern.ch/patatrack/wiki/](https://patatrack.web.cern.ch/patatrack/wiki/).
+[CUDA algorithms in CMSSW documentation image](https://github.com/cms-patatrack/cmssw/blob/master/HeterogeneousCore/CUDACore/README.md)
 
-![Patatrack Website](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n10.png)
+### CUDA Programming Guide
 
-Access Website here: [https://patatrack.web.cern.ch/patatrack/index.html](https://patatrack.web.cern.ch/patatrack/index.html).
-
-
-### 5. CUDA algorithms in CMSSW documentation
-
-![CUDA algorithms in CMSSW documentation image](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n08.png)
-
-[https://github.com/cms-patatrack/cmssw/blob/master/HeterogeneousCore/CUDACore/README.md](https://github.com/cms-patatrack/cmssw/blob/master/HeterogeneousCore/CUDACore/README.md)
-
-### 6. CUDA Programming Guide
-
-Honestly, so many other online resources just borrow from here, one might as well just read the original
-
-
-Access here: [https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)
-
-![Website](https://raw.githubusercontent.com/czangela/cms-gpu-knowledge-transfer/master/docs/img/other/n06.png)
+[nvidia CUDA Documentation](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html)
