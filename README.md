@@ -8,3 +8,8 @@ Your documentation should be available at: [https://nothingface0.github.io/cms-g
 - Activate it: `source venv/bin/activate`
 - Install requirements: `pip install -U -r requirements.txt`
 - Run `mkdocs serve` from the root repo directory.
+
+## Push latest version to GitHub Pages
+
+- Activate the project's venv
+- Run: `mkdocs gh-deploy`
