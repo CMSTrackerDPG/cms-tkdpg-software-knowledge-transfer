@@ -1,4 +1,4 @@
-# gpuClustering.h - findClus
+# findClus
 
 Let's look at the histogram filling without the debug messages which we might explain later.
 

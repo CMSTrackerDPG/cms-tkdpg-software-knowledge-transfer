@@ -1,4 +1,4 @@
-# gpuClustering.h - countModules
+# countModules
 
 The whole kernel:
 

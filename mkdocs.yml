@@ -1,14 +1,19 @@
-site_name: CMS Tracker DPG - knowledge transfer workshop
+site_name: CMS Tracker DPG - Software Knowledge Base
 nav:
   - Home: index.md
+  - Introduction: introduction.md
   - Getting started:
     - getting-started/index.md
     - getting-started/software.md
     - getting-started/workflows.md
   - Documentation on CMSSW modules:
-    - documentation/gpuClustering.md
-    - documentation/gpuClustering02.md
-    - documentation/calibPixels.md
+      - GPU:
+          - gpuClustering:
+              - documentation/gpuClustering.md
+              - documentation/gpuClustering02.md
+          - documentation/calibPixels.md
+  - Extra Resources:
+      - extra-resources/extra.md
   - Archive:
     - archive/index.md
 theme:
