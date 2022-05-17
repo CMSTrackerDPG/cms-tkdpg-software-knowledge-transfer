@@ -39,5 +39,5 @@ subdirectories:
 - `CUDADataFormats/SiPixelDigi/`
 - `RecoLocalTracker/SiPixelClusterizer/`
 
-To run an execute code on GPUs, you must first connect to the appropriate
+To run and execute code on GPUs, you must first connect to the appropriate
 LXPLUS machine. See [here](working-with-cmssw/index.md) for instructions.

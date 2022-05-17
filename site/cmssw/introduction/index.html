@@ -267,49 +267,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cpu" class="md-nav__link">
-    CPU
+  <a href="#cpu-code" class="md-nav__link">
+    CPU code
   </a>
-  
-    <nav class="md-nav" aria-label="CPU">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#gpu" class="md-nav__link">
-    GPU
+  <a href="#gpu-code" class="md-nav__link">
+    GPU code
   </a>
-  
-    <nav class="md-nav" aria-label="GPU">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview_1" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-gpu-code" class="md-nav__link">
-    Running GPU code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -381,10 +348,71 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3">
+          Workflows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workflows" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Workflows
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../working-with-cmssw/workflows/" class="md-nav__link">
-        Workflows
+      <a href="../working-with-cmssw/workflows/overview/" class="md-nav__link">
+        Overview
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-cmssw/workflows/usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working-with-cmssw/workflows/history/" class="md-nav__link">
+        History
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -873,49 +901,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cpu" class="md-nav__link">
-    CPU
+  <a href="#cpu-code" class="md-nav__link">
+    CPU code
   </a>
-  
-    <nav class="md-nav" aria-label="CPU">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#gpu" class="md-nav__link">
-    GPU
+  <a href="#gpu-code" class="md-nav__link">
+    GPU code
   </a>
-  
-    <nav class="md-nav" aria-label="GPU">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview_1" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-gpu-code" class="md-nav__link">
-    Running GPU code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -939,10 +934,9 @@ all in one repository (not exactly a
 <a href="https://en.wikipedia.org/wiki/Monorepo">monorepo</a> but close).</p>
 <p>Looking around for information on its structure and use you can very easily
 get lost, frustrated, mad even, as most information is either too cryptic,
-outdated or both. <mark class="critic">This document will try to focus on the very few files that
+outdated or both. <mark class="critic">This document will try to focus on the few source files that
 are of interest to the TkDPG group</mark>.</p>
-<h2 id="cpu">CPU</h2>
-<h3 id="overview">Overview</h3>
+<h2 id="cpu-code">CPU code</h2>
 <p>The main functionality of interest is located in the following CMSSW
 subdirectories:</p>
 <ul>
@@ -950,8 +944,9 @@ subdirectories:</p>
 <li><code>DataFormats/SiPixelCluster/</code></li>
 <li><code>RecoLocalTracker/SiPixelClusterizer/</code></li>
 </ul>
-<h2 id="gpu">GPU</h2>
-<h3 id="overview_1">Overview</h3>
+<p>To execute the CPU reconstruction code, you only need to run it on
+any LXPLUS machine.</p>
+<h2 id="gpu-code">GPU code</h2>
 <p>To speedup CPU code execution, a GPU version of (more or less) the same code
 has been implemented in CUDA. </p>
 <div class="admonition note">
@@ -963,9 +958,10 @@ of the CPU functions to CUDA kernels, not even structure-wise.</p>
 subdirectories:</p>
 <ul>
 <li><code>DataFormats/SiPixelDigi/</code></li>
-<li><code>RecoLocalTracker/SiPixelClusterizer/</code>    </li>
+<li><code>CUDADataFormats/SiPixelCluster/</code></li>
+<li><code>CUDADataFormats/SiPixelDigi/</code></li>
+<li><code>RecoLocalTracker/SiPixelClusterizer/</code></li>
 </ul>
-<h3 id="running-gpu-code">Running GPU code</h3>
 <p>To run an execute code on GPUs, you must first connect to the appropriate
 LXPLUS machine. See <a href="../working-with-cmssw/">here</a> for instructions.</p>
 
