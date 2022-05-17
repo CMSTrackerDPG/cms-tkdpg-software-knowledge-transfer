@@ -1,14 +1,17 @@
 site_name: CMS Tracker DPG - Software Knowledge Base
 nav:
   - Home: index.md
-  - CMSSW:
+  - CMSSW ☠:
       - Introduction: cmssw/introduction.md
       - Working with CMSSW:
           - cmssw/working-with-cmssw/index.md
           - cmssw/working-with-cmssw/software.md
           - cmssw/working-with-cmssw/workflows.md
       - Documentation on CMSSW modules:
+          - CPU:
+              - cmssw/cpu/overview.md
           - GPU:
+              - cmssw/gpu/overview.md
               - gpuClustering.h:
                   - cmssw/gpu/gpuClustering-overview.md
                   - cmssw/gpu/gpuClustering-findClus.md
@@ -21,6 +24,9 @@ nav:
           - cmssw/archive/index.md
   - Certhelper (a.k.a Certifier):
       - certhelper/introduction.md
+  - MLPlayground:
+      - mlplayground/introduction.md
+  
 
 theme:
   name: material
@@ -51,6 +57,11 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde  
   - pymdownx.tabbed:
       alternate_style: true 
   - attr_list
