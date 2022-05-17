@@ -37,7 +37,7 @@ for (int i = first; i < msize; i += blockDim.x) {
     What we don't know however is what order we are going to process our pixels in one column/bin.
     Filling the histogram is competitive between the threads, the following image illustrates this.
 
-![Iteration order of pixels in cluster](../img/documentation/m0.png)
+![Iteration order of pixels in cluster](../../img/documentation/m0.png)
 
 !!! info "Figure 1 - Order in histogram"
 
@@ -47,7 +47,7 @@ for (int i = first; i < msize; i += blockDim.x) {
 
 We see the relative positions of pixels in our cluster:
 
-![Iteration order of pixels in cluster](../img/documentation/m1.png)
+![Iteration order of pixels in cluster](../../img/documentation/m1.png)
 
 !!! info "Figure 2 - Our HistoContainer"
 
@@ -55,7 +55,7 @@ We see the relative positions of pixels in our cluster:
 
     At least for this example, it doesn't really matter if one imagines the order in one bin the other way around.
 
-![Id/position stored in histogram visualized](../img/documentation/m2.png)
+![Id/position stored in histogram visualized](../../img/documentation/m2.png)
 
 !!! info "Figure 3 - What we store in the HistoContainer"
 
@@ -92,7 +92,7 @@ We see the relative positions of pixels in our cluster:
 
 This example only contained one cluster, but in reality we will likely have some consecutive clusters. 
 
-![Iteration order of pixels in cluster](../img/documentation/m3.png)
+![Iteration order of pixels in cluster](../../img/documentation/m3.png)
 
 !!! info "Figure 4 - Multiple clusters in one module"
 
@@ -243,6 +243,7 @@ __syncthreads();  // for hit filling!
                 And save one field at the end of each row for a special value e.g. and initialize all values to `numeric_limits<uint16_t>::max()-1` and later only iterate until we reach this value.
 
                 This solution actually uses a bit more space `16 vs 8 bits` and requires us to do some initialization.
+
 ## Filling nn
 
 Let's look at how we actually fill our nearest neighbours arrays:
@@ -276,6 +277,7 @@ for (auto j = threadIdx.x, k = 0U; j < hist.size(); j += blockDim.x, ++k) {
 !!! tip "Current iteration, keeping track of `k`"
 
     We will use `k` to keep track of which iteration we are currently in:
+
     ``` cpp
     for (auto j = threadIdx.x, k = 0U; j < hist.size(); j += blockDim.x, ++k) 
     ```
@@ -359,7 +361,7 @@ for (auto j = threadIdx.x, k = 0U; j < hist.size(); j += blockDim.x, ++k) {
 
     In this example:
 
-    ![Iteration order of pixels in cluster](../img/documentation/m1.png)
+    ![Iteration order of pixels in cluster](../../img/documentation/m1.png)
 
     For `m` we consider the following values
 

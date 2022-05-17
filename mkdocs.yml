@@ -1,21 +1,27 @@
 site_name: CMS Tracker DPG - Software Knowledge Base
 nav:
   - Home: index.md
-  - Introduction: introduction.md
-  - Getting started:
-    - getting-started/index.md
-    - getting-started/software.md
-    - getting-started/workflows.md
-  - Documentation on CMSSW modules:
-      - GPU:
-          - gpuClustering:
-              - documentation/gpuClustering.md
-              - documentation/gpuClustering02.md
-          - documentation/calibPixels.md
-  - Extra Resources:
-      - extra-resources/extra.md
-  - Archive:
-    - archive/index.md
+  - CMSSW:
+      - Introduction: cmssw/introduction.md
+      - Working with CMSSW:
+          - cmssw/working-with-cmssw/index.md
+          - cmssw/working-with-cmssw/software.md
+          - cmssw/working-with-cmssw/workflows.md
+      - Documentation on CMSSW modules:
+          - GPU:
+              - gpuClustering.h:
+                  - cmssw/gpu/gpuClustering-overview.md
+                  - cmssw/gpu/gpuClustering-findClus.md
+                  - cmssw/gpu/gpuClustering-countModules.md
+              - gpuCalibPixel.h:
+                  - cmssw/gpu/calibPixels.md
+      - Extra Resources:
+          - cmssw/extra-resources/extra.md
+      - Archive:
+          - cmssw/archive/index.md
+  - Certhelper (a.k.a Certifier):
+      - certhelper/introduction.md
+
 theme:
   name: material
   features:

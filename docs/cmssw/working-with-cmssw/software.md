@@ -179,8 +179,8 @@ Important features include the ability to filter `IBs` based on
 * CPU architecture
 * Compiler
 
-![img01](../img/other/n11.png)
+![img01](../../img/other/n11.png)
 
 Look at latest commits, PRs added for a particluar build
 
-![img02](../img/other/n12.png)
+![img02](../../img/other/n12.png)

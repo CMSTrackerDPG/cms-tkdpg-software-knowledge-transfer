@@ -33,7 +33,7 @@ Add the first Patatrack workflows (currently just a placeholder).
 
 Relevant slide:
 
-![slide4](../img/workflows/Patatrack.png)
+![slide4](../../img/workflows/Patatrack.png)
 
 ## Begin integration in CMSSW
 
@@ -89,10 +89,10 @@ The update has been presented here: [https://indico.cern.ch/event/1033022/#47-gp
 
 Relevant slides:
 
-![slide2](../img/workflows/Trigger.png)
-![slide3](../img/workflows/Trigger-2.png)
-![slide4](../img/workflows/Trigger-3.png)
-![slide7](../img/workflows/Trigger-4.png)
+![slide2](../../img/workflows/Trigger.png)
+![slide3](../../img/workflows/Trigger-2.png)
+![slide4](../../img/workflows/Trigger-3.png)
+![slide7](../../img/workflows/Trigger-4.png)
 
 ### 3. Update GPU workflows [#35331](https://github.com/cms-sw/cmssw/pull/35331)
 

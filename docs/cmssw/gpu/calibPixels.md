@@ -1,4 +1,15 @@
-# gpuCalibPixel.h - calibPixels
+# calibPixels
+
+## Introduction
+
+!!! warning
+	TODO
+	
+	- What's this kernel about? 
+	- What are we expected to find in this page?
+	- Code structure overview
+
+## Code
 
 The whole kernel:
 
@@ -94,7 +105,7 @@ Note that to determine the `gain` and `pedestal` values the inverse of them is m
     in Fig. 1. The parameters are very stable and are determined about every four months for control purposes.
 
 <figure markdown>
-![vcal_adc_response](../img/documentation/adc_vcal.jpg)
+![vcal_adc_response](../../img/documentation/adc_vcal.jpg)
 <figcaption>Figure 1. Example ADC response as a function of injected charge in
 VCAL units (see text for conversion to electrons). The red line is a
 first degree polynomial fit to the data in a restricted VCAL range 
@@ -103,7 +114,7 @@ first degree polynomial fit to the data in a restricted VCAL range
 </figure>
 
 <figure markdown>
-![gain_and_pedestal](../img/documentation/gainpedestal.png)
+![gain_and_pedestal](../../img/documentation/gainpedestal.png)
 <figcaption>Figure 2. Distributions of the gain and pedestal constants for each
 pixel as obtained in a dedicated calibration run in October 2009.
 <a href=https://doi.org/10.1016/j.nima.2010.11.188>https://doi.org/10.1016/j.nima.2010.11.188</a>
@@ -112,7 +123,7 @@ pixel as obtained in a dedicated calibration run in October 2009.
 
 Some more recent slides from [https://indico.cern.ch/event/914013/#10-gain-calibration-for-run3-p](https://indico.cern.ch/event/914013/#10-gain-calibration-for-run3-p):
 
-![adc_vcal](../img/documentation/m4.png)
+![adc_vcal](../../img/documentation/m4.png)
 
 ## 3. VCAL to electrons (charge)
 
@@ -136,7 +147,7 @@ if constexpr (isRun2) {
 
 To us, the linear relationship is relevant here `Q = 65.5×VCAL−414`.
 
-![vcal_electrons](../img/documentation/m5.png)
+![vcal_electrons](../../img/documentation/m5.png)
 
 !!! tip "Note the difference between Run2 and afterwards"
 
