@@ -1,6 +1,6 @@
-# cms-gpu-knowledge-transfer
+# cms-tkdpg-software-knowledge-transfer
 
-Documentation will be available at: [https://nothingface0.github.io/cms-gpu-knowledge-transfer/](https://nothingface0.github.io/cms-gpu-knowledge-transfer/)
+Deployed documentation available [here](https://cmstrackerdpg.github.io/cms-tkdpg-software-knowledge-transfer/)
 
 ## Developing locally
 
