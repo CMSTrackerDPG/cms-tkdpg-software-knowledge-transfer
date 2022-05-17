@@ -6,12 +6,10 @@ all in one repository (not exactly a
 
 Looking around for information on its structure and use you can very easily
 get lost, frustrated, mad even, as most information is either too cryptic,
-outdated or both. {==This document will try to focus on the very few files that
+outdated or both. {==This document will try to focus on the few source files that
 are of interest to the TkDPG group==}.
 
-## CPU
-
-### Overview
+## CPU code
 
 The main functionality of interest is located in the following CMSSW
 subdirectories:
@@ -20,9 +18,10 @@ subdirectories:
 - `DataFormats/SiPixelCluster/`
 - `RecoLocalTracker/SiPixelClusterizer/`
 
-## GPU
+To execute the CPU reconstruction code, you only need to run it on
+any LXPLUS machine.
 
-### Overview
+## GPU code
 
 To speedup CPU code execution, a GPU version of (more or less) the same code
 has been implemented in CUDA. 
@@ -36,9 +35,9 @@ The main functionality of interest is located in the following CMSSW
 subdirectories:
 
 - `DataFormats/SiPixelDigi/`
-- `RecoLocalTracker/SiPixelClusterizer/`	
-
-### Running GPU code
+- `CUDADataFormats/SiPixelCluster/`
+- `CUDADataFormats/SiPixelDigi/`
+- `RecoLocalTracker/SiPixelClusterizer/`
 
 To run an execute code on GPUs, you must first connect to the appropriate
 LXPLUS machine. See [here](working-with-cmssw/index.md) for instructions.

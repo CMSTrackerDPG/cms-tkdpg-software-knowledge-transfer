@@ -6,7 +6,10 @@ nav:
       - Working with CMSSW:
           - cmssw/working-with-cmssw/index.md
           - cmssw/working-with-cmssw/software.md
-          - cmssw/working-with-cmssw/workflows.md
+          - Workflows:
+              - cmssw/working-with-cmssw/workflows/overview.md
+              - cmssw/working-with-cmssw/workflows/usage.md
+              - cmssw/working-with-cmssw/workflows/history.md
       - Documentation on CMSSW modules:
           - CPU:
               - cmssw/cpu/overview.md

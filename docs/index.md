@@ -7,7 +7,7 @@ cherry-pick useful information and have it one place.
 
 Use the sidebar to navigate through the available sections.
 
-!!! hint
+!!! note
 	
 	Feel free to contribute to this documentation (via pull requests 
 	on [github](https://github.com/CMSTrackerDPG/cms-tkdpg-software-knowledge-transfer)), 
