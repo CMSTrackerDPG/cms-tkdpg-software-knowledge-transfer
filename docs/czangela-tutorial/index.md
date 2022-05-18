@@ -18,24 +18,18 @@ So I won't be the one creating already available content for some people not doi
 
 ## Week 1
 
-GPU programming introduction. What is CUDA, why do we need GPU programming and
+[Week 1 material](weeks/week01.md): GPU programming introduction. What is CUDA, why do we need GPU programming and
 how does an nvidia GPU works.
 
-[Week 1 material](weeks/week01.md)
-
-[Week 1 exercises](weeks/week01_exercises.md)
+[Week 1 exercises](weeks/week01_exercises.md): Exercises with examples from CMSSW GPU code. 
 
 ## Week 2
 
-More advanced topics on GPU threads, shared memories,
+[Week 2 material](weeks/week02.md): More advanced topics on GPU threads, shared memories,
 thread synchronization, and host memory optimization.
-
-[Week 2 material](weeks/week02.md)
 
 [Week 2 exercises](weeks/week02_exercises.md)
 
 ## Week 3 and beyond
 
-GPU code execution performance evaluation, parallel programming models
-
-[Further reading](weeks/further_reading.md)
+[Further reading](weeks/further_reading.md): GPU code execution performance evaluation, parallel programming models

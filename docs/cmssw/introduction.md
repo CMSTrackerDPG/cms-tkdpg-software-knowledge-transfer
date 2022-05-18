@@ -29,7 +29,9 @@ has been implemented in CUDA.
 !!! note
 	
 	If you're unfamiliar with GPU programming with CUDA, you are encouraged to
-	follow [Angela's tutorial](../czangela-tutorial/index.md).
+	follow [Angela's tutorial](../czangela-tutorial/index.md). Apart from
+	a general primer to CUDA code, it also provides	insights on the GPU code 
+	used in CMSSW.
 
 !!! note
 
