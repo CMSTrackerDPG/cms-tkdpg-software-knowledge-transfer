@@ -1,8 +1,8 @@
-# Archived resources
+# GPU Exercises and reading material
 
-I wasn't sure how to start knowledge transfer.
+<!-- I wasn't sure how to start knowledge transfer. -->
 
-In this previous approach I started creating a course to cover `CUDA` basics and make the reader familiar with `CMSSW`.
+<!-- In this previous approach I started creating a course to cover `CUDA` basics and make the reader familiar with `CMSSW`. -->
 
 <!-- It was the wrong approach.
 

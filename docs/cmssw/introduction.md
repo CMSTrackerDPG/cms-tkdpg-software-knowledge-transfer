@@ -41,3 +41,25 @@ subdirectories:
 
 To run and execute code on GPUs, you must first connect to the appropriate
 LXPLUS machine. See [here](working-with-cmssw/index.md) for instructions.
+
+## Alpaka code
+
+!!! todo
+
+	Add links, info
+	
+!!! warning
+	
+	Possibly inaccurate links/description
+	
+An [ongoing effort](https://github.com/cms-patatrack/pixeltrack-standalone) by the
+Patatrack team aims to port reconstruction code to the 
+ Alpaka framework[^1][^2],
+a framework which aims to abstract away from the hardware that a piece of code runs on (CPU/GPU), so
+that a single source file can run on any of the supported hardware.
+
+Alpaka resembles CUDA code, and has (more or less) the same logic with
+[frameworks like OpenCL](https://alpaka.readthedocs.io/en/0.5.0/usage/intro.html#similar-projects).
+
+[^1]: [Alpaka's readthedocs](https://alpaka.readthedocs.io/en/0.5.0/usage/intro.html)
+[^2]: [Alapaka group's homepage](https://alpaka-group.github.io/alpaka/)
