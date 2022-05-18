@@ -1,24 +1,29 @@
 # Developing for CMSSW
 
-## Tutorial: proposing changes to CMSSW
-
-**Based on [http://cms-sw.github.io/tutorial.html](http://cms-sw.github.io/tutorial.html)**
+## Cloning a CMSSW release on your LXPLUS machine
 
 ### Before you start
 
-Please make sure you registered to GitHub and that you have provided them a ssh public key to access your private repository.
+Please make sure you registered to GitHub and that you have provided them 
+a ssh public key to access your private repository.
+
+### Connect to your LXPLUS machine
+
+!!! todo
+
+	TODO
 
 ### Search for available releases
 
-Before setting up a release search for available ones:
+Search for available releases:
 
-``` bash
+```bash
 scram list CMSSW
 ```
 
 This should result in some output like:
-```
 
+```
 Listing installed projects available for platform >> slc7_amd64_gcc10 <<
 
 --------------------------------------------------------------------------------
@@ -42,13 +47,16 @@ Listing installed projects available for platform >> slc7_amd64_gcc10 <<
 
 ### Create a CMSSW area
 
-Set up the work area just like you used to.
+Once you have decided on a CMSSW release, set up the work area:
 
 ``` bash
 cmsrel CMSSW_12_3_X_2022-02-11-1100
 cd CMSSW_12_3_X_2022-02-11-1100/src
 cmsenv
 ```
+
+These commands clone a specific release of CMSSW, then activate the CMSSW environment,
+where the paths of most of the CMSSW tools are made available.
 
 ### init git area
 
@@ -78,14 +86,16 @@ git cms-addpkg RecoLocalTracker/SiPixelClusterizer/
 
 See the checked out packages in `.git/info/sparse-checkout`
 
-``` bash title="Output of cat .git/info/sparse-checkout"
-/.clang-format
-/.clang-tidy
-/.gitignore
-/CUDADataFormats/SiPixelCluster/
-/CUDADataFormats/SiPixelDigi/
-/RecoLocalTracker/SiPixelClusterizer/
-```
+??? quote "Output of `cat .git/info/sparse-checkout`"
+
+	``` bash
+	/.clang-format
+	/.clang-tidy
+	/.gitignore
+	/CUDADataFormats/SiPixelCluster/
+	/CUDADataFormats/SiPixelDigi/
+	/RecoLocalTracker/SiPixelClusterizer/
+	```
 
 Only build the desired packages, **add/remove** unwanted ones:  
 [http://cms-sw.github.io/git-cms-addpkg.html](http://cms-sw.github.io/git-cms-addpkg.html)
@@ -103,6 +113,13 @@ You can list your remote repositories with (for even more verbose output, you ca
 ```sh
 git remote -v
 ```
+
+
+
+## Tutorial: proposing changes to CMSSW
+
+**Based on [http://cms-sw.github.io/tutorial.html](http://cms-sw.github.io/tutorial.html)**
+
 
 **Conflict after PR**  
 To resolve a conflict that appeared after proposing the changes in a PR, one should prefer **rebase** to **merge** as it keeps the commit history clean.

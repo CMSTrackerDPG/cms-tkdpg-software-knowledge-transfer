@@ -50,6 +50,11 @@ adjascent Pixels are activated at the same time from each
 particle. Those adjascent Pixels form **Clusters**. In other words, a **Cluster** 
 is the trace that the particle leaves on the Pixel Detector.
 
+<figure markdown>
+  ![Stains on a shirt](img/stains.jpg){ width="300" }
+  <figcaption>A cluster of pixels activated by a particle resembles stains on a shirt</figcaption>
+</figure>
+
 ## Pixel Clusterizing
 
 Once each pixel has been recorded and converted into a `PixelDigi`,
