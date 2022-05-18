@@ -1,4 +1,4 @@
-# Week 02 - 2021.12.13-17.
+# Reading Material
 
 ???+ tip "Resources"
 
@@ -8,7 +8,7 @@
 
     * [NVidia Developer Blog: Using Shared Memory CUDA C/C++](https://developer.nvidia.com/blog/using-shared-memory-cuda-cc/)
 
-In the previous material in [A Scalable Programming Model](./week01.md#2-a-scalable-programming-model) we've been reading about the three key abstractions in the CUDA programming model:
+In the previous material in [A Scalable Programming Model](./week01_material.md#2-a-scalable-programming-model) we've been reading about the three key abstractions in the CUDA programming model:
 
 !!! quote ""
 
@@ -16,7 +16,7 @@ In the previous material in [A Scalable Programming Model](./week01.md#2-a-scala
     * shared memories
     * barrier synchronization
 
-[Thread hierarchy](./week01.md#4-thread-hierarchy) has been previously covered, and in this part **shared memory** and **barrier synchronization** follows.
+[Thread hierarchy](./week01_material.md#4-thread-hierarchy) has been previously covered, and in this part **shared memory** and **barrier synchronization** follows.
 
 ## 1. Shared memory
 

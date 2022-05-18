@@ -1,4 +1,4 @@
-# Week 01 - Exercises
+# Exercises
 
 ## Exercise_01_01
 

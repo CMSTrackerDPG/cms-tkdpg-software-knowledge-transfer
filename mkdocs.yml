@@ -23,7 +23,16 @@ nav:
               - gpuCalibPixel.h:
                   - cmssw/gpu/calibPixels.md
       - Extra Resources:
-          - czangela-tutorial/index.md
+          - Angela's GPU primer:
+              - czangela-tutorial/index.md
+              - Week 1:
+                  - czangela-tutorial/weeks/week01_material.md
+                  - czangela-tutorial/weeks/week01_exercises.md
+              - Week 2:
+                  - czangela-tutorial/weeks/week02_material.md
+                  - czangela-tutorial/weeks/week02_exercises.md                                    
+              - Week 3:
+                  - czangela-tutorial/weeks/week03_material.md
           - cmssw/extra-resources/extra-gpu.md
   - Certhelper (a.k.a Certifier) &#9989;:
       - certhelper/introduction.md

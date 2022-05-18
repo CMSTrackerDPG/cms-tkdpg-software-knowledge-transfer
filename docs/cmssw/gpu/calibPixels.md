@@ -95,7 +95,7 @@ float vcal = float(adc[i]) * gain - pedestal * gain;
 
 Note that to determine the `gain` and `pedestal` values the inverse of them is measured. This is done by injecting different `VCAL` values to the detector and measuring the `ADC` response.
 
-!!! quote "From Offline calibrations and performance of the CMS pixel detector [#1]"
+!!! quote "From Offline calibrations and performance of the CMS pixel detector [^1]"
 
     In the second step of the ADC-to-charge calibration, a polynomial of first degree is fit to the ADC vs
     charge measurements. The fit is performed in a restricted VCAL range to minimize the influence of the
@@ -211,15 +211,8 @@ We receive an `ADC` value at a specific `x`, `y` coordinate in a specific module
 
 ## Citations
 
-[#1]
-Urs Langenegger,
-Offline calibrations and performance of the CMS pixel detector,
-Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment,
-Volume 650, Issue 1,
-2011,
-Pages 25-29,
-ISSN 0168-9002,
-https://doi.org/10.1016/j.nima.2010.11.188.
+[^1]: Urs Langenegger, Offline calibrations and performance of the CMS pixel detector,
+Nuclear Instruments and Methods in Physics Research Section A: 
+Accelerators, Spectrometers, Detectors and Associated Equipment,Volume 650, Issue 1,
+2011, Pages 25-29, ISSN 0168-9002, https://doi.org/10.1016/j.nima.2010.11.188.
 (https://www.sciencedirect.com/science/article/pii/S0168900210027385)
-Abstract: The CMS pixel detector, divided into barrel and endcap subdetectors, has 66 million pixels. We present the offline algorithms and results for the gain/pedestal and Lorentz angle calibrations. The determination of the optimal clock delay settings with initial data is described. The expected detector performance from Monte Carlo simulations is compared to the real performance in 7TeV proton–proton collisions.
-Keywords: Pixel detectors; Calibrations; CMS experiment; LHC detectors

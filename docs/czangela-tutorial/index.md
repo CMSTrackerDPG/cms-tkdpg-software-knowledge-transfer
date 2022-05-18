@@ -1,4 +1,4 @@
-# Angela's GPU Primer
+# Index
 
 <!-- I wasn't sure how to start knowledge transfer. -->
 
@@ -14,22 +14,7 @@ So I won't be the one creating already available content for some people not doi
 
 <!-- Don't worry A, you did an awesome job, even if you don't realize it now :) -->
 
+This is an effort to introduce CUDA and GPU programming in the scope of CMSSW.
 
-
-## Week 1
-
-[Week 1 material](weeks/week01.md): GPU programming introduction. What is CUDA, why do we need GPU programming and
-how does an nvidia GPU works.
-
-[Week 1 exercises](weeks/week01_exercises.md): Exercises with examples from CMSSW GPU code. 
-
-## Week 2
-
-[Week 2 material](weeks/week02.md): More advanced topics on GPU threads, shared memories,
-thread synchronization, and host memory optimization.
-
-[Week 2 exercises](weeks/week02_exercises.md)
-
-## Week 3 and beyond
-
-[Further reading](weeks/further_reading.md): GPU code execution performance evaluation, parallel programming models
+Generic CUDA resources and CMSSW examples and exercises can be found, split into
+parts that one can follow on their own pace.
