@@ -3,6 +3,7 @@ nav:
   - Home &#127968;: index.md
   - CMSSW &#128128;:
       - Introduction: cmssw/introduction.md
+      - Basic Concepts: cmssw/basic-concepts.md
       - Working with CMSSW:
           - cmssw/working-with-cmssw/index.md
           - cmssw/working-with-cmssw/software.md
