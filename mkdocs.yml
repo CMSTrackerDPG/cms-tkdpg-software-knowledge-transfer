@@ -22,9 +22,8 @@ nav:
               - gpuCalibPixel.h:
                   - cmssw/gpu/calibPixels.md
       - Extra Resources:
+          - czangela-tutorial/index.md
           - cmssw/extra-resources/extra-gpu.md
-      - Archive &#128452;&#65039;:
-          - cmssw/archive/index.md
   - Certhelper (a.k.a Certifier) &#9989;:
       - certhelper/introduction.md
       - Developing:

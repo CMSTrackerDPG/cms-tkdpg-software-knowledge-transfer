@@ -8,7 +8,7 @@
 
     * [NVidia Developer Blog: Using Shared Memory CUDA C/C++](https://developer.nvidia.com/blog/using-shared-memory-cuda-cc/)
 
-In the previous material in [A Scalable Programming Model](./week01/#2-a-scalable-programming-model) we've been reading about the three key abstractions in the CUDA programming model:
+In the previous material in [A Scalable Programming Model](./week01.md#2-a-scalable-programming-model) we've been reading about the three key abstractions in the CUDA programming model:
 
 !!! quote ""
 
@@ -16,7 +16,7 @@ In the previous material in [A Scalable Programming Model](./week01/#2-a-scalabl
     * shared memories
     * barrier synchronization
 
-[Thread hierarchy](./week01/#4-thread-hierarchy) has been previously covered, and in this part **shared memory** and **barrier synchronization** follows.
+[Thread hierarchy](./week01.md#4-thread-hierarchy) has been previously covered, and in this part **shared memory** and **barrier synchronization** follows.
 
 ## 1. Shared memory
 
@@ -30,7 +30,7 @@ Each thread block has **shared memory** visible to all threads of the block and 
 
 All threads have access to the same **global memory**.
 
-![memory hierarchy](https://docs.nvidia.com/cuda/cuda-c-programming-guide/graphics/memory-hierarchy.png){ width=800 }
+![memory hierarchy](https://docs.nvidia.com/cuda/cuda-c-programming-guide/graphics/memory-hierarchy.png){ width=400 }
 
 There are also two additional read-only memory spaces accessible by all threads: the constant and texture memory spaces, which we won't cover in detail here. [For more information continue reading here.](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#memory-hierarchy)
 
@@ -230,10 +230,10 @@ It’s important to be aware that calling `__syncthreads()` in divergent code is
 
 !!! quote "From the CUDA Programming Guide"
 
-    The runtime provides functions to allow the use of page-locked (also known as pinned) host memory (as opposed to regular pageable host memory allocated by malloc()):
+    The runtime provides functions to allow the use of page-locked (also known as pinned) host memory (as opposed to regular pageable host memory allocated by `malloc()`):
 
-    * cudaHostAlloc() and cudaFreeHost() allocate and free page-locked host memory;
-    * cudaHostRegister() page-locks a range of memory allocated by malloc() (see reference manual for limitations).
+    * `cudaHostAlloc()` and `cudaFreeHost()` allocate and free page-locked host memory;
+    * `cudaHostRegister()` page-locks a range of memory allocated by `malloc()` (see reference manual for limitations).
 
     Using page-locked host memory has several benefits:
 

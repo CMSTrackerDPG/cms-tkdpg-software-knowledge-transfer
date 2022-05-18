@@ -26,6 +26,12 @@ with CUDA.
 
 ## Hands-on training
 
+### Angela's GPU programming primer
+
+Follow the material found [here](../../czangela-tutorial/index.md)
+
+### Patatrack
+
 Solve all exercises here [https://patatrack.web.cern.ch/patatrack/wiki/cuda_training_dpg_12_2019/](https://patatrack.web.cern.ch/patatrack/wiki/cuda_training_dpg_12_2019/)
 
 [Part 1](https://patatrack.web.cern.ch/patatrack/wiki/cuda_training_dpg_12_2019/)

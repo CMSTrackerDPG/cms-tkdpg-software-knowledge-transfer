@@ -26,7 +26,12 @@ any LXPLUS machine.
 To speedup CPU code execution, a GPU version of (more or less) the same code
 has been implemented in CUDA. 
 
-!!! note 
+!!! note
+	
+	If you're unfamiliar with GPU programming with CUDA, you are encouraged to
+	follow [Angela's tutorial](../czangela-tutorial/index.md).
+
+!!! note
 
 	Throughout this document, keep in mind that there is no one-to-one mapping 
 	of the CPU functions to CUDA kernels, not even structure-wise.
@@ -41,6 +46,8 @@ subdirectories:
 
 To run and execute code on GPUs, you must first connect to the appropriate
 LXPLUS machine. See [here](working-with-cmssw/index.md) for instructions.
+
+
 
 ## Alpaka code
 
