@@ -1,13 +1,14 @@
 site_name: CMS Tracker DPG - Software Knowledge Base
 nav:
   - Home &#127968;: index.md
+  - cmssw/basic-concepts.md
   - CMSSW &#128128;:
-      - Introduction: cmssw/introduction.md
-      - Basic Concepts: cmssw/basic-concepts.md
+      - cmssw/introduction.md
+      - cmssw/build-types.md
       - Working with CMSSW:
-          - cmssw/working-with-cmssw/index.md
           - cmssw/working-with-cmssw/software.md
-          - Workflows &#128200;:
+          - cmssw/working-with-cmssw/gpu-machines.md
+      - Workflows &#128200;:
               - cmssw/working-with-cmssw/workflows/overview.md
               - cmssw/working-with-cmssw/workflows/usage.md
               - cmssw/working-with-cmssw/workflows/history.md

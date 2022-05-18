@@ -47,7 +47,7 @@ subdirectories:
 - `RecoLocalTracker/SiPixelClusterizer/`
 
 To run and execute code on GPUs, you must first connect to the appropriate
-LXPLUS machine. See [here](working-with-cmssw/index.md) for instructions.
+LXPLUS machine. See [here](working-with-cmssw/gpu-machines.md) for instructions.
 
 
 
