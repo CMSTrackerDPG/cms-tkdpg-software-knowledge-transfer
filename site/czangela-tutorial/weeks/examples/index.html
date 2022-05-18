@@ -13,7 +13,7 @@
     
     
       
-        <title>Branches - CMS Tracker DPG - Software Knowledge Base</title>
+        <title>Practice - CMS Tracker DPG - Software Knowledge Base</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#branches" class="md-skip">
+        <a href="#practice" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Branches
+              Practice
             
           </span>
         </div>
@@ -656,7 +656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../czangela-tutorial/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         Angela's GPU Primer
       </a>
     </li>
@@ -697,16 +697,14 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
@@ -729,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/" class="md-nav__link">
+      <a href="../../../certhelper/introduction/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -741,14 +739,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
       
       
       
@@ -769,59 +765,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Branches
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../certhelper/developing/branches/" class="md-nav__link">
         Branches
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#merging" class="md-nav__link">
-    Merging
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -866,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deploying/deployments/" class="md-nav__link">
+      <a href="../../../certhelper/deploying/deployments/" class="md-nav__link">
         Deployments
       </a>
     </li>
@@ -957,28 +905,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#merging" class="md-nav__link">
-    Merging
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -991,27 +917,52 @@
                 
 
 
-<h1 id="branches">Branches</h1>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>TODO</p>
-</div>
-<h2 id="overview">Overview</h2>
-<p>There are three main branches in the repository, each with its own
-importance:</p>
+<h1 id="practice">Practice</h1>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Unordered List</label><label for="__tabbed_1_2">Ordered List</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><em>Example</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">*</span> Sed sagittis eleifend rutrum
+<span class="k">*</span> Donec vitae suscipit est
+<span class="k">*</span> Nulla tempor lobortis orci
+</code></pre></div>
+<p><em>Result</em>:</p>
 <ul>
-<li><code>master</code> branch, which contains code which is 
-  <mark class="critic">thoroughly tested</mark> and production-ready, meaning
-  as few bugs as possible (if not zero). CertHelper's production instance
-  builds from this branch.</li>
-<li><code>training</code> branch, which should be synchronized with the <code>master</code> branch
-  at all times. It contains minor changes which make it useful for training
-  new Shifters. CertHelper's training instance builds from this branch.</li>
-<li><code>develop</code> branch, where all development takes place. CertHelper's development
-  instance builds from this branch.</li>
+<li>Sed sagittis eleifend rutrum</li>
+<li>Donec vitae suscipit est</li>
+<li>Nulla tempor lobortis orci</li>
 </ul>
-<h2 id="merging">Merging</h2>
-<p>TODO</p>
+</div>
+<div class="tabbed-block">
+<p><em>Example</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">1.</span> Sed sagittis eleifend rutrum
+<span class="k">2.</span> Donec vitae suscipit est
+<span class="k">3.</span> Nulla tempor lobortis orci
+</code></pre></div>
+<p><em>Result</em>:</p>
+<ol>
+<li>Sed sagittis eleifend rutrum</li>
+<li>Donec vitae suscipit est</li>
+<li>Nulla tempor lobortis orci</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<details class="note">
+<summary>Note</summary>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.</p>
+</details>
+<details class="question">
+<summary>Question</summary>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.</p>
+</details>
 
               
             </article>
@@ -1021,41 +972,6 @@ importance:</p>
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../../introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Introduction
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../../deploying/deployments/" class="md-footer__link md-footer__link--next" aria-label="Next: Deployments" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Deployments
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
