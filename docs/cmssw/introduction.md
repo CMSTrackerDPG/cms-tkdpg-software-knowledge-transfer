@@ -72,7 +72,7 @@ To run and execute code on GPUs, you must first connect to the appropriate
 LXPLUS machine. See the [Connecting to GPU machines section](working-with-cmssw/gpu-machines.md) 
 for instructions.
 
-Information about the GPU code is found in the [GPU section](gpu/overview.md).
+Information about the GPU code is found in the [GPU section](gpu/index.md).
 
 ## Alpaka code
 
