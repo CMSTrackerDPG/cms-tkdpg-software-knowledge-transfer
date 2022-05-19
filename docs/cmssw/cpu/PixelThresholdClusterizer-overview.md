@@ -1,4 +1,4 @@
-# Overview
+# PixelThresholdClusterizer overview
 
 Located in `RecoLocalTracker/SiPixelClusterizer/plugins/` in CMSSW, these files
 (`PixelThresholdClusterizer.h` and `.cc`) provide the declaration of the 

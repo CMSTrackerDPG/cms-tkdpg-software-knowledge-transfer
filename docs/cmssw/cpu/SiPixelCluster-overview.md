@@ -1,4 +1,4 @@
-# Overview
+# SiPixelCluster overview
 
 Located in `DataFormats/SiPixelCluster/interface`, the `SiPixelCluster.h` contains
 the declaration of the `SiPixelCluster` class. 

@@ -4,7 +4,7 @@ nav:
   - basic-concepts.md
   - CMSSW &#128128;:
       - cmssw/introduction.md
-      - cmssw/tools.md      
+      - Tools &#128295;: cmssw/tools.md      
       - Workflows &#128200;:
           - cmssw/working-with-cmssw/workflows/overview.md
           - cmssw/working-with-cmssw/workflows/usage.md
@@ -100,6 +100,7 @@ markdown_extensions:
 
 plugins:
   - section-index
+  - search
 
 extra:
   consent:

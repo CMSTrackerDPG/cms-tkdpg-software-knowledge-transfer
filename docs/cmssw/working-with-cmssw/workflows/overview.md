@@ -1,4 +1,4 @@
-# Overview
+# Workflows overview
 
 A single data analysis pipeline using `cmsRun` requires multiple steps, each one 
 requiring data fetching, analysing, configuring and lot of other details that 
