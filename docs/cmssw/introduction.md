@@ -1,4 +1,4 @@
-# Introduction
+# Introduction to CMSSW
 
 CMSSW is a monster which contains a multitude of algorithms and tools,
 all in one repository (not exactly a
@@ -11,10 +11,18 @@ are of interest to the TkDPG group==}.
 
 ## Usage
 
-It is recommended that you work with CMSSW on LXPLUS, where many useful tools
-for managing, code-checking, code-formatting, building are available there.
-You can find instructions on how to setup your work environment in the
-[Developing section](working-with-cmssw/software.md).
+The usual *modus operandi* with CMSSW is the following:
+
+- Clone one of the available versions of CMSSW.
+- Checkout packages that you want to make changes to.
+- Make changes to any file you want.
+- Build CMSSW again.
+- Execute [Workflows](working-with-cmssw/workflows/overview.md) and validation.
+
+To do so, it is recommended that you work with CMSSW on LXPLUS, where many 
+useful tools for managing, code-checking, code-formatting, building are available there.
+You can find instructions on how to setup your work environment and get started 
+in the [Developing section](working-with-cmssw/software.md).
 
 ## Versions
 
@@ -30,8 +38,8 @@ subdirectories:
 - `DataFormats/SiPixelCluster/`
 - `RecoLocalTracker/SiPixelClusterizer/`
 
-To execute the CPU reconstruction code, you can need to run it on
-any LXPLUS machine.
+To execute the CPU reconstruction code, you can do so by running it on
+any LXPLUS machine, usually through [Workflows](working-with-cmssw/workflows/overview.md).
 
 Information about the CPU code is found in the [CPU section](cpu/index.md).
 
@@ -61,7 +69,8 @@ subdirectories:
 - `RecoLocalTracker/SiPixelClusterizer/`
 
 To run and execute code on GPUs, you must first connect to the appropriate
-LXPLUS machine. See [here](working-with-cmssw/gpu-machines.md) for instructions.
+LXPLUS machine. See the [Connecting to GPU machines section](working-with-cmssw/gpu-machines.md) 
+for instructions.
 
 Information about the GPU code is found in the [GPU section](gpu/overview.md).
 
