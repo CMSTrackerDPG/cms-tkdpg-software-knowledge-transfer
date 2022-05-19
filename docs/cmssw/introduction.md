@@ -9,6 +9,18 @@ get lost, frustrated, mad even, as most information is either too cryptic,
 outdated or both. {==This document will try to focus on the few source files that
 are of interest to the TkDPG group==}.
 
+## Usage
+
+It is recommended that you work with CMSSW on LXPLUS, where many useful tools
+for managing, code-checking, code-formatting, building are available there.
+You can find instructions on how to setup your work environment in the
+[Developing section](working-with-cmssw/software.md).
+
+## Versions
+
+CMSSW is regularly released and built, both from stable and and unstable version. 
+More information can be found in the [Build Types section](build-types.md).
+
 ## CPU code
 
 The main functionality of interest is located in the following CMSSW
@@ -18,8 +30,10 @@ subdirectories:
 - `DataFormats/SiPixelCluster/`
 - `RecoLocalTracker/SiPixelClusterizer/`
 
-To execute the CPU reconstruction code, you only need to run it on
+To execute the CPU reconstruction code, you can need to run it on
 any LXPLUS machine.
+
+Information about the CPU code is found in the [CPU section](cpu/index.md).
 
 ## GPU code
 
@@ -49,7 +63,7 @@ subdirectories:
 To run and execute code on GPUs, you must first connect to the appropriate
 LXPLUS machine. See [here](working-with-cmssw/gpu-machines.md) for instructions.
 
-
+Information about the GPU code is found in the [GPU section](gpu/overview.md).
 
 ## Alpaka code
 

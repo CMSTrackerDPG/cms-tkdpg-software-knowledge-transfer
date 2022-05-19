@@ -7,7 +7,7 @@ multiple steps of data fetching, configuring, simulating etc., so `runTheMatrix.
 was developed.
 
 Those tools are available on LXPLUS machines, after creating a work area
-and activating a CMSSW environment by `cmsenv`.
+and [activating a CMSSW environment by `cmsenv`](working-with-cmssw/software.md#create-a-cmssw-area).
 
 ## `cmsRun`
 

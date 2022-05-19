@@ -7,7 +7,7 @@ Located in `RecoLocalTracker/SiPixelClusterizer/plugins/` in CMSSW, these files
 It inherits from `PixelClusterizerBase` (declared in the same directory, in
 `PixelClusterizerBase.h`).
 
-The class' main purpose is to create clusters, given [`PixelDigi`s](PixelDigi-overview.md).
+The class' main purpose is to create [Clusters](../../basic-concepts.md#pixel-cluster), given [`PixelDigi`s](PixelDigi-overview.md).
 
 Other functionality has been integrated in it, such as:
 
