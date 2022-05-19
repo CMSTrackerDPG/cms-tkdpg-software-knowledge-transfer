@@ -24,6 +24,8 @@ nav:
               - PixelThresholdClusterizer:
                   - cmssw/cpu/PixelThresholdClusterizer-overview.md
                   - cmssw/cpu/PixelThresholdClusterizer-copytobuffer.md
+              - SiPixelArrayBuffer:
+                  - cmssw/cpu/SiPixelArrayBuffer-overview.md
           - GPU &#128396;&#65039;:
               - cmssw/gpu/overview.md
               - gpuClustering.h:

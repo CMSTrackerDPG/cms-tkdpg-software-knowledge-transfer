@@ -7,17 +7,21 @@ Located in `RecoLocalTracker/SiPixelClusterizer/plugins/` in CMSSW, these files
 It inherits from `PixelClusterizerBase` (declared in the same directory, in
 `PixelClusterizerBase.h`).
 
-The class' main purpose is to create clusters, given `PixelDigis`.
+The class' main purpose is to create clusters, given [`PixelDigi`s](PixelDigi-overview.md).
 
 Other functionality has been integrated in it, such as:
 
 - Duplicate Digi removal
 
-## Notable class attributes
+## UML diagram
+
+![UML(?) diagram of the classes related to `PixelThresholdClusterizer`](img/uml_PixelThresholdClusterizer.png)
+
+## Class attributes
 
 ### `theBuffer`
 
-A 2D matrix of `SiPixelArrayBuffer` type. Its purpose is to represent the Pixel
+A 2D matrix of [`SiPixelArrayBuffer`](SiPixelArrayBuffer-overview.md) type. Its purpose is to represent the Pixel
 Detector and store ADC values for each Pixel.
 
 ### `thePixelOccurence`

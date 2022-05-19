@@ -18,3 +18,7 @@ In it, three helper subclasses are contained:
 - `Pixel`
 - `PixelPos`
 - `Shift`
+
+## UML diagram
+
+![UML(?) diagram of th `SiPixelCluster` class](img/uml_SiPixelCluster.png)
