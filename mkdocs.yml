@@ -27,7 +27,7 @@ nav:
               - SiPixelArrayBuffer:
                   - cmssw/cpu/SiPixelArrayBuffer-overview.md
           - GPU &#128396;&#65039;:
-              - cmssw/gpu/overview.md
+              - cmssw/gpu/index.md
               - SiPixelRawToClusterCUDA:
                   - cmssw/gpu/SiPixelRawToClusterCUDA-overview.md
               - SiPixelRawToClusterGPUKernel:

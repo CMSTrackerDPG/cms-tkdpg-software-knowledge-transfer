@@ -1,9 +1,12 @@
 # CPU code overview
 
-!!! warning
+!!! todo
 
 	TODO
 	
-Reconstruction code targeted to run on CPUs.
+Reconstruction modules targeted to run on CPUs.
 
+Functionality covered in this documentation:
 
+- Raw to Digi conversion ({==TODO==})
+- [Clusterization](PixelThresholdClusterizer-overview.md)
