@@ -14,7 +14,9 @@ nav:
           - cmssw/working-with-cmssw/gpu-machines.md              
       - Documentation on CMSSW modules:
           - CPU &#129704;:
-              - cmssw/cpu/overview.md
+              - cmssw/cpu/index.md
+              - PixelThresholdClusterizer:
+                  - cmssw/cpu/PixelThresholdClusterizer-overview.md
           - GPU &#128396;&#65039;:
               - cmssw/gpu/overview.md
               - gpuClustering.h:
@@ -88,6 +90,9 @@ markdown_extensions:
       alternate_style: true 
   - attr_list
   - md_in_html
+
+plugins:
+  - section-index
 
 extra:
   consent:

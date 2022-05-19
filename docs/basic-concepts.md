@@ -55,13 +55,13 @@ Intimidating for beginners, rumors have it that even people that have been
 developing with it for ages don't want to touch it, not even with a 10-foot pole.
 
 Resembles a mythic monster, that keeps growing with the passage of time, thriving on
-the keyboard strokes of the innocent physicists.
+the keyboard strokes of innocent physicists.
 
 <figure markdown>
   ![CMSSW's latest selfie](img/hydra.jpg){ width="800" }
   <figcaption>
   It's not that ugly, CMSSW was just having a bad hair day when this
-  pic was taken 
+  pic was taken
   </figcaption>
 </figure>
 
