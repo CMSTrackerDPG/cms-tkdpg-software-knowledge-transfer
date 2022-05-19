@@ -7,7 +7,7 @@ which, among other things, contains the `makeClustersAsync` function.
 
 ### `makeClustersAsync`
 
-A function that performs the following functionality:
+A function that implements the following functionality:
 
 - Converts Raw Pixel data to Digis (by calling the `RawToDigi_kernel`)
 - Calibrates the Digis (by calling the [`calibDigis`](calibDigis.md) kernel)
