@@ -6,13 +6,13 @@ nav:
       - cmssw/introduction.md
       - cmssw/build-types.md
       - cmssw/tools.md      
+      - Workflows &#128200;:
+          - cmssw/working-with-cmssw/workflows/overview.md
+          - cmssw/working-with-cmssw/workflows/usage.md
+          - cmssw/working-with-cmssw/workflows/history.md
       - Working with CMSSW:
           - cmssw/working-with-cmssw/software.md
-          - cmssw/working-with-cmssw/gpu-machines.md
-      - Workflows &#128200;:
-              - cmssw/working-with-cmssw/workflows/overview.md
-              - cmssw/working-with-cmssw/workflows/usage.md
-              - cmssw/working-with-cmssw/workflows/history.md
+          - cmssw/working-with-cmssw/gpu-machines.md              
       - Documentation on CMSSW modules:
           - CPU &#129704;:
               - cmssw/cpu/overview.md
@@ -36,6 +36,7 @@ nav:
               - Week 3:
                   - czangela-tutorial/weeks/week03_material.md
           - cmssw/extra-resources/extra-gpu.md
+          - cmssw/extra-resources/extra-cmssw.md          
   - Certhelper (a.k.a Certifier) &#9989;:
       - certhelper/introduction.md
       - Developing:
