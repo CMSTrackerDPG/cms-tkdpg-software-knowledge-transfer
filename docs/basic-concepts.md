@@ -69,18 +69,14 @@ the keyboard strokes of innocent physicists.
 
 	[@velinov](https://www.deviantart.com/velinov/art/Hydra-monster-144496963)
 
-### PixelDigi (CPU code)
+### `cmsRun`, `cmsDriver`, `runTheMatrix` etc.
 
-!!! todo
-	
-	TODO
+Proceed to the [Tools section](cmssw/tools.md) for more information.
 
-A `PixelDigi` represents an actual pixel of the Pixel Detector in software. It's a class
-that encapsulates:
+### Configuration files
 
-- The pixel's coordinates on the detector (row, column)
-- The pixel's ADC value (i.e. the actual sensor value)
-- 
+Most probably referring to 
+[`cmsRun` configuration files](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookConfigFileIntro)
 
 ### Pixel Clusterizing
 
