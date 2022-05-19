@@ -10,7 +10,7 @@ which, among other things, contains the `makeClustersAsync` function.
 A function that performs the following functionality:
 
 - Converts Raw Pixel data to Digis (by calling the `RawToDigi_kernel`)
-- Calibrates the Digis (by calling the [`calibDigis`](calibPixels.md) kernel)
+- Calibrates the Digis (by calling the [`calibDigis`](calibDigis.md) kernel)
 - {==Counts modules(????)==} (by calling the 
 [`countModules`](gpuClustering-countModules.md) kernel).
 - Uses the Digis created in the first step to create Clusters (by calling

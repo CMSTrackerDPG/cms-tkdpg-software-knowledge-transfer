@@ -32,8 +32,8 @@ nav:
                   - cmssw/gpu/SiPixelRawToClusterCUDA-overview.md
               - SiPixelRawToClusterGPUKernel:
                   - cmssw/gpu/SiPixelRawToClusterGPUKernel-overview.md
-              - gpuCalibPixel.h:
-                  - cmssw/gpu/calibPixels.md                  
+              - calibDigis:
+                  - cmssw/gpu/calibDigis.md                  
               - gpuClustering.h:
                   - cmssw/gpu/gpuClustering-overview.md
                   - cmssw/gpu/gpuClustering-findClus.md

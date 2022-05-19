@@ -1,4 +1,7 @@
-# calibPixels
+# calibDigis
+
+This CUDA kernel resides in 
+`RecoLocalTracker/SiPixelClusterizer/plugins/gpuCalibPixel.h`
 
 ## Introduction
 
@@ -11,58 +14,58 @@
 
 ## Code
 
-The whole kernel:
+??? note "The whole kernel"
 
-```cuda linenums="1"
-  template <bool isRun2>
-  __global__ void calibDigis(uint16_t* id,
-                             uint16_t const* __restrict__ x,
-                             uint16_t const* __restrict__ y,
-                             uint16_t* adc,
-                             SiPixelGainForHLTonGPU const* __restrict__ ped,
-                             int numElements,
-                             uint32_t* __restrict__ moduleStart,        // just to zero first
-                             uint32_t* __restrict__ nClustersInModule,  // just to zero them
-                             uint32_t* __restrict__ clusModuleStart     // just to zero first
-  ) {
-    int first = blockDim.x * blockIdx.x + threadIdx.x;
-
-    // zero for next kernels...
-    if (0 == first)
-      clusModuleStart[0] = moduleStart[0] = 0;
-    for (int i = first; i < phase1PixelTopology::numberOfModules; i += gridDim.x * blockDim.x) {
-      nClustersInModule[i] = 0;
-    }
-
-    for (int i = first; i < numElements; i += gridDim.x * blockDim.x) {
-      if (invalidModuleId == id[i])
-        continue;
-
-      bool isDeadColumn = false, isNoisyColumn = false;
-
-      int row = x[i];
-      int col = y[i];
-      auto ret = ped->getPedAndGain(id[i], col, row, isDeadColumn, isNoisyColumn);
-      float pedestal = ret.first;
-      float gain = ret.second;
-      // float pedestal = 0; float gain = 1.;
-      if (isDeadColumn | isNoisyColumn) {
-        printf("bad pixel at %d in %d\n", i, id[i]);
-        id[i] = invalidModuleId;
-        adc[i] = 0;
-      } else {
-        float vcal = float(adc[i]) * gain - pedestal * gain;
-        if constexpr (isRun2) {
-          float conversionFactor = id[i] < 96 ? VCaltoElectronGain_L1 : VCaltoElectronGain;
-          float offset = id[i] < 96 ? VCaltoElectronOffset_L1 : VCaltoElectronOffset;
-          vcal = vcal * conversionFactor + offset;
-        }
-        adc[i] = std::max(100, int(vcal));
-      }
-    }
-  }
-```
-
+	```cuda linenums="1"
+	  template <bool isRun2>
+	  __global__ void calibDigis(uint16_t* id,
+	                             uint16_t const* __restrict__ x,
+	                             uint16_t const* __restrict__ y,
+	                             uint16_t* adc,
+	                             SiPixelGainForHLTonGPU const* __restrict__ ped,
+	                             int numElements,
+	                             uint32_t* __restrict__ moduleStart,        // just to zero first
+	                             uint32_t* __restrict__ nClustersInModule,  // just to zero them
+	                             uint32_t* __restrict__ clusModuleStart     // just to zero first
+	  ) {
+	    int first = blockDim.x * blockIdx.x + threadIdx.x;
+	
+	    // zero for next kernels...
+	    if (0 == first)
+	      clusModuleStart[0] = moduleStart[0] = 0;
+	    for (int i = first; i < phase1PixelTopology::numberOfModules; i += gridDim.x * blockDim.x) {
+	      nClustersInModule[i] = 0;
+	    }
+	
+	    for (int i = first; i < numElements; i += gridDim.x * blockDim.x) {
+	      if (invalidModuleId == id[i])
+	        continue;
+	
+	      bool isDeadColumn = false, isNoisyColumn = false;
+	
+	      int row = x[i];
+	      int col = y[i];
+	      auto ret = ped->getPedAndGain(id[i], col, row, isDeadColumn, isNoisyColumn);
+	      float pedestal = ret.first;
+	      float gain = ret.second;
+	      // float pedestal = 0; float gain = 1.;
+	      if (isDeadColumn | isNoisyColumn) {
+	        printf("bad pixel at %d in %d\n", i, id[i]);
+	        id[i] = invalidModuleId;
+	        adc[i] = 0;
+	      } else {
+	        float vcal = float(adc[i]) * gain - pedestal * gain;
+	        if constexpr (isRun2) {
+	          float conversionFactor = id[i] < 96 ? VCaltoElectronGain_L1 : VCaltoElectronGain;
+	          float offset = id[i] < 96 ? VCaltoElectronOffset_L1 : VCaltoElectronOffset;
+	          vcal = vcal * conversionFactor + offset;
+	        }
+	        adc[i] = std::max(100, int(vcal));
+	      }
+	    }
+	  }
+	```
+	
 
 ## 1. Init
 
@@ -95,7 +98,7 @@ float vcal = float(adc[i]) * gain - pedestal * gain;
 
 Note that to determine the `gain` and `pedestal` values the inverse of them is measured. This is done by injecting different `VCAL` values to the detector and measuring the `ADC` response.
 
-!!! quote "From Offline calibrations and performance of the CMS pixel detector [^1]"
+??? quote "ADC-to-charge calibration[^1]"
 
     In the second step of the ADC-to-charge calibration, a polynomial of first degree is fit to the ADC vs
     charge measurements. The fit is performed in a restricted VCAL range to minimize the influence of the
@@ -104,26 +107,26 @@ Note that to determine the `gain` and `pedestal` values the inverse of them is m
     gain is the inverse slope and the pedestal is the offset
     in Fig. 1. The parameters are very stable and are determined about every four months for control purposes.
 
-<figure markdown>
-![vcal_adc_response](../../img/documentation/adc_vcal.jpg)
-<figcaption>Figure 1. Example ADC response as a function of injected charge in
-VCAL units (see text for conversion to electrons). The red line is a
-first degree polynomial fit to the data in a restricted VCAL range 
-<a href=https://doi.org/10.1016/j.nima.2010.11.188>https://doi.org/10.1016/j.nima.2010.11.188</a>
-</figcaption>
-</figure>
-
-<figure markdown>
-![gain_and_pedestal](../../img/documentation/gainpedestal.png)
-<figcaption>Figure 2. Distributions of the gain and pedestal constants for each
-pixel as obtained in a dedicated calibration run in October 2009.
-<a href=https://doi.org/10.1016/j.nima.2010.11.188>https://doi.org/10.1016/j.nima.2010.11.188</a>
-</figcaption>
-</figure>
-
-Some more recent slides from [https://indico.cern.ch/event/914013/#10-gain-calibration-for-run3-p](https://indico.cern.ch/event/914013/#10-gain-calibration-for-run3-p):
-
-![adc_vcal](../../img/documentation/m4.png)
+	<figure markdown>
+	![vcal_adc_response](img/adc_vcal.jpg)
+	<figcaption>Figure 1. Example ADC response as a function of injected charge in
+	VCAL units (see text for conversion to electrons). The red line is a
+	first degree polynomial fit to the data in a restricted VCAL range 
+	<a href=https://doi.org/10.1016/j.nima.2010.11.188>https://doi.org/10.1016/j.nima.2010.11.188</a>
+	</figcaption>
+	</figure>
+	
+	<figure markdown>
+	![gain_and_pedestal](img/gainpedestal.png){ width=500 }
+	<figcaption>Figure 2. Distributions of the gain and pedestal constants for each
+	pixel as obtained in a dedicated calibration run in October 2009.
+	<a href=https://doi.org/10.1016/j.nima.2010.11.188>https://doi.org/10.1016/j.nima.2010.11.188</a>
+	</figcaption>
+	</figure>
+	
+	Some more recent slides from [https://indico.cern.ch/event/914013/#10-gain-calibration-for-run3-p](https://indico.cern.ch/event/914013/#10-gain-calibration-for-run3-p):
+	
+	![adc_vcal](img/m4.png){ width=500 }
 
 ## 3. VCAL to electrons (charge)
 
@@ -135,7 +138,7 @@ if constexpr (isRun2) {
 }
 ```
 
-!!! quote "From Offline calibrations and performance of the CMS pixel detector [#1]"
+??? quote "ADC-to-charge calibration description[^1]"
 
     The ADC-to-charge calibration proceeds in two steps. First, in a dedicated standalone calibration run
     (3–6 hour duration, depending on the setup) of the pixel detector, all pixels are subject to charge injection
@@ -145,11 +148,11 @@ if constexpr (isRun2) {
     obtained from dedicated x-ray source calibrations with
     variable x-ray energies (17.44 keV from Mo, 22.10 keV from Ag, and 32.06 keV from Ba, excited from a primary Am source).
 
-To us, the linear relationship is relevant here `Q = 65.5×VCAL−414`.
+	To us, the linear relationship is relevant here `Q = 65.5×VCAL−414`.
+	
+	![vcal_electrons](img/m5.png){ width=500 }
 
-![vcal_electrons](../../img/documentation/m5.png)
-
-!!! tip "Note the difference between Run2 and afterwards"
+??? tip "Note the difference between Run2 and afterwards"
 
     Gain calibration has changed from Run3, for more information read the following resources:
 
@@ -193,7 +196,7 @@ To us, the linear relationship is relevant here `Q = 65.5×VCAL−414`.
 
 ## 4. min electron cut
 
-``` cuda linenums="44" title="minumum electron value becomes 100"
+``` cuda linenums="44" title="minimum electron value becomes 100"
 adc[i] = std::max(100, int(vcal));
 ```
 
@@ -201,9 +204,11 @@ This is also present in the legacy code.
 
 ## 5. Conclusion
 
-From the high level overview, we calculate the charge (#electrons) for some pixel hit. 
+From a high level overview, this kernel calculates the charge
+(#electrons) for some pixel hit.
 
-We receive an `ADC` value at a specific `x`, `y` coordinate in a specific module `id[i]`, perform the gain calibration `ADC->VCAL and VCAL->electrons` (or `ADC->electrons`).
+We receive an `ADC` value at a specific `x`, `y` coordinate in a specific module
+`id[i]`, perform the gain calibration `ADC->VCAL and VCAL->electrons` (or `ADC->electrons`).
 
 !!! warning "Output #electrons in `adc` array"
 
