@@ -61,10 +61,13 @@ the keyboard strokes of the innocent physicists.
   ![CMSSW's latest selfie](img/hydra.jpg){ width="800" }
   <figcaption>
   It's not that ugly, CMSSW was just having a bad hair day when this
-  pic was taken
+  pic was taken 
   </figcaption>
 </figure>
 
+??? quote "Hydra image source"
+
+	[@velinov](https://www.deviantart.com/velinov/art/Hydra-monster-144496963)
 
 ### PixelDigi (CPU code)
 

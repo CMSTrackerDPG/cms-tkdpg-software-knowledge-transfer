@@ -4,7 +4,6 @@ nav:
   - basic-concepts.md
   - CMSSW &#128128;:
       - cmssw/introduction.md
-      - cmssw/build-types.md
       - cmssw/tools.md      
       - Workflows &#128200;:
           - cmssw/working-with-cmssw/workflows/overview.md
@@ -24,6 +23,7 @@ nav:
                   - cmssw/gpu/gpuClustering-countModules.md
               - gpuCalibPixel.h:
                   - cmssw/gpu/calibPixels.md
+      - cmssw/build-types.md                  
       - Extra Resources:
           - Angela's GPU primer:
               - czangela-tutorial/index.md
@@ -53,6 +53,8 @@ theme:
     - navigation.sections
     - content.tabs.link
     - content.code.annotate
+  favicon: img/favicon.ico
+  logo: img/favicon.ico
   icon:
     admonition:
       note: fontawesome/solid/sticky-note

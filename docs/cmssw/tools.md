@@ -27,14 +27,14 @@ described below.
 
 A Python tool to create `cmsRun` configuration files, which are in the form of Python3 code.
 
-Source code is [here](https://github.com/cms-sw/cmssw/blob/master/Configuration/Applications/scripts/cmsDriver.py).
 
 ### Resources
-1. [Twiki page](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCmsDriver)
+1. [Source code](https://github.com/cms-sw/cmssw/blob/master/Configuration/Applications/scripts/cmsDriver.py)
+2. [Twiki page](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCmsDriver)
 
 ## `runTheMatrix.py`
 
-A wrapper script which is responsible to execute multi-step analysis/simulation recipes
+A wrapper script which is responsible of executing multi-step analysis/simulation recipes
 by configuring `cmsDriver`.
 
 It is examined in more detail [in the Workflows section](working-with-cmssw/workflows/overview.md)
