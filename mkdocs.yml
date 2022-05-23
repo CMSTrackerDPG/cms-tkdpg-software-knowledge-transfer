@@ -58,6 +58,12 @@ nav:
           - Branches: certhelper/developing/branches.md
       - Deploying:
           - Deployments: certhelper/deploying/deployments.md
+      - Apps:
+          - Certifier:
+              - Views:
+                  - certify: certhelper/apps/certifier/views/certify.md
+                  - badReason: certhelper/apps/certifier/views/badreason.md
+                  - addBadReason: certhelper/apps/certifier/views/addbadreason.md                    
   - MLPlayground &#129528;:
       - mlplayground/introduction.md
   
