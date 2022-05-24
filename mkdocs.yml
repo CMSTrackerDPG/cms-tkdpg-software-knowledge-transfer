@@ -54,11 +54,11 @@ nav:
           - cmssw/extra-resources/extra-cmssw.md          
   - Certhelper (a.k.a Certifier) &#9989;:
       - certhelper/introduction.md
-      - Developing:
+      - Developing &#129489;&#8205;&#128187;:
           - Branches: certhelper/developing/branches.md
-      - Deploying:
+      - Deploying &#128674;:
           - Deployments: certhelper/deploying/deployments.md
-      - Connectivity: certhelper/connectivity.md
+      - Connectivity &#128279;: certhelper/connectivity.md
       - Apps:
           - Certifier:
               - Views:
