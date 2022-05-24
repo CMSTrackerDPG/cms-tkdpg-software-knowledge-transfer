@@ -58,6 +58,7 @@ nav:
           - Branches: certhelper/developing/branches.md
       - Deploying:
           - Deployments: certhelper/deploying/deployments.md
+      - Connectivity: certhelper/connectivity.md
       - Apps:
           - Certifier:
               - Views:
