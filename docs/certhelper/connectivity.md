@@ -1,6 +1,9 @@
 # CertHelper's connectivity
 
-During its operation, CertHelper will try to connect to the following remote resources:
+During its operation, CertHelper will try to connect to various remote
+resources. An overview can be seen in the sketch below. 
+
+![Connectivity](connectivity.png)
 
 ## Storage
 
@@ -12,9 +15,10 @@ During its operation, CertHelper will try to connect to the following remote res
 (in `omsapi` app and `oms/utils.py` as of writing)
 - [CMS Run Registry](https://cmsrunregistry.web.cern.ch/), for getting
 reconstruction and dataset information (in `oms/utils.py` as of writing)
-- [ebutz's](http://ebutz.web.cern.ch/ebutz/cgi-bin/getReadOutmode.pl) personal 
+- [ebutz's](http://ebutz.web.cern.ch/ebutz/cgi-bin/getReadOutmode.pl) personal
 tools, for getting extra information for Reference Runs (in `tables.py` as of writing)
 
 ## Tools
 
-- Trackermaps generation script on `vocms066.lxplus.cern.ch` (accessed via SSH)
+- Trackermaps generation script on `vocms066.lxplus.cern.ch` (accessed via SSH,
+see `trackermaps/views.py`)
