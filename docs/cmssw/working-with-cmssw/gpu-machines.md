@@ -50,11 +50,14 @@ There are 6 machines available for general development and validation of the onl
 
 To connect to these machines you need to have an online account and be in the **`gpudev`** group.
 
-To request access, please subscribe to the [cms-hlt-gpu@cern.ch](mailto:cms-hlt-gpu@cern.ch) e-group and send an email to [andrea.bocci@cern.ch](mailto:andrea.bocci@cern.ch), indicating
+To request access, please subscribe to the [cms-hlt-gpu](https://e-groups.cern.ch/e-groups/Egroup.do?egroupId=10346110&searchField=0&searchMethod=0&searchValue=cms-hlt-gpu&pageSize=30&hideSearchFields=false&searchMemberOnly=false&searchAdminOnly=false) e-group and send an email to [andrea.bocci@cern.ch](mailto:andrea.bocci@cern.ch), indicating:
 
 * whether you already have an online account;
 * your online or lxplus username;
 * your full name and email.
+
+Then, follow the instructions
+[here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs#Connecting_to_the_machines).
 
 ## Miscellaneous - or special GPU nodes
 
@@ -68,7 +71,10 @@ This section is more or less taken from the [Patatrack website systems](https://
 
 #### Getting access to the machine
 
-In order to get access to the machine you should send a request to subscribe to the CERN e-group: cms-gpu You should also send an email to [Felice Pantaleo](mailto:felice.pantaleo@cern.ch) motivating the reason for the requested access.
+In order to get access to the machine you should send a request to subscribe to the CERN e-group: 
+[cms-gpu](https://e-groups.cern.ch/e-groups/Egroup.do?egroupId=10252295&searchField=0&searchMethod=1&searchValue=cms-gpu&pageSize=30&hideSearchFields=false&searchMemberOnly=false&searchAdminOnly=false).
+
+You should also send an email to [Felice Pantaleo](mailto:felice.pantaleo@cern.ch) motivating the reason for the requested access.
 
 #### Usage Policy
 
