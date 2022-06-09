@@ -3,6 +3,8 @@
 This CUDA kernel resides in 
 `RecoLocalTracker/SiPixelClusterizer/plugins/gpuCalibPixel.h`
 
+File on [github](https://github.com/cms-sw/cmssw/blob/master/RecoLocalTracker/SiPixelClusterizer/plugins/gpuCalibPixel.h).
+
 ## Introduction
 
 !!! warning

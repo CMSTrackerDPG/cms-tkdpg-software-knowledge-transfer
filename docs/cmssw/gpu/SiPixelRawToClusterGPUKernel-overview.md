@@ -3,6 +3,8 @@
 Nested wrapper class (inside [`SiPixelRawToClusterCUDA`](SiPixelRawToClusterCUDA-overview.md))
 which, among other things, contains the `makeClustersAsync` function.
 
+Files on github: [header](https://github.com/cms-sw/cmssw/blob/master/RecoLocalTracker/SiPixelClusterizer/plugins/SiPixelRawToClusterGPUKernel.h) and [source](https://github.com/cms-sw/cmssw/blob/master/RecoLocalTracker/SiPixelClusterizer/plugins/SiPixelRawToClusterGPUKernel.cu).
+
 ## Class functions
 
 ### `makeClustersAsync`
