@@ -21,4 +21,36 @@ In it, three helper subclasses are contained:
 
 ## UML diagram
 
-![UML(?) diagram of th `SiPixelCluster` class](img/uml_SiPixelCluster.png)
+```mermaid
+classDiagram
+	class SiPixelCluster{
+		+Pixel
+		+PixelPos
+		+Shift
+	}
+	
+	class PixelPos{
+		-int row_
+		-int col_
+		+dx(): int
+		+dy(): int
+	}
+	
+	class Shift{
+	-int dx_
+	-int dy_
+	+dx(): int
+	+dy(): int
+	}
+	
+	class Pixel{
+		+uint16_t x	
+		+uint16_t y
+		+uint16_t adc
+	}	
+	
+	SiPixelCluster -- PixelPos : Nested Declaration
+	SiPixelCluster -- Pixel : Nested Declaration	
+	SiPixelCluster -- Shift : Nested Declaration		
+		
+```

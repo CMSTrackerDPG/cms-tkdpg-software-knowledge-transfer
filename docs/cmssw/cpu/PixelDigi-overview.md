@@ -11,7 +11,21 @@ and contains all this information in a packed format.
 
 It is located in `DataFormats/SiPixelDigi/interface`.
 
-![UML diagram of the `PixelDigi` class](img/uml_PixelDigi.png)
+File on [github](https://github.com/cms-sw/cmssw/blob/master/DataFormats/SiPixelDigi/interface/PixelDigi.h).
+
+## UML Diagram 
+
+```mermaid
+	classDiagram
+		class PixelDigi{
+			+PackedDigiType theData
+			+row(): int
+			+col(): int
+			+adc(): unsigned short
+			+flag(): int
+			+packedData(): PackedDigiType
+		}
+```
 
 ## Class attributes
 

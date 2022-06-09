@@ -20,4 +20,18 @@ the [`findClus`](gpuClustering-findClus.md) kernel)
 
 ### Flowchart
 
-![makeClustersAsync flowchart](img/makeClustersAsync.png)
+`makeClustersAsync` flowchart:
+
+```mermaid
+graph TB
+	A[SiPixelDigisCUDA] --> B[SiPixelClustersCUDA]
+	B --> C[RawToDigi_kernel]
+	C --> D[calibDigis]
+	D --> E[countModules]
+	E --> F[findClus]
+	
+	style C fill:lightgreen
+	style D fill:lightgreen	
+	style E fill:lightgreen	
+	style F fill:lightgreen	
+```
