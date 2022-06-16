@@ -28,12 +28,13 @@ nav:
                   - cmssw/cpu/SiPixelArrayBuffer-overview.md
           - GPU &#128396;&#65039;:
               - cmssw/gpu/index.md
-              - SiPixelRawToClusterCUDA:
+              - SiPixelRawToClusterCUDA.cc:
                   - cmssw/gpu/SiPixelRawToClusterCUDA-overview.md
-              - SiPixelRawToClusterGPUKernel:
+              - SiPixelRawToClusterGPUKernel.h:
                   - cmssw/gpu/SiPixelRawToClusterGPUKernel-overview.md
-              - calibDigis:
-                  - cmssw/gpu/calibDigis.md                  
+              - gpuCalibPixel.h:
+                  - cmssw/gpu/gpuCalibPixel.md
+                  - calibDigis: cmssw/gpu/gpuCalibPixel-calibDigis.md                  
               - gpuClustering.h:
                   - cmssw/gpu/gpuClustering-overview.md
                   - cmssw/gpu/gpuClustering-findClus.md

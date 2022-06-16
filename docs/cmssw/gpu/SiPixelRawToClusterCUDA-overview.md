@@ -1,6 +1,6 @@
-# SiPixelRawToClusterCUDA
+# SiPixelRawToClusterCUDA.cc
 
-Wrapper class which wraps the [`SiPixelRawToClusterGPUKernel`](SiPixelRawToClusterGPUKernel-overview.md) class.
+File containing the wrapper class which wraps the [`SiPixelRawToClusterGPUKernel`](SiPixelRawToClusterGPUKernel-overview.md) class.
 
 File on [github](https://github.com/cms-sw/cmssw/blob/master/RecoLocalTracker/SiPixelClusterizer/plugins/SiPixelRawToClusterCUDA.cc).
 

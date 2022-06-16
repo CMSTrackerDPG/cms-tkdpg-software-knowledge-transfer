@@ -1,5 +1,15 @@
 # Usage
 
+## Prerequisites
+
+You will need to run the following command to acquire a proxy to access the grid:
+
+```bash
+voms-proxy-init -voms cms -rfc
+```
+
+## Execution
+
 List available workflows for GPU:
 
 ``` sh
@@ -72,3 +82,4 @@ runTheMatrix.py -n --what upgrade | grep Patatrack
 	11650.504 2021_Patatrack_PixelOnlyGPU_Profiling+ZMM_14TeV_TuneCP5_GenSim+Digi+Reco 
 	...
 	```
+
