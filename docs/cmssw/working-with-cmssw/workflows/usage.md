@@ -10,7 +10,7 @@ voms-proxy-init -voms cms -rfc
 
 ## Execution
 
-List available workflows for GPU:
+### Get GPU workflows
 
 ``` sh
 runTheMatrix.py -n --what gpu
@@ -48,6 +48,9 @@ runTheMatrix.py -n --what gpu
 	
 	22 workflows with 4 steps
 	```
+
+
+### Get Profiling workflows
 
 Some of the workflows mentioned here, for example the [profiling ones](history.md#4-add-workflows-for-profiling-the-gpu-code-35540), can be found by running:
 
