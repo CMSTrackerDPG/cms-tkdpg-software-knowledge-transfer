@@ -13,8 +13,9 @@ and [activating a CMSSW environment by `cmsenv`](working-with-cmssw/software.md#
 
 A software build and maintenance tool. 
 
-It can [build](tools.md#building-the-code), [check](tools.md#running-checks-on-the-code)
-and [format](tools.md#formatting-the-code) the code.
+It can [build](working-with-cmssw/software.md#building-the-code),
+[check](working-with-cmssw/software.md#running-checks-on-the-code)
+and [format](working-with-cmssw/software.md#formatting-the-code) the code.
 
 ## `cmsRun`
 

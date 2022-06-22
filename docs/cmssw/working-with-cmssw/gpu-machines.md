@@ -8,7 +8,7 @@ A step-by-step guide on how to access GPU equipped machines at CERN, CMS or how 
 
 ## Access machines at CERN
 
-See the [CERN cloud insfrastructure resources guide](https://clouddocs.web.cern.ch/gpu/README.html) on how to request GPU resources.
+See the [CERN cloud insfrastructure resources guide](https://clouddocs.web.cern.ch/gpu/index.html) on how to request GPU resources.
 
 ### lxplus
 
