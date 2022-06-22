@@ -14,13 +14,16 @@ depends on the Phase:
 !!! note 
 
 	The number of blocks is equal to the **number of modules**, which depend
-	on the Phase.
+	on the Phase. This number is found in the
+	[Geometry/CommonTopologies](https://github.com/cms-sw/cmssw/blob/master/Geometry/CommonTopologies/interface/SimplePixelTopology.h) CMSSW module.
 
 ## Histogram Filling
 
 !!! todo
 
 	what the heckerino is histogram filling?
+	
+
 
 Code:
 

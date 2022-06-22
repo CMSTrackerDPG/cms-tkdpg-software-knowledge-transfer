@@ -50,7 +50,9 @@ Pixel Readout Chip with 2x26x80 pixels.
 
 Specification [here](https://twiki.cern.ch/twiki/bin/view/CMS/Psi46dig).
 
-![ROC](img/HybridPixelDetector.jpg){ width="400" }
+![ROC](img/roc.png){ width="500" }
+
+Image taken from [here](https://twiki.cern.ch/twiki/pub/CMS/Psi46dig/psi46digSpec.pdf).
 
 ### Module
 
