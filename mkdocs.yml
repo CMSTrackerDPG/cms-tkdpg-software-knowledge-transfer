@@ -32,7 +32,9 @@ nav:
                   - SiPixelDigisCUDA:
                       - cmssw/gpu/SiPixelDigisCUDA.md
                   - SiPixelDigisCUDASOAView:
-                      - cmssw/gpu/SiPixelDigisCUDASOAView.md                      
+                      - cmssw/gpu/SiPixelDigisCUDASOAView.md
+                  - SiPixelClustersCUDA:
+                      - cmssw/gpu/SiPixelClustersCUDA.md                                            
               - SiPixelRawToClusterCUDA.cc:
                   - cmssw/gpu/SiPixelRawToClusterCUDA-overview.md
               - SiPixelRawToClusterGPUKernel.h:

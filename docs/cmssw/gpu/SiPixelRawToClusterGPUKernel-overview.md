@@ -18,7 +18,21 @@ Files on github: [header](https://github.com/cms-sw/cmssw/blob/master/RecoLocalT
 An instance of this class is created and called by the
 [`SiPixelRawToClusterCUDA`](SiPixelRawToClusterCUDA-overview.md)) class.
 
-### `makeClustersAsync`
+### Attributes
+
+#### `digis_d`
+
+An instance of [SiPixelDigisCUDA](SiPixelDigisCUDA.md), which stores digi
+information on the CUDA device (hence the `_d` in the name)
+
+#### `clusters_d`
+
+An instance of [SiPixelClustersCUDA](SiPixelClustersCUDA.md) which is used
+to store clusters found during the [`findClus`](gpuClustering-findClus.md) kernel execution
+
+### Methods
+
+#### `makeClustersAsync`
 
 A function that implements the following functionality:
 
@@ -29,7 +43,7 @@ A function that implements the following functionality:
 - Uses the Digis created in the first step to create Clusters (by calling
 the [`findClus`](gpuClustering-findClus.md) kernel)
 
-#### Flowchart
+##### Flowchart
 
 ```mermaid
 graph TB
