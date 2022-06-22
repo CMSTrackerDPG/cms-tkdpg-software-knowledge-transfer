@@ -44,6 +44,18 @@ is the trace that the particle leaves on the Pixel Detector.
   <figcaption>A cluster of pixels activated by a particle resembles a stain (Pixel Cluster) on a shirt (Pixel Detector)</figcaption>
 </figure>
 
+### Read-Out Chip
+
+Pixel Readout Chip with 2x26x80 pixels.
+
+Specification [here](https://twiki.cern.ch/twiki/bin/view/CMS/Psi46dig).
+
+![ROC](img/HybridPixelDetector.jpg){ width="400" }
+
+### Module
+
+A structure of 2x8 Read-Out Chips (ROCs).
+
 ## Software
 
 ### CMSSW

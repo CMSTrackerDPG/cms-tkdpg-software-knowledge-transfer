@@ -1,6 +1,28 @@
 # findClus
 
-Let's look at the histogram filling without the debug messages which we might explain later.
+CUDA kernel for finding Clusters given digis extracted from raw data.
+
+It is meant to be executed with a 1D grid of blocks, each block being a 1D grid
+of threads. The number of blocks and threads used to launch this kernel
+depends on the Phase:
+
+|         | Blocks | Threads |
+|:--------|:-------|:--------|
+| Phase 1 | 1184   | 256     |
+| Phase 2 | 3892   | 384     |
+
+!!! note 
+
+	The number of blocks is equal to the **number of modules**, which depend
+	on the Phase.
+
+## Histogram Filling
+
+!!! todo
+
+	what the heckerino is histogram filling?
+
+Code:
 
 ``` cuda
 // fill histo

@@ -24,4 +24,6 @@ File on [github](https://github.com/cms-sw/cmssw/blob/master/RecoLocalTracker/Si
 
 ### `gpuAlgo_`
 
-An instance of [`SiPixelRawToClusterGPUKernel`](SiPixelRawToClusterGPUKernel-overview.md)
+An instance of the [`SiPixelRawToClusterGPUKernel`](SiPixelRawToClusterGPUKernel-overview.md)
+class, which calls the CUDA kernels.
+

@@ -1,15 +1,6 @@
 # gpuClustering overview
 
-!!! warning
-	TODO
-	
-	- What is `gpuClustering.h`?
-	- Contents?
-	- What are we expecting to find in this section?
-
-## Location
-
-`RecoLocalTracker/SiPixelClusterizer/plugins/`
+Located in: `RecoLocalTracker/SiPixelClusterizer/plugins/`
 
 Link to file on
 [github](https://github.com/cms-sw/cmssw/blob/master/RecoLocalTracker/SiPixelClusterizer/plugins/gpuClustering.h).
