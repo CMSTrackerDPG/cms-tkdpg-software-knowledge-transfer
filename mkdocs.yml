@@ -28,6 +28,11 @@ nav:
                   - cmssw/cpu/SiPixelArrayBuffer-overview.md
           - GPU &#128396;&#65039;:
               - cmssw/gpu/index.md
+              - Data Formats:
+                  - SiPixelDigisCUDA:
+                      - cmssw/gpu/SiPixelDigisCUDA.md
+                  - SiPixelDigisCUDASOAView:
+                      - cmssw/gpu/SiPixelDigisCUDASOAView.md                      
               - SiPixelRawToClusterCUDA.cc:
                   - cmssw/gpu/SiPixelRawToClusterCUDA-overview.md
               - SiPixelRawToClusterGPUKernel.h:

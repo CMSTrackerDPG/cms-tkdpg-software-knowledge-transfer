@@ -87,3 +87,32 @@ have an ADC value above a certain threshold. This process of detecting
 
 This is implemented in both [CPU](cmssw/cpu/PixelThresholdClusterizer-overview.md)
 and [GPU](cmssw/gpu/gpuClustering-overview.md).
+
+### SoA/AoS
+
+Alternative ways to store class variables in memory for **parallel computing**.
+
+In usual class declarations, one might have a class attribute, e.g. `int num_books`. 
+When an instance of this class is loaded into memory, `num_books` is most probably close
+to other class attributes. Say we have thousands of such class instances and
+want to run parallel code on them using only the `num_books` attribute
+of each instance. This way, the computer will have to load to memory lots of data
+which will stay unused. 
+
+This will degrade performance at low-levels, e.g. cache lines will be filled
+with data unrelated to the actual calculations, meaning lots of wasted cycles.
+
+Such an approach is called **Array of Structures (AoS)**, and descrbes using
+an array of structures/classes for storing data.
+
+To alleviate the drawbacks of AoS, instead of thousands of class instances
+stored as an array, the **Structure of Arrays (SoA)** approach can be used. This
+approach suggests using only *one* class instance for all the data one wants to store.
+
+This way, instead of having an `int num_books` attribute in the class, the class now
+contains an `int* nums_books` array, which stores the data of **all instances**.
+
+The data are now stored consecutively in RAM when loaded, meaning less memory overhead
+and better parallel code performance.
+
+A video explanation may be found [here](https://www.youtube.com/watch?v=ScvpoiTbMKc)

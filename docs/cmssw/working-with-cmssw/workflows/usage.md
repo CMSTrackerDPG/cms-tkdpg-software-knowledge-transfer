@@ -10,7 +10,7 @@ voms-proxy-init -voms cms -rfc
 
 ## Execution
 
-### Get GPU workflows
+### List GPU workflows
 
 ``` sh
 runTheMatrix.py -n --what gpu
@@ -50,7 +50,7 @@ runTheMatrix.py -n --what gpu
 	```
 
 
-### Get Profiling workflows
+### List Profiling workflows
 
 Some of the workflows mentioned here, for example the [profiling ones](history.md#4-add-workflows-for-profiling-the-gpu-code-35540), can be found by running:
 
@@ -86,3 +86,17 @@ runTheMatrix.py -n --what upgrade | grep Patatrack
 	...
 	```
 
+### Running a workflow
+
+Before you run a workflow, you will first need to activate a
+CMSSW environment ([Instructions here](../software.md)).
+
+#### GPU
+
+```bash
+runTheMatrix.py -l 136.885502 --what gpu
+```
+
+`-l` specifies the workflow to run.
+
+`--what` specifies, among other things, the device to run this workflow on.
