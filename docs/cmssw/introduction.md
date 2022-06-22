@@ -13,8 +13,9 @@ are of interest to the TkDPG group==}.
 
 The usual *modus operandi* with CMSSW is the following:
 
-- Clone one of the available versions of CMSSW.
-- Checkout packages that you want to make changes to.
+- [Clone](working-with-cmssw/software.md#create-a-cmssw-area) one of the available versions of CMSSW.
+- [Checkout packages](working-with-cmssw/software.md#checkout-a-few-packages-using-git-cms-addpkg)
+that you want to make changes to.
 - Make changes to any file you want.
 - Build CMSSW again.
 - Execute [Workflows](working-with-cmssw/workflows/overview.md) and validation.

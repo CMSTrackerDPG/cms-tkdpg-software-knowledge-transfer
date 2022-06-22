@@ -97,7 +97,7 @@ See the checked out packages in `.git/info/sparse-checkout`
 	/RecoLocalTracker/SiPixelClusterizer/
 	```
 
-Only build the desired packages, **add/remove** unwanted ones:  
+Only build the desired packages, **add/remove** unwanted ones:
 [http://cms-sw.github.io/git-cms-addpkg.html](http://cms-sw.github.io/git-cms-addpkg.html)
 
 **Fetch updates from remote**
@@ -107,12 +107,29 @@ git fetch [official-cmssw]
 git merge official-cmssw/master master
 ```
 
-Where *official-cmssw* is the remote name configured for [the CMSSW offline software repository](https://github.com/cms-sw/cmssw).
+Where `official-cmssw` is the remote name configured for [the CMSSW offline software repository](https://github.com/cms-sw/cmssw).
 
-You can list your remote repositories with (for even more verbose output, you can stack the v-s):
+You can list your remote repositories with (for even more verbose output,
+you can stack the `-v`s, e.g. `-vvv`):
+
 ```sh
 git remote -v
 ```
 
+## Building the code
 
+```bash
+scram b -j 4
+```
 
+## Running checks on the code
+
+```bash
+scram b code-checks
+```
+
+## Formatting the code
+
+```bash
+scram b code-format
+```

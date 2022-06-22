@@ -9,6 +9,13 @@ was developed.
 Those tools are available on LXPLUS machines, after creating a work area
 and [activating a CMSSW environment by `cmsenv`](working-with-cmssw/software.md#create-a-cmssw-area).
 
+## `scram`
+
+A software build and maintenance tool. 
+
+It can [build](tools.md#building-the-code), [check](tools.md#running-checks-on-the-code)
+and [format](tools.md#formatting-the-code) the code.
+
 ## `cmsRun`
 
 !!! todo
@@ -38,3 +45,5 @@ A wrapper script which is responsible of executing multi-step analysis/simulatio
 by configuring `cmsDriver`.
 
 It is examined in more detail [in the Workflows section](working-with-cmssw/workflows/overview.md)
+
+

@@ -4,7 +4,7 @@ nav:
   - basic-concepts.md
   - CMSSW &#128128;:
       - cmssw/introduction.md
-      - Tools &#128295;: cmssw/tools.md      
+      - Tools &#128295;: cmssw/tools.md
       - Workflows &#128200;:
           - cmssw/working-with-cmssw/workflows/overview.md
           - cmssw/working-with-cmssw/workflows/usage.md
@@ -12,7 +12,7 @@ nav:
       - Working with CMSSW:
           - Developing: cmssw/working-with-cmssw/software.md
           - cmssw/working-with-cmssw/gpu-machines.md
-          - cmssw/working-with-cmssw/proposing-changes.md                        
+          - cmssw/working-with-cmssw/proposing-changes.md                                        
       - Documentation on CMSSW modules:
           - CPU &#129704;:
               - cmssw/cpu/index.md
