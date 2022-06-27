@@ -10,6 +10,26 @@ Your companion glossary can always be found
 !!! warning
 
 	There might be lots of inaccuracies in this document. Don't judge me!
+	
+## General CERN Jargon
+
+### Phase 0, Phase 1, Phase 2, ...
+
+Phases are periods during which the detectors' hardware has more or less the 
+same capabilities. When large-scale changes and upgrades take place, a new Phase
+starts.
+
+Multiple phases may belong to a single Run (see below).
+
+
+### [LHC] Run 1, Run 2, ... 
+
+Data-taking periods, which are usually followed by Long Shutdown (LS) periods.
+During a Run, multiple Phases may be observed. For example, Phase 0 and Phase 1 took place during
+Run 2.
+
+Runs' schedule can be found [here](https://lhc-commissioning.web.cern.ch/schedule/LHC-long-term.htm).
+
 ## Hardware
 
 ### Pixel Detector

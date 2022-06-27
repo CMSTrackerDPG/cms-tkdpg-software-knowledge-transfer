@@ -8,14 +8,15 @@ depends on the Phase:
 
 |         | Blocks | Threads |
 |:--------|:-------|:--------|
-| Phase 1 | 1184   | 256     |
+| Phase 1 | 1856   | 256     |
 | Phase 2 | 3892   | 384     |
 
 !!! note 
 
 	The number of blocks is equal to the **number of modules**, which depend
 	on the Phase. This number is found in the
-	[Geometry/CommonTopologies](https://github.com/cms-sw/cmssw/blob/master/Geometry/CommonTopologies/interface/SimplePixelTopology.h) CMSSW module.
+	[Geometry/CommonTopologies](https://github.com/cms-sw/cmssw/blob/master/Geometry/CommonTopologies/interface/SimplePixelTopology.h)
+	CMSSW module which contains constants related to the Pixel Detector Topology.
 
 ## Histogram Filling
 
