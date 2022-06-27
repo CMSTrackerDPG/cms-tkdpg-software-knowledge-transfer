@@ -2,10 +2,6 @@
 
 A step-by-step guide on how to access GPU equipped machines at CERN, CMS or how to develop on your machine.
 
-## Prerequisites
-
-1. CERN computing account
-
 ## Access machines at CERN
 
 See the [CERN cloud insfrastructure resources guide](https://clouddocs.web.cern.ch/gpu/index.html) on how to request GPU resources.
@@ -27,9 +23,11 @@ exec bash
 
 ## Access machines at CMS P5
 
-This section is taken from the [CMS TWiki TriggerDevelopmentWithGPUs](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs) page.
+??? info
 
-### Dedicated machines for the development of the online reconstruction
+	This section is taken from the 
+	[CMS TWiki TriggerDevelopmentWithGPUs](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs) 
+	page.
 
 There are 6 machines available for general development and validation of the online reconstruction on GPUs:
 
@@ -40,15 +38,16 @@ There are 6 machines available for general development and validation of the onl
 * **`gpu-c2a02-39-03.cms`**
 * **`gpu-c2a02-39-04.cms`**
 
-### All machines are equipped with
+These are dedicated machines for the development of the online reconstruction.
 
-* two [Intel "Skylake" Xeon Gold 6130![](https://twiki.cern.ch/twiki/pub/TWiki/TWikiDocGraphics/external-link.gif)](https://ark.intel.com/content/www/us/en/ark/products/120492/intel-xeon-gold-6130-processor-22m-cache-2-10-ghz.html) processors (for a total of 2x16=32 physical cores and 2x2x16 = 64 logical cores or hardware threads);
-* 96 GB of RAM;
-* one [NVIDIA Tesla T4![](https://twiki.cern.ch/twiki/pub/TWiki/TWikiDocGraphics/external-link.gif)](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU.
+To access them, you will first need a **CMS online account**. See below for instructions.
 
 ### How to connect
 
-To connect to these machines you need to have an online account and be in the **`gpudev`** group.
+To connect to these machines you need to:
+
+* Have a CMS online account and
+* Be in the **`gpudev`** group.
 
 To request access, please subscribe to the [cms-hlt-gpu](https://e-groups.cern.ch/e-groups/Egroup.do?egroupId=10346110&searchField=0&searchMethod=0&searchValue=cms-hlt-gpu&pageSize=30&hideSearchFields=false&searchMemberOnly=false&searchAdminOnly=false) e-group and send an email to [andrea.bocci@cern.ch](mailto:andrea.bocci@cern.ch), indicating:
 
@@ -59,9 +58,20 @@ To request access, please subscribe to the [cms-hlt-gpu](https://e-groups.cern.c
 Then, follow the instructions
 [here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs#Connecting_to_the_machines).
 
-## Miscellaneous - or special GPU nodes
+### Notes
 
-This section is more or less taken from the [Patatrack website systems](https://patatrack.web.cern.ch/patatrack/private/systems/cmg-gpu1080.html) subpage.
+* These machines lie in a different subnet than the one that the LXPLUS machines
+  belong to.
+* The `/nfshome0/<username>` directory is shared and available from all the machines above,
+  but has limited space.
+* The `/data/user/<username>` directory is not shared across the devices,
+  but has larger capacity.
+
+## Special GPU nodes
+
+??? info 
+
+	This section is more or less taken from the [Patatrack website systems](https://patatrack.web.cern.ch/patatrack/private/systems/cmg-gpu1080.html) subpage.
 
 ### cmg-gpu1080
 
