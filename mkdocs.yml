@@ -75,7 +75,7 @@ nav:
                   - addBadReason: certhelper/apps/certifier/views/addbadreason.md                    
   - MLPlayground &#129528;:
       - mlplayground/introduction.md
-  
+      - Connectivity &#128279;: mlplayground/connectivity.md
 
 theme:
   name: material

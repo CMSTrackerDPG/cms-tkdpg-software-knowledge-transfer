@@ -66,6 +66,7 @@ Then, follow the instructions
   but has limited space.
 * The `/data/user/<username>` directory is not shared across the devices,
   but has larger capacity.
+* [CMS Cluster Users Guide](https://twiki.cern.ch/twiki/bin/viewauth/CMS/ClusterUsersGuide)
 
 ## Special GPU nodes
 
