@@ -17,6 +17,8 @@ It can [build](working-with-cmssw/software.md#building-the-code),
 [check](working-with-cmssw/software.md#running-checks-on-the-code)
 and [format](working-with-cmssw/software.md#formatting-the-code) the code.
 
+Documentation on `scram` can be found [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram). 
+
 ## `cmsRun`
 
 !!! todo
