@@ -18,6 +18,25 @@ Files on github: [header](https://github.com/cms-sw/cmssw/blob/master/RecoLocalT
 An instance of this class is created and called by the
 [`SiPixelRawToClusterCUDA`](SiPixelRawToClusterCUDA-overview.md)) class.
 
+### UML diagram
+!!! warning
+
+	UML diagram incomplete
+	
+```mermaid
+classDiagram
+class SiPixelRawToClusterGPUKernel{
+-uint32_t nDigis 
+-cms::cuda::host::unique_ptr~uint32_t[]~ nModules_Clusters_h
+-SiPixelDigisCUDA digis_d
+-SiPixelClustersCUDA clusters_d
++makeClustersAsync(...) void
++makePhase2ClustersAsync(...) void
++getResults()
++getErrors() 
+}
+```
+
 ### Attributes
 
 #### `digis_d`

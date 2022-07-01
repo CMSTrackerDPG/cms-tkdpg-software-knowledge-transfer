@@ -1,4 +1,4 @@
-# SiPixelDigisCUDA.h
+# SiPixelDigisCUDA
 
 Class used to contain pixel data (coordinates, ADC values) using the SoA approach,
 intended to be used by CUDA code.
@@ -23,7 +23,7 @@ class SiPixelDigisCUDA{
 
 class SiPixelDigisCUDASOAView
 
-SiPixelDigisCUDA "*" --* "1" SiPixelDigisCUDASOAView : m_view
+SiPixelDigisCUDA -- "1" SiPixelDigisCUDASOAView : m_view
 ```
 
 ## Attributes

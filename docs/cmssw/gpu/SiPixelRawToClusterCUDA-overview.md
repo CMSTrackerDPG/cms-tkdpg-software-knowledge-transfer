@@ -17,7 +17,7 @@ File on [github](https://github.com/cms-sw/cmssw/blob/master/RecoLocalTracker/Si
 		 -makePhase2ClustersAsync()
       }
 	  
-     SiPixelRawToClusterCUDA o-- SiPixelRawToClusterGPUKernel
+     SiPixelRawToClusterCUDA -- "1" SiPixelRawToClusterGPUKernel : gpuAlgo_
 ```
 
 ## Class attributes

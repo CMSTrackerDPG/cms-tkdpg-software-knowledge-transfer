@@ -1,4 +1,4 @@
-# SiPixelDigisCUDASOAView.h
+# SiPixelDigisCUDASOAView
 
 Class which stores data in an [SoA](../../basic-concepts.md#soaaos) approach.
 Used indirectly by [SiPixelDigisCUDA](SiPixelDigisCUDA) instances, such as the `digis_d`
