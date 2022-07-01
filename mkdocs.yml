@@ -44,8 +44,8 @@ nav:
                   - calibDigis: cmssw/gpu/gpuCalibPixel-calibDigis.md                  
               - gpuClustering.h:
                   - cmssw/gpu/gpuClustering-overview.md
-                  - cmssw/gpu/gpuClustering-findClus.md
                   - cmssw/gpu/gpuClustering-countModules.md
+                  - cmssw/gpu/gpuClustering-findClus.md
       - cmssw/build-types.md                  
       - Extra Resources:
           - Angela's GPU primer:

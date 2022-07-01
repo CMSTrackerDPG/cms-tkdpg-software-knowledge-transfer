@@ -1,44 +1,54 @@
 # countModules
 
-The whole kernel:
+!!! todo
 
-``` cuda linenums="1" title="countModules kernel"
-  template <bool isPhase2>
-  __global__ void countModules(uint16_t const* __restrict__ id,
-                               uint32_t* __restrict__ moduleStart,
-                               int32_t* __restrict__ clusterId,
-                               int numElements) {
-    int first = blockDim.x * blockIdx.x + threadIdx.x;
-    constexpr int nMaxModules = isPhase2 ? phase2PixelTopology::numberOfModules : phase1PixelTopology::numberOfModules;
-    assert(nMaxModules < maxNumModules);
-    for (int i = first; i < numElements; i += gridDim.x * blockDim.x) {
-      clusterId[i] = i;
-      if (invalidModuleId == id[i])
-        continue;
-      auto j = i - 1;
-      while (j >= 0 and id[j] == invalidModuleId)
-        --j;
-      if (j < 0 or id[j] != id[i]) {
-        // boundary...
-        auto loc = atomicInc(moduleStart, nMaxModules);
-        moduleStart[loc + 1] = i;
-      }
-    }
-  }
-```
+	Add information on the kernel
+	
+	* What does it do?
 
-## 1. Init for clustering
+## Code
 
-Again we have some part of the code here that has nothing to do with counting the modules.
+??? quote "Kernel code"
+
+	``` cuda linenums="1" title="countModules kernel"
+	  template <bool isPhase2>
+	  __global__ void countModules(uint16_t const* __restrict__ id,
+	                               uint32_t* __restrict__ moduleStart,
+	                               int32_t* __restrict__ clusterId,
+	                               int numElements) {
+	    int first = blockDim.x * blockIdx.x + threadIdx.x;
+	    constexpr int nMaxModules = isPhase2 ? phase2PixelTopology::numberOfModules : phase1PixelTopology::numberOfModules;
+	    assert(nMaxModules < maxNumModules);
+	    for (int i = first; i < numElements; i += gridDim.x * blockDim.x) {
+	      clusterId[i] = i;
+	      if (invalidModuleId == id[i])
+	        continue;
+	      auto j = i - 1;
+	      while (j >= 0 and id[j] == invalidModuleId)
+	        --j;
+	      if (j < 0 or id[j] != id[i]) {
+	        // boundary...
+	        auto loc = atomicInc(moduleStart, nMaxModules);
+	        moduleStart[loc + 1] = i;
+	      }
+	    }
+	  }
+	```
+
+## Detailed explanation
+
+### 1. Init for clustering
+
+We initialise the `clusterId`s for the `findClus` kernel.
 
 ``` cuda linenums="9"
 for (int i = first; i < numElements; i += gridDim.x * blockDim.x) {
     clusterId[i] = i;
 ```
 
-We initialise the `clusterId`s for the `findClus` kernel.
+This part of the code that has nothing to do with counting the modules yet.
 
-## 2. Digi order
+### 2. Digi order
 
 Let's say we have a snippet from our `id` array.
 
@@ -54,7 +64,7 @@ Instead of having numbers for the `id` we'll use letters, `A`, `B`, `C` and `D`,
 
     It is a prerequisite and we know that digis belonging to one module will appear **consecutive** in our buffer. They might be separated by `invalid` `digis/hits`.
 
-## 3. Look for boundary elements
+### 3. Look for boundary elements
 
 Let's use our example digi array from the previous point.
 
@@ -157,7 +167,7 @@ Let's just look at the first and last rows and get rid if `False` and not evalua
     </tr>
 </table>
 
-## 4. set `moduleStart` for each module
+### 4. set `moduleStart` for each module
 
 ``` cuda linenums="18"
 auto loc = atomicInc(moduleStart, nMaxModules);
@@ -187,8 +197,8 @@ The order will be determined by in what order each thread reaches the line `18`.
 auto loc = atomicInc(moduleStart, nMaxModules);
 ```
 
-## 5. Conclusion
+### Conclusion
 
-!!! tip "Conclusion"
-
-    We initialise our `clusterId`s for our later clustering algorrithm in `findClus` and fill our `moduleStart` array with the indices of the first `digi/hit` in each module.
+We initialise our `clusterId`s for our later clustering algorithm
+in `findClus` and fill our `moduleStart` array with the indices
+of the first `digi/hit` in each module.
