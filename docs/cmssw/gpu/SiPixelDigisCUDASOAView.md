@@ -15,13 +15,15 @@ Key attributes of this class:
 
 * `xx_`: x-coordinates of pixels (array)
 * `yy_`: y-coordinates of pixels (array)
-* `adc_`: ADC values for each pixel (array) {==What's its size? probably (length of `xx_` * length of `yy_`) ?==}
-* `moduleInd_`: {==??? The module id that each pixel belongs to?==}
-* `clus_`: {==Clusters??? The cluster id that each pixel belongs to maybe?==}
+* `adc_`: ADC values for each pixel (array)
+* `moduleInd_`: GPU-specific module identifiers
+that each pixel belongs to ({==GPU only==})
+* `clus_`: The cluster identifier that each pixel is assigned to.
 * `pdigi_`: Packed digi format. Contains coordinates and ADC values in one
 variable.
-See also [PixelDigi](../cpu/PixelDigi-overview.md#thedata) for the CPU counterpart..
-* `rawIdArr_`: Unique identifier used to identify modules in the whole of CMS ({==Find a link to official docs to put here==}). 
+See also [PixelDigi](../cpu/PixelDigi-overview.md#thedata) for the CPU counterpart.
+* `rawIdArr_`: Unique identifier used to identify modules in the whole of CMS
+({==Find a link to official docs to put here==}).
 
 ## UML Diagram
 
