@@ -23,7 +23,9 @@ An instance of this class is created and called by the
 #### `digis_d`
 
 An instance of [SiPixelDigisCUDA](SiPixelDigisCUDA.md), which stores digi
-information on the CUDA device (hence the `_d` in the name)
+information on the CUDA device (hence the `_d` in the name).
+
+It is initialized using the `numDigis` and the CUDA `stream` as parameters.
 
 #### `clusters_d`
 
