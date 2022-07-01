@@ -150,3 +150,43 @@ The data are now stored consecutively in RAM when loaded, meaning less memory ov
 and better parallel code performance.
 
 A video explanation may be found [here](https://www.youtube.com/watch?v=ScvpoiTbMKc)
+
+### s2i (Source to Image)
+
+A build process for creating docker images directly from the source
+code, depending on the source's requirements.
+
+Developed by RedHat, it is one of the available methods for
+deploying software on the OpenShift platform.
+
+
+
+A general readme on s2i is available
+[here](https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md).
+
+PaaS-specific instructions available
+[here](https://paas.docs.cern.ch/2._Deploy_Applications/Deploy_From_Git_Repository/2-deploy-s2i-app/).
+
+#### Python s2i
+
+For Django projects, a
+[python s2i configuration](https://docs.openshift.com/container-platform/3.11/using_images/s2i_images/python.html)
+is used. The source code for this script can be found
+[here](https://github.com/sclorg/s2i-python-container).
+
+In general, the python-specific tasks run when creating the
+container (e.g. `pip install -r requirements.txt`)
+are run in the `assemble` script, found
+[here](https://github.com/sclorg/s2i-python-container/blob/master/3.8/s2i/bin/assemble). This scripts also checks if the source code
+is a Django project.
+
+The `run` script, found
+[here](https://github.com/sclorg/s2i-python-container/blob/master/3.8/s2i/bin/run),
+checks for `gunicorn`, `django` and other set environmental
+variables (e.g. `APP_SCRIPT`).
+
+These scripts can be augmented by creating custom `assemble` and `run`
+scripts, such as
+[this one](https://github.com/CMSTrackerDPG/certifier/blob/master/.s2i/bin/assemble),
+which was created for CertHelper in order to add custom build-time
+secret access tokens for CERN's gitlab.
