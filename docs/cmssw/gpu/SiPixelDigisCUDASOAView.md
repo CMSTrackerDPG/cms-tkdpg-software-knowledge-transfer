@@ -18,8 +18,10 @@ Key attributes of this class:
 * `adc_`: ADC values for each pixel (array) {==What's its size? probably (length of `xx_` * length of `yy_`) ?==}
 * `moduleInd_`: {==??? The module id that each pixel belongs to?==}
 * `clus_`: {==Clusters??? The cluster id that each pixel belongs to maybe?==}
-* `pdigi_`: {==??? pixel digi?? ==}
-* `rawIdArr_`: {==???==}
+* `pdigi_`: Packed digi format. Contains coordinates and ADC values in one
+variable.
+See also [PixelDigi](../cpu/PixelDigi-overview.md#thedata) for the CPU counterpart..
+* `rawIdArr_`: Unique identifier used to identify modules in the whole of CMS ({==Find a link to official docs to put here==}). 
 
 ## UML Diagram
 
@@ -72,7 +74,7 @@ transactions ({==Could have something to do with
 For example, if we want to transfer only 1 `uint16_t` variable (usually
 has a size of 2 bytes), one would have to round this up to the nearest
 128-byte transaction, meaning that we should request 64 `uint16_t` variables
-(because `64 * sizeof(uint16_t) = 128`) to be efficient. Similary, 
+(because `64 * sizeof(uint16_t) = 128`) to be efficient. Similary,
 if we needed 64 `uint16_t`, we would still need one 128-byte transaction.
 However, for 65 `uint16_t`, we would need 2 x 128-byte transfers.
 
