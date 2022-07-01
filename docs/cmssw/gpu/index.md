@@ -44,6 +44,9 @@ another in 1D arrays:
 
 ![SoA Data layout](img/soa_layout.png){ width="500" }
 
+An actual example of such arrays can be seen in the
+[SiPixelDigisCUDASOAView](./SiPixelDigisCUDASOAView.md).
+
 !!! todo
 
 	Where is this data structure created? Unpacking?
