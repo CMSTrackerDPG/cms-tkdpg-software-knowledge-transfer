@@ -3,7 +3,17 @@
 During its operation, CertHelper will try to connect to various remote
 resources. An overview can be seen in the sketch below. 
 
-![Connectivity](connectivity.png)
+<!-- ![Connectivity](connectivity.png) -->
+
+```mermaid
+flowchart
+	db[(DBoD)] <--> ch[CertHelper]
+	vocms[vocms066] <-- SSH --> ch
+	ebutz[ebutz] <-- HTTP --> ch
+	rr[RunRegistry] <-- HTTP --> ch
+	oms[OMS API] <-- HTTP --> ch
+
+```
 
 ## Storage
 
