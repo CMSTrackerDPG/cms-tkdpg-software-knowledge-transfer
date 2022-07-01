@@ -10,4 +10,14 @@ It is located in `RecoLocalTracker/SiPixelClusterizer/plugins`.
 
 ## UML diagram
 
-![UML(?) diagram of th `SiPixelArrayBuffer` class](img/uml_SiPixelArrayBuffer.png)
+```mermaid
+classDiagram
+
+class SiPixelArrayBuffer{
+	+int nrows
+	+int ncols
+	+set_adc()
+	+add_adc()
+	+setSize()
+}
+```
