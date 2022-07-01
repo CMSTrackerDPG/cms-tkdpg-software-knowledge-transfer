@@ -54,6 +54,15 @@ classDiagram
 
 	Explain how this works
 
+## Enums
+
+### `StorageLocation`
+
+{==TODO==}
+
+Indices used for accessing specific parts of SoA data in GPU
+memory (?), and to determine the maximum size of the memory 
+required to be allocated (`kMAX`).
 
 ## Methods
 
