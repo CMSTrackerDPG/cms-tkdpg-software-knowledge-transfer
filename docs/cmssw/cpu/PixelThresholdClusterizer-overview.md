@@ -15,7 +15,32 @@ Other functionality has been integrated in it, such as:
 
 ## UML diagram
 
-![UML(?) diagram of the classes related to `PixelThresholdClusterizer`](img/uml_PixelThresholdClusterizer.png)
+```mermaid
+classDiagram
+
+class PixelClusterizerBase
+
+class PixelThresholdClusterizer{
+	+SiPixelArrayBuffer theBuffer
+	+vector~PixelPos~ theSeeds
+	+vector~bool~ theFakePixels
+	+vector~SiPixelCluster~ theClusters
+}
+
+PixelClusterizerBase <|-- PixelThresholdClusterizer
+
+class SiPixelArrayBuffer{
+	+int nrows
+	+int ncols
+	+set_adc()
+	+add_adc()
+	+setSize()
+}
+
+direction LR
+PixelThresholdClusterizer -- "1" SiPixelArrayBuffer : theBuffer
+
+```
 
 ## Class attributes
 
