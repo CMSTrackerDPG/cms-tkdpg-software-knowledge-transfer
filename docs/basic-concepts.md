@@ -74,11 +74,16 @@ Specification [here](https://twiki.cern.ch/twiki/bin/view/CMS/Psi46dig).
 
 Image taken from [here](https://twiki.cern.ch/twiki/pub/CMS/Psi46dig/psi46digSpec.pdf).
 
-Some more images and specs [here](https://twiki.cern.ch/twiki/bin/view/CMS/SiCMSTkDb#Hardware_Structure).
+![ROC](img/roc2.jpg){ width="200" }
 
 ### Module
 
 A structure of 2x8 Read-Out Chips (ROCs).
+
+In the exploded view below, the ROCs can be seen in
+the second layer from the top.
+
+![Module](img/module.jpg){ width="400" }
 
 ## Software
 
