@@ -33,7 +33,8 @@ its module coordinates (`x` and `y`) and the module index it belongs
 to (`moduleInd`, for this example `0` and `1`).
 
 A simplistic visualization of the example above can be seen
-below; each module is composed of 2 x 8 ROCs, each pixel having
+below; each module is composed of 2 x 8
+[ROCs](../../basic-concepts.md#read-out-chip), each pixel having
 unique coordinates relative to the module.
 
 ![Module layout](img/module_layout.png)

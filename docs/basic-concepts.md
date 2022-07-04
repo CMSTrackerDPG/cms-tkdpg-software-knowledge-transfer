@@ -71,7 +71,7 @@ is the trace that the particle leaves on the Pixel Detector.
 
 ### Read-Out Chip
 
-Pixel Readout Chip with 2x26x80 pixels.
+Pixel Readout Chip with 2 x 26 x 80 pixels.
 
 Specification [here](https://twiki.cern.ch/twiki/bin/view/CMS/Psi46dig).
 
@@ -83,7 +83,8 @@ Image taken from [here](https://twiki.cern.ch/twiki/pub/CMS/Psi46dig/psi46digSpe
 
 ### Module
 
-A structure of 2x8 Read-Out Chips (ROCs).
+A structure of 2 x 8 Read-Out Chips (ROCs), totalling
+2 x 8 x (2 x 26 x 80) = 66560 pixels.
 
 In the exploded view below, the ROCs can be seen in
 the second layer from the top.
