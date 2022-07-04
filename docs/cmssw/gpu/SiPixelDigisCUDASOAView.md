@@ -112,8 +112,22 @@ When a `SiPixelDigisCUDASOAView` instance is created, pointers to the
 start of each SoA variable (`clus_`, `adc_` etc) are created. Those
 are calculated using the start of the memory requested (i.e. the pointer
 stored in [`m_store`](./SiPixelDigisCUDA.md#m_store)), the constant
-assigned to each variable in [`StorageLocation`](./#storagelocation)[^1] and
+assigned to each variable in [`StorageLocation`](./#storagelocation) and
 the number of pixels available (`maxFedWords`).
+
+!!! note
+
+	The values in `StorageLocation` (0, 2, 4, 6, 7, 8, 9)
+	are not random, but are
+	directly related to the data type of the variables. 
+	Note that 32-bit variables (`clus_`, `pdigi_` and `rawIdArr_`) are given 
+	numbers that have double the size of 16-bit variables
+	(`adc_`, `xx_`, `yy_`, `moduleInd_`). For example, note
+	that the values of `StorageLocation::kCLUS` and
+	`StorageLocation::kPDIGI` differ by 2, while the
+	values of `StorageLocation::kADC` and
+	`StorageLocation::kXX` differ by 1.
+	
 
 Firstly, 32-bit variables are stored in order, i.e.:
 
@@ -273,7 +287,7 @@ we find the final memory structure to look like the one below:
 <figure markdown>
 ![GPU mem all](./img/gpu_mem_all.png){ width="400" }
 <figcaption>
-The GPU memory, with all variables stored. The data
+The GPU memory, with all variables stored. The memory
 that remains unused is marked with light blue.
 </figcaption>
 </figure>
@@ -282,7 +296,3 @@ Parts of the memory will remain unused, depending on the `numPixels`
 but, for large number of pixels, the percentage of wasted memory
 becomes negligible.
 
-[^1]:
-
-	Those numbers (0, 2, 4, 6, 7, 8, 9) are not random, but are
-	directly related to the type of variables
