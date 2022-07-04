@@ -32,6 +32,11 @@ Runs' schedule can be found [here](https://lhc-commissioning.web.cern.ch/schedul
 
 ## Hardware
 
+### ADC
+
+Analog to Digital Conversion/Converter. The process of digitizing
+an analog signal.
+
 ### Pixel Detector
 
 !!! todo
@@ -43,8 +48,8 @@ the Pixel Detector is part of the whole CMS detector.
 
 
 In the reconstruction code, the Pixel Detector is represented as a 2D matrix of
-pixels (`PixelDigi`s).
-
+pixels (`PixelDigi`s), with X and Y coordinates, each one having an
+[ADC](./#adc) value.
 
 ### RecHits
 
