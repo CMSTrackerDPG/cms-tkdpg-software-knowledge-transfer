@@ -12,4 +12,3 @@ contains the following functionality in the form of CUDA kernels:
 
 - Count modules ({==TODO???==}) (see [here](gpuClustering-countModules.md))
 - Find clusters in the data passed (see [here](gpuClustering-findClus.md))
-

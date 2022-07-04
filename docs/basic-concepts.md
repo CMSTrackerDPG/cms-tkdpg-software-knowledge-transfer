@@ -175,7 +175,7 @@ A video explanation may be found [here](https://www.youtube.com/watch?v=ScvpoiTb
 ### `DetId`
 
 A unique, 32-bit number, used to identify all CMS detector parts
-in CMSSW.
+in CMSSW (mainly code that runs on CPUs).
 
 Defined
 [here](https://cmssdt.cern.ch/lxr/source/DataFormats/DetId/interface/DetId.h).
@@ -189,8 +189,6 @@ code, depending on the source's requirements.
 
 Developed by RedHat, it is one of the available methods for
 deploying software on the OpenShift platform.
-
-
 
 A general readme on s2i is available
 [here](https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md).

@@ -23,7 +23,8 @@ that each pixel belongs to ({==GPU only==})
 variable.
 See also [PixelDigi](../cpu/PixelDigi-overview.md#thedata) for the CPU counterpart.
 * `rawIdArr_`: Unique identifier used to identify modules in the whole of CMS
-({==Find a link to official docs to put here==}).
+({==TODO: Double-check that this is the same as 
+[`DetId`](../../basic-concepts.md#detid)==}).
 
 ## UML Diagram
 
@@ -88,4 +89,3 @@ has a size of 2 bytes), one would have to round this up to the nearest
 (because `64 * sizeof(uint16_t) = 128`) to be efficient. Similary,
 if we needed 64 `uint16_t`, we would still need one 128-byte transaction.
 However, for 65 `uint16_t`, we would need 2 x 128-byte transfers.
-
