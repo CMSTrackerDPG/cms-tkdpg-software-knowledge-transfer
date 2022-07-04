@@ -296,3 +296,19 @@ Parts of the memory will remain unused, depending on the `numPixels`
 but, for large number of pixels, the percentage of wasted memory
 becomes negligible.
 
+### Special case
+
+What if `numPixels` was `64`? By following the same procedure,
+the resulting memory usage would look something like this:
+
+<figure markdown>
+![GPU mem full](./img/gpu_mem_full.png){ width="400" }
+<figcaption>
+The GPU memory, with all variables stored, and
+<b>numPixels = 64</b>. No memory is unused.
+</figcaption>
+</figure>
+
+!!! note
+
+	Any multiple of 64 would result in no wasted memory.
