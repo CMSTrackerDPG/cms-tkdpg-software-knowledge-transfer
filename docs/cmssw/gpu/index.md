@@ -45,6 +45,14 @@ another in 1D arrays:
 
 ![SoA Data layout](img/soa_layout.png){ width="500" }
 
+!!! warning
+	
+	The data is **not** stored in a per-module sorted manner,
+	meaning that `module1` data could precede `module0`'s data.
+	Data from each module *is*, however, stored consecutively,
+	meaning that data from one module is not split up into several
+	blocks.
+	
 An actual example of such arrays can be seen in the
 [SiPixelDigisCUDASOAView](./SiPixelDigisCUDASOAView.md).
 
