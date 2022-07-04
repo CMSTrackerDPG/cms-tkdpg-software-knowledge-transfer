@@ -178,7 +178,7 @@ A unique, 32-bit number, used to identify all CMS detector parts
 in CMSSW (mainly code that runs on CPUs).
 
 Defined
-[here](https://cmssdt.cern.ch/lxr/source/DataFormats/DetId/interface/DetId.h).
+[here](https://github.com/cms-sw/cmssw/blob/master/DataFormats/DetId/interface/DetId.h).
 
 More info [here](https://github.com/cms-sw/cmssw/tree/master/Geometry/TrackerGeometryBuilder).
 
