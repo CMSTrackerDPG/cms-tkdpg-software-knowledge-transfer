@@ -71,7 +71,8 @@ is the trace that the particle leaves on the Pixel Detector.
 
 ### Read-Out Chip
 
-Pixel ReadOut Chip (ROC) with 2 x 26 x 80 pixels.
+Pixel Read-Out Chip (ROC) with 2 x 26 x 80 pixels. A
+chip which measures and converts analog signal to digital.
 
 Specification [here](https://twiki.cern.ch/twiki/bin/view/CMS/Psi46dig).
 
@@ -83,13 +84,20 @@ Image taken from [here](https://twiki.cern.ch/twiki/pub/CMS/Psi46dig/psi46digSpe
 
 ### Module
 
-A structure of 2 x 8 ReadOut Chips (ROCs), totalling
+A structure of 2 x 8 Read-Out Chips (ROCs), totalling
 2 x 8 x (2 x 26 x 80) = 66560 pixels.
+
+Multiple modules are used in the Pixel Detector.
 
 In the exploded view below, the ROCs can be seen in
 the second layer from the top.
 
 ![Module](img/module.jpg){ width="400" }
+
+!!! info
+
+	In software, each module is identified by a unique number.
+	This number, called DetId, is used for all detector parts.
 
 ## Software
 
@@ -163,6 +171,16 @@ The data are now stored consecutively in RAM when loaded, meaning less memory ov
 and better parallel code performance.
 
 A video explanation may be found [here](https://www.youtube.com/watch?v=ScvpoiTbMKc)
+
+### `DetId`
+
+A unique, 32-bit number, used to identify all CMS detector parts
+in CMSSW.
+
+Defined
+[here](https://cmssdt.cern.ch/lxr/source/DataFormats/DetId/interface/DetId.h).
+
+More info [here](https://github.com/cms-sw/cmssw/tree/master/Geometry/TrackerGeometryBuilder).
 
 ### s2i (Source to Image)
 
