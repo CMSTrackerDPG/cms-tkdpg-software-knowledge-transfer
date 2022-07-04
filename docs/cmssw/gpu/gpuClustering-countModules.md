@@ -4,7 +4,22 @@
 
 	Add information on the kernel
 	
-	* What does it do?
+	* Add more detailed introduction
+	
+CUDA kernel which implements the following purposes:
+
+* Initialize the `clusterId` array, to be used in later code
+(in the [`findClus`](./gpuClustering-findClus.md) kernel),
+* Filter out invalid modules ({==TODO: what does it mean for
+a module to be invalid?==})
+* Fill the `moduleStart` array, which is an array of indices which
+point to the first element of the SoA data which corresponds to each module.
+Since data is stored in
+a SoA format, the data of all modules is stored in 
+**a non-consecutive way, as far as modules are concerned,** in a single
+1D array. The `moduleStart` indices are therefore required for
+accessing the data of each module. See the
+[`Data Structure`](./index.md#data-structure) section for more information.
 
 ## Code
 
