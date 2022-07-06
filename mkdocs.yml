@@ -70,15 +70,17 @@ nav:
           - Deployments: certhelper/deploying/deployments.md
       - Connectivity &#128279;: certhelper/connectivity.md
       - Apps &#129513;:
-          - Certifier:
+          - certifier:
+              - certhelper/apps/certifier/overview.md
               - Views:
                   - certify: certhelper/apps/certifier/views/certify.md
                   - badReason: certhelper/apps/certifier/views/badreason.md
                   - addBadReason: certhelper/apps/certifier/views/addbadreason.md
-          - OMS:
-              - Models: certhelper/models/models_oms.md
-              
-                  
+          - oms:
+              - certhelper/apps/oms/overview.md
+              - Models: certhelper/apps/oms/models.md
+          - omsapi:
+              - certhelper/apps/omsapi/overview.md
   - MLPlayground &#129528;:
       - mlplayground/introduction.md
       - Deploying &#128674;:

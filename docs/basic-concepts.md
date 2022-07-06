@@ -182,6 +182,19 @@ Defined
 
 More info [here](https://github.com/cms-sw/cmssw/tree/master/Geometry/TrackerGeometryBuilder).
 
+### Run Reconstruction
+
+The result of reconstructing tracks and extracting information from raw CMS Run data.
+
+Those reconstructions are created offline (i.e. after the CMS Run has taken place), and
+are split into four types with regard to their accuracy, detail and time passed since
+the raw data were taken:
+
+* Stream Express (~20 minutes after data taking)
+* Prompt Reconstruction (~48 hours after data taking)
+* ReReco ({==??? years after data taking==})
+* ReReco Ultra Legacy ({==??? years after data taking==})
+
 ### s2i (Source to Image)
 
 A build process for creating docker images directly from the source
