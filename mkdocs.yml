@@ -72,7 +72,11 @@ nav:
               - Views:
                   - certify: certhelper/apps/certifier/views/certify.md
                   - badReason: certhelper/apps/certifier/views/badreason.md
-                  - addBadReason: certhelper/apps/certifier/views/addbadreason.md                    
+                  - addBadReason: certhelper/apps/certifier/views/addbadreason.md
+          - OMS:
+              - Models: certhelper/models/models_oms.md
+              
+                  
   - MLPlayground &#129528;:
       - mlplayground/introduction.md
       - Deploying &#128674;:
