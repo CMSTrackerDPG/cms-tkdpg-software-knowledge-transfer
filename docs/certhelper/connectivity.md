@@ -3,8 +3,6 @@
 During its operation, CertHelper will try to connect to various remote
 resources. An overview can be seen in the sketch below. 
 
-<!-- ![Connectivity](connectivity.png) -->
-
 ```mermaid
 flowchart
 	db[(DBoD)] <--> ch[CertHelper]
@@ -22,11 +20,12 @@ flowchart
 ## APIs
 
 - [OMS API](https://vocms0185.cern.ch/agg/api), for getting run and fill information
-(in `omsapi` app and `oms/utils.py` as of writing)
+(in [`omsapi` app](./apps/omsapi/overview.md) and [`oms/utils.py`](./apps/oms/overview.md) as of writing)
 - [CMS Run Registry](https://cmsrunregistry.web.cern.ch/), for getting
 reconstruction and dataset information (in `oms/utils.py` as of writing)
 - [ebutz's](http://ebutz.web.cern.ch/ebutz/cgi-bin/getReadOutmode.pl) personal
-tools, for getting extra information for Reference Runs (in `tables.py` as of writing)
+tools, for getting extra information for Reference Runs (in
+[`oms/models.py`](./apps/oms/models.md) as of writing)
 
 ## Tools
 
