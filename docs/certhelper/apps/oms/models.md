@@ -20,7 +20,7 @@ as a column in the list of reference runs.
 	
 This information is acquired as a separate HTTP request to
 [ebutz.web.cern.ch](http://ebutz.web.cern.ch). Updated when
-model instance is `save`d (see [`save`](./#save)).
+model instance's [`update_apv_mode` method](./#update_apv_mode) is called.
 
 ### Methods
 
@@ -30,9 +30,8 @@ The default `save` method is overridden so that specific flags
 of the model instance are updated:
 
 * `run_type`
-* `apv_mode`
 
-#### `_update_apv_mode`
+#### `update_apv_mode`
 
 Private method to fetch APV mode information from ebutz.web.cern.ch.
-Updates the instance's `apv_mode` field.
+Updates the instance's `apv_mode` field and saves the model instance.
