@@ -5,7 +5,7 @@ Information on the models described in the `oms/models.py` file.
 ## `OmsRun`
 
 Contains information on CMS Runs. Not to be confused with
-[LHC Runs](../../basic-concepts.md#lhc-run-1-run-2).
+[LHC Runs](../../../basic-concepts.md#lhc-run-1-run-2).
 
 ### Fields
 
