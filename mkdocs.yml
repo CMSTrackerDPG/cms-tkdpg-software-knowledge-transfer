@@ -76,6 +76,10 @@ nav:
                   - certify: certhelper/apps/certifier/views/certify.md
                   - badReason: certhelper/apps/certifier/views/badreason.md
                   - addBadReason: certhelper/apps/certifier/views/addbadreason.md
+          - addrefrun:
+              - certhelper/apps/addrefrun/overview.md
+              - Views:
+                  - update_refruns_info: certhelper/apps/addrefrun/views/update_refruns_info.md
           - oms:
               - certhelper/apps/oms/overview.md
               - Models: certhelper/apps/oms/models.md
