@@ -69,7 +69,7 @@ nav:
       - Deploying &#128674;:
           - Deployments: certhelper/deploying/deployments.md
       - Connectivity &#128279;: certhelper/connectivity.md
-      - Apps:
+      - Apps &#129513;:
           - Certifier:
               - Views:
                   - certify: certhelper/apps/certifier/views/certify.md
