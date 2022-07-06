@@ -13,4 +13,3 @@ tests.
 
 Therefore, this functionality is only triggered on demand, via a button
 on the `/reference/` URL of CertHelper.
-/
