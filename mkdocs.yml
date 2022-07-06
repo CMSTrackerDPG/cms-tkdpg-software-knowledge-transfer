@@ -1,4 +1,6 @@
 site_name: CMS Tracker DPG - Software Knowledge Base
+repo_url: https://github.com/CMSTrackerDPG/cms-tkdpg-software-knowledge-transfer
+edit_uri: edit/master/docs/
 nav:
   - Home &#127968;: index.md
   - basic-concepts.md
