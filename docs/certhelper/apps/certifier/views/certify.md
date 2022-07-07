@@ -71,6 +71,27 @@ found on OMS API for this run or fill number.
 form also contains information about whether there was complete information
 from RunRegistry __and__ OMS API at the time (`external_info_completeness`).
 
+!!! info
+
+	`external_info_completeness` is updated and set as an attribute to the rendered
+	form so that this information is available upon `POST`ing the form back and a
+	`TrackerCertification` instance is created, where the `external_info_completeness`
+	is stored. 
+	
+	i.e. 
+	
+	```mermaid
+	flowchart LR
+	get(GET request) --> get_rr[Get info from RR]
+	get_rr --> info_rr{Info available?}
+	info_rr -- "Yes" --> get_oms[Get info from OMS API]
+	get_oms --> info_oms{Info available?}	
+	info_oms -- "Yes" --> ext_info_true[External Info available]
+	info_oms -- "No" --> ext_info_false[External Info unavailable]
+	info_rr -- "No" --> ext_info_false
+	```
+	
+
 ### `POST`
 
 - Get or create a `RunReconstruction` object given the run number and the
