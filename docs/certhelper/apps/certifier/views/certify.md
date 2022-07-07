@@ -14,14 +14,14 @@ to create `TrackerCertification` objects. As a side-effect, `OmsRun`,
 The user can land on this page from:
 
 - The `/openruns/` page:
-	- By selecting a run number and (optionally) a reconstruction type on the
-	top form ([`GET` request](#get)).
+    - By selecting a run number and (optionally) a reconstruction type on the
+    top form ([`GET` request](#get)).
   
-	- By clicking a colored button in the results listed after searching
-	for openruns (bottom form, ``GET`` request).
+    - By clicking a colored button in the results listed after searching
+    for openruns (bottom form, ``GET`` request).
   
 - The `/certify/` page:
-	- By submitting the complete certification form ([`POST` request](#post))
+    - By submitting the complete certification form ([`POST` request](#post))
 
 [^1]: And messy too :weary:
 
@@ -65,30 +65,30 @@ no info was found on RunRegistry for this specific reconstruction or dataset.
 - `OmsApiRunNumberNotFound`, `OmsApiFillNumberNotFound` if no info was
 found on OMS API for this run or fill number.
 
-
 ### `GET`
 
 - Create a form for the user to certify the reconstruction. This
 form also contains information about whether there was complete information
-from RunRegistry __and__ OMS API at the time (`external_info_completeness`). 
+from RunRegistry __and__ OMS API at the time (`external_info_completeness`).
 
 ### `POST`
 
 - Get or create a `RunReconstruction` object given the run number and the
 reconstruction type.
-- If the dataset is specified (e.g. `/Express/Commissioning2022/DQM`), 
+- If the dataset is specified (e.g. `/Express/Commissioning2022/DQM`),
 `get_or_create` a `Dataset` object.
 - Parse the `POST`ed form.
 - Check whether a `TrackerCertification` object exists for this
 combination of parameters, else create it.
 
 ### Special cases
+
 #### If only a run number is supplied
 
 This case is valid if the user navigates to `/openruns/` and
 only specifies a run number before pressing `Certify`:
 
-![](img/run_number_specified.png)
+![Certify form with run number specified but missing reco type](img/run_number_specified.png)
 
 The procedure is as follows:
 
