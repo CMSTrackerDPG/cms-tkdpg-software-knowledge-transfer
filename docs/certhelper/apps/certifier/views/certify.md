@@ -47,8 +47,25 @@ which is overridden.
 - Make sure that current user is allowed to certify specific reconstruction.
 - If certification exists and user is the owner, redirect to update it, else
 continue below.
-- Make sure an `OmsRun` object exists for specific run number.
+- Make sure an `OmsRun` and `OmsFill` object exists for specific run number.
 - Run `GET` or `POST`-specific logic (below).
+
+This procedure could raise:
+
+- `RunReconstructionAllDatasetsCertified` if no uncertified datasets
+are found for this run number in RunRegistry. This redirects back
+to the `/openruns/` page, so that the user can choose another run number.
+- `ConnectionError` if RunRegistry is not accessible, and `ParseError`
+if there's some CERN SSO outage
+(see issue [#136](https://github.com/CMSTrackerDPG/certifier/issues/136)).
+This is pretty much equivalent with `ConnectionError`. In this case, the
+user is not allowed to proceed, since there is not enough information. A
+reconstruction type should be also supplied.
+- `RunRegistryReconstructionNotFound`, `RunRegistryNoAvailableDatasets` if
+no info was found on RunRegistry for this specific reconstruction or dataset.
+- `OmsApiRunNumberNotFound`, `OmsApiFillNumberNotFound` if no info was
+found on OMS API for this run or fill number.
+
 
 #### `GET`
 
@@ -83,20 +100,8 @@ the `rr_retrieve_next_uncertified_dataset` function.
 - Then, the __reconstruction type__ is specified, using the dataset
 name acquired in the previous step, using the `get_reco_from_dataset`
 function (which simply searches for specific keywords in the dataset
-string, e.g. in the previous example, the reconstruction type would 
+string, e.g. in the previous example, the reconstruction type would
 be `express`).
-
-This procedure could raise:
-
-- `RunReconstructionAllDatasetsCertified` if no uncertified datasets
-are found for this run number in RunRegistry. This redirects back
-to the `/openruns/` page, so that the user can choose another run number.
-- `ConnectionError` if RunRegistry is not accessible, and `ParseError`
-if there's some CERN SSO outage
-(see issue [#136](https://github.com/CMSTrackerDPG/certifier/issues/136)).
-This is pretty much equivalent with `ConnectionError`. In this case, the
-user is not allowed to proceed, since there is not enough information. A
-reconstruction type should be also supplied.
 
 #### If a combination of run_number and reconstruction type is specified
 
@@ -105,7 +110,7 @@ Steps specific to this case:
 - The dataset is retrieved from RunRegistry using the run number and the
 reconstruction type specified (`rr_retrieve_dataset_by_reco`).
 
-The same exceptions raised [above](#if-only-a-run-number-is-supplied) apply.
+The same exceptions raised [above](#on-class-creation) apply.
 
 #### If a dataset is specified but not a reconstruction type
 
