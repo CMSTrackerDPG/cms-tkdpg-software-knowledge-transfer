@@ -252,6 +252,10 @@ credentials.
 
 ### Via the UI
 
+!!! info
+
+	Recommended
+
 The project has 1 TB of storage associated in the EOS. To mount it to
 OpenShift follow these instructions.
 
