@@ -80,6 +80,8 @@ get_oms --> info_oms{Info available?}
 info_oms -- "Yes" --> ext_info_true[External Info Complete]
 info_oms -- "No" --> ext_info_false[External Info Incomplete]
 info_rr -- "No" --> ext_info_false
+ext_info_true --> render[Render form]
+ext_info_false --> render
 ```
 
 !!! info
