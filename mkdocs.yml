@@ -67,6 +67,7 @@ nav:
       - Developing &#129489;&#8205;&#128187;:
           - Branches: certhelper/developing/branches.md
       - Deploying &#128674;:
+          - certhelper/deploying/overview.md
           - Deployments: certhelper/deploying/deployments.md
       - Connectivity &#128279;: certhelper/connectivity.md
       - Apps &#129513;:
