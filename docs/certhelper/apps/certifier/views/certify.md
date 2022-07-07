@@ -86,8 +86,8 @@ from RunRegistry __and__ OMS API at the time (`external_info_completeness`).
 	get_rr --> info_rr{Info available?}
 	info_rr -- "Yes" --> get_oms[Get info from OMS API]
 	get_oms --> info_oms{Info available?}	
-	info_oms -- "Yes" --> ext_info_true[External Info available]
-	info_oms -- "No" --> ext_info_false[External Info unavailable]
+	info_oms -- "Yes" --> ext_info_true[External Info Complete]
+	info_oms -- "No" --> ext_info_false[External Info Incomplete]
 	info_rr -- "No" --> ext_info_false
 	```
 	
