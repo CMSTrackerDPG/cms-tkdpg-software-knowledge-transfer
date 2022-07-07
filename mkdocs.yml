@@ -75,7 +75,7 @@ nav:
           - certifier:
               - certhelper/apps/certifier/overview.md
               - Views:
-                  - certify: certhelper/apps/certifier/views/certify.md
+                  - CertifyView: certhelper/apps/certifier/views/certify.md
                   - badReason: certhelper/apps/certifier/views/badreason.md
                   - addBadReason: certhelper/apps/certifier/views/addbadreason.md
           - addrefrun:

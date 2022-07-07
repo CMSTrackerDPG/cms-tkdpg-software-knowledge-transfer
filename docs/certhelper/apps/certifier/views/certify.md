@@ -7,17 +7,20 @@ This is a multi-purpose[^1] class-based view which handles the following:
 - Renders a __form__ to certify a combination of ^^run number & reconstruction type^^
 - Allows the user to submit a complete certification form.
 
-The final purpose is to guide the user create `TrackerCertification` objects.
+Its final purpose is to guide the user in order
+to create `TrackerCertification` objects.
 
 The user can land on this page from:
 
 - The `/openruns/` page:
-  - By selecting a run number and (optionally) a reconstruction type on the
-  top form (``GET`` request).
-  - By clicking a colored button in the results listed after searching
-  for openruns (bottom form, ``GET`` request).
+	- By selecting a run number and (optionally) a reconstruction type on the
+	top form ([`GET` request](#get)).
+  
+	- By clicking a colored button in the results listed after searching
+	for openruns (bottom form, ``GET`` request).
+  
 - The `/certify/` page:
-  - By submitting the complete certification form (``POST`` Request)
+	- By submitting the complete certification form ([`POST` request](#post))
 
 [^1]: And messy too :weary:
 
@@ -34,13 +37,18 @@ when clicking on colored boxes in `/openruns/`)
 
 #### On class creation
 
-This is common behavior for both `GET` and `POST`.
+This is common behavior for both `GET` and `POST` and is contained
+in the
+[`dispatch` method](https://docs.djangoproject.com/en/4.0/ref/class-based-views/base/#django.views.generic.base.View.dispatch)
+(the part of the view run before checking for `GET` or `POST`),
+which is overridden.
 
 - Make sure that a run number and a reconstruction type are specified.
 - Make sure that current user is allowed to certify specific reconstruction.
 - If certification exists and user is the owner, redirect to update it, else
 continue below.
 - Make sure an `OmsRun` object exists for specific run number.
+- Run `GET` or `POST`-specific logic (below).
 
 #### `GET`
 
@@ -58,7 +66,8 @@ reconstruction type.
 - Check whether a `TrackerCertification` object exists for this
 combination of parameters, else create it.
 
-### If only a run number is supplied
+### Special cases
+#### If only a run number is supplied
 
 This case is valid if the user navigates to `/openruns/` and
 only specifies a run number before pressing `Certify`:
@@ -89,14 +98,16 @@ This is pretty much equivalent with `ConnectionError`. In this case, the
 user is not allowed to proceed, since there is not enough information. A
 reconstruction type should be also supplied.
 
-### If a combination of run_number and reconstruction type is specified
+#### If a combination of run_number and reconstruction type is specified
 
-The procedure is:
+Steps specific to this case:
 
 - The dataset is retrieved from RunRegistry using the run number and the
 reconstruction type specified (`rr_retrieve_dataset_by_reco`).
 
-### If a dataset is specified but not a reconstruction type
+The same exceptions raised [above](#if-only-a-run-number-is-supplied) apply.
+
+#### If a dataset is specified but not a reconstruction type
 
 This case applies when the user clicks any of the dataset buttons on
 the `/openruns/` page, in the table generated when searching for
