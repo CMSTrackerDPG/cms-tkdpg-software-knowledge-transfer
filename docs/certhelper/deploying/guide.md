@@ -3,33 +3,34 @@
 The following steps will guide you through the deployment procedure of the app on OpenShift.
 An overview of the steps is:
 
-- Create a new PaaS project (`Requesting a website`_)
-- Setup the repository that will be used (`Setup Procedure`_)
-- Configure environmental variables (`Setup Environmental Variables`_)
-- Request a new database (`Setup a Database`_)
-- Mount the EOS drive (`Mount EOS Storage`_)
-- Add a Redis server (`Add Redis Server`_)
-- Add nginx server (`Add nginx Server (not working for now)`_)
-- Setup CERN SSO (`Single Sign-On`_)
-- Deploy (`Deploying a new build`_)
-- Expose the app (`Exposing the app`_)
+1. [Create a new PaaS project](./#requesting-a-website)
+2. [Setup the repository that will be used](./#setup-procedure)
+3. [Setup Environmental Variables](./#setup-environmental-variables)
+4. [Setup a Database](./#setup-a-database)
+5. [Mount EOS Storage](./#mount-eos-storage)
+6. [Add Redis Server](./#add-redis-server)
+7. [Add nginx Server](./#add-nginx-server-not-working-for-now) (not working for now)
+8. [Single Sign-On](./#single-sign-on)
+9. [Deploy](./#deploying-a-new-build)
+10. [Expose the app](./#exposing-the-app)
 
 The procedure can be done completely via the web UI provided by PaaS. However,
-the ``oc`` command line utility can prove very useful. See `oc command line utility`
-for how to install it.
+the `oc` command line utility can prove very useful.
+See [below](#oc-command-line-utility)
+for instructions on how to install it.
 
 ## Prerequisites
 
-### ``oc`` command line utility
+### `oc` command line utility
 
 !!! note
 	
 	Optional
 
 [Download and install](https://paas.docs.cern.ch/1._Getting_Started/5-installing-cli/)
-the ``oc`` command line utility, preferably on your lxplus account.
+the `oc` command line utility, preferably on your lxplus account.
 
-### ``.s2i`` directory inside the root of your repository
+### `.s2i` directory inside the root of your repository
 
 We will be using the Software To Image ([s2i](../../basic-concepts.md#s2i-source-to-image))
 approach to deploy on PaaS,
@@ -416,14 +417,12 @@ sso-managment" website.
 
 ### Production Site (``certhelper``)
 
-If you want to push to the production website (``master`` branch) you have
-to manually `trigger a build at Openshift
-<https://paas.cern.ch/k8s/ns/certhelper/build.openshift.io~v1~BuildConfig>`__.
-This is due to safety reasons, to not accidentally trigger a broken build by pushes to
-the master branch.
+If you want to rebuild the production website (``master`` branch) you can
+do so manually by
+[triggering a build on PaaS](https://paas.cern.ch/k8s/ns/certhelper/build.openshift.io~v1~BuildConfig).
 
 This can be done by visiting
-`paas.cern.ch <https://paas.cern.ch/>`__, selecting the
+[paas.cern.ch](https://paas.cern.ch/), selecting the
 ``certhelper`` project and then visiting `Build --> builds`. This
 page should already contain a build of the Certification Helper project that is
 automatically pulled from GitHub. By clicking on this build and then
@@ -431,7 +430,7 @@ pressing the `build` button the whole deployment process should be
 started. In the meantime, the logs of the build process can be viewed by
 clicking on `View Log`.
 
-### Schedule
+### Deployment Schedule
 
 The main `certhelper` instance should only be deployed on shift changes,
 to prevent confusion and/or any inconvenience.
