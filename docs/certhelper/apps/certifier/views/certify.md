@@ -8,7 +8,8 @@ This is a multi-purpose[^1] class-based view which handles the following:
 - Allows the user to submit a complete certification form.
 
 Its final purpose is to guide the user in order
-to create `TrackerCertification` objects.
+to create `TrackerCertification` objects. As a side-effect, `OmsRun`,
+`OmsFill`, `Dataset` and `RunReconstruction` objects are also created.
 
 The user can land on this page from:
 
