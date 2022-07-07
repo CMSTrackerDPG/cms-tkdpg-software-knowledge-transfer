@@ -34,9 +34,7 @@ when clicking on colored boxes in `/openruns/`)
 
 ## Behavior
 
-### Overview 
-
-#### On class creation
+### On class creation
 
 This is common behavior for both `GET` and `POST` and is contained
 in the
@@ -68,13 +66,13 @@ no info was found on RunRegistry for this specific reconstruction or dataset.
 found on OMS API for this run or fill number.
 
 
-#### `GET`
+### `GET`
 
 - Create a form for the user to certify the reconstruction. This
 form also contains information about whether there was complete information
 from RunRegistry __and__ OMS API at the time (`external_info_completeness`). 
 
-#### `POST`
+### `POST`
 
 - Get or create a `RunReconstruction` object given the run number and the
 reconstruction type.
