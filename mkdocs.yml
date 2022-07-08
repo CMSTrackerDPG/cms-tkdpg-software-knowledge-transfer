@@ -50,18 +50,8 @@ nav:
                   - cmssw/gpu/gpuClustering-findClus.md
       - cmssw/build-types.md                  
       - Extra Resources:
-          - Angela's GPU primer:
-              - czangela-tutorial/index.md
-              - Week 1:
-                  - czangela-tutorial/weeks/week01_material.md
-                  - czangela-tutorial/weeks/week01_exercises.md
-              - Week 2:
-                  - czangela-tutorial/weeks/week02_material.md
-                  - czangela-tutorial/weeks/week02_exercises.md                                    
-              - Week 3:
-                  - czangela-tutorial/weeks/week03_material.md
-          - cmssw/extra-resources/extra-gpu.md
-          - cmssw/extra-resources/extra-cmssw.md          
+          - CMSSW:
+              - cmssw/extra-resources/extra-cmssw.md                   
   - Certhelper (a.k.a Certifier) &#9989;:
       - certhelper/introduction.md
       - Developing &#129489;&#8205;&#128187;:
@@ -95,11 +85,23 @@ nav:
           - Deployments: mlplayground/deploying/deployments.md      
       - Connectivity &#128279;: mlplayground/connectivity.md
   - General documentation:
+      - CUDA and GPU development:
+          - Angela's GPU primer:
+              - czangela-tutorial/index.md
+              - Week 1:
+                  - czangela-tutorial/weeks/week01_material.md
+                  - czangela-tutorial/weeks/week01_exercises.md
+              - Week 2:
+                  - czangela-tutorial/weeks/week02_material.md
+                  - czangela-tutorial/weeks/week02_exercises.md                                    
+              - Week 3:
+                  - czangela-tutorial/weeks/week03_material.md
+          - cmssw/extra-resources/extra-gpu.md
+
       - Django:
           - Database:
-              - Exporting-Importing data:
+              - Exporting/Importing data:
                   - general/django/database/exporting_importing.md
-
 theme:
   name: material
   features:
