@@ -94,6 +94,11 @@ nav:
       - Deploying &#128674;:
           - Deployments: mlplayground/deploying/deployments.md      
       - Connectivity &#128279;: mlplayground/connectivity.md
+  - General documentation:
+      - Django:
+          - Database:
+              - Exporting-Importing data:
+                  - general/django/database/exporting_importing.md
 
 theme:
   name: material
