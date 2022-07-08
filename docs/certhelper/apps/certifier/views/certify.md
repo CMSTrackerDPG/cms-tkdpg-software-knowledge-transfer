@@ -69,7 +69,7 @@ found on OMS API for this run or fill number.
 
 - Create a form for the user to certify the reconstruction. This
 form also contains information about whether there was complete information
-from RunRegistry __and__ OMS API at the time (`external_info_completeness`).
+from RunRegistry __and__ OMS API at the time (`external_info_complete`).
 
 ```mermaid
 flowchart LR
@@ -86,9 +86,9 @@ ext_info_false --> render
 
 !!! info
 
-	`external_info_completeness` is updated and set as an attribute to the rendered
+	`external_info_complete` is updated and set as an attribute to the rendered
 	form so that this information is available upon `POST`ing the form back and a
-	`TrackerCertification` instance is created, where the `external_info_completeness`
+	`TrackerCertification` instance is created, where the `external_info_complete`
 	is stored. 
 
 ### `POST`
