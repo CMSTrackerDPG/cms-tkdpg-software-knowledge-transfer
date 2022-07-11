@@ -17,10 +17,10 @@ flowchart LR
 	kwarg2[Keyword Argument 2] --> script	
 	kwargdot[Keyword Argument ...] --> script		
 	
-	User --> View
+	User --> View[View w/ Automatically generated form]
 	View -- Using script configuration --> thread[Thread]
 	thread -- Execute script via SSH --> remote[Remote Machine]
-	remote -- stdout --> thread
-	thread -- WebSocket --> FrontEnd
+	remote -- stdout + file products --> thread
+	thread -- WebSocket --> fe["FrontEnd (stdout + file products)"]
 
 ```
