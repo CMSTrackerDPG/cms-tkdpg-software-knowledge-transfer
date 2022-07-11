@@ -79,6 +79,8 @@ nav:
               - certhelper/apps/omsapi/overview.md
           - home:
               - certhelper/apps/home/overview.md
+          - remotescripts:
+              - certhelper/apps/remotescripts/overview.md
   - MLPlayground &#129528;:
       - mlplayground/introduction.md
       - Deploying &#128674;:
