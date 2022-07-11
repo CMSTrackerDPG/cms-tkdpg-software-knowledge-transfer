@@ -17,7 +17,8 @@ flowchart LR
 	kwarg2[Keyword Argument 2] --> script	
 	kwargdot[Keyword Argument ...] --> script		
 	
-	script --> thread[Thread]
+	User --> View
+	View -- Using script configuration --> thread[Thread]
 	thread -- Execute script via SSH --> remote[Remote Machine]
 	remote -- stdout --> thread
 	thread -- WebSocket --> FrontEnd
