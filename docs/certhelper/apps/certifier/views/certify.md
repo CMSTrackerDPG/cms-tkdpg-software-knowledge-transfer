@@ -136,3 +136,8 @@ The same exceptions raised [above](#on-class-creation) apply.
 This case applies when the user clicks any of the dataset buttons on
 the `/openruns/` page, in the table generated when searching for
 open runs.
+
+#### If requested OmsRun and/or RunRegistry information is not available
+
+Input fields are presented to the user instead of a display, so that they can
+edit the missing OmsRun and OmsFill information manually.
