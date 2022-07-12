@@ -135,7 +135,8 @@ combination of parameters, else create it.
 ??? danger "TRIGGER WARNING; NOT [DRY](../../../../../basic-concepts#dry)"
 
 	This last step of the procedure has been :skull:COPIED-PASTED:skull: to the
-	`UpdateRunView` in the `listruns` app until a cleaner solution has been found.
+	[`UpdateRunView`](../../listruns/views/updaterun.md)
+	in the `listruns` app until a cleaner solution has been found.
 
 ### Special cases
 
@@ -212,4 +213,4 @@ the [`dispatch`](#on-class-creation) method).
 
 * Check if the user trying to certify this reconstruction is the same
 as the one who initially created it **OR** has shift leader rights
-* Redirect to `update` view of `listruns`.
+* Redirect to [`UpdateRunView`](../../listruns/views/updaterun.md) of `listruns`.
