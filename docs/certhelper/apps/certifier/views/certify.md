@@ -110,6 +110,27 @@ reconstruction type.
 - Parse the `POST`ed form.
 - Check whether a `TrackerCertification` object exists for this
 combination of parameters, else create it.
+- If `external_info_complete` is `False` in the `POST` data (see 
+[below](#if-requested-omsrun-andor-runregistry-information-is-not-available)):
+    * Check if `OmsFill` exists with the info supplied, and create or update
+	it with the info in the form.
+	If object already exists, update it:
+	```python
+	omsfill_form = OmsFillForm(
+                    request.POST,
+                    instance=OmsFill.objects.get(
+                        fill_number=omsfill_form.data["fill_number"]
+                    ),
+                )
+	```
+
+	* Since the `OmsRun` object has [__already been created__ before](#on-class-creation),
+	even without RR/OMS information, **update** the appropriate `OmsRun` instance
+	with the info supplied manually by the user with the form:
+	```python
+	omsrun_form = OmsRunForm(request.POST, instance=self.run)
+	```
+	Where `self.run` is the `OmsRun`instance created [before](#on-class-creation).
 
 ### Special cases
 
@@ -122,13 +143,13 @@ only specifies a run number before pressing `Certify`:
 
 The procedure is as follows:
 
-- Try querying the RunRegistry using the supplied run number
+- Query the RunRegistry using the supplied run number
 to get the next available __uncertified dataset__
 (e.g. `/Express/Commissioning2022/DQM`). This is done using
 the `rr_retrieve_next_uncertified_dataset` function.
-- Then, the __reconstruction type__ is specified, using the dataset
-name acquired in the previous step, using the `get_reco_from_dataset`
-function (which simply searches for specific keywords in the dataset
+- Then, to specify the __reconstruction type__, using the dataset
+name acquired in the previous step, the `get_reco_from_dataset`
+function is run (which simply searches for specific keywords in the dataset
 string, e.g. in the previous example, the reconstruction type would
 be `express`).
 
@@ -163,13 +184,21 @@ providing two more forms to the `certify.html` template:
 * `OmsFillForm` (`omsfill_form`)
 
 Those fields are activated only if the `external_info_complete` attribute
-of the certification `form` is set to `False`. For example, for the
+of the certification `form` is set to `False`[^2]. For example, for the
 `run_type` field of `OmsRun`:
 
-```html
+[^2]: Once again, this is done in the [`dispatch`](#on-class-creation) method
+
+```django
 {% if not form.external_info_complete.value %}
 	{% render_field omsrun_form.run_type class+="form-control form-select" title=omsrun_form.run_type.help_text %}
 {% else %}
 	{{ run.run_type|capfirst }}
 {% endif %}
 ```
+
+This was done for __every__ field that needed to be editable by the user,
+no smarter way was found to do that.
+
+On `Submit` button press, a `POST` request is made (reminder that this also runs
+the [`dispatch`](#on-class-creation) method).
