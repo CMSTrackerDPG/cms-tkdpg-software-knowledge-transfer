@@ -230,6 +230,14 @@ A string identifying the reconstruction that took place, e.g.:
 * `/Express/Cosmics22/DQM`
 * `/Express/Commissioning2022/DQM`
 * `/PromptReco/Collisions2022/DQM`
+
+
+### DRY
+:skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull:
+
+:skull: Do not Repeat Yourself. Copy/Pasting code is BAD :skull:
+
+:skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull:
 	
 
 ### s2i (Source to Image)

@@ -111,7 +111,7 @@ reconstruction type.
 - Check whether a `TrackerCertification` object exists for this
 combination of parameters, else create it.
 - If `external_info_complete` is `False` in the `POST` data (see 
-[below](#if-requested-omsrun-andor-runregistry-information-is-not-available)):
+[below](#requested-omsrun-andor-runregistry-information-is-not-available)):
     * Check if `OmsFill` exists with the info supplied, and create or update
 	it with the info in the form.
 	If object already exists, update it:
@@ -132,9 +132,14 @@ combination of parameters, else create it.
 	```
 	Where `self.run` is the `OmsRun`instance created [before](#on-class-creation).
 
+??? danger "TRIGGER WARNING; NOT [DRY](../../../../../basic-concepts#dry)"
+
+	This last step of the procedure has been :skull:COPIED-PASTED:skull: to the
+	`UpdateRunView` in the `listruns` app until a cleaner solution has been found.
+
 ### Special cases
 
-#### If only a run number is supplied
+#### Only a run number is supplied
 
 This case is valid if the user navigates to `/openruns/` and
 only specifies a run number before pressing `Certify`:
@@ -153,7 +158,7 @@ function is run (which simply searches for specific keywords in the dataset
 string, e.g. in the previous example, the reconstruction type would
 be `express`).
 
-#### If a combination of run_number and reconstruction type is specified
+#### A combination of run_number and reconstruction type is specified
 
 Steps specific to this case:
 
@@ -162,13 +167,13 @@ reconstruction type specified (`rr_retrieve_dataset_by_reco`).
 
 The same exceptions raised [above](#on-class-creation) apply.
 
-#### If a dataset is specified but not a reconstruction type
+#### A dataset is specified but not a reconstruction type
 
 This case applies when the user clicks any of the dataset buttons on
 the `/openruns/` page, in the table generated when searching for
 open runs.
 
-#### If requested OmsRun and/or RunRegistry information is not available
+#### Requested OmsRun and/or RunRegistry information is not available
 
 This can be caused either by:
 
@@ -202,3 +207,9 @@ no smarter way was found to do that.
 
 On `Submit` button press, a `POST` request is made (reminder that this also runs
 the [`dispatch`](#on-class-creation) method).
+
+#### Certification already exists
+
+* Check if the user trying to certify this reconstruction is the same
+as the one who initially created it **OR** has shift leader rights
+* Redirect to `update` view of `listruns`.
