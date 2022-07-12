@@ -62,6 +62,8 @@ nav:
           - Deployments: certhelper/deploying/deployments.md
       - Connectivity &#128279;: certhelper/connectivity.md
       - Apps &#129513;:
+          - dqmhelper:
+              - certhelper/apps/dqmhelper/overview.md
           - certifier:
               - certhelper/apps/certifier/overview.md
               - Views:
