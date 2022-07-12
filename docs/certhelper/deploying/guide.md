@@ -112,7 +112,8 @@ configure the web application with the GitHub repository:
 	![](img/paas-add-git.png)
 	
 5.  Paste the repository URL in the field provided.
-6.  Under ``Advanced Git options``, you may select a specific branch, if needed.
+6.  Under ``Advanced Git options``, you may select a specific branch, if needed. E.g. for the 
+training certhelper instance, the `training` branch must be selected.
 7.  okd will automatically detect that this is a Python	application and will select the latest version of Python.
 
 	!!! info
@@ -124,8 +125,8 @@ configure the web application with the GitHub repository:
 
 	![](img/paas-deployment.png)
 			   
-10. Add GitHub credentials at "Source Secret" if the repository is
-    private
+10. [Optional] Add GitHub credentials at "Source Secret" *if the repository is
+    private*
 	
 11. Make sure that *Create a route to the Application* is ticked.
 12. Under *Show advanced Routing options*:
