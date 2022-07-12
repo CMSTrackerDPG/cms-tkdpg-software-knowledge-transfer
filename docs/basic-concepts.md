@@ -25,8 +25,9 @@ Multiple phases may belong to a single Run (see below).
 ### [LHC] Run 1, Run 2, ... 
 
 Data-taking periods, which are usually followed by Long Shutdown (LS) periods.
-During a Run, multiple Phases may be observed. For example, Phase 0 and Phase 1 took place during
-Run 2.
+During a Run, multiple Phases may be observed. For example, Phase 0 and Phase 1
+took place during
+Run 2. Refers to the long-term schedule of the LHC, and it's in the order of months.
 
 Runs' schedule can be found [here](https://lhc-commissioning.web.cern.ch/schedule/LHC-long-term.htm).
 
@@ -35,6 +36,14 @@ Runs' schedule can be found [here](https://lhc-commissioning.web.cern.ch/schedul
 !!! todo
 
 	TODO
+	
+### [CMS] Run
+
+!!! todo
+
+	TODO
+
+Data-taking periods (in the order of minutes), during which CMS is recording data.
 
 ## Hardware
 
@@ -190,7 +199,8 @@ More info [here](https://github.com/cms-sw/cmssw/tree/master/Geometry/TrackerGeo
 
 ### Run Reconstruction
 
-The result of reconstructing tracks and extracting information from raw CMS Run data.
+The result of reconstructing tracks and extracting information from raw
+[CMS Run](#cms-run) data.
 
 Those reconstructions are created offline (i.e. after the CMS Run has taken place), and
 are split into four types with regard to their accuracy, detail and time passed since
@@ -200,6 +210,27 @@ the raw data were taken:
 * Prompt Reconstruction (~48 hours after data taking)
 * ReReco ({==??? years after data taking==})
 * ReReco Ultra Legacy ({==??? years after data taking==})
+
+### Run Registry
+
+Also **RunRegistry** or **RR**, this is a web application and API
+which serves information for Online and Offline
+[CMS run reconstructions](#run-reconstruction).
+
+Link to [Run Registry](https://cmsrunregistry.web.cern.ch/).
+
+### [Run Registry] Dataset
+
+!!! todo
+
+	TODO: No idea what this represents
+
+A string identifying the reconstruction that took place, e.g.:
+
+* `/Express/Cosmics22/DQM`
+* `/Express/Commissioning2022/DQM`
+* `/PromptReco/Collisions2022/DQM`
+	
 
 ### s2i (Source to Image)
 

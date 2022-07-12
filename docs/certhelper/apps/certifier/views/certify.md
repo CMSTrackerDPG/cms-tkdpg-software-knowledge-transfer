@@ -1,5 +1,10 @@
 # CertifyView
 
+!!! danger "OOF"
+
+	Possibly the most intricate part of CertHelper, 
+	which also requires a lot of refactoring. Brace yourselves.
+
 ## Overview
 
 This is a multi-purpose[^1] class-based view which handles the following:
@@ -64,6 +69,11 @@ reconstruction type should be also supplied.
 no info was found on RunRegistry for this specific reconstruction or dataset.
 - `OmsApiRunNumberNotFound`, `OmsApiFillNumberNotFound` if no info was
 found on OMS API for this run or fill number.
+
+!!! warning "Ok this may be stupid"
+
+	...as this behavior is not probably needed for **both** `GET` and `POST`.
+	TO BE REFACTORED AT SOME POINT
 
 ### `GET`
 
@@ -139,5 +149,27 @@ open runs.
 
 #### If requested OmsRun and/or RunRegistry information is not available
 
+This can be caused either by:
+
+* CertHelper not having access to
+[RunRegistry](../../../../../basic-concepts#run-registry) or OMS API or
+* Run number/run reconstruction was not found in RunRegistry or OMS API.
+
 Input fields are presented to the user instead of a display, so that they can
-edit the missing OmsRun and OmsFill information manually.
+edit the missing OmsRun and OmsFill information manually. This is achieved by
+providing two more forms to the `certify.html` template:
+
+* `OmsRunForm` (`omsrun_form`)
+* `OmsFillForm` (`omsfill_form`)
+
+Those fields are activated only if the `external_info_complete` attribute
+of the certification `form` is set to `False`. For example, for the
+`run_type` field of `OmsRun`:
+
+```html
+{% if not form.external_info_complete.value %}
+	{% render_field omsrun_form.run_type class+="form-control form-select" title=omsrun_form.run_type.help_text %}
+{% else %}
+	{{ run.run_type|capfirst }}
+{% endif %}
+```
