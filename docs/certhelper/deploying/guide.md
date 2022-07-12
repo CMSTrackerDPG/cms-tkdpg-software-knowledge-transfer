@@ -73,13 +73,14 @@ else
 fi
 
 exit $rc
-```   
+```
 
-See `Setup Environmental Variables`_ for the required environmental variables used in the script above.
-
+!!! note
+	
+	See [Setup Environmental Variables](#setup-environmental-variables)
+	for the required environmental variables used in the script above.
 
 ## Requesting a website
-
 
 Create a new PaaS project by clicking
 [here](https://paas.docs.cern.ch/1._Getting_Started/1-create-paas-project/).
@@ -92,7 +93,6 @@ order to use the OpenShift software, the `PaaS Web Application` option
 has to be selected.
 
 ## Setup Procedure
-
 
 Once the website is successfully requested the application should be
 available in OpenShift. Following steps need to be done in order to
