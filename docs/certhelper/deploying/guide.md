@@ -278,6 +278,8 @@ ALTER ROLE admin WITH PASSWORD 'new_password';
 	```
 
 Follow the instructions [here](https://dbod-user-guide.web.cern.ch/instance_management/ssl/postgres/)
+to edit the required configuration files using
+[the file editor](https://dbod-user-guide.web.cern.ch/instance_management/configuration_files/).
 
 ## Mount EOS Storage
 
