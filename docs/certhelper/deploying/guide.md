@@ -245,9 +245,39 @@ training certhelper instance, the `training` branch must be selected.
 The database was requested from the CERN
 [DB on demand service](https://dbod.web.cern.ch/).
 
+A PostgreSQL database is used.
+
 After the database has been requested it can be used straight away.
 Django takes care of creating the necessary tables and only requires the
 credentials.
+
+### Actions to take once the database is ready
+
+#### Change default password
+
+Given the username that was sent to you via the DBoD Service,
+(possibly `admin`) connect to the database:
+
+```bash
+psql -h dbod-birdup.cern.ch -U admin -p 6601
+```
+
+And run:
+
+```sql
+ALTER ROLE admin WITH PASSWORD 'new_password';
+```
+
+#### SSL Configuration
+
+!!! error
+
+	``` bash
+	django.db.utils.OperationalError: connection to server at 
+	"<host>" (<ip>), port 6601 failed: FATAL:  no pg_hba.conf entry for host "<ip>"
+	```
+
+Follow the instructions [here](https://dbod-user-guide.web.cern.ch/instance_management/ssl/postgres/)
 
 ## Mount EOS Storage
 
