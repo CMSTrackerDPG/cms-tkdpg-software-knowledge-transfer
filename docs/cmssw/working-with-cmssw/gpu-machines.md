@@ -68,6 +68,18 @@ Then, follow the instructions
   but has larger capacity.
 * [CMS Cluster Users Guide](https://twiki.cern.ch/twiki/bin/viewauth/CMS/ClusterUsersGuide)
 
+### Useful commands
+
+#### Transfering files to/from P5 machines
+
+From your own computer:
+
+```bash
+scp -r -o ProxyCommand='nc -x localhost:18080 -X 5 %h %p' <username>@gpu-c2a02-39-01.cms:/remote/path /local/path
+```
+
+This prevents the `nc: invalid option -- '-'` error.
+
 ## Special GPU nodes
 
 ??? info 
