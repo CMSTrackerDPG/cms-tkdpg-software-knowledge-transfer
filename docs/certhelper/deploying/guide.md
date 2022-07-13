@@ -338,7 +338,9 @@ Then, search for and select `Redis`, and then `Instantiate Template`.
 
 ![](img/paas-redis.png)
 
-Leave all settings to their default values. Take note of the `Database Service Name`,
+Choose `5-el8` as the `Version of Redis Image`. `6-el8` was tested
+but did not work as of writing (2022/07).
+Leave all other settings to their default values. Take note of the `Database Service Name`,
 which will serve as the hostname that Django will have to connect to.
 
 Click on `Create`. This will automatically place a new pod on the
