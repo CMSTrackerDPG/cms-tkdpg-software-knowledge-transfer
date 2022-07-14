@@ -285,7 +285,7 @@ to edit the required configuration files using
 
 Assuming that the [database name](#setup-environmental-variables)
 you are going to use is `certhelperdb`
-(i.e. `DJANGO_DATABASE_NAME` is `certhelpdb`), you will need to 
+(i.e. `DJANGO_DATABASE_NAME` is `certhelperdb`), you will need to 
 create it manually first.
 
 To do so, you will have to first connect to it using `psql`[^1]:
@@ -300,7 +300,7 @@ psql -h <Database hostname> -p <Database port> -U <Database user>
 Then, in the SQL prompt, run the following to create the database:
 
 ```sql
-CREATE DATABASE certhelpdb;
+CREATE DATABASE certhelperdb;
 ```
 
 and enter your password once prompted.
