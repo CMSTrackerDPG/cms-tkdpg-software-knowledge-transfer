@@ -288,10 +288,13 @@ you are going to use is `certhelperdb`
 (i.e. `DJANGO_DATABASE_NAME` is `certhelpdb`), you will need to 
 create it manually first.
 
-To do so, you will have to first connect to it using `psql`:
+To do so, you will have to first connect to it using `psql`[^1]:
+[^1]: You will either have to do that through LXPLUS, or your computer must
+	be inside CERN. You can always use an SSH tunnel for that.
+
 
 ```bash
-psql -h dbod-devcertdb.cern.ch -p 6611 -U admin
+psql -h <Database hostname> -p <Database port> -U <Database user>
 ```
 
 Then, in the SQL prompt, run the following to create the database:
