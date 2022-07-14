@@ -281,6 +281,27 @@ Follow the instructions [here](https://dbod-user-guide.web.cern.ch/instance_mana
 to edit the required configuration files using
 [the file editor](https://dbod-user-guide.web.cern.ch/instance_management/configuration_files/).
 
+#### Create the database
+
+Assuming that the [database name](#setup-environmental-variables)
+you are going to use is `certhelperdb`
+(i.e. `DJANGO_DATABASE_NAME` is `certhelpdb`), you will need to 
+create it manually first.
+
+To do so, you will have to first connect to it using `psql`:
+
+```bash
+psql -h dbod-devcertdb.cern.ch -p 6611 -U admin
+```
+
+Then, in the SQL prompt, run the following to create the database:
+
+```sql
+CREATE DATABASE certhelpdb;
+```
+
+and enter your password once prompted.
+
 ## Mount EOS Storage
 
 ### Via the UI
