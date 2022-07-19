@@ -3,6 +3,8 @@
 !!! todo
 
 	TODO
+	
+![MLP logo](img/mlp_logo.png)
 
 ## Composition
 
