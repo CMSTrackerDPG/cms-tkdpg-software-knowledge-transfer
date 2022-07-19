@@ -14,7 +14,7 @@ and it's always formed based on the `script_id` part of the WS URL
 
 This, in effect, means that for each `remotescript` configuration created,
 a separate `channel_layer` will be created (e.g. `output_1` for remotescript
-with id = 1.
+with id = 1).
 
 ## Methods
 
@@ -27,6 +27,10 @@ that the appropriate `group_name` can be created.
 
 
 ### `script_output`
+
+When this method is called, an `event` dictionary is passed to it.
+This contains all the information that the caller wants to push to
+the Websocket client connected to a specific channel group.
 
 This method is run **indirectly** from the `ScriptExecutionBaseView` (`views.py`)
 via the `channel_layer.group_send` function call. This is done by specifying the
