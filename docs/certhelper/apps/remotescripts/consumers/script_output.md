@@ -32,6 +32,10 @@ When this method is called, an `event` dictionary is passed to it.
 This contains all the information that the caller wants to push to
 the Websocket client connected to a specific channel group.
 
+A `message` key is expected to be found in the `event` dict, which
+is the content which is dumped to JSON and pushed to the front-end 
+WS client.
+
 This method is run **indirectly** from the `ScriptExecutionBaseView` (`views.py`)
 via the `channel_layer.group_send` function call. This is done by specifying the
 `type` parameter to be `script.output` (see

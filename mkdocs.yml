@@ -95,6 +95,9 @@ nav:
               - Consumers:
                   - ScriptOutputConsumer:
                       - certhelper/apps/remotescripts/consumers/script_output.md
+              - Views:
+                  - ScriptExecution:
+                      - certhelper/apps/remotescripts/views/script_execution.md
   - MLPlayground &#129528;:
       - mlplayground/introduction.md
       - Deploying &#128674;:
