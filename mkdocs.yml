@@ -83,6 +83,10 @@ nav:
               - Models: certhelper/apps/oms/models.md
           - omsapi:
               - certhelper/apps/omsapi/overview.md
+          - shiftleader:
+              - certhelper/apps/shiftleader/overview.md
+              - Obsolete code:
+                  - certhelper/apps/shiftleader/obsolete.md
           - home:
               - certhelper/apps/home/overview.md
           - remotescripts:
