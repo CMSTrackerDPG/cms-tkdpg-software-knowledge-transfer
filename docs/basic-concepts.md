@@ -231,6 +231,16 @@ A string identifying the reconstruction that took place, e.g.:
 * `/Express/Commissioning2022/DQM`
 * `/PromptReco/Collisions2022/DQM`
 
+### DBoD
+
+DataBase on Demand, a service provided by CERN to request database instances
+for personal or project use.
+
+[Website](dbod.web.cern.ch/)
+
+!!! note
+	
+	Not to be confused with [BDoD](https://www.youtube.com/watch?v=o0eS80iuCHY)
 
 ### DRY
 :skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull:
