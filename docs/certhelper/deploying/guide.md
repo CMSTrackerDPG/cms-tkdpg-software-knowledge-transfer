@@ -441,6 +441,13 @@ oc set volume dc/<your-chosen-name> --add --name=<volume-name> --type=persistent
 
 ### CERN Setup
 
+* Visit the [application portal](https://application-portal.web.cern.ch/).
+* Edit your application (e.g. `webframeworks-paas-certhelper`).
+* Click on `SSO Registration` and generate an `OpenID Connect` provider.
+* Note the `Client ID` and `Client Secrets`.
+
+### DEPRECATED VERSION
+
 OAuth2 is an authorization service which can be used to authenticate
 CERN users. The advantage of using such an authorization service is that
 users of the certification helper do not have register manually, but can
@@ -471,10 +478,24 @@ for the development site.
 The single sign-on integration is very easy when using the
 `django-allauth` python package, which has build in CERN support.
 
-In order to make use CERN single sign-on service it has to be configured
-in the Admin Panel under "Social applications". There the client id and
-secret key has to be specified which can be listed in the "cern
-sso-managment" website.	
+Follow the installation procedure
+[here](https://django-allauth.readthedocs.io/en/latest/installation.html).
+
+!!! note "Notes on the installation procedure"
+
+	* When adding a `Site`, use the complete URL of the app (e.g. `https://certhelper.web.cern.ch/`).
+	* Instead of adding the `SOCIALACCOUNT_PROVIDERS` in `settings.py`, do so from the admin
+	app by visiting	the `/admin/socialaccount/socialapp/` URL.
+	* Verify the `SITE_ID` value by checking the database itself. E.g. it might ge `1` or `2`
+	
+Then, in your login HTML template, add a link, e.g.:
+
+```django
+{% load socialaccount %}
+{% block content %}
+  <a href="{% provider_login_url 'cern' %}">Login w/ CERN</a>
+{% endblock content %}
+```
 
 ## Deploying a new build
 
