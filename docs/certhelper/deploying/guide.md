@@ -487,6 +487,8 @@ Follow the installation procedure
 	* Instead of adding the `SOCIALACCOUNT_PROVIDERS` in `settings.py`, do so from the admin
 	app by visiting	the `/admin/socialaccount/socialapp/` URL.
 	* Verify the `SITE_ID` value by checking the database itself. E.g. it might ge `1` or `2`
+	* Add `ACCOUNT_EMAIL_VERIFICATION = "none"` in `settings.py` to disable sending 
+	a verification email on first signup.
 	
 Then, in your login HTML template, add a link, e.g.:
 
