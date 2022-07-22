@@ -243,12 +243,12 @@ for personal or project use.
 	Not to be confused with [BDoD](https://www.youtube.com/watch?v=o0eS80iuCHY)
 
 ### DRY
+
 :skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull:
 
 :skull: Do not Repeat Yourself. Copy/Pasting code is BAD :skull:
 
 :skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull:
-	
 
 ### s2i (Source to Image)
 
