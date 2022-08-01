@@ -19,7 +19,7 @@ creates an Open Document Format Presentation using [`odfpy`](https://github.com/
 
 	`Style`s suck
 	
-!!! tip
+!!! tip "File format"
 
 	OpenDocumentFormat files are actually archives, containing two very
 	important files:
@@ -27,16 +27,16 @@ creates an Open Document Format Presentation using [`odfpy`](https://github.com/
 	- `styles.xml`
 	- `content.xml`
 	
-!!! tip
+!!! tip "Styles"
 
 	Some styles must have specific names, while `automaticstyles` 
 	do not have this requirement. 
 	
-!!! tip
+!!! tip "Automatic styles location"
 
 	`automaticstyles` are stored in `content.xml`
 	
-!!! tip
+!!! tip "Making an ODF file programmatically"
 
 	You are generally advised to make changes to an existing `.odp`/`.odt` file and
 	then open them as archives to check the `contents.xml` and `styles.xml` files
