@@ -35,3 +35,10 @@ flowchart LR
 	thread -- WebSocket --> fe["FrontEnd (stdout + file products)"]
 
 ```
+
+[WebSockets](https://en.wikipedia.org/wiki/WebSocket)
+are used for real-time updating of the front-end with
+the scripts' console output, status updates and images created. This
+is implemented by using [Django Channels](https://channels.readthedocs.io/en/stable/),
+[channels_redis](https://github.com/django/channels_redis/) and a Redis server
+which acts as the backing store.
