@@ -85,6 +85,9 @@ nav:
               - certhelper/apps/omsapi/overview.md
           - shiftleader:
               - certhelper/apps/shiftleader/overview.md
+              - Views:
+                  - ShiftLeader Report: certhelper/apps/shiftleader/views/shiftleader_report.md
+                  - ShiftLeader Report Presentation: certhelper/apps/shiftleader/views/shiftleader_report_presentation.md                    
               - Obsolete code:
                   - certhelper/apps/shiftleader/obsolete.md
           - home:
