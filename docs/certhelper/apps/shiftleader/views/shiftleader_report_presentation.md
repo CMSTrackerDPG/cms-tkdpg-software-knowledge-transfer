@@ -4,6 +4,9 @@ The `ShiftLeaderReportPresentationView` calls the `ShiftLeaderReportPresentation
 class (in `shiftleader/utiltities/shiftleader_report_presentation.py`) which 
 creates an Open Document Format Presentation using [`odfpy`](https://github.com/eea/odfpy). 
 
+Similarly to the `ShiftLeaderView`, the backbone of this view is also the
+[`TrackerCertificationQuerySet`](../../certifier/query.md).
+
 ## Notes & Tips
 
 !!! warning
