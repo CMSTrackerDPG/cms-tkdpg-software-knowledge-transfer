@@ -81,6 +81,8 @@ You can add these packages with **cms-addpkg**:
 ``` bash
 git cms-addpkg CUDADataFormats/SiPixelCluster/
 git cms-addpkg CUDADataFormats/SiPixelDigi/
+git cms-addpkg DataFormats/SiPixelCluster/
+git cms-addpkg DataFormats/SiPixelDigi/
 git cms-addpkg RecoLocalTracker/SiPixelClusterizer/
 ```
 

@@ -71,15 +71,8 @@ To connect:
 (More detailed instructions
 [here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs#Connecting_to_the_machines))
 
-### Notes
+### Special configuration required
 
-* These machines lie in a different subnet than the one that the LXPLUS machines
-  belong to.
-* The `/nfshome0/<username>` directory is shared and available from all the machines above,
-  but has limited space.
-* The `/data/user/<username>` directory is not shared across the devices,
-  but has larger capacity.
-* [CMS Cluster Users Guide](https://twiki.cern.ch/twiki/bin/viewauth/CMS/ClusterUsersGuide)
 * To make commands like `cmsenv` and `cmsrel` available, run 
   ```bash
   source /cvmfs/cms.cern.ch/cmsset_default.sh
@@ -95,7 +88,20 @@ To connect:
 	```bash
 	git config --global --replace-all http.proxy socks5://localhost:18080
 	```
+* Set the correct `SCRAM_ARCH` for these machines:
+```bash
+export SCRAM_ARCH=el8_amd64_gcc10
+```
 	
+### Notes
+
+* These machines lie in a different subnet than the one that the LXPLUS machines
+  belong to.
+* The `/nfshome0/<username>` directory is shared and available from all the machines above,
+  but has limited space.
+* The `/data/user/<username>` directory is not shared across the devices,
+  but has larger capacity.
+* [CMS Cluster Users Guide](https://twiki.cern.ch/twiki/bin/viewauth/CMS/ClusterUsersGuide)
 
 ### Useful commands
 
