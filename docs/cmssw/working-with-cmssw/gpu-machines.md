@@ -85,6 +85,17 @@ To connect:
   source /cvmfs/cms.cern.ch/cmsset_default.sh
   ```
   first.
+* To allow connecting to GitHub via HTTP:
+    * [Configure the SOCKS proxy](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs#Configure_the_online_machines_fo)
+	* Open the proxy:
+	```bash 
+	ssh -f -N cmsusr.cms
+	```
+	* Configure `git`:
+	```bash
+	git config --global --replace-all http.proxy socks5://localhost:18080
+	```
+	
 
 ### Useful commands
 
@@ -105,7 +116,7 @@ This prevents the `nc: invalid option -- '-'` error.
 	This section is more or less taken from the [Patatrack website systems](https://patatrack.web.cern.ch/patatrack/private/systems/cmg-gpu1080.html) subpage.
 
 ### cmg-gpu1080
-
+	
 #### System information
 
 [Topology of the machine](https://fpantale.web.cern.ch/fpantale/out.pdf)
