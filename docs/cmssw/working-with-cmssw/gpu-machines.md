@@ -29,12 +29,16 @@ exec bash
 	[CMS TWiki TriggerDevelopmentWithGPUs](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs) 
 	page.
 
-There are 6 machines available for general development and validation of the online reconstruction on GPUs:
+There are 10 machines available for general development and validation of the online reconstruction on GPUs:
 
+* **`gpu-c2a02-35-01.cms`**
+* **`gpu-c2a02-35-02.cms`**
+* **`gpu-c2a02-37-01.cms`**
+* **`gpu-c2a02-37-02.cms`** (currently without a GPU)
 * **`gpu-c2a02-37-03.cms`**
 * **`gpu-c2a02-37-04.cms`**
 * **`gpu-c2a02-39-01.cms`**
-* **`gpu-c2a02-39-02.cms`**
+* **`gpu-c2a02-39-02.cms`** ({==Preferred==})
 * **`gpu-c2a02-39-03.cms`**
 * **`gpu-c2a02-39-04.cms`**
 
@@ -42,12 +46,7 @@ These are dedicated machines for the development of the online reconstruction.
 
 To access them, you will first need a **CMS online account**. See below for instructions.
 
-### How to connect
-
-To connect to these machines you need to:
-
-* Have a CMS online account and
-* Be in the **`gpudev`** group.
+### Request a CMS Online account
 
 To request access, please subscribe to the [cms-hlt-gpu](https://e-groups.cern.ch/e-groups/Egroup.do?egroupId=10346110&searchField=0&searchMethod=0&searchValue=cms-hlt-gpu&pageSize=30&hideSearchFields=false&searchMemberOnly=false&searchAdminOnly=false) e-group and send an email to [andrea.bocci@cern.ch](mailto:andrea.bocci@cern.ch), indicating:
 
@@ -55,8 +54,22 @@ To request access, please subscribe to the [cms-hlt-gpu](https://e-groups.cern.c
 * your online or lxplus username;
 * your full name and email.
 
-Then, follow the instructions
-[here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs#Connecting_to_the_machines).
+### How to connect
+
+Requirements:
+
+* Have a CMS online account and
+* Be in the **`gpudev`** group.
+
+To connect:
+
+* Directly from your computer:
+  ```bash
+  ssh -o ProxyCommand='nc --proxy localhost:18080 --proxy-type socks5 %h %p' <username>@gpu-c2a02-39-02.cms
+  ```
+
+(More detailed instructions
+[here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs#Connecting_to_the_machines))
 
 ### Notes
 
