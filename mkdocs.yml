@@ -108,6 +108,9 @@ nav:
           - Deployments: mlplayground/deploying/deployments.md      
       - Connectivity &#128279;: mlplayground/connectivity.md
   - General documentation:
+      - SSH:
+          - Mounting remote filesystems:
+              - general/ssh/mounting_remote.md
       - CUDA and GPU development:
           - Angela's GPU primer:
               - czangela-tutorial/index.md

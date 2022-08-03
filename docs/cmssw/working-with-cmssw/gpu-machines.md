@@ -80,6 +80,11 @@ To connect:
 * The `/data/user/<username>` directory is not shared across the devices,
   but has larger capacity.
 * [CMS Cluster Users Guide](https://twiki.cern.ch/twiki/bin/viewauth/CMS/ClusterUsersGuide)
+* To make commands like `cmsenv` and `cmsrel` available, run 
+  ```bash
+  source /cvmfs/cms.cern.ch/cmsset_default.sh
+  ```
+  first.
 
 ### Useful commands
 
