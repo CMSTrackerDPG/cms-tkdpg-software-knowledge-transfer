@@ -109,6 +109,8 @@ nav:
       - Connectivity &#128279;: mlplayground/connectivity.md
   - General documentation:
       - SSH:
+          - Tunnelling:
+              - general/ssh/tunnel.md
           - Mounting remote filesystems:
               - general/ssh/mounting_remote.md
       - CUDA and GPU development:
