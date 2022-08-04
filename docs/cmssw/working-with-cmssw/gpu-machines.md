@@ -61,11 +61,19 @@ Requirements:
 * Have a CMS online account and
 * Be in the **`gpudev`** group.
 
-To connect:
+To connect directly from your computer:
 
-* Directly from your computer:
+* Create a proxy:
+  ```bash
+  ssh -f -N -D18080 cmsusr.cern.ch
+  ```
+* Connect via SSH:
   ```bash
   ssh -o ProxyCommand='nc --proxy localhost:18080 --proxy-type socks5 %h %p' <username>@gpu-c2a02-39-02.cms
+  ```
+  or 
+  ```bash
+  ssh -o ProxyCommand='nc -x localhost:18080 -X 5 %h %p' <username>gpu-c2a02-39-02.cms
   ```
 
 (More detailed instructions
@@ -97,6 +105,8 @@ export SCRAM_ARCH=el8_amd64_gcc10
 
 * These machines lie in a different subnet than the one that the LXPLUS machines
   belong to.
+* A side-effect of the previous point is that those machines **do not
+  have access to the Grid**.
 * The `/nfshome0/<username>` directory is shared and available from all the machines above,
   but has limited space.
 * The `/data/user/<username>` directory is not shared across the devices,

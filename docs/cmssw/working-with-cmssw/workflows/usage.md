@@ -1,4 +1,4 @@
-# Usage
+# runTheMatrix Usage
 
 ## Prerequisites
 
@@ -100,3 +100,19 @@ runTheMatrix.py -l 136.885502 --what gpu
 `-l` specifies the workflow to run.
 
 `--what` specifies, among other things, the device to run this workflow on.
+
+### Expected outputs
+
+`runTheMatrix.py` executes `cmsDriver` for each step. A directory named
+after the complete name of the workflow will be created on each workflow execution.
+In it, logs and intermediate files are created. 
+
+To debug errors for a specific step, look into those log files.
+
+### Possible Errors
+
+#### No .root files are generated during Step 2
+
+##### Resolution 1
+
+Use the `--ibeos` argument along with `runTheMatrix.py`
