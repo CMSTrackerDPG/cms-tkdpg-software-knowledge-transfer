@@ -2,9 +2,8 @@
 
 !!! todo
 
-	Add information on the kernel
-	
 	* Add more detailed introduction
+	* How is the data split? How much works is done per thread?	
 	
 CUDA kernel which implements the following purposes:
 
@@ -20,6 +19,7 @@ a SoA format, the data of all modules is stored in
 1D array. The `moduleStart` indices are therefore required for
 accessing the data of each module. See the
 [`Data Structure`](./index.md#data-structure) section for more information.
+
 
 ## Code
 
@@ -52,18 +52,29 @@ accessing the data of each module. See the
 
 ## Detailed explanation
 
-### 0. Arguments
+### 0. Introduction
 
-#### [Input] `uint16_t const* __restrict__ id`
+#### 0.0 Arguments
 
-This is an array (with length equal to the total number of pixels), which
-identifies the module id that each pixel corresponds to.
+##### `uint16_t const* __restrict__ id` [Input]
+
+This is an array (with length equal to the total number of digis), which
+identifies the module id that each digi corresponds to.
 
 This `id` is **NOT** the same with the `DetId`, but it's a GPU-only identifier.
 
-#### [Output] `uint32_t* __restrict__ moduleStart`
+##### `uint32_t* __restrict__ moduleStart` [Output]
 
-An array of indices 
+An array of indices that {==????==}???
+
+#### 0.1 Implementation Details
+
+* The `first` variable contains the **global thread id** within
+  the kernel.
+* `numElements` == `wordCounter` {==???is this the same to the total number of digis???==}
+* Each thread is responsible for more than one digis, i.e. if there are less blocks than 
+  required to cover all the digis, each thread will also iterate with step equal to
+  **number of blocks** x **threads per block**. 
 
 ### 1. Init for clustering
 
