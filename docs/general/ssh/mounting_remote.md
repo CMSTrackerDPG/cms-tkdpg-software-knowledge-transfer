@@ -1,6 +1,8 @@
 # Mounting remote locations via SSH
 
-[Source](https://linuxize.com/post/how-to-use-sshfs-to-mount-remote-directories-over-ssh/)
+[Source](https://linuxize.com/post/how-to-use-sshfs-to-mount-remote-directories-over-ssh/)[^1]
+[^1]: <small>Thx 哈拉</small>
+
 
 ## Installation
 

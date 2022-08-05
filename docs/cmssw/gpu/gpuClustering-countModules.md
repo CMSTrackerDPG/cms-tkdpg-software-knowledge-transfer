@@ -233,20 +233,39 @@ auto loc = atomicInc(moduleStart, nMaxModules);
 moduleStart[loc + 1] = i;
 ```
 
+??? note "[`atomicInc`](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#atomicinc) documentation"
+
+	```cuda
+	unsigned int atomicInc(unsigned int* address,
+                       unsigned int val);
+	```
+	reads the 32-bit word `old` located at the address `address` in global
+	or shared memory, computes `((old >= val) ? 0 : (old+1))`, and stores
+	the result back to memory at the same address. These three operations
+	are performed in one atomic transaction. The function returns `old`. 
+	
+After execution of the lines above, the following takes place:
+
+* Using `atomicInc()`, the value at `moduleStart[0]` is altered to either `0`
+  or `moduleStart[0] + 1`. The value will be `0` **only if the value stored
+  in `moduleStart[0]` exceeds the `nMaxModules` value**, i.e. `3892` for Phase 2.
+* `loc` will contain the value of `moduleStart[0]`, after the `atomicInc()` operation,
+  meaning it will also be either `0` or `moduleStart[0] + 1`.
+
 We fill the `moduleStart` array with starting module indices. Note that we can't make sure that the first module we mark is `A` and then `B`, etc. This code is executed competitively so we might have different `moduleStart` array each execution:
 
 <table>
     <tr>
-        <td>pos</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+        <th>pos</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
     </tr>
     <tr>
-        <td>moduleStart</td><td>4</td><td>0</td><td>5</td><td>9</td><td>13</td><td>0</td><td>0</td>
+        <th><code>moduleStart</code> (execution i)</th><td>4</td><td>0</td><td>5</td><td>9</td><td>13</td><td>0</td><td>0</td>
     </tr>
     <tr>
-        <td>moduleStart</td><td>4</td><td>0</td><td>9</td><td>13</td><td>5</td><td>0</td><td>0</td>
+        <th><code>moduleStart</code> (execution ii)</th><td>4</td><td>0</td><td>9</td><td>13</td><td>5</td><td>0</td><td>0</td>
     </tr>
     <tr>
-        <td>moduleStart</td><td>4</td><td>13</td><td>0</td><td>9</td><td>5</td><td>0</td><td>0</td>
+        <th><code>moduleStart</code> (execution iii)</th><td>4</td><td>13</td><td>0</td><td>9</td><td>5</td><td>0</td><td>0</td>
     </tr>
 </table>
 
@@ -256,8 +275,7 @@ The order will be determined by in what order each thread reaches the line `18`.
 auto loc = atomicInc(moduleStart, nMaxModules);
 ```
 
-### Conclusion
+!!! note "Important note"
 
-We initialise our `clusterId`s for our later clustering algorithm
-in `findClus` and fill our `moduleStart` array with the indices
-of the first `digi/hit` in each module.
+	In the end, `moduleStart[0]` records the total number of modules
+	found in the array.
