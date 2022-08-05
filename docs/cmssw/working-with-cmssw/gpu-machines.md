@@ -65,7 +65,7 @@ To connect directly from your computer:
 
 * Create a proxy:
   ```bash
-  ssh -f -N -D18080 cmsusr.cern.ch
+  ssh -f -N -D18080 <username>@cmsusr.cern.ch
   ```
 * Connect via SSH:
   ```bash
@@ -73,7 +73,7 @@ To connect directly from your computer:
   ```
   or 
   ```bash
-  ssh -o ProxyCommand='nc -x localhost:18080 -X 5 %h %p' <username>gpu-c2a02-39-02.cms
+  ssh -o ProxyCommand='nc -x localhost:18080 -X 5 %h %p' <username>@gpu-c2a02-39-02.cms
   ```
 
 (More detailed instructions
