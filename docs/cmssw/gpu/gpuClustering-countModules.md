@@ -269,6 +269,20 @@ We fill the `moduleStart` array with starting module indices. Note that we can't
     </tr>
 </table>
 
+!!! note "Important note"
+
+	In the end, `moduleStart[0]` records the total number of modules
+	found in the array.
+	
+	Then, follow the **indices** of the array elements where the module
+	`id` changes. This means that the `moduleStart` array contains
+	at most `nMaxModules + 1` elements (to account for `moduleStart[0]` which
+	stores the number of indices contained in the array). 
+	
+	It follows that the number of elements in `moduleStart` is **less** than
+	the number of digis.
+
+
 !!! quote "The last row of the table above is read as follows:"
 
 	* There is a total of `4` indices stored in this array.
@@ -284,15 +298,3 @@ which threads reach line `18`.
 auto loc = atomicInc(moduleStart, nMaxModules);
 ```
 
-!!! note "Important note"
-
-	In the end, `moduleStart[0]` records the total number of modules
-	found in the array.
-	
-	Then, follow the **indices** of the array elements where the module
-	`id` changes. This means that the `moduleStart` array contains
-	at most `nMaxModules + 1` elements (to account for `moduleStart[0]` which
-	stores the number of indices contained in the array). 
-	
-	It follows that the number of elements in `moduleStart` is **less** than
-	the number of digis.
