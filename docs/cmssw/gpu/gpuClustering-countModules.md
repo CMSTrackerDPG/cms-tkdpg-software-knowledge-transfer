@@ -52,6 +52,19 @@ accessing the data of each module. See the
 
 ## Detailed explanation
 
+### 0. Arguments
+
+#### [Input] `uint16_t const* __restrict__ id`
+
+This is an array (with length equal to the total number of pixels), which
+identifies the module id that each pixel corresponds to.
+
+This `id` is **NOT** the same with the `DetId`, but it's a GPU-only identifier.
+
+#### [Output] `uint32_t* __restrict__ moduleStart`
+
+An array of indices 
+
 ### 1. Init for clustering
 
 We initialise the `clusterId`s for the `findClus` kernel.
@@ -67,7 +80,8 @@ This part of the code that has nothing to do with counting the modules yet.
 
 Let's say we have a snippet from our `id` array.
 
-Instead of having numbers for the `id` we'll use letters, `A`, `B`, `C` and `D`, and mark `invalid` module ids with ❌.
+Instead of having numbers for the `id` we'll use letters, `A`, `B`, `C` and `D`, and mark
+**invalid** module ids with ❌.
 
 <table>
     <tr>
@@ -77,7 +91,8 @@ Instead of having numbers for the `id` we'll use letters, `A`, `B`, `C` and `D`,
 
 !!! warning "Digis ordered by modules"
 
-    It is a prerequisite and we know that digis belonging to one module will appear **consecutive** in our buffer. They might be separated by `invalid` `digis/hits`.
+    It is a prerequisite and we know that digis belonging to one module will appear 
+	**consecutive** in our buffer. They might be separated by **invalid digis/hits**.
 
 ### 3. Look for boundary elements
 
