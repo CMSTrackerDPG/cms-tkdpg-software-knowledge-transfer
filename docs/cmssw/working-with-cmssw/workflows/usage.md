@@ -90,9 +90,9 @@ runTheMatrix.py -n --what gpu
 
 !!! note
 
-	* Workflows starting with `136.885` and `136.888` contain actual, detector data
-	* Workflows staring with `11634` are Monte Carlo (simulated) data
-	* Workflows ending in `.504` are usually used for profiling, as they don't run any DQM code
+	* Workflows starting with `136.885` or `136.888` contain actual, detector data.
+	* Workflows starting with `11634` are Monte Carlo (simulated) data.
+	* Workflows ending in `.504` are usually used for profiling, as they don't run any DQM code.
 	* Workflows ending in `.508` detect Triplets (tracks using only 3 hits, instead of 4) and
 	are also used for profiling.
 
