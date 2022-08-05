@@ -249,8 +249,8 @@ After execution of the lines above, the following takes place:
 * Using `atomicInc()`, the value at `moduleStart[0]` is altered to either `0`
   or `moduleStart[0] + 1`. The value will be `0` **only if the value stored
   in `moduleStart[0]` exceeds the `nMaxModules` value**, i.e. `3892` for Phase 2.
-* `loc` will contain the value of `moduleStart[0]`, after the `atomicInc()` operation,
-  meaning it will also be either `0` or `moduleStart[0] + 1`.
+* `loc` will contain the value of `moduleStart[0]`, **before** the `atomicInc()` operation,
+  meaning it will be either `0` or `moduleStart[0]`.
 
 We fill the `moduleStart` array with starting module indices. Note that we can't make sure that the first module we mark is `A` and then `B`, etc. This code is executed competitively so we might have different `moduleStart` array each execution:
 
