@@ -22,33 +22,79 @@ runTheMatrix.py -n --what gpu
 	ignoring non-requested file relval_standard
 	...
 	
-	found a total of  22  workflows:
-	136.885502 RunHLTPhy2018D+HLTDR2_2018+RECODR2_2018reHLT_Patatrack_PixelOnlyGPU+HARVEST2018_pixelTrackingOnly 
+	found a total of  58  workflows:
+	136.885502 RunHLTPhy2018D+HLTDR2_2018+RECODR2_2018reHLT_Patatrack_PixelOnlyGPU+HARVEST2018_pixelTrackingOnly
 	136.885512 RunHLTPhy2018D+HLTDR2_2018+RECODR2_2018reHLT_ECALOnlyGPU+HARVEST2018_ECALOnly 
 	136.885522 RunHLTPhy2018D+HLTDR2_2018+RECODR2_2018reHLT_HCALOnlyGPU+HARVEST2018_HCALOnly 
 	136.888502 RunJetHT2018D+HLTDR2_2018+RECODR2_2018reHLT_Patatrack_PixelOnlyGPU+HARVEST2018_pixelTrackingOnly 
 	136.888512 RunJetHT2018D+HLTDR2_2018+RECODR2_2018reHLT_ECALOnlyGPU+HARVEST2018_ECALOnly 
 	136.888522 RunJetHT2018D+HLTDR2_2018+RECODR2_2018reHLT_HCALOnlyGPU+HARVEST2018_HCALOnly 
 	10824.502 2018_Patatrack_PixelOnlyGPU+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.503 2018_Patatrack_PixelOnlyGPU_Validation+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.504 2018_Patatrack_PixelOnlyGPU_Profiling+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT 
 	10824.506 2018_Patatrack_PixelOnlyTripletsGPU+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.507 2018_Patatrack_PixelOnlyTripletsGPU_Validation+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.508 2018_Patatrack_PixelOnlyTripletsGPU_Profiling+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT 
 	10824.512 2018_Patatrack_ECALOnlyGPU+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.513 2018_Patatrack_ECALOnlyGPU_Validation+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.514 2018_Patatrack_ECALOnlyGPU_Profiling+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT 
 	10824.522 2018_Patatrack_HCALOnlyGPU+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
-	10824.592 2018_Patatrack_GPU+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
-	10824.596 2018_Patatrack_TripletsGPU+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.523 2018_Patatrack_HCALOnlyGPU_Validation+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.524 2018_Patatrack_HCALOnlyGPU_Profiling+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT 
+	10824.582 2018_Patatrack_AllGPU+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.583 2018_Patatrack_AllGPU_Validation+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.586 2018_Patatrack_AllTripletsGPU+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.587 2018_Patatrack_AllTripletsGPU_Validation+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.592 2018_Patatrack_FullRecoGPU+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.593 2018_Patatrack_FullRecoGPU_Validation+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.596 2018_Patatrack_FullRecoTripletsGPU+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10824.597 2018_Patatrack_FullRecoTripletsGPU_Validation+TTbar_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
 	10842.502 2018_Patatrack_PixelOnlyGPU+ZMM_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
-	10842.506 2018_Patatrack_PixelOnlyTripletsGPU+ZMM_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
-	11634.502 2021_Patatrack_PixelOnlyGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+Reco+HARVEST 
-	11634.506 2021_Patatrack_PixelOnlyTripletsGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+Reco+HARVEST 
-	11634.512 2021_Patatrack_ECALOnlyGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+Reco+HARVEST 
-	11634.522 2021_Patatrack_HCALOnlyGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+Reco+HARVEST 
-	11634.592 2021_Patatrack_GPU+TTbar_14TeV_TuneCP5_GenSim+Digi+Reco+HARVEST 
-	11634.596 2021_Patatrack_TripletsGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+Reco+HARVEST 
-	11650.502 2021_Patatrack_PixelOnlyGPU+ZMM_14TeV_TuneCP5_GenSim+Digi+Reco+HARVEST 
-	11650.506 2021_Patatrack_PixelOnlyTripletsGPU+ZMM_14TeV_TuneCP5_GenSim+Digi+Reco+HARVEST 
+	10842.503 2018_Patatrack_PixelOnlyGPU_Validation+ZMM_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10842.504 2018_Patatrack_PixelOnlyGPU_Profiling+ZMM_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT 
+	10842.506 2018_Patatrack_PixelOnlyTripletsGPU+ZMM_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT
+	10842.507 2018_Patatrack_PixelOnlyTripletsGPU_Validation+ZMM_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT+HARVESTFakeHLT 
+	10842.508 2018_Patatrack_PixelOnlyTripletsGPU_Profiling+ZMM_13TeV_TuneCUETP8M1_GenSim+Digi+RecoFakeHLT 
+	11634.502 2021_Patatrack_PixelOnlyGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.503 2021_Patatrack_PixelOnlyGPU_Validation+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.504 2021_Patatrack_PixelOnlyGPU_Profiling+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano 
+	11634.506 2021_Patatrack_PixelOnlyTripletsGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.507 2021_Patatrack_PixelOnlyTripletsGPU_Validation+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.508 2021_Patatrack_PixelOnlyTripletsGPU_Profiling+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano 
+	11634.512 2021_Patatrack_ECALOnlyGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.513 2021_Patatrack_ECALOnlyGPU_Validation+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.514 2021_Patatrack_ECALOnlyGPU_Profiling+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano 
+	11634.522 2021_Patatrack_HCALOnlyGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.523 2021_Patatrack_HCALOnlyGPU_Validation+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.524 2021_Patatrack_HCALOnlyGPU_Profiling+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano 
+	11634.582 2021_Patatrack_AllGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.583 2021_Patatrack_AllGPU_Validation+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.586 2021_Patatrack_AllTripletsGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.587 2021_Patatrack_AllTripletsGPU_Validation+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.592 2021_Patatrack_FullRecoGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.593 2021_Patatrack_FullRecoGPU_Validation+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.596 2021_Patatrack_FullRecoTripletsGPU+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11634.597 2021_Patatrack_FullRecoTripletsGPU_Validation+TTbar_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11650.502 2021_Patatrack_PixelOnlyGPU+ZMM_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11650.503 2021_Patatrack_PixelOnlyGPU_Validation+ZMM_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11650.504 2021_Patatrack_PixelOnlyGPU_Profiling+ZMM_14TeV_TuneCP5_GenSim+Digi+RecoNano 
+	11650.506 2021_Patatrack_PixelOnlyTripletsGPU+ZMM_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano 
+	11650.507 2021_Patatrack_PixelOnlyTripletsGPU_Validation+ZMM_14TeV_TuneCP5_GenSim+Digi+RecoNano+HARVESTNano
+	11650.508 2021_Patatrack_PixelOnlyTripletsGPU_Profiling+ZMM_14TeV_TuneCP5_GenSim+Digi+RecoNano 
 	
-	22 workflows with 4 steps
+	12 workflows with 3 steps
+	46 workflows with 4 steps
+
+
 	```
 
+!!! note
+
+	* Workflows starting with `136.885` and `136.888` contain actual, detector data
+	* Workflows staring with `11634` are Monte Carlo (simulated) data
+	* Workflows ending in `.504` are usually used for profiling, as they don't run any DQM code
+	* Workflows ending in `.508` detect Triplets (tracks using only 3 hits, instead of 4) and
+	are also used for profiling.
 
 ### List Profiling workflows
 
