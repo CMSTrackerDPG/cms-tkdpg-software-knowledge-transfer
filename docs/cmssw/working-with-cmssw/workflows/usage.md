@@ -95,6 +95,7 @@ runTheMatrix.py -n --what gpu
 	* Workflows ending in `.504` are usually used for profiling, as they don't run any DQM code.
 	* Workflows ending in `.508` detect Triplets (tracks using only 3 hits, instead of 4) and
 	are also used for profiling.
+	* More information on specific workflows [here](https://patatrack.web.cern.ch/patatrack/wiki/workflows/)
 
 ### List Profiling workflows
 
