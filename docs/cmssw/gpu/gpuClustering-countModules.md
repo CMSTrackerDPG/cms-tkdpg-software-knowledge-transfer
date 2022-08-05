@@ -74,7 +74,7 @@ An array of indices that {==????==}???
 * `numElements` == `wordCounter` {==???is this the same to the total number of digis???==}
 * Each thread is responsible for more than one digis, i.e. if there are less blocks than 
   required to cover all the digis, each thread will also iterate with step equal to
-  **number of blocks** x **threads per block**. 
+  **number of blocks** * **threads per block**. This is done with the `for` loop.
 
 ### 1. Init for clustering
 
@@ -96,7 +96,7 @@ Instead of having numbers for the `id` we'll use letters, `A`, `B`, `C` and `D`,
 
 <table>
     <tr>
-        <td>id</td><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
     </tr>
 </table>
 
@@ -113,10 +113,10 @@ In the first row we'll show `id` and in the second column the `threadIdx.x`.
 
 <table>
     <tr>
-        <td>id</td><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
     </tr>
     <tr>
-        <td>thid.x</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+        <th><code>threadIdx.x</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
     </tr>
 </table>
 
@@ -128,46 +128,61 @@ if (invalidModuleId == id[i])
 auto j = i - 1;
 ```
 
+!!! note
+
+	`i` is the unique index of each digi.
+	
+	`j` is the unique index of the previous (in regard to `i`) **valid** digi.
+
 <table>
     <tr>
-        <td>id</td><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
     </tr>
     <tr>
-        <td>thid.x</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+        <th><code>threadIdx.x</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
     </tr>
     <tr>
-        <td>i</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+        <th><code>i</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
     </tr>
     <tr>
-        <td>j</td><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>3</td><td>4</td><td>❌</td><td>6</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>12</td>
+        <th><code>j</code></th><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>3</td><td>4</td><td>❌</td><td>6</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>12</td>
     </tr>
 </table>
+
+Next:
 
 ``` cuda linenums="14"
 while (j >= 0 and id[j] == invalidModuleId)
   --j;
 ```
 
+This means that we keep going back, checking previous digis, **until we stop finding
+digis which belong to invalid modules**. In the end, **`j` will hold the index
+of `i`th digi's closest valid backward neighbour incremented by 1:**
+
 <table>
     <tr>
-        <td>id</td><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
     </tr>
     <tr>
-        <td>thid.x</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+        <th><code>threadIdx.x</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
     </tr>
     <tr>
-        <td>i</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+        <th><code>i</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
     </tr>
     <tr>
-        <td>j before</td><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>3</td><td>4</td><td>❌</td><td>6</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>12</td>
+        <th><code>j</code> before</th><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>3</td><td>4</td><td>❌</td><td>6</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>12</td>
     </tr>
     <tr>
         <td>while</td><td></td><td></td><td></td><td></td><td>↓</td><td></td><td></td><td>↓</td><td></td><td></td><td></td><td></td><td></td><td>↓</td>
     </tr>
     <tr>
-        <td>j after</td><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>1</td><td>4</td><td>❌</td><td>5</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>10</td>
+        <th><code>j</code> after</th><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>1</td><td>4</td><td>❌</td><td>5</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>10</td>
     </tr>
 </table>
+
+It's now time to check at which index the `id` value changes (i.e.: the data of the next module
+begins):
 
 ```cuda linenums="16"
 if (j < 0 or id[j] != id[i]) {
@@ -177,36 +192,39 @@ if (j < 0 or id[j] != id[i]) {
 }
 ```
 
-Let's set `cond = (j < 0 or id[j] != id[i])`. Check when this will be true (`T` is true, `F` is false, ❌ is not evaluated because that thread terminated early):
+Let's set `cond = (j < 0 or id[j] != id[i])`. Check when this will be true (`T` is true, `F` is false, ❌ is not evaluated because that thread terminated early due to `id` being equal to `invalidModuleId`):
 
 <table>
     <tr>
-        <td>id</td><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
     </tr>
     <tr>
-        <td>thid.x</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+        <th><code>threadIdx.x</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
     </tr>
     <tr>
-        <td>i</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+        <th><code>i</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
     </tr>
     <tr>
-        <td>j after</td><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>1</td><td>4</td><td>❌</td><td>5</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>10</td>
+        <th><code>j</code> after</th><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>1</td><td>4</td><td>❌</td><td>5</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>10</td>
     </tr>
     <tr>
-        <td>cond</td><td>T</td><td>F</td><td>❌</td><td>❌</td><td>F</td><td>T</td><td>❌</td><td>F</td><td>F</td><td>T</td><td>F</td><td>❌</td><td>❌</td><td>T</td>
+        <th><code>cond</code></th><td>T</td><td>F</td><td>❌</td><td>❌</td><td>F</td><td>T</td><td>❌</td><td>F</td><td>F</td><td>T</td><td>F</td><td>❌</td><td>❌</td><td>T</td>
     </tr>
 </table>
 
-Let's just look at the first and last rows and get rid if `False` and not evaluated threads for `cond` to better see what is happening.
+Now, let's look at the `id` and `cond`, getting rid of `False` `cond` and
+invalid `id`s to better see what is happening:
 
 <table>
     <tr>
-        <td>id</td><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
     </tr>
     <tr>
-        <td>cond</td><td>T</td><td></td><td></td><td></td><td></td><td>T</td><td></td><td></td><td></td><td>T</td><td></td><td></td><td></td><td>T</td>
+        <th><code>cond</code></th><td>T</td><td></td><td></td><td></td><td></td><td>T</td><td></td><td></td><td></td><td>T</td><td></td><td></td><td></td><td>T</td>
     </tr>
 </table>
+
+{==Wherever the `cond` is `T`, the data of a new module begins==}.
 
 ### 4. set `moduleStart` for each module
 
