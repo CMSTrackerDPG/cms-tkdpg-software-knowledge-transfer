@@ -24,15 +24,15 @@ depends on the Phase:
 This kernel is launched with **1 block per module**, meaning
 that each GPU thread 
 
-!!! note
+!!! note "Note 1"
 	
-	The case to extend this by launching it with more blocks
+	The case to extend this by launching it with less blocks
 	than there are modules is also accounted for, by running
 	a `for` loop in each thread which runs from `firstModule` (i.e.
 	the thread's **Block index**) to `endModule` by increments
 	of `gridDim.x` (i.e. total number of blocks).
 
-!!! note
+!!! note "Note 2"
 
 	Since the number of threads per block will probably be 
 	smaller than the number of digis per module, a single 
