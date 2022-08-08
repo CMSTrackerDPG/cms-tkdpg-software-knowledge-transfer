@@ -17,6 +17,57 @@ depends on the Phase:
 	on the Phase. This number is found in the
 	[Geometry/CommonTopologies](https://github.com/cms-sw/cmssw/blob/master/Geometry/CommonTopologies/interface/SimplePixelTopology.h)
 	CMSSW module which contains constants related to the Pixel Detector Topology.
+	
+
+## Overview
+
+This kernel is launched with **1 block per module**, meaning
+that each GPU thread 
+
+!!! note
+	
+	The case to extend this by launching it with more blocks
+	than there are modules is also accounted for, by running
+	a `for` loop in each thread which runs from `firstModule` (i.e.
+	the thread's **Block index**) to `endModule` by increments
+	of `gridDim.x` (i.e. total number of blocks).
+
+!!! note
+
+	Since the number of threads per block will probably be 
+	smaller than the number of digis per module, a single 
+	thread will have to take care of doing the calculations
+	for more than one digi. 
+	
+	This is accounted for by a second `for` loop which starts
+	at `first` and iterates up to `numElements` (i.e. total number
+	of digis), with increments of `blockDim.x` (i.e. number of threads
+	per block)
+	
+### Arguments
+
+#### `uint32_t* const* __restrict__ moduleStart` [Input]
+
+This is an array of indices, created by the
+[`countModules`](gpuClustering-countModules.md) kernel,
+which stores the indices that the data of the next module is stored in all
+other arrays (e.g. `x`, `y`).
+
+
+!!! note "Note 1"
+	
+	The only exception is the 0th element, which stores the **total number of
+	modules**, i.e. the number of elements stored in the `moduleStart` array.
+	
+	It is used as the max number to execute a `for` loop for in the kernel.
+	
+!!! note "Note 2"
+
+	This array is expected to contain **less** elements than all other input
+	arrays, e.g. `x`, since each module contains many digis. 
+	
+	The only case where its length would be the same as all other arrays
+	would be if each module contained only one digi.
 
 ## Histogram Filling
 
