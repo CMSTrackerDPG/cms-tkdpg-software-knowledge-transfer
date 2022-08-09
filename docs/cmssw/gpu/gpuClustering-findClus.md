@@ -219,6 +219,32 @@ with `i=23` and `msize=22`, so `msize` stays `22`.
 We now know the last **non-invalid** index of the current module, and
 this index is stored in `msize`.
 
+
+## Duplicate detection
+
+Similarly to [the total module pixels calculation](#calculating-the-total-number-of-pixels-in-a-module),
+to detect duplicate digis a similar iteration logic can be applied. 
+
+Assumming 2 threads per block, `t0` starts with the first element
+of the module (with index `15`) and compares the `x` and `y` values
+between index `15` and the next one (assumming it's not invalid), i.e.
+index `16`:
+
+![](img/duplicate_00.svg)
+
+Then, compares element `15` to `17`:
+
+![](img/duplicate_01.svg)
+
+Elements `18` and `19` are invalid, so they're skipped and the `20`th is compared:
+
+![](img/duplicate_02.svg)
+
+This goes on until the `msize`th element.
+
+Then, `t1` will start from the element at position `15 + threadIdx.x = 16` and compare
+the `x` and `y` values with the ones at position `17` and so on.
+
 ## Histogram Filling
 
 !!! todo
@@ -226,6 +252,8 @@ this index is stored in `msize`.
 	what the heckerino is histogram filling?
 	
 
+The `hist` histogram is stored in **shared** memory, so that all
+threads can update it.
 
 Code:
 
