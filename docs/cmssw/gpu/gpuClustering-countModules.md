@@ -56,14 +56,14 @@ accessing the data of each module. See the
 
 #### 0.0 Arguments
 
-##### `uint16_t const* __restrict__ id` [Input]
+###### `uint16_t const* __restrict__ id` [Input]
 
 This is an array (with length equal to the total number of digis), which
 identifies the module id that each digi corresponds to.
 
 This `id` is **NOT** the same with the `DetId`, but it's a GPU-only identifier.
 
-##### `uint32_t* __restrict__ moduleStart` [Output]
+###### `uint32_t* __restrict__ moduleStart` [Output]
 
 An array of indices that {==????==}???
 
@@ -269,7 +269,7 @@ We fill the `moduleStart` array with starting module indices. Note that we can't
     </tr>
 </table>
 
-!!! note "Important note"
+!!! note "Important note 1"
 
 	In the end, `moduleStart[0]` records the total number of modules
 	found in the array.
@@ -281,6 +281,10 @@ We fill the `moduleStart` array with starting module indices. Note that we can't
 	
 	It follows that the number of elements in `moduleStart` is **less** than
 	the number of digis.
+	
+!!! note "Important note 2"	
+
+	Not all modules contain the same number of pixels, since some will be invalid.
 	
 ??? note "Example contents of `moduleStart` (after sorting, starting from element 1)"
 
