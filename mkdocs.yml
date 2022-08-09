@@ -50,8 +50,7 @@ nav:
                   - cmssw/gpu/gpuClustering-findClus.md
       - cmssw/build-types.md                  
       - Extra Resources:
-          - CMSSW:
-              - cmssw/extra-resources/extra-cmssw.md                   
+          - cmssw/extra-resources/extra-cmssw.md                   
   - Certhelper (a.k.a Certifier) &#9989;:
       - certhelper/introduction.md
       - Developing &#129489;&#8205;&#128187;:
