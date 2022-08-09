@@ -232,7 +232,10 @@ index `16`:
 
 ![](img/duplicate_00.svg)
 
-Then, compares element `15` to `17`:
+If **both** `x` values are the same **and** `y` values are the same, the
+digi is considered a duplicate.
+
+Then, `t0` compares element `15` to `17`:
 
 ![](img/duplicate_01.svg)
 
@@ -244,6 +247,10 @@ This goes on until the `msize`th element.
 
 Then, `t1` will start from the element at position `15 + threadIdx.x = 16` and compare
 the `x` and `y` values with the ones at position `17` and so on.
+
+`t0` will then iterate to the next element with step size `blockDim.x` (in our case
+`2`), until the 2nd element from the end is reached (in our example, the element
+with index `20`; there's no comparison to be made once a thread reaches index `21`).
 
 ## Histogram Filling
 
