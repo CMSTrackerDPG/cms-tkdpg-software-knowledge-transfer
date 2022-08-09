@@ -2,3 +2,4 @@ mkdocs
 mkdocs-material
 mkdocs-material-extensions
 mkdocs-section-index
+mkdocs-plugin-inline-svg

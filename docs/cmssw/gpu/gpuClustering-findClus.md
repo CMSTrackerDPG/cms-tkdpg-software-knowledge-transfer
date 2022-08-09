@@ -42,96 +42,182 @@ on.
 	for more than one digi. 
 	
 	This is accounted for by a second `for` loop which starts
-	at `first` and iterates up to `numElements` (i.e. total number
+	at `first` (calculated by using the index stored in `moduleStart`
+	and adding the `threadIdx.x`) and iterates up to `numElements` (i.e. total number
 	of digis), with increments of `blockDim.x` (i.e. number of threads
 	per block)
 	
-### Example
 
-Assuming the following:
 
-* Total number of digis = 10
-* Total number of modules = 3
+## Arguments
 
-The `x` array would look something like:
+### `wordCounter` [Input]
 
-![x array initial](img/data_assignment01.png)
+The total number of pixels for **all** data.
 
-This means that the `moduleStart` array will contain
-the following (see [`countModules`](gpuClustering-countModules.md)
-to understand why):
+<!-- ### Example -->
 
-<table>
-    <tr>
-        <th>pos</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-    </tr>
-    <tr>
-        <th><code>moduleStart</code></th><td>3</td><td>3</td><td>0</td><td>6</td><td>0</td><td>0</td><td>0</td>
-    </tr>
-</table>
+<!-- Assuming the following: -->
 
-* Kernel is launched with:
-	* 2 blocks
-	* 2 threads per block
+<!-- * Total number of digis = 10 -->
+<!-- * Total number of modules = 3 -->
+
+<!-- The `x` array would look something like: -->
+
+<!-- ![x array initial](img/data_assignment01.png) -->
+
+<!-- This means that the `moduleStart` array will contain -->
+<!-- the following (see [`countModules`](gpuClustering-countModules.md) -->
+<!-- to understand why): -->
+
+<!-- <table> -->
+<!--     <tr> -->
+<!--         <th>pos</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td> -->
+<!--     </tr> -->
+<!--     <tr> -->
+<!--         <th><code>moduleStart</code></th><td>3</td><td>3</td><td>0</td><td>6</td><td>0</td><td>0</td><td>0</td> -->
+<!--     </tr> -->
+<!-- </table> -->
+
+<!-- * Kernel is launched with: -->
+<!-- 	* 2 blocks -->
+<!-- 	* 2 threads per block -->
 	
-This means that there are **less** blocks than there are modules, 
-and there are **less** threads per block than there are digis per
-module.
+<!-- This means that there are **less** blocks than there are modules,  -->
+<!-- and there are **less** threads per block than there are digis per -->
+<!-- module. -->
 
-The first block of threads (**Block 0**) will be assigned Module A:
+<!-- The first block of threads (**Block 0**) will be assigned Module A: -->
 
-![x array block 0](img/data_assignment02.png)
+<!-- ![x array block 0](img/data_assignment02.png) -->
 
-Notice that each block has 2 threads, meaning that the 
-third element of module A is not directly assigned to 
-a dedicated thread. 
+<!-- Notice that each block has 2 threads, meaning that the  -->
+<!-- third element of module A is not directly assigned to  -->
+<!-- a dedicated thread.  -->
 
-Then, **Block 1** is assigned Module B:
+<!-- Then, **Block 1** is assigned Module B: -->
 
-![x array block 1](img/data_assignment03.png)
+<!-- ![x array block 1](img/data_assignment03.png) -->
 
-The third module is not explicitly assigned to a block yet.
+<!-- The third module is not explicitly assigned to a block yet. -->
 
-Using a `for` loop which increments by `gridDim.x`[^1], we can assign
-the data of Module C to **Block 0**:
+<!-- Using a `for` loop which increments by `gridDim.x`[^1], we can assign -->
+<!-- the data of Module C to **Block 0**: -->
 
-![x array block 0_2](img/data_assignment04.png)
+<!-- ![x array block 0_2](img/data_assignment04.png) -->
 
-[^1]: `gridDim.x` is equal to the number of blocks for this kernel.
+<!-- [^1]: `gridDim.x` is equal to the number of blocks for this kernel. -->
 
-By using a nested `for` loop which increments by `blockDim.x`[^2],
-we can assign a thread to more than one digi, within the same block:
+<!-- By using a nested `for` loop which increments by `blockDim.x`[^2], -->
+<!-- we can assign a thread to more than one digi, within the same block: -->
 
-![x array block 0_2](img/data_assignment05.png)
+<!-- ![x array block 0_2](img/data_assignment05.png) -->
 
-The thread Ids are shown underneath each array element.
+<!-- The thread Ids are shown underneath each array element. -->
 
-[^2]: `blockDim.x` is equal to the number of threads per block for this kernel.
+<!-- [^2]: `blockDim.x` is equal to the number of threads per block for this kernel. -->
 	
-### Arguments
+<!-- ### Arguments -->
 
-#### `uint32_t* const* __restrict__ moduleStart` [Input]
+<!-- #### `uint32_t* const* __restrict__ moduleStart` [Input] -->
 
-This is an array of indices, created by the
-[`countModules`](gpuClustering-countModules.md) kernel,
-which stores the indices that the data of the next module is stored in all
-other arrays (e.g. `x`, `y`).
+<!-- This is an array of indices, created by the -->
+<!-- [`countModules`](gpuClustering-countModules.md) kernel, -->
+<!-- which stores the indices that the data of the next module is stored in all -->
+<!-- other arrays (e.g. `x`, `y`). -->
 
 
-!!! note "Note 1"
+<!-- !!! note "Note 1" -->
 	
-	The only exception is the 0th element, which stores the **total number of
-	modules**, i.e. the number of elements stored in the `moduleStart` array.
+<!-- 	The only exception is the 0th element, which stores the **total number of -->
+<!-- 	modules**, i.e. the number of elements stored in the `moduleStart` array. -->
 	
-	It is used as the max number to execute a `for` loop for in the kernel.
+<!-- 	It is used as the max number to execute a `for` loop for in the kernel. -->
 	
-!!! note "Note 2"
+<!-- !!! note "Note 2" -->
 
-	This array is expected to contain **less** elements than all other input
-	arrays, e.g. `x`, since each module contains many digis. 
+<!-- 	This array is expected to contain **less** elements than all other input -->
+<!-- 	arrays, e.g. `x`, since each module contains many digis.  -->
 	
-	The only case where its length would be the same as all other arrays
-	would be if each module contained only one digi.
+<!-- 	The only case where its length would be the same as all other arrays -->
+<!-- 	would be if each module contained only one digi. -->
+
+## Calculating the total number of pixels in a module
+
+This is done by the code below:
+
+```cuda linenums="133"
+for (int i = first; i < numElements; i += blockDim.x) {
+  if (id[i] == invalidModuleId)  // skip invalid pixels
+    continue;
+  if (id[i] != thisModuleId) {  // find the first pixel in a different module
+    atomicMin(&msize, i);
+    break;
+  }
+}
+```
+
+Shared memory is used to store the `msize` variable. This is shared
+among the threads in the GPU block to calculate the total number of pixels
+that the **current module** has.
+
+In a nutshell, all threads in a GPU block are assigned elements in the
+`id` array, and, after skipping invalid `id`s, they try to find the 
+index in the `id` array where the `id` is **different** to the one 
+that the current block is assigned. 
+
+Let's assume that the `id` array is as follows:
+
+![](img/msize_00.svg)
+
+Then, a single block is assigned to **Module Y** data:
+
+![](img/msize_01.svg)
+
+Let's assume that we are launching the kernel with **2 threads
+per block**. Those start iterating over the `id` array, starting
+from the index that the `moduleStart` array indicates for the
+module that has been assigned to the current block (in this example,
+this index is `15`):
+
+![](img/msize_02.svg)
+
+They keep iterating, with step `blockDim.x`[^1].
+If `invalidModule` is found in the `id` array, they
+skip it (see `t1` below):
+
+![](img/msize_03.svg)
+
+[^1]: This is equal to the number of threads per block the kernel 
+was launched with.
+
+Next iteration:
+
+![](img/msize_04.svg)
+
+Next iteration. Notice that `t1` is now assigned 
+an index which belongs to the next module, **Module Z**.
+This satisfies the `if (id[i] != thisModuleId)` condition, 
+so the `atomicMin(&msize, i)` instruction is executed, meaning
+that the thread will store in `msize` the minimum between
+`msize` (which has been initialized with the value of the total
+number of pixels, i.e. the final index of the `id` array) and
+the current index it's assigned (`i` which is equal to `22`).
+`msize` is, therefore,
+assigned the value `22` and `t1` breaks from the loop.
+
+![](img/msize_05.svg)
+
+Now, only `t0` is left to continue iterating,
+which, in turn, is assigned an index which belongs to 
+**Module Z**, index `23`. The condition mentioned above
+is satisfied again, so `t0` executes `atomicMin(&msize, i)`
+with `i=23` and `msize=22`, so `msize` stays `22`.
+
+![](img/msize_06.svg)
+
+We now know the last **non-invalid** index of the current module, and
+this index is stored in `msize`.
 
 ## Histogram Filling
 
