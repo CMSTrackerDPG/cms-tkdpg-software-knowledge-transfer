@@ -246,13 +246,30 @@ moduleStart[loc + 1] = i;
 	
 After execution of the lines above, the following takes place:
 
-* Using `atomicInc()`, the value at `moduleStart[0]` is altered to either `0`
-  or `moduleStart[0] + 1`. The value will be `0` **only if the value stored
-  in `moduleStart[0]` exceeds the `nMaxModules` value**, i.e. `3892` for Phase 2.
+* Using `atomicInc()`, the value at `moduleStart[0]` is incremented
+  by one, i.e: `moduleStart[0] + 1`[^1].
 * `loc` will contain the value of `moduleStart[0]`, **before** the `atomicInc()` operation,
-  meaning it will be either `0` or `moduleStart[0]`.
+  meaning it will be equal to `moduleStart[0]`.
+  
+This, in effect, counts the total times that the `cond` mentioned above was
+evaluated to `True`, which, in effect, corresponds to the **total number of modules
+encountered.**
 
-We fill the `moduleStart` array with starting module indices. Note that we can't make sure that the first module we mark is `A` and then `B`, etc. This code is executed competitively so we might have different `moduleStart` array each execution:
+Since the value returned by the `atomicInc()` (stored in `loc`) 
+is the `moduleStart[0]` value prior
+to its incrementation, it acts, indirectly, as an index to store consecutively
+in the `moduleStart` array the indices of the elements where `cond == T`.
+
+Therefore, for each `cond == T` we are:
+
+* Incrementing the `moduleStart[0]` element by 1.
+* Storing the index `i` in the next available `moduleStart` array position.
+
+[^1]: The value will be set to `0` **if the value stored  in `moduleStart[0]` exceeds the `nMaxModules` value**, i.e. `3892` for Phase 2.
+
+We fill the `moduleStart` array with starting module indices. Note that we can't make sure that the first module we mark is `A` and then `B`, etc. This code is executed competitively by all of the GPU threads
+so the final `moduleStart` array will differ from execution to execution, even if the input
+data is the same:
 
 <table>
     <tr>
@@ -269,18 +286,19 @@ We fill the `moduleStart` array with starting module indices. Note that we can't
     </tr>
 </table>
 
+
 !!! note "Important note 1"
 
 	In the end, `moduleStart[0]` records the total number of modules
 	found in the array.
 	
-	Then, follow the **indices** of the array elements where the module
-	`id` changes. This means that the `moduleStart` array contains
+	Then, since we store the **indices** of the array elements where the module
+	`id` changes, it means that the `moduleStart` array contains
 	at most `nMaxModules + 1` elements (to account for `moduleStart[0]` which
 	stores the number of indices contained in the array). 
 	
 	It follows that the number of elements in `moduleStart` is **less** than
-	the number of digis.
+	the total number of digis.
 	
 !!! note "Important note 2"	
 
@@ -288,7 +306,7 @@ We fill the `moduleStart` array with starting module indices. Note that we can't
 	
 ??? note "Example contents of `moduleStart` (after sorting, starting from element 1)"
 
-	The first element still represents the total number of modules. The
+	In this example, the first element still represents the total number of modules. The
 	rest are sorted indices to where the data of each module starts.
 	
 	`0` does not seem to be included in this array, as it is always implied
