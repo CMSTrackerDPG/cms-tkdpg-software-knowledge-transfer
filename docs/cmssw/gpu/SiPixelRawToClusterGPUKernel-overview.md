@@ -64,6 +64,16 @@ A function that implements the following functionality:
 - Uses the Digis created in the first step to create Clusters (by calling
 the [`findClus`](gpuClustering-findClus.md) kernel)
 
+##### Arguments
+
+###### `wordCounter` [Input]
+
+Specifies the length of the SoA arrays stored in [`SiPixelDigisCUDA`](SiPixelDigisCUDA.md).
+
+!!! quote "Comment included in the source file"
+
+	wordCounter is the total no of words in each event to be trasfered (sic) on device
+
 ##### Flowchart
 
 ```mermaid
