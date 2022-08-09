@@ -22,13 +22,15 @@ depends on the Phase:
 ## Overview
 
 This kernel is launched with **1 block per module**, meaning
-that each GPU thread 
+that each GPU block will be assigned the digis of 1 module. Then,
+each block's thread is assgined 1 or more digis to operate
+on.
 
 !!! note "Note 1"
 	
-	The case to extend this by launching it with less blocks
+	The case to launch this kernel with **less** blocks
 	than there are modules is also accounted for, by running
-	a `for` loop in each thread which runs from `firstModule` (i.e.
+	a first `for` loop in each thread which runs from `firstModule` (i.e.
 	the thread's **Block index**) to `endModule` by increments
 	of `gridDim.x` (i.e. total number of blocks).
 
@@ -43,6 +45,68 @@ that each GPU thread
 	at `first` and iterates up to `numElements` (i.e. total number
 	of digis), with increments of `blockDim.x` (i.e. number of threads
 	per block)
+	
+### Example
+
+Assuming the following:
+
+* Total number of digis = 10
+* Total number of modules = 3
+
+The `x` array would look something like:
+
+![x array initial](img/data_assignment01.png)
+
+This means that the `moduleStart` array will contain
+the following (see [`countModules`](gpuClustering-countModules.md)
+to understand why):
+
+<table>
+    <tr>
+        <th>pos</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+    </tr>
+    <tr>
+        <th><code>moduleStart</code></th><td>3</td><td>3</td><td>0</td><td>6</td><td>0</td><td>0</td><td>0</td>
+    </tr>
+</table>
+
+* Kernel is launched with:
+	* 2 blocks
+	* 2 threads per block
+	
+This means that there are **less** blocks than there are modules, 
+and there are **less** threads per block than there are digis per
+module.
+
+The first block of threads (**Block 0**) will be assigned Module A:
+
+![x array block 0](img/data_assignment02.png)
+
+Notice that each block has 2 threads, meaning that the 
+third element of module A is not directly assigned to 
+a dedicated thread. 
+
+Then, **Block 1** is assigned Module B:
+
+![x array block 1](img/data_assignment03.png)
+
+The third module is not explicitly assigned to a block yet.
+
+Using a `for` loop which increments by `gridDim.x`[^1], we can assign
+the data of Module C to **Block 0**:
+
+![x array block 0_2](img/data_assignment04.png)
+
+[^1]: `gridDim.x` is equal to the number of blocks for this kernel.
+
+By using a nested `for` loop which increments by `blockDim.x`[^2],
+we can assign a thread to more than one digi, within the same block:
+
+![x array block 0_2](img/data_assignment05.png)
+
+The thread Ids are shown underneath each array element.
+
+[^2]: `blockDim.x` is equal to the number of threads per block for this kernel.
 	
 ### Arguments
 
