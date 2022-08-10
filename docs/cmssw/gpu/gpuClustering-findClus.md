@@ -261,6 +261,45 @@ this index is stored in `msize`.
 	as small as possible, **2 bits** are used per pixel, which, for Phase 1[^2], amounts
 	to **160x416x2 bits = 16640 bytes**[^3].
 	
+	![](img/duplicate_ab_00.svg)
+	
+	In effect, we can store the status of 16 pixels per `status` array element.
+	
+	In the `status` array, one of the following values are stored:
+	
+	* `0x00`: Empty
+	* `0x01`: Found
+	* `0x03`: Duplicate
+	
+	A `getIndex` function is implemented, which maps a pixel's `x` and `y` coordinates
+	to an index to the `status` array.
+	
+	A `getShift` function, which, once the index in the `status` array is found,
+	finds the exact "sub-location" that the pixel should be stored in, in the 
+	given `status` array element.
+	
+	For example, pixel with coordinates `x=2` and `y=0` be stored in:
+	
+	```cuda
+	getIndex(x, y) = (uint32_t))(pixelsPerModuleX * y + x) / valuesPerWord) 
+		= (uint32_t)((160 * 0 + 2) / 16 ) = 0
+	```
+	
+	So the pixel(2,0) is stored in `status[0]`.
+	
+	To find the shift amount **within** `status[0]` where the pixel information
+	will be stored in:
+	```cuda
+	getShift(x, y) = (x % valuesPerWord) * 2 = (2 % 16) * 2 = 4
+	```
+	So, we have to shift by `4` bits within `status[0]` to store information
+	for pixel(2,0).
+	
+	!!! note
+	
+		In `getShift`, the multiplication by `2` corresponds to the number
+		of bits used to store the per-pixel information.
+	
 	[^2]: See [here](../../basic-concepts.md#module) 
 	[^3]: An NVIDIA T4 card has a limit of 64kB of shared memory,
 	see [here](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities)
