@@ -312,7 +312,7 @@ this index is stored in `msize`.
 	
 	![](img/duplicate_ab_01.svg)
 	
-	Doing a bitwise `OR` of the `mask` with the `status[index]` value,
+	Doing a bitwise **AND** (`&`) of the `mask` with the `status[index]` value,
 	after right-shifting (`>>`) the latter by the `shift` value calculated,
 	we can read the 2 bits that refer to the specific pixel:
 	
