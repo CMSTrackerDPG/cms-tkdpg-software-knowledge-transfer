@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    version="1.1"
-   id="svg286"
+   id="svg284"
    sodipodi:docname="duplicate_ab_02.svg"
    width="603.37"
    height="233.565"
@@ -11,9 +11,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs290" />
+     id="defs288" />
   <sodipodi:namedview
-     id="namedview288"
+     id="namedview286"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -27,10 +27,10 @@
      inkscape:cy="-1942.6718"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
-     inkscape:window-x="1920"
-     inkscape:window-y="141"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg286" />
+     inkscape:current-layer="svg284" />
   <path
      class="write-stroke-pen"
      fill="none"
@@ -1530,17 +1530,4 @@
      __timestamp="0x18288efe0a6"
      d="m 92.17,52.365 30,-30"
      id="path282" />
-  <path
-     class="write-stroke-pen"
-     fill="none"
-     stroke="#000000"
-     stroke-opacity="0.427"
-     stroke-width="2.4"
-     stroke-linecap="round"
-     stroke-linejoin="round"
-     __comx="480"
-     __comy="2099.6"
-     __timestamp="0x18288f7a7de"
-     d="m 392.17,82.365 v 0"
-     id="path284" />
 </svg>
