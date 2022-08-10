@@ -222,35 +222,41 @@ this index is stored in `msize`.
 
 ## Duplicate detection
 
-Similarly to [the total module pixels calculation](#calculating-the-total-number-of-pixels-in-a-module),
-to detect duplicate digis a similar iteration logic can be applied. 
+??? quote "Alternative 1 (PR [#37359](https://github.com/cms-sw/cmssw/pull/37359))"
 
-Assumming 2 threads per block, `t0` starts with the first element
-of the module (with index `15`) and compares the `x` and `y` values
-between index `15` and the next one (assumming it's not invalid), i.e.
-index `16`:
+	Similarly to [the total module pixels calculation](#calculating-the-total-number-of-pixels-in-a-module),
+	to detect duplicate digis a similar iteration logic can be applied. 
 
-![](img/duplicate_00.svg)
+	Assumming 2 threads per block, `t0` starts with the first element
+	of the module (with index `15`) and compares the `x` and `y` values
+	between index `15` and the next one (assumming it's not invalid), i.e.
+	index `16`:
 
-If **both** `x` values are the same **and** `y` values are the same, the
-digi is considered a duplicate.
+	![](img/duplicate_00.svg)
 
-Then, `t0` compares element `15` to `17`:
+	If **both** `x` values are the same **and** `y` values are the same, the
+	digi is considered a duplicate.
 
-![](img/duplicate_01.svg)
+	Then, `t0` compares element `15` to `17`:
 
-Elements `18` and `19` are invalid, so they're skipped and the `20`th is compared:
+	![](img/duplicate_01.svg)
 
-![](img/duplicate_02.svg)
+	Elements `18` and `19` are invalid, so they're skipped and the `20`th is compared:
 
-This goes on until the `msize`th element.
+	![](img/duplicate_02.svg)
 
-Then, `t1` will start from the element at position `15 + threadIdx.x = 16` and compare
-the `x` and `y` values with the ones at position `17` and so on.
+	This goes on until the `msize`th element.
 
-`t0` will then iterate to the next element with step size `blockDim.x` (in our case
-`2`), until the 2nd element from the end is reached (in our example, the element
-with index `20`; there's no comparison to be made once a thread reaches index `21`).
+	Then, `t1` will start from the element at position `15 + threadIdx.x = 16` and compare
+	the `x` and `y` values with the ones at position `17` and so on.
+
+	`t0` will then iterate to the next element with step size `blockDim.x` (in our case
+	`2`), until the 2nd element from the end is reached (in our example, the element
+	with index `20`; there's no comparison to be made once a thread reaches index `21`).
+	
+??? quote "Alternative 2 (PR [#38946](https://github.com/cms-sw/cmssw/pull/38946))"
+
+	TODO
 
 ## Histogram Filling
 

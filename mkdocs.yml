@@ -181,7 +181,6 @@ markdown_extensions:
 plugins:
   - section-index
   - search
-  - inline-svg
 
 extra:
   consent:
