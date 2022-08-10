@@ -222,7 +222,7 @@ this index is stored in `msize`.
 
 ## Duplicate detection
 
-??? quote "Alternative 1 (PR [#37359](https://github.com/cms-sw/cmssw/pull/37359))"
+??? quote "Alternative 1 (PR [#37359](https://github.com/cms-sw/cmssw/pull/37359), Not merged)"
 
 	Similarly to [the total module pixels calculation](#calculating-the-total-number-of-pixels-in-a-module),
 	to detect duplicate digis a similar iteration logic can be applied. 
@@ -254,9 +254,18 @@ this index is stored in `msize`.
 	`2`), until the 2nd element from the end is reached (in our example, the element
 	with index `20`; there's no comparison to be made once a thread reaches index `21`).
 	
-??? quote "Alternative 2 (PR [#38946](https://github.com/cms-sw/cmssw/pull/38946))"
+!!! quote "Alternative 2 (PR [#38946](https://github.com/cms-sw/cmssw/pull/38946), Merged)"
 
-	TODO
+	This alternative approach uses *shared thread memory* to create a `status` array 
+	where the number of times each pixel has been encountered is stored. To make it
+	as small as possible, **2 bits** are used per pixel, which, for Phase 1[^2], amounts
+	to **160x416x2 bits = 16640 bytes**[^3].
+	
+	[^2]: See [here](../../basic-concepts.md#module) 
+	[^3]: An NVIDIA T4 card has a limit of 64kB of shared memory,
+	see [here](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities)
+	under `Maximum amount of shared memory per thread block`.
+
 
 ## Histogram Filling
 
