@@ -305,6 +305,18 @@ this index is stored in `msize`.
 		* `getShift` will not work if the `pixelsPerModuleX` value is not a
 		multiple of `valuesPerWord` (i.e. `16`) and would need to take `y` into
 		account too.
+		
+	To read or write a specific status to a specific pixel, once we have determined
+	the `index` and `shift`, we use the `mask` calculated (for `bits=2`, `mask`
+	is `0x03`) to extract the data.
+	
+	![](img/duplicate_ab_01.svg)
+	
+	Doing a bitwise `OR` of the `mask` with the `status[index]` value,
+	after right-shifting (`>>`) the latter by the `shift` value calculated,
+	we can read the 2 bits that refer to the specific pixel:
+	
+	![](img/duplicate_ab_02.svg)			
 	
 	[^2]: See [here](../../basic-concepts.md#module) 
 	[^3]: An NVIDIA T4 card has a limit of 64kB of shared memory,
