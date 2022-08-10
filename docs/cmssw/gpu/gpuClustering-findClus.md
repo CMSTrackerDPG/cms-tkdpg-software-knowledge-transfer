@@ -261,6 +261,9 @@ this index is stored in `msize`.
 	as small as possible, **2 bits** are used per pixel, which, for Phase 1[^2], amounts
 	to **160x416x2 bits = 16640 bytes**[^3].
 	
+	A visual representation of the first array element of `status` (Pixel
+	coordinates are in X,Y):
+	
 	![](img/duplicate_ab_00.svg)
 	
 	In effect, we can store the status of 16 pixels per `status` array element.
@@ -297,8 +300,11 @@ this index is stored in `msize`.
 	
 	!!! note
 	
-		In `getShift`, the multiplication by `2` corresponds to the number
+		* In `getShift`, the multiplication by `2` corresponds to the number
 		of bits used to store the per-pixel information.
+		* `getShift` will not work if the `pixelsPerModuleX` value is not a
+		multiple of `valuesPerWord` (i.e. `16`) and would need to take `y` into
+		account too.
 	
 	[^2]: See [here](../../basic-concepts.md#module) 
 	[^3]: An NVIDIA T4 card has a limit of 64kB of shared memory,
