@@ -1,4 +1,4 @@
-# Week 2 Reading Material
+# Week 02 Reading Material
 
 ???+ tip "Resources"
 
