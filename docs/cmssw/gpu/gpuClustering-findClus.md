@@ -306,7 +306,9 @@ this index is stored in `msize`.
 		multiple of `valuesPerWord` (i.e. `16`) and would need to take `y` into
 		account too.
 		
-	To read or write a specific status to a specific pixel, once we have determined
+		
+	To **read** a specific status for a specific pixel (see `getStatus()`),
+	once we have determined
 	the `index` and `shift`, we use the `mask` calculated (for `bits=2`, `mask`
 	is `0x03`) to extract the data.
 	
@@ -317,6 +319,31 @@ this index is stored in `msize`.
 	we can read the 2 bits that refer to the specific pixel:
 	
 	![](img/duplicate_ab_02.svg)			
+	
+	To **write** the status to a specific pixel (see `promote()`), we typecast
+	the status to `uint32_t`:
+	
+	![](img/duplicate_ab_03.svg)				
+	
+	Then left-shift it (`<<`) by `shift` bytes:
+	
+	![](img/duplicate_ab_04.svg)				
+	
+	The `new_word` is then calculated:
+	
+	![](img/duplicate_ab_05.svg)				
+	
+	And, finally, an `atomicCAS` (Compare And Swap) operation is done between
+	`status[i]` and `new_word`, which stores the new value back in the `status` array,
+	if `new_word` is different than `status[i]`.
+	
+	!!! note
+	
+		`atomicOR` could be used directly, instead of using **OR** (`|`) and then
+		**atomicCAS**, but it seems it's a bit slower. 
+	
+	Documentation on `atomicCAS` can be found
+	[here](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#atomiccas).
 	
 	[^2]: See [here](../../basic-concepts.md#module) 
 	[^3]: An NVIDIA T4 card has a limit of 64kB of shared memory,
