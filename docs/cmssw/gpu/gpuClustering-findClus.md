@@ -340,7 +340,7 @@ this index is stored in `msize`.
 	!!! note
 	
 		`atomicOR` could be used directly, instead of using **OR** (`|`) and then
-		**atomicCAS**, but it seems it's a bit slower. 
+		`atomicCAS`, but it seems it's a bit slower. 
 	
 	Documentation on `atomicCAS` can be found
 	[here](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#atomiccas).
