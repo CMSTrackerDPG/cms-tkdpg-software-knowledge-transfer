@@ -358,8 +358,9 @@ this index is stored in `msize`.
 	what the heckerino is histogram filling?
 	
 
-The `hist` histogram is stored in **shared** memory, so that all
-threads can update it.
+The `hist` histogram is stored in **shared** memory, so that its
+access from all threads is as fast as possible.
+
 
 Code:
 
