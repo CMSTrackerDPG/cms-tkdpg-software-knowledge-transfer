@@ -257,9 +257,9 @@ this index is stored in `msize`.
 !!! quote "Alternative 2 (PR [#38946](https://github.com/cms-sw/cmssw/pull/38946), Merged)"
 
 	This alternative approach uses *shared thread memory* to create a `status` array 
-	where the number of times each pixel has been encountered is stored. To make it
+	where the number of times each pixel has been encountered in a module is stored. To make it
 	as small as possible, **2 bits** are used per pixel, which, for Phase 1[^2], amounts
-	to **160x416x2 bits = 16640 bytes**[^3].
+	to **160x416x2 bits = 16640 bytes** per module[^3].
 	
 	A visual representation of the first array element of `status` (Pixel
 	coordinates are in X,Y):
