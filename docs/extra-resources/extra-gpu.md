@@ -26,7 +26,7 @@ with CUDA.
 
 ## Hands-on training
 
-### NVIDIA CUDA Tutorial
+### NVIDIA CUDA Workshop
 
 An official NVIDIA introductory workshop.
 
