@@ -1,8 +1,9 @@
 # findClus
 
-CUDA kernel for finding Clusters given digis extracted from raw data.
+CUDA kernel for finding [Clusters](../../basic-concepts.md#pixel-cluster) given digis extracted from raw data.
 
-It is meant to be executed with a 1D grid of blocks, each block being a 1D grid
+Taking advantage of the [SoA](../../basic-concepts.md#soaaos) data approach, it is meant to be executed
+with a 1D grid of blocks, each block being a 1D grid
 of threads. The number of blocks and threads used to launch this kernel
 depends on the Phase:
 
