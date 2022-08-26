@@ -101,6 +101,14 @@ nav:
               - Views:
                   - ScriptExecution:
                       - certhelper/apps/remotescripts/views/script_execution.md
+          - summary:
+              - certhelper/apps/summary/overview.md
+              - Models:
+                  - certhelper/apps/summary/models.md
+              - Views:
+                  - SummaryView:
+                      - certhelper/apps/summary/views/SummaryView.md
+              
   - MLPlayground &#129528;:
       - mlplayground/introduction.md
       - Deploying &#128674;:
