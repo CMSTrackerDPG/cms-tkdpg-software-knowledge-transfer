@@ -1,7 +1,7 @@
 # SiPixelDigisCUDASOAView
 
 Class which stores Pixel digi data in an [SoA](../../basic-concepts.md#soaaos) approach.
-Used indirectly by [SiPixelDigisCUDA](SiPixelDigisCUDA) instances, such as the `digis_d`
+Used indirectly by [SiPixelDigisCUDA](SiPixelDigisCUDA.md) instances, such as the `digis_d`
 variable in the
 [SiPixelRawToClusterGPUKernel](SiPixelRawToClusterGPUKernel-overview.md#digis_d)
 class.

@@ -16,6 +16,8 @@ nav:
           - cmssw/working-with-cmssw/gpu-machines.md
           - cmssw/working-with-cmssw/proposing-changes.md                                        
       - Documentation on CMSSW modules:
+          # - Overview graph:
+          #     - cmssw/graph.md
           - CPU &#129704;:
               - cmssw/cpu/index.md
               - Data Formats:
@@ -41,6 +43,10 @@ nav:
                   - cmssw/gpu/SiPixelRawToClusterCUDA-overview.md
               - SiPixelRawToClusterGPUKernel.h:
                   - cmssw/gpu/SiPixelRawToClusterGPUKernel-overview.md
+              - SiPixelDigisSoAFromCUDA:
+                  - cmssw/gpu/SiPixelDigisSoAFromCUDA-overview.md
+              - SiPixelDigisClustersFromSoA.cc:                  
+                  - cmssw/gpu/SiPixelDigisClustersFromSoA-overview.md                  
               - gpuCalibPixel.h:
                   - cmssw/gpu/gpuCalibPixel.md
                   - calibDigis: cmssw/gpu/gpuCalibPixel-calibDigis.md                  
