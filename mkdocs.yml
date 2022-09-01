@@ -41,19 +41,21 @@ nav:
                       - cmssw/gpu/SiPixelClustersCUDA.md                                            
               - SiPixelRawToClusterCUDA.cc:
                   - cmssw/gpu/SiPixelRawToClusterCUDA-overview.md
-              - SiPixelRawToClusterGPUKernel.h:
-                  - cmssw/gpu/SiPixelRawToClusterGPUKernel-overview.md
+                  - SiPixelRawToClusterGPUKernel.h:
+                      - cmssw/gpu/SiPixelRawToClusterGPUKernel-overview.md
+                      - gpuCalibPixel.h:
+                          - cmssw/gpu/gpuCalibPixel.md
+                          - calibDigis:
+                              - cmssw/gpu/gpuCalibPixel-calibDigis.md                  
+                      - gpuClustering.h:
+                          - cmssw/gpu/gpuClustering-overview.md
+                          - cmssw/gpu/gpuClustering-countModules.md
+                          - cmssw/gpu/gpuClustering-findClus.md                  
               - SiPixelDigisSoAFromCUDA:
                   - cmssw/gpu/SiPixelDigisSoAFromCUDA-overview.md
               - SiPixelDigisClustersFromSoA.cc:                  
                   - cmssw/gpu/SiPixelDigisClustersFromSoA-overview.md                  
-              - gpuCalibPixel.h:
-                  - cmssw/gpu/gpuCalibPixel.md
-                  - calibDigis: cmssw/gpu/gpuCalibPixel-calibDigis.md                  
-              - gpuClustering.h:
-                  - cmssw/gpu/gpuClustering-overview.md
-                  - cmssw/gpu/gpuClustering-countModules.md
-                  - cmssw/gpu/gpuClustering-findClus.md
+
       - cmssw/build-types.md                  
       - Extra Resources:
           - extra-resources/extra-cmssw.md                   
