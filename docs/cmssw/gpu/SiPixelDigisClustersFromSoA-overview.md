@@ -10,11 +10,14 @@ and [`SiPixelCluster`s](../cpu/SiPixelCluster-overview.md))
 ```mermaid
 flowchart
 	cudasoa[SiPixelDigisCUDASOA] --> detsetpix[edm::DetSetVector of PixelDigi]
-	cudasoa --> detsetclus[edmnew::DetSetVectorNew of SiPixelCluster]	
+	cudasoa --> detsetclus[edmNew::DetSetVectorNew of SiPixelCluster]	
 
 ```
 
 !!! warning
 	
-	- For clusters (stored in the `outputClusters` variable), an  `edmnew::DetSetVector<SiPixelCluster>` is used (a.k.a `SiPixelClusterCollectionNew`, found in [`SiPixelCluster.h`](../cpu/SiPixelCluster-overview.md)).
-	- For pixel digis (stored in the `collection` variable), an `edm::DetSetVector` of [`PixelDigi`s](../cpu/PixelDigi-overview.md) is used. 
+	- For clusters (stored in the `outputClusters` variable), an  `edmNew::DetSetVector<SiPixelCluster>`
+	is used (a.k.a `SiPixelClusterCollectionNew`, found in
+	[`SiPixelCluster.h`](../cpu/SiPixelCluster-overview.md)).
+	- For pixel digis (stored in the `collection` variable), an `edm::DetSetVector<PixelDigi>` 
+	is used (see [`PixelDigi`s](../cpu/PixelDigi-overview.md)). 
