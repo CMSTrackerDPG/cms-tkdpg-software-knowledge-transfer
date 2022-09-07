@@ -1,6 +1,6 @@
 # SiPixelDigisClustersFromSoA
 
-Link on [github](https://github.com/cms-sw/cmssw/blob/CMSSW_12_4_6/RecoLocalTracker/SiPixelClusterizer/plugins/SiPixelDigisClustersFromSoA.cc).
+Link on [github](https://github.com/cms-sw/cmssw/blob/master/RecoLocalTracker/SiPixelClusterizer/plugins/SiPixelDigisClustersFromSoA.cc).
 
 After the [CUDA to SoA conversion](SiPixelDigisSoAFromCUDA-overview.md) has executed,
 the data (which is in [`SiPixelDigisCUDASOA`](SiPixelDigisCUDASOAView.md) format)
@@ -13,6 +13,8 @@ flowchart
 	cudasoa --> detsetclus[edmNew::DetSetVectorNew of SiPixelCluster]	
 
 ```
+
+See also: [`edm::DetSetVector`](../cpu/DetSetVector-overview.md).
 
 !!! warning
 	

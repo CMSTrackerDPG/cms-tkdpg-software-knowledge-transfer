@@ -21,6 +21,8 @@ nav:
           - CPU &#129704;:
               - cmssw/cpu/index.md
               - Data Formats:
+                  - DetSetVector:
+                      - cmssw/cpu/DetSetVector-overview.md
                   - PixelDigi:
                       - cmssw/cpu/PixelDigi-overview.md                  
                   - SiPixelCluster:
