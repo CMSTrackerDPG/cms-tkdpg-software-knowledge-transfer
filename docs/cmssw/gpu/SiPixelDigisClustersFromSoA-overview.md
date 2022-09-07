@@ -7,6 +7,12 @@ the data (which is in [`SiPixelDigisCUDASOA`](SiPixelDigisCUDASOAView.md) format
 is copied to DetSetVectors (of [`PixelDigi`s](../cpu/PixelDigi-overview.md)
 and [`SiPixelCluster`s](../cpu/SiPixelCluster-overview.md))
 
+```mermaid
+flowchart
+	cudasoa[SiPixelDigisCUDASOA] --> detsetpix[edm::DetSetVector of PixelDigis]
+	cudasoa --> detsetclus[edmnew::DetSetVectorNew of SiPixelCluster]	
+
+```
 
 !!! warning
 	
