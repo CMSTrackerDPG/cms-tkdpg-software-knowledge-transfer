@@ -59,7 +59,7 @@ A function that implements the following functionality:
 
 - Converts Raw Pixel data to Digis (by calling the `RawToDigi_kernel`)
 - Calibrates the Digis (by calling the [`calibDigis.md`](gpuCalibPixel-calibDigis.md) kernel)
-- {==Counts modules(????)==} (by calling the
+- Counts the number of unique modules present in the SoA data (by calling the
 [`countModules`](gpuClustering-countModules.md) kernel).
 - Uses the Digis created in the first step to create Clusters (by calling
 the [`findClus`](gpuClustering-findClus.md) kernel)

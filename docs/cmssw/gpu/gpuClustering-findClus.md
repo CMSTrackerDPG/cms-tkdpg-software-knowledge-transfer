@@ -7,6 +7,7 @@ Taking advantage of the [SoA](../../basic-concepts.md#soaaos) data approach,
 it is meant to be executed
 with a 1D grid of blocks, each block being a 1D grid
 of threads. The number of blocks and threads used to launch this kernel
+is equal to the number of modules present in the detector which, in turn,
 depends on the Phase:
 
 |         | Blocks | Threads |
