@@ -135,6 +135,8 @@ nav:
                   - mlplayground/apps/histogram_file_manager/management.md
           - histograms:
               - mlplayground/apps/histograms/overview.md
+              - Models:
+                  - mlplayground/apps/histograms/models.md
   - General documentation:
       - SSH:
           - Tunnelling:
