@@ -14,6 +14,10 @@
 	2. `python3 -m venv venv`
 	3. `source venv/bin/activate`
 	4. `python3 -m pip install -r requirements.txt`
+4. Make sure you have an `.env` file with all the required project variables in
+your project's root.
+5. Create the database structure:
+    1. `python3 manage.py migrate --run-syncdb`
 		
 !!! note
 	
