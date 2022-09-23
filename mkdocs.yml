@@ -121,6 +121,8 @@ nav:
               
   - MLPlayground &#129528;:
       - mlplayground/introduction.md
+      - Configuration:
+          - mlplayground/config.md
       - Deploying &#128674;:
           - Deployments: mlplayground/deploying/deployments.md      
       - Connectivity &#128279;: mlplayground/connectivity.md
