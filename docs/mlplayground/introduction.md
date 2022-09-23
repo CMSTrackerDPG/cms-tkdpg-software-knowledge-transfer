@@ -4,7 +4,7 @@
 
 	TODO
 	
-![MLP logo](img/mlp_logo.png)
+![MLP logo](img/mlp_logo.png){ width="500pt" }
 
 ## Purpose
 
@@ -30,3 +30,7 @@ the Data Science part (DS). Each one has its own repository:
 
 * [Data Engineering repository](https://github.com/cmstrackerdpg/mlplayground)
 * [Data Science repository](https://github.com/XavierAtCERN/dqm-playground-ds/)
+
+## Running locally
+
+Basic instructions found [here](../general/django/setup/overview.md).

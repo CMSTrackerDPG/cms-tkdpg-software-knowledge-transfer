@@ -3,13 +3,17 @@
 !!! warning 
 	
 	This guide is intended for a Linux-based OS
+	
 
-## Requirements
 
-1. **Python3** (ideally version>=3.8).
-2. A **database:**
-    - If using an SQlite3 database, it will be automatically created for you by Django
-	- If using PostgreSQL:
+## Procedure
+
+0. `git clone` your django project locally.
+1. Verify that **Python3** is installed on your system (ideally version>=3.8).
+2. Have a **database:**
+    - If using an *SQlite3* database (Django's default), it will be automatically
+	created for you by Django in the following steps.
+	- If using *PostgreSQL*:
 		- Install PostgreSQL natively (e.g. for Ubuntu,
 		instructions [here](https://ubuntu.com/server/docs/databases-postgresql)).
 		- *[Optional]* Install [pgadmin4](https://www.pgadmin.org/) for administering it.
@@ -40,7 +44,7 @@ be able to access [http://localhost:8000](http://localhost:8000).
 	When running the project locally, CERN SSO will not be functioning,
 	so use the superuser you created to login to the app.
 	
-!!! note "Usual workflow"
+## Usual workflow
 
-	The setup procedure needs to be followed only once, usually.
-	For usual developement, you will only need to run steps **4 and 9**.
+The setup procedure needs to be followed only once, usually.
+For usual developement, you will only need to run steps [**5 and 10**](#procedure).
