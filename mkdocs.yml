@@ -124,6 +124,13 @@ nav:
       - Deploying &#128674;:
           - Deployments: mlplayground/deploying/deployments.md      
       - Connectivity &#128279;: mlplayground/connectivity.md
+      - Apps &#129513;:
+          - histogram_file_manager:
+              - mlplayground/apps/histogram_file_manager/overview.md
+              - Models:
+                  - mlplayground/apps/histogram_file_manager/models.md
+              - Management Commands:
+                  - mlplayground/apps/histogram_file_manager/management.md
   - General documentation:
       - SSH:
           - Tunnelling:
