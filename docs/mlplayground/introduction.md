@@ -18,10 +18,14 @@ This is a [Django](../general/django/overview.md) project aimed at:
 	- Storing datasets used by users to train algorithms.
 	- Storing parameters and results of said algorithms.
    
-## Deployment
+## Deployment on Openshift
 
 The app is deployed [here](https://ml4dqm-playground.web.cern.ch/).
 For more information on its deployment, go [here](deploying/deployments.md).
+
+## Deploying locally
+
+Basic instructions for Django projects can be found [here](../general/django/setup/overview.md).
 
 ## Composition
 
@@ -31,6 +35,4 @@ the Data Science part (DS). Each one has its own repository:
 * [Data Engineering repository](https://github.com/cmstrackerdpg/mlplayground)
 * [Data Science repository](https://github.com/XavierAtCERN/dqm-playground-ds/)
 
-## Running locally
 
-Basic instructions found [here](../general/django/setup/overview.md).
