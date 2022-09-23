@@ -144,9 +144,12 @@ nav:
           - extra-resources/extra-gpu.md
 
       - Django:
+          - Setup:
+              - general/django/setup/overview.md
           - Database:
               - Exporting/Importing data:
                   - general/django/database/exporting_importing.md
+          
       - Openshift:
           - Routes:
               - general/openshift/routes.md
