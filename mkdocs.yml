@@ -144,6 +144,7 @@ nav:
           - extra-resources/extra-gpu.md
 
       - Django:
+          - general/django/overview.md
           - Setup:
               - general/django/setup/overview.md
           - Database:
