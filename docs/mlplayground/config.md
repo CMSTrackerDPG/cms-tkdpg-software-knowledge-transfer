@@ -32,3 +32,20 @@ See [here](apps/histogram_file_manager/management.md#discover_dqm_files).
 ### `CERN_SSO_CLIENT_SECRET`
 
 ### `SITE_ID`
+
+## PaaS Resource Limits
+
+Histogram parsing from `.csv` files can be pretty CPU-intensive,
+which the [default PaaS limits](../general/openshift/resources.md) cannot handle.
+
+Follow the guide to increase the limits to:
+
+```yaml
+resources:
+    limits:
+        cpu: '4'
+        memory: 8Gi
+    requests:
+        cpu: '2'
+        memory: 4Gi
+```
