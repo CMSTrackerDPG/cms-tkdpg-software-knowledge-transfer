@@ -9,9 +9,16 @@ get lost, frustrated, mad even, as most information is either too cryptic,
 outdated or both. {==This document will try to focus on the few source files that
 are of interest to the TkDPG group==}.
 
+A usual split of the codebase is based on the hardware the sowftware
+is targeted:
+
+- [CPU code](#cpu-code) targets CPU-only execution.
+- [GPU code](#gpu-code) targets exexution on NVIDIA GPU-capable systems.
+
+
 ## Usage
 
-The usual *modus operandi* with CMSSW is the following:
+The usual *modus operandi* with CMSSW is the following (from within an LXPLUS or CMS online machin):
 
 - [Clone](working-with-cmssw/software.md#create-a-cmssw-area) one of the available versions of CMSSW.
 - [Checkout packages](working-with-cmssw/software.md#checkout-a-few-packages-using-git-cms-addpkg)

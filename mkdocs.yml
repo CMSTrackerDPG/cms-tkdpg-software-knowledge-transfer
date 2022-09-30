@@ -165,6 +165,8 @@ nav:
                   - general/django/database/exporting_importing.md
           
       - Openshift:
+          - Resources:
+              - general/openshift/resources.md
           - Routes:
               - general/openshift/routes.md
 theme:

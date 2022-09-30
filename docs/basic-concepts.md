@@ -250,6 +250,11 @@ for personal or project use.
 
 :skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull:
 
+### OpenShift
+
+A RedHat platform similar to Kubernetes, used by CERN under the
+name "PaaS" (Platform as a Service).
+
 ### s2i (Source to Image)
 
 A build process for creating docker images directly from the source
@@ -287,3 +292,12 @@ scripts, such as
 [this one](https://github.com/CMSTrackerDPG/certifier/blob/master/.s2i/bin/assemble),
 which was created for CertHelper in order to add custom build-time
 secret access tokens for CERN's gitlab.
+
+### Pod (OpenShift)
+
+The instance of an application deployed on OpenShift, launched inside a containerized
+environment.
+
+See the
+[official documentation](https://docs.openshift.com/enterprise/3.0/architecture/core_concepts/pods_and_services.html#pods)
+for more information.
