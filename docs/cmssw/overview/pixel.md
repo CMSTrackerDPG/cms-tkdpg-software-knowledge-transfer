@@ -30,13 +30,15 @@ flowchart TD
 		pt_l --> pv_l["Pixel Vertices (Legacy)"]
 	end
 	
+	linkStyle 7,8,9,10,11,12,13,14 stroke-width:0px,fill:none,stroke:none;	
+	
 	rd_p --> rd_g
 	d --> d_psoa
 	h_soa --> h_psoa
 	pt --> pt_soa_prod
 	pv --> pv_soa_prod
 	linkStyle 15,16,17,18,19 stroke-width:4px,fill:none,stroke:green;
-	
+
 	class rd_p,dc_l,h_l,pt_l,pv_l Legacy;
 	class d_psoa,h_psoa,pt_soa_prod,pv_soa_prod SoA;
 	
@@ -52,4 +54,9 @@ flowchart TD
 	
 	class rd_c,d_l,c_l Legacy;
 	class h_soa_c,db_c,nt_c,pt_soa,pv_soa SoA;
+	
+	h_soa_c --> h_l
+	pt_soa --> pt_l
+	pv_soa --> pv_l
+	linkStyle 27,28,29 stroke-width:4px,fill:none,stroke:red;	
 ```
