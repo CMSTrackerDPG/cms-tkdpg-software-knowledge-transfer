@@ -15,7 +15,11 @@ nav:
           - Developing: cmssw/working-with-cmssw/software.md
           - cmssw/working-with-cmssw/gpu-machines.md
           - cmssw/working-with-cmssw/proposing-changes.md                                        
-      - Documentation on CMSSW modules:
+      - Documentation on CMSSW:
+          - Overview:
+              - cmssw/overview/overview.md
+              - Pixel-Local Reconstruction:
+                  - cmssw/overview/pixel.md
           # - Overview graph:
           #     - cmssw/graph.md
           - CPU &#129704;:
