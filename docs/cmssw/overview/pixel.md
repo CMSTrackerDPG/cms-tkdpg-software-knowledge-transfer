@@ -4,7 +4,8 @@
 flowchart TD
 	classDef Legacy fill:#ffffff,stroke:#fc1702,stroke-width:4px,color:#fc1702;
 	classDef SoA fill:#0000ff,stroke:none,color:#ffffff;
-	
+	linkStyle default stroke-width:4px,fill:none,stroke:orange;
+
 	subgraph <strong>GPU workflow</strong>
 		rd_g[Raw Data] --> d[Digis]
 		d --> c[Clusters]
@@ -28,6 +29,13 @@ flowchart TD
 		pv_soa_prod --> pt_l["Pixel Tracks (Legacy)"]
 		pt_l --> pv_l["Pixel Vertices (Legacy)"]
 	end
+	
+	rd_p --> rd_g
+	d --> d_psoa
+	h_soa --> h_psoa
+	pt --> pt_soa_prod
+	pv --> pv_soa_prod
+	linkStyle 15,16,17,18,19 stroke-width:4px,fill:none,stroke:green;
 	
 	class rd_p,dc_l,h_l,pt_l,pv_l Legacy;
 	class d_psoa,h_psoa,pt_soa_prod,pv_soa_prod SoA;
