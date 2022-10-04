@@ -76,8 +76,10 @@ To connect directly from your computer:
   ssh -o ProxyCommand='nc -x localhost:18080 -X 5 %h %p' <username>@gpu-c2a02-39-02.cms
   ```
 
-(More detailed instructions
-[here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs#Connecting_to_the_machines))
+!!! note
+	
+	More detailed instructions
+	[here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs#Connecting_to_the_machines))
 
 ### Special configuration required
 
@@ -112,6 +114,7 @@ export SCRAM_ARCH=el8_amd64_gcc10
 * The `/data/user/<username>` directory is not shared across the devices,
   but has larger capacity.
 * [CMS Cluster Users Guide](https://twiki.cern.ch/twiki/bin/viewauth/CMS/ClusterUsersGuide)
+* Use `curl` with the `--socks5` flag like so: `curl --socks5 socks5://localhost:18080 <url>`
 
 ### Useful commands
 
