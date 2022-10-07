@@ -141,6 +141,8 @@ nav:
               - mlplayground/apps/histograms/overview.md
               - Models:
                   - mlplayground/apps/histograms/models.md
+      - FAQ &#10067;:
+          - mlplayground/faq.md
   - General documentation:
       - SSH:
           - Tunnelling:
