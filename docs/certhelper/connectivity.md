@@ -29,5 +29,5 @@ tools, for getting extra information for Reference Runs (in
 
 ## Tools
 
-- Trackermaps generation script on `vocms066.lxplus.cern.ch` (accessed via SSH,
-see `trackermaps/views.py`)
+- Any remotescript configuration (such as the Trackermaps generation script on `vocms066.lxplus.cern.ch`)
+accesses available remote hosts as configured (see [`remotescripts`](apps/remotescripts/overview.md)).
