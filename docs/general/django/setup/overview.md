@@ -10,7 +10,7 @@
 
 0. `git clone` your django project locally.
 1. Verify that **Python3** is installed on your system (ideally version>=3.8).
-2. Have a **database:**
+2. Create a **database:**
     - If using an *SQlite3* database (Django's default), it will be automatically
 	created for you by Django in the following steps.
 	- If using *PostgreSQL*:
