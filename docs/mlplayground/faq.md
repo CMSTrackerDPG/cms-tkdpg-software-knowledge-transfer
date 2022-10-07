@@ -2,7 +2,7 @@
 
 ## Database management
 
-## How do I dump and recreate a list of DQM files?
+### How do I dump and recreate a list of DQM files?
 
 The easiest way is to just delete all `HistogramDataFiles` instances. To do so, 
 you will first need to delete all data associated with these `HistogramDataFiles`.
