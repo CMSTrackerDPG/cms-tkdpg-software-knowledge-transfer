@@ -13,9 +13,6 @@ It's deployed on CERN's PaaS platform.
 
 - [GitHub repo](https://github.com/CMSTrackerDPG/certifier/)
 
-## User manual
-
-- [User manual on readthedocs.io](https://certifier.readthedocs.io/)
 
 ## Models structure
 

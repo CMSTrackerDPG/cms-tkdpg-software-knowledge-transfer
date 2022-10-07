@@ -122,6 +122,8 @@ nav:
               - Views:
                   - SummaryView:
                       - certhelper/apps/summary/views/SummaryView.md
+      - Documentation &#128216;:
+          - certhelper/docs.md                      
               
   - MLPlayground &#129528;:
       - mlplayground/introduction.md
@@ -141,6 +143,8 @@ nav:
               - mlplayground/apps/histograms/overview.md
               - Models:
                   - mlplayground/apps/histograms/models.md
+      - Documentation &#128216;:
+          - mlplayground/docs.md
       - FAQ &#10067;:
           - mlplayground/faq.md
   - General documentation:
