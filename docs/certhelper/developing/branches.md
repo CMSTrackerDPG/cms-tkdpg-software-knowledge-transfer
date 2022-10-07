@@ -50,7 +50,9 @@ deployment at will, which will pull all latest changes from the `develop` branch
 Once you have tested your changes on the development deployment, you will
 need to update the main CertHelper instance.
 
-- Make sure you have updated the `CERTHELPER_VERSION` string in `dqmhelper/settings.py`.
+- Make sure you have [updated the `CERTHELPER_VERSION`](../../general/development/versioning.md)
+string in `dqmhelper/settings.py`, following the [Semantic Versioning](https://semver.org/)
+guide.
 - Merge the `develop` branch to `master`:
   ```bash
   git checkout master

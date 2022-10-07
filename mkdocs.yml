@@ -173,6 +173,10 @@ nav:
           - Database:
               - Exporting/Importing data:
                   - general/django/database/exporting_importing.md
+
+      - Development General:
+          - Versioning:
+              - general/development/versioning.md
           
       - Openshift:
           - Resources:
