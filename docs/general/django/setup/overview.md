@@ -16,6 +16,11 @@
 	- If using *PostgreSQL*:
 		- Install PostgreSQL natively (e.g. for Ubuntu,
 		instructions [here](https://ubuntu.com/server/docs/databases-postgresql)).
+		- Add a password for the `postgres` user as per the instructions above.
+		- Create the database:
+		    - Connect: `psql -U postgres`
+			- `CREATE DATABASE <database name>;` where `<database name>` is the database
+			name specified in Django's settings, or `.env` file, e.g. `mlplayground_development`.
 		- *[Optional]* Install [pgadmin4](https://www.pgadmin.org/) for administering it.
 3. A **virtual environment.** Example setup:
 	1. `cd` to your project's root.
