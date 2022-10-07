@@ -14,3 +14,15 @@ For example, for `LumisectionHistogram2D`:
 - Exit `psql`.
 - Run `python manage.py discover_dqm_files` which will
 [recreate entries for the deleted DQM files](apps/histogram_file_manager/management.md).
+
+
+## I started a new build on PaaS but it is stuck at `0 pods scaling to 1`. What's wrong?
+
+This usually happens if the [resources](../general/openshift/resources.md)
+set for the deployment are higher than the maximum available. This should not happen,
+if the limits are kept under [the max ones](deploying/deployments.md#paas-resource-limits) for the MLPlayground app.
+If, however, this happens, you could either:
+
+- Wait it out for a couple of minutes.
+- [MOST PROBABLE SOLUTION] Try scaling the pods down to 0 and up to 1 again.
+- Set the limits to the default ones (e.g. `cpu: '1'` and `memory: '2Gi'`), and re-raise them.
