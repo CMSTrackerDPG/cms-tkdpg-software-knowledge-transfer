@@ -1,5 +1,7 @@
 # FAQ
 
+## Database management
+
 ## How do I dump and recreate a list of DQM files?
 
 The easiest way is to just delete all `HistogramDataFiles` instances. To do so, 
@@ -16,7 +18,9 @@ For example, for `LumisectionHistogram2D`:
 [recreate entries for the deleted DQM files](apps/histogram_file_manager/management.md).
 
 
-## I started a new build on PaaS but it is stuck at `0 pods scaling to 1`. What's wrong?
+## Deployment
+
+### I started a new build on PaaS but it is stuck at `0 pods scaling to 1`. What's wrong?
 
 This usually happens if the [resources](../general/openshift/resources.md)
 set for the deployment are higher than the maximum available. This should not happen,
