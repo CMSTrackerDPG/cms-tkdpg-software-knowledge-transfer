@@ -17,4 +17,4 @@ For each valid file found, a new entry in the database is created.
 	creates an entry for the files themselves in the database. 
 	
 	The parsing is handled by the appropriate model methods found
-	in the `histograms/models.py` file.
+	in the `histograms/models.py` file and is invoked via the [API](api.md#start_parsing).

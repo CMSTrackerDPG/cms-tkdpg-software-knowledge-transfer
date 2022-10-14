@@ -139,6 +139,8 @@ nav:
                   - mlplayground/apps/histogram_file_manager/models.md
               - Management Commands:
                   - mlplayground/apps/histogram_file_manager/management.md
+              - API:
+                  - mlplayground/apps/histogram_file_manager/api.md
           - histograms:
               - mlplayground/apps/histograms/overview.md
               - Models:
