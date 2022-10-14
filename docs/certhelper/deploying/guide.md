@@ -243,7 +243,8 @@ training certhelper instance, the `training` branch must be selected.
 ## Setup a Database
 
 The database was requested from the CERN
-[DB on demand service](https://dbod.web.cern.ch/).
+[DB on demand service](https://dbod.web.cern.ch/). To request one, 
+follow the instructions [here](https://dbod-user-guide.web.cern.ch/instance_creation/).
 
 A PostgreSQL database is used.
 

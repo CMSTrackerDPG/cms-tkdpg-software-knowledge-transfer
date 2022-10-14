@@ -236,7 +236,7 @@ A string identifying the reconstruction that took place, e.g.:
 DataBase on Demand, a service provided by CERN to request database instances
 for personal or project use.
 
-[Website](dbod.web.cern.ch/)
+[Website](https://dbod.web.cern.ch/)
 
 !!! note
 	
