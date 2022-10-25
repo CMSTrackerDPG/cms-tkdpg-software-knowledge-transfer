@@ -153,7 +153,7 @@ This prevents the `nc: invalid option -- '-'` error.
 #### Getting access to the machine
 
 In order to get access to the machine you should send a request to subscribe to the CERN e-group: 
-[cms-gpu](https://e-groups.cern.ch/e-groups/Egroup.do?egroupId=10252295&searchField=0&searchMethod=1&searchValue=cms-gpu&pageSize=30&hideSearchFields=false&searchMemberOnly=false&searchAdminOnly=false).
+[cms-gpu-devel](https://e-groups.cern.ch/e-groups/Egroup.do?egroupId=10092524).
 
 You should also send an email to [Felice Pantaleo](mailto:felice.pantaleo@cern.ch) motivating the reason for the requested access.
 
