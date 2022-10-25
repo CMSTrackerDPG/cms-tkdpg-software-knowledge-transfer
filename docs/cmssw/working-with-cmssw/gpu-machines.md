@@ -84,7 +84,7 @@ To connect directly from your computer:
 !!! note
 	
 	More detailed instructions
-	[here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs#Connecting_to_the_machines))
+	[here](https://twiki.cern.ch/twiki/bin/viewauth/CMS/TriggerDevelopmentWithGPUs#Connecting_to_the_machines)
 
 ### Special configuration required
 
