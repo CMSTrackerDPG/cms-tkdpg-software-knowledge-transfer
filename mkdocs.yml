@@ -64,7 +64,9 @@ nav:
 
       - cmssw/build-types.md                  
       - Extra Resources:
-          - extra-resources/extra-cmssw.md                   
+          - extra-resources/extra-cmssw.md
+      - FAQ &#10067;:
+          - cmssw/working-with-cmssw/faq.md
   - Certhelper (a.k.a Certifier) &#9989;:
       - certhelper/introduction.md
       - Developing &#129489;&#8205;&#128187;:

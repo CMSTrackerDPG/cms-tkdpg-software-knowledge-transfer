@@ -108,7 +108,7 @@ To connect directly from your computer:
 export SCRAM_ARCH=el8_amd64_gcc10
 ```
 	
-### Notes/FAQ
+### Notes
 
 * These machines lie in a different subnet than the one that the LXPLUS machines
   belong to.
@@ -120,11 +120,6 @@ export SCRAM_ARCH=el8_amd64_gcc10
   but has larger capacity.
 * [CMS Cluster Users Guide](https://twiki.cern.ch/twiki/bin/viewauth/CMS/ClusterUsersGuide)
 * Use `curl` with the `--socks5` flag like so: `curl --socks5 socks5://localhost:18080 <url>`
-* If you keep getting `fatal: unable to find remote helper for 'https'` errors
-when running `git` commands, it's most probably due to an unsuccessful `cmsenv`
-execution (e.g. running `cmsenv` in an more than two weeks old `CMSSW_*_*_X`version). 
-Just log out and login again.
-
 
 ### Useful commands
 
