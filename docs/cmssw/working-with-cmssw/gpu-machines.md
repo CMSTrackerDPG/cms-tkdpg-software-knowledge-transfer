@@ -1,6 +1,11 @@
 # Connecting to GPU machines
 
 A step-by-step guide on how to access GPU equipped machines at CERN, CMS or how to develop on your machine.
+As an overview, you have three choices:
+
+- The very heavily-used [`lxplus-gpu`](#lxplus) machines (**[NOT RECOMMENDED]**).
+- The Point5's [Online Machines](#cms-point-5-machines) ({==RECOMMENDED==}).
+- [Special nodes](#special-gpu-nodes).
 
 ## Access machines at CERN
 
@@ -21,7 +26,7 @@ kinit
 exec bash
 ```
 
-## Access machines at CMS P5
+## CMS Point 5 Machines
 
 ??? info
 
