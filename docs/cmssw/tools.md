@@ -20,7 +20,7 @@ and [format](working-with-cmssw/software.md#formatting-the-code) the code.
 
 Documentation on `scram` can be found [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram).
 
-### Extra Parameters"
+### Extra Parameters
 	
 Scram also accepts extra flags which are passed directly to `gmake` such as `--dry-run`.
 	
