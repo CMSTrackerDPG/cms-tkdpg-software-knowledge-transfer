@@ -13,7 +13,11 @@ Just log out and login again.
 
 Tools used during `scram b`, such as
 [`edmWriteConfigs`](https://github.com/cms-sw/cmssw/blob/master/FWCore/ParameterSet/bin/edmWriteConfigs.cpp),
-can also be edited by the user and can, therefore, be debugged.
+can also be edited by the user and can, therefore, be debugged. 
+
+If the source code of the tool has not been checked out by the user, a precompiled one will be used.
+If the user has checked out the package containing the tool and builds CMSSW, the newly compiled
+tool will be used instead.
 
 For example, if `edmWriteConfigs` hangs during `scram b` (resulting in `scram b` never finishing, with
 the message `@@@@ Running edmWriteConfigs for RecoPixelVertexingPixelTripletsPlugins` being the last one
