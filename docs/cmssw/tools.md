@@ -20,9 +20,20 @@ and [format](working-with-cmssw/software.md#formatting-the-code) the code.
 
 Documentation on `scram` can be found [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram).
 
-!!! note
+### Extra Parameters"
 	
-	Scram can also accept extra flags which are passed directly to `gmake` such as `--dry-run`.
+Scram also accepts extra flags which are passed directly to `gmake` such as `--dry-run`.
+	
+### Rebuilding
+	
+If you built CMSSW, changed a file and rebuilt it, some cached object files may still
+be there. It's recommended to always run `scram b clean` before re-running `scram b`.
+
+### Multiple jobs
+
+Note that running `scram b` with multiple jobs launches multiple threads on multiple source
+files. The compilation order will not be predictable, and the complilation messages
+will not be predictable. 
 
 ## `cmsRun`
 
