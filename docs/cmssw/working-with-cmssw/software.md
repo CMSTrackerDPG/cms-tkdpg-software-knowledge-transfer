@@ -121,7 +121,7 @@ git remote -v
 ## Building the code
 
 ```bash
-scram b -j 4
+scram b -j 8
 ```
 
 ## Running checks on the code

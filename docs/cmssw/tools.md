@@ -11,13 +11,18 @@ and [activating a CMSSW environment by `cmsenv`](working-with-cmssw/software.md#
 
 ## `scram`
 
-A software build and maintenance tool. 
+A software build and maintenance tool [written in Python](https://github.com/cms-sw/SCRAM/tree/SCRAMV3/SCRAM).
+It calls `gmake` under the hood.
 
 It can [build](working-with-cmssw/software.md#building-the-code),
 [check](working-with-cmssw/software.md#running-checks-on-the-code)
 and [format](working-with-cmssw/software.md#formatting-the-code) the code.
 
-Documentation on `scram` can be found [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram). 
+Documentation on `scram` can be found [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram).
+
+!!! note
+	
+	Scram can also accept extra flags which are passed directly to `gmake` such as `--dry-run`.
 
 ## `cmsRun`
 
