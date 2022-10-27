@@ -4,8 +4,17 @@ The project is deployed on CERN's
 [PaaS platform](https://paas.cern.ch/topology/ns/ml4dqm-playground?view=graph)
 as two separate deployments:
 
-* `ml-playground` using [s2i](../../basic-concepts.md#s2i-source-to-image) deployment,
+* `mlplayground` using a modified [s2i](../../basic-concepts.md#s2i-source-to-image) deployment,
 * `dqm-playground-ds` from a Docker image.
+
+## `mlplayground`
+
+Due to the `root` dependency that opening `nanoDQM` files introduces, 
+a custom s2i image has been created using the procedure followed
+[here](https://paas.docs.cern.ch/2._Deploy_Applications/Deploy_From_Git_Repository/4-add-oracle-client-to-s2i/).
+
+See the [`Dockerfile`](https://github.com/CMSTrackerDPG/MLplayground/blob/master/Dockerfile) for
+the extra packages added to the default `RHEL UBI8` image.
 
 ## `dqm-playground-ds`
 
