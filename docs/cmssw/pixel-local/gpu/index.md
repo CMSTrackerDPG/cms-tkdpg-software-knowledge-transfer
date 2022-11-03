@@ -11,14 +11,6 @@ Functionality covered in this documentation:
 - [Raw to Digi conversion](SiPixelRawToClusterCUDA-overview.md)
 - [Clusterization](SiPixelRawToClusterCUDA-overview.md)
 
-
-```mermaid
-graph LR
-  A[Raw data] --> B[Digis];
-  B --> C[Clusters]
-  C -->|???| D[RecHits]
-```
-
 ## Data Structure
 
 The [SoA](../../../basic-concepts.md#soaaos) approach is used to store

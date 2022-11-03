@@ -66,11 +66,9 @@ In the reconstruction code, the Pixel Detector is represented as a 2D matrix of
 pixels (`PixelDigi`s), with X and Y coordinates, each one having an
 [ADC](./#adc) value.
 
-### RecHits
+### Pixel-local Reconstruction
 
-!!! todo
-
-	TODO????
+See [here](cmssw/pixel-local/overview.md).
 
 ### Pixel Cluster
 
@@ -83,6 +81,25 @@ is the trace that the particle leaves on the Pixel Detector.
   ![Stains on a shirt](img/stains.jpg){ width="300" }
   <figcaption>A cluster of pixels activated by a particle resembles a stain (Pixel Cluster) on a shirt (Pixel Detector)</figcaption>
 </figure>
+
+### RecHit
+
+RecHits are the result of "charge-weighting" a [cluster](#pixel-cluster). 
+In layman's terms, it's the "actual" location in the pixel detector where
+the particle passed through.
+
+### Track
+
+Tracks are collections of [RecHits](#rechit) on different layers,
+which RecHits are assumed to compose a part of the
+trajectory of a single particle through the Pixel Detector.
+
+### Vertex
+
+Once [tracks](#track) are created, they must be assigned to collisions
+which generated each track. Since many collisions happen at the same time
+within the area where the beams collide, vertices are, actually, tracks
+which have been assigned to different collisions.
 
 ### Read-Out Chip
 
