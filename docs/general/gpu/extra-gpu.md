@@ -42,7 +42,7 @@ An official NVIDIA introductory workshop.
 
 ### Angela's GPU programming primer
 
-Follow the material found [here](../czangela-tutorial/index.md).
+Follow the material found [here](../../czangela-tutorial/index.md).
 
 ### Patatrack
 

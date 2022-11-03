@@ -11,7 +11,9 @@ Use the sidebar to navigate through the available sections.
 	
 	Feel free to contribute to this documentation (via pull requests 
 	on [github](https://github.com/CMSTrackerDPG/cms-tkdpg-software-knowledge-transfer)), 
-	as it will definitely be missing insights, details or whole pieces of information. 
+	or just by pressing the edit button (:material-pencil:), on the top right of each page.
+	There will definitely be missing insights, details or whole pieces of information in 
+	this documentation. 
 
 
 Project started by [@czangela](https://github.com/czangela).

@@ -18,19 +18,7 @@ is targeted:
 
 ## Usage
 
-The usual *modus operandi* with CMSSW is the following (from within an LXPLUS or CMS online machin):
-
-- [Clone](working-with-cmssw/software.md#create-a-cmssw-area) one of the available versions of CMSSW.
-- [Checkout packages](working-with-cmssw/software.md#checkout-a-few-packages-using-git-cms-addpkg)
-that you want to make changes to.
-- Make changes to any file you want.
-- Build CMSSW again.
-- Execute [Workflows](working-with-cmssw/workflows/overview.md) and validation.
-
-To do so, it is recommended that you work with CMSSW on LXPLUS, where many 
-useful tools for managing, code-checking, code-formatting, building are available there.
-You can find instructions on how to setup your work environment and get started 
-in the [Developing section](working-with-cmssw/software.md).
+See [Setup](working-with-cmssw/setup.md).
 
 ## Versions
 

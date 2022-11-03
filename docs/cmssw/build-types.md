@@ -1,4 +1,4 @@
-# CMSSW Builds
+# Builds
 
 CMSSW has multiple releases, information about which one can find [here](https://cmssdt.cern.ch/SDT/ReleaseNotes/index.html). 
 
