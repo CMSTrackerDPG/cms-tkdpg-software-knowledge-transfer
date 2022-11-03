@@ -1,15 +1,24 @@
 # GPU code overview
 
-!!! todo
-	
-	TODO
-
-Reconstruction modules meant to be run on nvidia GPUs. 
+CMSSW modules meant to be run on NVIDIA GPUs.
 
 Functionality covered in this documentation:
 
 - [Raw to Digi conversion](SiPixelRawToClusterCUDA-overview.md)
 - [Clusterization](SiPixelRawToClusterCUDA-overview.md)
+
+## Module Dataflow
+
+```mermaid
+flowchart TD
+ classDef Module fill:#c5c5FF,stroke:#0000ff,stroke-width:4px,color:#000000;
+
+ SiPixelRawToClusterCUDA --> SiPixelRecHitCUDA
+ SiPixelRecHitCUDA --> CAHitNtupletCUDA
+ CAHitNtupletCUDA --> PixelVertexProducerCUDA
+ 
+ class SiPixelRawToClusterCUDA,SiPixelRecHitCUDA,CAHitNtupletCUDA,PixelVertexProducerCUDA Module;
+```
 
 ## Data Structure
 
@@ -38,16 +47,16 @@ another in 1D arrays:
 ![SoA Data layout](img/soa_layout.png){ width="500" }
 
 !!! warning
-	
-	The data is **not** stored in a per-module sorted manner,
-	meaning that `module1` data could precede `module0`'s data.
-	Data from each module *is*, however, stored consecutively,
-	meaning that data from one module is not split up into several
-	blocks.
-	
+
+    The data is **not** stored in a per-module sorted manner,
+    meaning that `module1` data could precede `module0`'s data.
+    Data from each module *is*, however, stored consecutively,
+    meaning that data from one module is not split up into several
+    blocks.
+
 An actual example of such arrays can be seen in the
 [SiPixelDigisCUDASOAView](./SiPixelDigisCUDASOAView.md).
 
 !!! todo
 
-	Where is this data structure created? Unpacking?
+    Where is this data structure created? Unpacking?
