@@ -63,6 +63,6 @@ A Python tool to create `cmsRun` configuration files, which are in the form of P
 A wrapper script which is responsible of executing multi-step analysis/simulation recipes
 by configuring `cmsDriver`.
 
-It is examined in more detail [in the Workflows section](working-with-cmssw/workflows/overview.md)
+It is examined in more detail [in the Workflows section](workflows/overview.md)
 
 

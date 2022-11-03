@@ -11,9 +11,9 @@ nav:
       - cmssw/working-with-cmssw/proposing-changes.md                                        
       - Tools &#128295;: cmssw/tools.md
       - Workflows &#128200;:
-          - cmssw/working-with-cmssw/workflows/overview.md
-          - cmssw/working-with-cmssw/workflows/usage.md
-          - cmssw/working-with-cmssw/workflows/history.md
+          - cmssw/workflows/overview.md
+          - cmssw/workflows/usage.md
+          - cmssw/workflows/history.md
       - Documentation &#128216;:
           - Pixel-Local Reconstruction:
               - cmssw/pixel-local/overview.md

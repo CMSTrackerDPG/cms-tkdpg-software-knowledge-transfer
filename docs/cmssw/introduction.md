@@ -35,7 +35,7 @@ subdirectories:
 - `RecoLocalTracker/SiPixelClusterizer/`
 
 To execute the CPU reconstruction code, you can do so by running it on
-any LXPLUS machine, usually through [Workflows](working-with-cmssw/workflows/overview.md).
+any LXPLUS machine, usually through [Workflows](workflows/overview.md).
 
 Information about the CPU code is found in the [CPU section](pixel-local/cpu/index.md).
 

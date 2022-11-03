@@ -9,7 +9,7 @@ The usual way to work with CMSSW is the following (from within [one of the avail
 that you want to make changes to.
 - Make changes to any file you want.
 - Build CMSSW again.
-- Execute [Workflows](workflows/overview.md) and validation.
+- Execute [Workflows](../workflows/overview.md) and validation.
 
 To do so, it is recommended that you work with CMSSW on an [appropriately configured machine](#connect-to-your-machine), where many 
 useful tools for managing, code-checking, code-formatting, building are available.
