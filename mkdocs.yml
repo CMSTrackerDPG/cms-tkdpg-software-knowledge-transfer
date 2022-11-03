@@ -14,52 +14,50 @@ nav:
           - cmssw/working-with-cmssw/workflows/overview.md
           - cmssw/working-with-cmssw/workflows/usage.md
           - cmssw/working-with-cmssw/workflows/history.md
-      - Documentation on CMSSW:
-          - Overview:
-              - cmssw/overview/overview.md
-              - Pixel-Local Reconstruction:
-                  - cmssw/overview/pixel.md
-          - CPU &#129704;:
-              - cmssw/cpu/index.md
-              - Data Formats:
-                  - DetSetVector:
-                      - cmssw/cpu/DetSetVector-overview.md
-                  - PixelDigi:
-                      - cmssw/cpu/PixelDigi-overview.md                  
-                  - SiPixelCluster:
-                      - cmssw/cpu/SiPixelCluster-overview.md
-              - PixelThresholdClusterizer:
-                  - cmssw/cpu/PixelThresholdClusterizer-overview.md
-                  - cmssw/cpu/PixelThresholdClusterizer-copytobuffer.md
-              - SiPixelArrayBuffer:
-                  - cmssw/cpu/SiPixelArrayBuffer-overview.md
-          - GPU &#128396;&#65039;:
-              - cmssw/gpu/index.md
-              - Data Formats:
-                  - SiPixelDigisCUDA:
-                      - cmssw/gpu/SiPixelDigisCUDA.md
-                  - SiPixelDigisCUDASOAView:
-                      - cmssw/gpu/SiPixelDigisCUDASOAView.md
-                  - SiPixelClustersCUDA:
-                      - cmssw/gpu/SiPixelClustersCUDA.md                                            
-              - SiPixelRawToClusterCUDA.cc:
-                  - cmssw/gpu/SiPixelRawToClusterCUDA-overview.md
-                  - SiPixelRawToClusterGPUKernel.h:
-                      - cmssw/gpu/SiPixelRawToClusterGPUKernel-overview.md
-                      - gpuCalibPixel.h:
-                          - cmssw/gpu/gpuCalibPixel.md
-                          - calibDigis:
-                              - cmssw/gpu/gpuCalibPixel-calibDigis.md                  
-                      - gpuClustering.h:
-                          - cmssw/gpu/gpuClustering-overview.md
-                          - cmssw/gpu/gpuClustering-countModules.md
-                          - cmssw/gpu/gpuClustering-findClus.md                  
-              - SiPixelDigisSoAFromCUDA:
-                  - cmssw/gpu/SiPixelDigisSoAFromCUDA-overview.md
-              - SiPixelDigisClustersFromSoA.cc:                  
-                  - cmssw/gpu/SiPixelDigisClustersFromSoA-overview.md                  
-
-
+      - Documentation &#128216;:
+          - Pixel-Local Reconstruction:
+              - cmssw/pixel-local/overview.md
+              - Dataflow:
+                  - cmssw/pixel-local/pixel.md
+              - CPU &#129704;:
+                  - cmssw/pixel-local/cpu/index.md
+                  - Data Formats:
+                      - DetSetVector:
+                          - cmssw/pixel-local/cpu/DetSetVector-overview.md
+                      - PixelDigi:
+                          - cmssw/pixel-local/cpu/PixelDigi-overview.md                  
+                      - SiPixelCluster:
+                          - cmssw/pixel-local/cpu/SiPixelCluster-overview.md
+                  - PixelThresholdClusterizer:
+                      - cmssw/pixel-local/cpu/PixelThresholdClusterizer-overview.md
+                      - cmssw/pixel-local/cpu/PixelThresholdClusterizer-copytobuffer.md
+                  - SiPixelArrayBuffer:
+                      - cmssw/pixel-local/cpu/SiPixelArrayBuffer-overview.md
+              - GPU &#128396;&#65039;:
+                  - cmssw/pixel-local/gpu/index.md
+                  - Data Formats:
+                      - SiPixelDigisCUDA:
+                          - cmssw/pixel-local/gpu/SiPixelDigisCUDA.md
+                      - SiPixelDigisCUDASOAView:
+                          - cmssw/pixel-local/gpu/SiPixelDigisCUDASOAView.md
+                      - SiPixelClustersCUDA:
+                          - cmssw/pixel-local/gpu/SiPixelClustersCUDA.md                                            
+                  - SiPixelRawToClusterCUDA.cc:
+                      - cmssw/pixel-local/gpu/SiPixelRawToClusterCUDA-overview.md
+                      - SiPixelRawToClusterGPUKernel.h:
+                          - cmssw/pixel-local/gpu/SiPixelRawToClusterGPUKernel-overview.md
+                          - gpuCalibPixel.h:
+                              - cmssw/pixel-local/gpu/gpuCalibPixel.md
+                              - calibDigis:
+                                  - cmssw/pixel-local/gpu/gpuCalibPixel-calibDigis.md                  
+                          - gpuClustering.h:
+                              - cmssw/pixel-local/gpu/gpuClustering-overview.md
+                              - cmssw/pixel-local/gpu/gpuClustering-countModules.md
+                              - cmssw/pixel-local/gpu/gpuClustering-findClus.md                  
+                  - SiPixelDigisSoAFromCUDA:
+                      - cmssw/pixel-local/gpu/SiPixelDigisSoAFromCUDA-overview.md
+                  - SiPixelDigisClustersFromSoA.cc:                  
+                      - cmssw/pixel-local/gpu/SiPixelDigisClustersFromSoA-overview.md                  
       - Extra Resources:
           - general/cmssw/extra-cmssw.md
       - FAQ &#10067;:

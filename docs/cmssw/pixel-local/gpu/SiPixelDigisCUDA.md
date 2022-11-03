@@ -76,4 +76,4 @@ found in the `StorageLocation` enumerator as input.
 ### `view`
 
 Accesses the data stored in the `m_view` attribute, which are
-stored with the [SoA](../../basic-concepts.md#soaaos) approach.
+stored with the [SoA](../../../basic-concepts.md#soaaos) approach.

@@ -155,8 +155,8 @@ we need to detect **Clusters** of adjascent/neigbouring pixels which
 have an ADC value above a certain threshold. This process of detecting
 **Clusters** is called **Clusterizing**.
 
-This is implemented in both [CPU](cmssw/cpu/PixelThresholdClusterizer-overview.md)
-and [GPU](cmssw/gpu/gpuClustering-overview.md).
+This is implemented in both [CPU](cmssw/pixel-local/cpu/PixelThresholdClusterizer-overview.md)
+and [GPU](cmssw/pixel-local/gpu/gpuClustering-overview.md).
 
 ### SoA/AoS
 

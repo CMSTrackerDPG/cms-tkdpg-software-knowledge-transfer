@@ -1,9 +1,9 @@
 # findClus
 
-CUDA kernel for finding [Clusters](../../basic-concepts.md#pixel-cluster)
+CUDA kernel for finding [Clusters](../../../basic-concepts.md#pixel-cluster)
 given digis extracted from raw data.
 
-Taking advantage of the [SoA](../../basic-concepts.md#soaaos) data approach,
+Taking advantage of the [SoA](../../../basic-concepts.md#soaaos) data approach,
 it is meant to be executed
 with a 1D grid of blocks, each block being a 1D grid
 of threads. The number of blocks and threads used to launch this kernel
@@ -349,7 +349,7 @@ this index is stored in `msize`.
 	Documentation on `atomicCAS` can be found
 	[here](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#atomiccas).
 	
-	[^2]: See [here](../../basic-concepts.md#module) 
+	[^2]: See [here](../../../basic-concepts.md#module) 
 	[^3]: An NVIDIA T4 card has a limit of 64kB of shared memory,
 	see [here](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities)
 	under `Maximum amount of shared memory per thread block`.
@@ -403,7 +403,7 @@ for (int i = first; i < msize; i += blockDim.x) {
     What we don't know however is what order we are going to process our pixels in one column/bin.
     Filling the histogram is competitive between the threads, the following image illustrates this.
 
-![Iteration order of pixels in cluster](../../img/documentation/m0.png)
+![Iteration order of pixels in cluster](../../../img/documentation/m0.png)
 
 !!! info "Figure 1 - Order in histogram"
 
@@ -413,7 +413,7 @@ for (int i = first; i < msize; i += blockDim.x) {
 
 We see the relative positions of pixels in our cluster:
 
-![Iteration order of pixels in cluster](../../img/documentation/m1.png)
+![Iteration order of pixels in cluster](../../../img/documentation/m1.png)
 
 !!! info "Figure 2 - Our HistoContainer"
 
@@ -421,7 +421,7 @@ We see the relative positions of pixels in our cluster:
 
     At least for this example, it doesn't really matter if one imagines the order in one bin the other way around.
 
-![Id/position stored in histogram visualized](../../img/documentation/m2.png)
+![Id/position stored in histogram visualized](../../../img/documentation/m2.png)
 
 !!! info "Figure 3 - What we store in the HistoContainer"
 
@@ -458,7 +458,7 @@ We see the relative positions of pixels in our cluster:
 
 This example only contained one cluster, but in reality we will likely have some consecutive clusters. 
 
-![Iteration order of pixels in cluster](../../img/documentation/m3.png)
+![Iteration order of pixels in cluster](../../../img/documentation/m3.png)
 
 !!! info "Figure 4 - Multiple clusters in one module"
 
@@ -727,7 +727,7 @@ for (auto j = threadIdx.x, k = 0U; j < hist.size(); j += blockDim.x, ++k) {
 
     In this example:
 
-    ![Iteration order of pixels in cluster](../../img/documentation/m1.png)
+    ![Iteration order of pixels in cluster](../../../img/documentation/m1.png)
 
     For `m` we consider the following values
 

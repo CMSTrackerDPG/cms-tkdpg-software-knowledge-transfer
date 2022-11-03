@@ -37,7 +37,7 @@ subdirectories:
 To execute the CPU reconstruction code, you can do so by running it on
 any LXPLUS machine, usually through [Workflows](working-with-cmssw/workflows/overview.md).
 
-Information about the CPU code is found in the [CPU section](cpu/index.md).
+Information about the CPU code is found in the [CPU section](pixel-local/cpu/index.md).
 
 ## GPU code
 
@@ -65,10 +65,10 @@ subdirectories:
 - `RecoLocalTracker/SiPixelClusterizer/`
 
 To run and execute code on GPUs, you must first connect to the appropriate
-LXPLUS machine. See the [Connecting to GPU machines section](working-with-cmssw/gpu-machines.md) 
+LXPLUS machine. See the [here](working-with-cmssw/setup.md) 
 for instructions.
 
-Information about the GPU code is found in the [GPU section](gpu/index.md).
+Information about the GPU code is found in the [GPU section](pixel-local/gpu/index.md).
 
 ## Alpaka code
 

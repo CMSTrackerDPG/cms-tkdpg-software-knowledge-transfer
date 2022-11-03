@@ -1,6 +1,6 @@
 # SiPixelDigisCUDASOAView
 
-Class which stores Pixel digi data in an [SoA](../../basic-concepts.md#soaaos) approach.
+Class which stores Pixel digi data in an [SoA](../../../basic-concepts.md#soaaos) approach.
 Used indirectly by [SiPixelDigisCUDA](SiPixelDigisCUDA.md) instances, such as the `digis_d`
 variable in the
 [SiPixelRawToClusterGPUKernel](SiPixelRawToClusterGPUKernel-overview.md#digis_d)
@@ -24,7 +24,7 @@ variable.
 See also [PixelDigi](../cpu/PixelDigi-overview.md#thedata) for the CPU counterpart.
 * `rawIdArr_`: Unique identifier used to identify modules in the whole of CMS
 ({==TODO: Double-check that this is the same as 
-[`DetId`](../../basic-concepts.md#detid)==}).
+[`DetId`](../../../basic-concepts.md#detid)==}).
 
 ## UML Diagram
 

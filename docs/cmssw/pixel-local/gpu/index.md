@@ -21,10 +21,10 @@ graph LR
 
 ## Data Structure
 
-The [SoA](../../basic-concepts.md#soaaos) approach is used to store
+The [SoA](../../../basic-concepts.md#soaaos) approach is used to store
 pixel data used by the CUDA code.
 
-In short, data from each [module](../../basic-concepts.md#module)
+In short, data from each [module](../../../basic-concepts.md#module)
 is concatenated into multiple 1D arrays.
 
 For example, suppose we have two modules (module0 and module1).
@@ -34,7 +34,7 @@ to (`moduleInd`, for this example `0` and `1`).
 
 A simplistic visualization of the example above can be seen
 below; each module is composed of 2 x 8
-[ROCs](../../basic-concepts.md#read-out-chip), each pixel having
+[ROCs](../../../basic-concepts.md#read-out-chip), each pixel having
 unique coordinates relative to the module.
 
 ![Module layout](img/module_layout.png)
