@@ -11,13 +11,27 @@ Functionality covered in this documentation:
 
 ```mermaid
 flowchart TD
- classDef Module fill:#c5c5FF,stroke:#0000ff,stroke-width:4px,color:#000000;
-
- SiPixelRawToClusterCUDA --> SiPixelRecHitCUDA
- SiPixelRecHitCUDA --> CAHitNtupletCUDA
- CAHitNtupletCUDA --> PixelVertexProducerCUDA
+ classDef Module fill:#c5c5FF,stroke:#0000ff,stroke-width:4px,color:#0000ff;
+ classDef CUDAProduct fill:#ffffff,stroke:#008000,stroke-width:2px,color:#008000; 
+ SiPixelRawToClusterCUDA --> SiPixelDigisCUDA([SiPixelDigisCUDA])
+ SiPixelRawToClusterCUDA --> SiPixelClustersCUDA([SiPixelClustersCUDA])
  
- class SiPixelRawToClusterCUDA,SiPixelRecHitCUDA,CAHitNtupletCUDA,PixelVertexProducerCUDA Module;
+ SiPixelClustersCUDA --> SiPixelRecHitCUDA
+ SiPixelDigisCUDA --> SiPixelRecHitCUDA 
+ SiPixelRecHitCUDA --> TrackingRecHit2DGPU([TrackingRecHit2DGPU])
+ 
+ TrackingRecHit2DGPU --> CAHitNtupletCUDA
+ CAHitNtupletCUDA --> PixelTrackHeterogeneous([PixelTrackHeterogeneous])
+ PixelTrackHeterogeneous --> PixelVertexProducerCUDA
+ PixelVertexProducerCUDA --> ZVertexHeterogeneous([ZVertexHeterogeneous])
+
+ subgraph Legend
+  CUDAProduct([CUDA Product])
+  CMSSWModule([CMSSW Module])
+ end
+  
+ class CMSSWModule,SiPixelRawToClusterCUDA,SiPixelRecHitCUDA,CAHitNtupletCUDA,PixelVertexProducerCUDA Module;
+ class CUDAProduct,SiPixelClustersCUDA,SiPixelDigisCUDA,TrackingRecHit2DGPU,PixelTrackHeterogeneous,ZVertexHeterogeneous CUDAProduct;  
 ```
 
 ## Data Structure
