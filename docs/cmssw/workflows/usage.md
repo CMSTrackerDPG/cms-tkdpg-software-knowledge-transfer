@@ -2,11 +2,12 @@
 
 ## Prerequisites
 
-You will need to run the following command to acquire a proxy to access the grid:
+You will need to run the following command to acquire a proxy to access the grid, if the workflow requires access to data on the grid:
 
 ```bash
 voms-proxy-init -voms cms -rfc
 ```
+Workflows that generate their own data during `step1` should not need a proxy.
 
 ## Execution
 
@@ -140,13 +141,29 @@ CMSSW environment ([Instructions here](../working-with-cmssw/setup.md)).
 
 #### GPU
 
+Login into any GPU-enabled machine and, from within an activated CMS environment
+run any GPU workflow, e.g:
+
 ```bash
 runTheMatrix.py -l 136.885502 --what gpu
 ```
 
 `-l` specifies the workflow to run.
 
-`--what` specifies, among other things, the device to run this workflow on.
+`--what` specifies, among other things, the device to run this workflow on. 
+
+#### CPU
+
+See [notes](#notes).
+
+### Notes
+
+1. `--what upgrade` {==TODO==} 
+2. Some workflows switche to CPU or GPU automatically, depending on the system's capabilities, e.g.:
+
+```bash
+runTheMatrix.py -w upgrade -l 11634.502
+```
 
 ### Expected outputs
 
@@ -158,8 +175,9 @@ To debug errors for a specific step, look into those log files.
 
 ### Possible Errors
 
-#### No .root files are generated during Step 2
+#### No `.root` files are generated during Step 2
 
-##### Resolution 1
+##### Possible Solution
 
 Use the `--ibeos` argument along with `runTheMatrix.py`
+
