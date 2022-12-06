@@ -6,7 +6,7 @@ Parameters which can be configured for this project.
 
 ### `DJANGO_SECRET_KEY`
 
-### `DIR_PATH_EOS_CMSML4DC`
+### `DIR_PATH_DQMIO_STORAGE`
 
 Path (usually to EOS) where DQM files are to be found. 
 This directory is scanned for valid DQM files which are then
