@@ -16,6 +16,12 @@ a custom s2i image has been created using the procedure followed
 See the [`Dockerfile`](https://github.com/CMSTrackerDPG/MLplayground/blob/master/Dockerfile) for
 the extra packages added to the default `RHEL UBI8` image.
 
+### Running management commands on OpenShift
+
+Due to the project's dependency on CERN's ROOT, in order to run any management
+command on OpenShift (i.e. [`discover_dqm_files`](../apps/histogram_file_manager/management.md))
+you must run `source /opt/app-root/src/root/bin/thisroot.sh` to add ROOT to `PATH`. 
+
 ## `dqm-playground-ds`
 
 This project is automatically built into a Docker image using GitHub Actions
