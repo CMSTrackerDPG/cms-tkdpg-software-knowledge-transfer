@@ -9,6 +9,12 @@ Documentation on the `api` folder in the `histogram_file_manager` app.
 This ViewSet provides the Views of the API to the `HistogramDataFile` model,
 i.e. the endpoints which list the available instances of the aforementioned model.
 
+!!! info
+	
+	To reduce the load exerted on the DB each time a full list of `HistogramDataFiles`
+	are requested, the responses are cached for 60 seconds (see `histogram_file_manager/api/viewsets.py`).
+	Any delays in getting fresh data on the available files is due to this caching.
+
 #### `start_parsing`
 
 A custom endpoint action which, given the `id` of the `HistogramDataFile` and
