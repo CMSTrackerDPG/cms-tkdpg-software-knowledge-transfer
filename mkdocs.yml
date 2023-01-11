@@ -10,6 +10,7 @@ nav:
       - cmssw/build-types.md                        
       - cmssw/working-with-cmssw/proposing-changes.md                                        
       - Tools &#128295;: cmssw/tools.md
+      - Debugging: cmssw/debugging.md
       - Workflows &#128200;:
           - cmssw/workflows/overview.md
           - cmssw/workflows/usage.md
