@@ -21,12 +21,19 @@ and [format](working-with-cmssw/setup.md#formatting-the-code) the code.
 Documentation on `scram` can be found [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram).
 
 ### Extra Parameters
-	
+
 - Scram also accepts extra flags which are passed directly to `gmake` such as `--dry-run`.
-- For enabling `LogDebug` messages, also add `USER_CXXFLAGS="-DEDM_ML_DEBUG"` at the end of the `scram` command.
-	
+- The `USER_CXXFLAGS` is an environmental variable which is used to pass arguments to `g++`:
+  - For enabling `LogDebug` messages, also add `USER_CXXFLAGS="-DEDM_ML_DEBUG"` before the `scram` command.
+  - For also defining the `GPU_DEBUG` flag globally (for GPU code), add
+  `USER_CXXFLAGS="-g -DGPU_DEBUG -DEDM_ML_DEBUG"` before the `scram` command.
+  - If your debug build is not working, you might need to clean your development area:
+  ``` bash
+  scram b clean
+  ```
+
 ### Rebuilding
-	
+
 If you built CMSSW, changed a file and rebuilt it, some cached object files may still
 be there. It's recommended to always run `scram b clean` before re-running `scram b`.
 
@@ -34,7 +41,7 @@ be there. It's recommended to always run `scram b clean` before re-running `scra
 
 Note that running `scram b` with multiple jobs launches multiple threads on multiple source
 files. The compilation order will not be predictable, and the complilation messages
-will not be predictable. 
+will not be predictable.
 
 ## `cmsRun`
 

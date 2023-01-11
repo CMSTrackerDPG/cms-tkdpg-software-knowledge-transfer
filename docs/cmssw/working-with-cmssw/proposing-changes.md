@@ -1,4 +1,4 @@
-# Proposing changes to CMSSW
+# Creating a PR to CMSSW
 
 **Based on [http://cms-sw.github.io/tutorial.html](http://cms-sw.github.io/tutorial.html)**
 
@@ -22,20 +22,7 @@ git rebase -i <official_cmssw_name>/<CMSSW_current_release>
 
 ## Build release
 
-``` bash
-scram b -j
-```
-
-Doing a `DEBUG` build for `GPU` development:
-
-``` bash
-USER_CXXFLAGS="-g -DGPU_DEBUG -DEDM_ML_DEBUG" scram b -j
-```
-
-If your debug build is not working, you might need to clean your development area:
-``` bash
-scram b clean
-```
+See [the Tools section for more info](../tools.md#scram)
 
 ## Before making a PR
 
