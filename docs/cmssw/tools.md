@@ -24,9 +24,9 @@ Documentation on `scram` can be found [here](https://twiki.cern.ch/twiki/bin/vie
 
 - Scram also accepts extra flags which are passed directly to `gmake` such as `--dry-run`.
 - The `USER_CXXFLAGS` is an environmental variable which is used to pass arguments to `g++`:
-    - For enabling `LogDebug` messages, also add `USER_CXXFLAGS="-DEDM_ML_DEBUG"` before the `scram` command.
-    - For also defining the `GPU_DEBUG` flag globally (for GPU code), add
-    `USER_CXXFLAGS="-g -DGPU_DEBUG -DEDM_ML_DEBUG"` before the `scram` command.
+    - For enabling `LogDebug` messages, run `export USER_CXXFLAGS="-DEDM_ML_DEBUG"` before runningthe `scram` command.
+    - For also defining the `GPU_DEBUG` flag globally (for GPU code), run
+    `export USER_CXXFLAGS="-O0 -g -DGPU_DEBUG -DEDM_ML_DEBUG"` before running the `scram` command.
     - If your debug build is not working, you might need to clean your development area:
     ``` bash
     scram b clean
