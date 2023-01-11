@@ -4,6 +4,13 @@
 
 [Here](https://cmsdoxygen.web.cern.ch/cmsdoxygen/).
 
+## DXR source browser
+
+Useful for browsing the CMSSW source, looking up definitions and finding callees of
+variables and functions.
+
+[Here](https://cmssdt.cern.ch/dxr/CMSSW/source/). 
+
 ## Tutorials
 
 ### CMS OpenData Workshop
