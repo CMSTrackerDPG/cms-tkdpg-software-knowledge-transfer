@@ -13,10 +13,15 @@ follow the instructions [here](https://twiki.cern.ch/twiki/bin/view/Main/HomerWo
 break '/absolute/path/to/file.c':LINE
 ```
 
+e.g. 
+
+```gdb
+break '/data/user/dpapagia/cmssw/CMSSW_13_0_X_2023-01-09-1100/src/RecoPixelVertexing/PixelTriplets/plugins/CAHitNtupletGeneratorOnGPU.cc':293
+```
+
 You should see a response like this:
 
 ```
-No source file named /data/user/dpapagia/cmssw/CMSSW_13_0_X_2023-01-09-1100/src/RecoPixelVertexing/PixelTriplets/plugins/CAHitNtupletGeneratorOnGPU.cc.
 Make breakpoint pending on future shared library load? (y or [n]) y
 Breakpoint 3 ('/data/user/dpapagia/cmssw/CMSSW_13_0_X_2023-01-09-1100/src/RecoPixelVertexing/PixelTriplets/plugins/CAHitNtupletGeneratorOnGPU.cc':293) pending.
 ```
