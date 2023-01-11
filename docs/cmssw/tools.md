@@ -22,7 +22,8 @@ Documentation on `scram` can be found [here](https://twiki.cern.ch/twiki/bin/vie
 
 ### Extra Parameters
 	
-Scram also accepts extra flags which are passed directly to `gmake` such as `--dry-run`.
+- Scram also accepts extra flags which are passed directly to `gmake` such as `--dry-run`.
+- For enabling `LogDebug` messages, also add `USER_CXXFLAGS="-DEDM_ML_DEBUG"` at the end of the `scram` command.
 	
 ### Rebuilding
 	
