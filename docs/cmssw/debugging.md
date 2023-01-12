@@ -7,13 +7,15 @@ follow the instructions [here](https://twiki.cern.ch/twiki/bin/view/Main/HomerWo
 
 ## Quick reference
 
-### Set Breakpoint in file line
+### Set Breakpoints
+
+### By file line
 
 ```gdb
 break '/absolute/path/to/file.c':LINE
 ```
 
-e.g. 
+E.g.:
 
 ```gdb
 break '/data/user/dpapagia/cmssw/CMSSW_13_0_X_2023-01-09-1100/src/RecoPixelVertexing/PixelTriplets/plugins/CAHitNtupletGeneratorOnGPU.cc':293
@@ -26,7 +28,15 @@ Make breakpoint pending on future shared library load? (y or [n]) y
 Breakpoint 3 ('/data/user/dpapagia/cmssw/CMSSW_13_0_X_2023-01-09-1100/src/RecoPixelVertexing/PixelTriplets/plugins/CAHitNtupletGeneratorOnGPU.cc':293) pending.
 ```
 
-### Print contents of variable
+### By function name
+
+E.g.:
+
+```gdb
+break TrackingRecHitSoADevice<pixelTopology::Phase1>::TrackingRecHitSoADevice
+```
+
+## Print contents of variable
 
 After hitting a breakpoint, you can do something like:
 
