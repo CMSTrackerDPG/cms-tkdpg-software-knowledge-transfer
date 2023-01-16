@@ -36,6 +36,12 @@ E.g.:
 break TrackingRecHitSoADevice<pixelTopology::Phase1>::TrackingRecHitSoADevice
 ```
 
+## Print the type of a variable
+
+```gdb
+ptype <name of variable in scope>
+```
+
 ## Print contents of variable
 
 After hitting a breakpoint, you can do something like:
