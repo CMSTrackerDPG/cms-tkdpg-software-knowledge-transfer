@@ -16,9 +16,11 @@ scram b -j `nproc`
 Whether you prefer debugging with extra verbose messages or by [using `gdb`](debugging.md),
 those options will help you add extra parameters to `scram`:
 
-- For enabling `LogDebug` messages, run `export USER_CXXFLAGS="-DEDM_ML_DEBUG"` before runningthe `scram` command.
+- For enabling `LogDebug` messages, run `export USER_CXXFLAGS="-DEDM_ML_DEBUG"` before running
+the `scram` command.
 - For also defining the `GPU_DEBUG` flag globally (for GPU code), run
-`export USER_CXXFLAGS="-O0 -g -DGPU_DEBUG -DEDM_ML_DEBUG"` before running the `scram` command.
+`export USER_CXXFLAGS="-DGPU_DEBUG -DEDM_ML_DEBUG"` before running the `scram` command.
+- For running the code with `gdb`, you will need to run `export USER_CXXFLAGS="-O0 -g"` before building.
 - If your debug build is not working, you might need to clean your development area:
 ``` bash
 scram b clean
