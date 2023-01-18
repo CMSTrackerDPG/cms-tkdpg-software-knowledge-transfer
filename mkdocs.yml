@@ -12,7 +12,6 @@ nav:
           - cmssw/setup.md
           - cmssw/available_machines.md
       - cmssw/build.md
-      - cmssw/proposing-changes.md                                        
       - Tools &#128295;: cmssw/tools.md
       - Debugging: cmssw/debugging.md
       - Workflows &#128200;:
@@ -21,6 +20,7 @@ nav:
           - cmssw/workflows/history.md
       - cmssw/validation.md
       - cmssw/throughput.md
+      - cmssw/proposing-changes.md                                              
       - Documentation &#128216;:
           - Pixel-Local Reconstruction:
               - cmssw/pixel-local/overview.md
