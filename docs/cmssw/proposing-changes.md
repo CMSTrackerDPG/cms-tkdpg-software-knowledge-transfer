@@ -3,7 +3,8 @@
 **Based on [http://cms-sw.github.io/tutorial.html](http://cms-sw.github.io/tutorial.html)**
 
 
-**Conflict after PR**  
+## Conflict after PR
+
 To resolve a conflict that appeared after proposing the changes in a PR, one should prefer **rebase** to **merge** as it keeps the commit history clean.
 
 For a rebase, do:
@@ -20,13 +21,16 @@ It might be, that the tags for branches are only considered for your **default r
 git rebase -i <official_cmssw_name>/<CMSSW_current_release>
 ```
 
+See aso [this quick recipe](https://cms-sw.github.io/tutorial-resolve-conflicts.html#the-above-is-all-great-stuff-but-i-need-a-quick-recipe)
+which may take care of conflicts, and can help you squash your commits.
+
 ## Build release
 
-See [the Tools section for more info](tools.md#scram)
+See [Building](build.md) for more info.
 
 ## Before making a PR
 
-``` bash
+```bash
 scram b code-format # run clang-format
 scram b code-checks # run clang-tidy
 ```
