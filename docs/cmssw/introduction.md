@@ -18,16 +18,33 @@ is targeted:
 
 ## Usage
 
-See [Setup](setup.md).
+The usual way to work with CMSSW is the following (from within [one of the available machines of your choice](available_machines.md)):
+
+- [Connect](available_machines.md) to an LXPLUS (CPU only) or P5 (with GPUs) machine.
+- [List](setup.md#search-for-available-releases) the available CMSSW versions.
+- [Clone](setup.md#create-a-cmssw-area) one of the available versions of CMSSW. 
+See [Releases](releases.md) for more information on the different releases.
+- [Checkout packages](setup.md#checkout-a-few-packages-using-git-cms-addpkg)
+that you want to make changes to.
+- Make changes to any file you want.
+- [Build](build.md) CMSSW again.
+- Execute [Workflows](workflows/overview.md).
+- Do validation.
+- [Open a PR](proposing-changes.md) to cmssw.
+
+To do so, it is recommended that you work with CMSSW on an [appropriately configured machine](available_machines.md), where many 
+useful tools for managing, code-checking, code-formatting, building are available.
+
+See also: [Setup](setup.md).
 
 ## Versions
 
-CMSSW is regularly released and built, both from stable and and unstable version. 
-More information can be found in the [Build Types section](build-types.md).
+CMSSW is regularly released and built, both from stable and and unstable version.
+More information can be found in the [Releases section](releases.md).
 
 ## CPU code
 
-The main functionality of interest is located in the following CMSSW
+For Pixel Track Reconstruction, the main functionality of interest is located in the following CMSSW
 subdirectories:
 
 - `DataFormats/SiPixelDigi/`
@@ -56,16 +73,24 @@ has been implemented in CUDA.
 	Throughout this document, keep in mind that there is no one-to-one mapping 
 	of the CPU functions to CUDA kernels, not even structure-wise.
 	
-The main functionality of interest is located in the following CMSSW
+For Pixel Tracks, the main functionality of interest is located in the following CMSSW
 subdirectories:
 
-- `DataFormats/SiPixelDigi/`
-- `CUDADataFormats/SiPixelCluster/`
 - `CUDADataFormats/SiPixelDigi/`
+- `CUDADataFormats/SiPixelCluster/`
+- `CUDADataFormats/TrackingRecHit/`
+- `CUDADataFormats/Track/`
+- `CUDADataFormats/Vertex/`
 - `RecoLocalTracker/SiPixelClusterizer/`
+- `RecoLocalTracker/SiPixelClusterizer/`
+- `RecoLocalTracker/SiPixelRecHits/`
+- `RecoTracker/TkSeedGenerator/`
+- `RecoPixelVertexing/PixelTriplets`
+- `RecoPixelVertexing/PixelTrackFitting/`
+- `RecoPixelVertexing/PixelVertexFinding/`
 
 To run and execute code on GPUs, you must first connect to the appropriate
-LXPLUS machine. See the [here](setup.md) 
+LXPLUS machine. See the [here](available_machines.md) 
 for instructions.
 
 Information about the GPU code is found in the [GPU section](pixel-local/gpu/index.md).

@@ -5,9 +5,13 @@ nav:
   - Home &#127968;: index.md
   - basic-concepts.md
   - CMSSW &#128128;:
-      - cmssw/introduction.md
-      - cmssw/setup.md
-      - cmssw/build-types.md                        
+      - Introduction:
+          - cmssw/introduction.md
+          - cmssw/releases.md                        
+      - Setup:
+          - cmssw/setup.md
+          - cmssw/available_machines.md
+      - cmssw/build.md
       - cmssw/proposing-changes.md                                        
       - Tools &#128295;: cmssw/tools.md
       - Debugging: cmssw/debugging.md
