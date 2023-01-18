@@ -137,7 +137,7 @@ runTheMatrix.py -n --what upgrade | grep Patatrack
 ### Running a workflow
 
 Before you run a workflow, you will first need to activate a
-CMSSW environment ([Instructions here](../working-with-cmssw/setup.md)).
+CMSSW environment ([Instructions here](../setup.md)).
 
 #### GPU
 

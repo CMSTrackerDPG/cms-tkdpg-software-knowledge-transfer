@@ -7,16 +7,16 @@ multiple steps of data fetching, configuring, simulating etc., so `runTheMatrix.
 was developed.
 
 Those tools are available on LXPLUS machines, after creating a work area
-and [activating a CMSSW environment by `cmsenv`](working-with-cmssw/setup.md#create-a-cmssw-area).
+and [activating a CMSSW environment by `cmsenv`](setup.md#create-a-cmssw-area).
 
 ## `scram`
 
 A software build and maintenance tool [written in Python](https://github.com/cms-sw/SCRAM/tree/SCRAMV3/SCRAM).
 It calls `gmake` under the hood.
 
-It can [build](working-with-cmssw/setup.md#building-the-code),
-[check](working-with-cmssw/setup.md#running-checks-on-the-code)
-and [format](working-with-cmssw/setup.md#formatting-the-code) the code.
+It can [build](setup.md#building-the-code),
+[check](setup.md#running-checks-on-the-code)
+and [format](setup.md#formatting-the-code) the code.
 
 Documentation on `scram` can be found [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideScram).
 

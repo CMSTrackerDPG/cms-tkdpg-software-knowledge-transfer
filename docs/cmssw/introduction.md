@@ -18,7 +18,7 @@ is targeted:
 
 ## Usage
 
-See [Setup](working-with-cmssw/setup.md).
+See [Setup](setup.md).
 
 ## Versions
 
@@ -65,7 +65,7 @@ subdirectories:
 - `RecoLocalTracker/SiPixelClusterizer/`
 
 To run and execute code on GPUs, you must first connect to the appropriate
-LXPLUS machine. See the [here](working-with-cmssw/setup.md) 
+LXPLUS machine. See the [here](setup.md) 
 for instructions.
 
 Information about the GPU code is found in the [GPU section](pixel-local/gpu/index.md).

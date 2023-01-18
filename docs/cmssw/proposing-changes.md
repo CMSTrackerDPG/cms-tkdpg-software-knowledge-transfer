@@ -22,7 +22,7 @@ git rebase -i <official_cmssw_name>/<CMSSW_current_release>
 
 ## Build release
 
-See [the Tools section for more info](../tools.md#scram)
+See [the Tools section for more info](tools.md#scram)
 
 ## Before making a PR
 
