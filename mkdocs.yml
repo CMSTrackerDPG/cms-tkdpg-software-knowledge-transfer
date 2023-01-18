@@ -21,7 +21,7 @@ nav:
       - cmssw/validation.md
       - cmssw/throughput.md
       - cmssw/proposing-changes.md                                              
-      - Documentation &#128216;:
+      - Code documentation &#128216;:
           - Pixel-Local Reconstruction:
               - cmssw/pixel-local/overview.md
               - Dataflow:
