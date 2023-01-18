@@ -1,8 +1,7 @@
 # Introduction to CMSSW
 
-CMSSW is a monster which contains a multitude of algorithms and tools,
-all in one repository (not exactly a
-[monorepo](https://en.wikipedia.org/wiki/Monorepo) but close).
+CMSSW is [a monster](../basic-concepts.md#cmssw) which contains a multitude of algorithms and tools,
+all in one repository.
 
 Looking around for information on its structure and use you can very easily
 get lost, frustrated, mad even, as most information is either too cryptic,
@@ -28,8 +27,8 @@ See [Releases](releases.md) for more information on the different releases.
 that you want to make changes to.
 - Make changes to any file you want.
 - [Build](build.md) CMSSW again.
-- Execute [Workflows](workflows/overview.md).
-- Do validation.
+- Execute [Workflows](workflows/overview.md) in order to do [validation](validation.md).
+- Measure your code's [throughput](throughput.md).
 - [Open a PR](proposing-changes.md) to cmssw.
 
 To do so, it is recommended that you work with CMSSW on an [appropriately configured machine](available_machines.md), where many 

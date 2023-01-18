@@ -19,6 +19,8 @@ nav:
           - cmssw/workflows/overview.md
           - cmssw/workflows/usage.md
           - cmssw/workflows/history.md
+      - cmssw/validation.md
+      - cmssw/throughput.md
       - Documentation &#128216;:
           - Pixel-Local Reconstruction:
               - cmssw/pixel-local/overview.md

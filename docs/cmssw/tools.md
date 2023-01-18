@@ -14,7 +14,7 @@ and [activating a CMSSW environment by `cmsenv`](setup.md#create-a-cmssw-area).
 A software build and maintenance tool [written in Python](https://github.com/cms-sw/SCRAM/tree/SCRAMV3/SCRAM).
 It calls `gmake` under the hood.
 
-It can [build](setup.md#building-the-code),
+It can `clean`, [build](setup.md#building-the-code),
 [check](setup.md#running-checks-on-the-code)
 and [format](setup.md#formatting-the-code) the code.
 
