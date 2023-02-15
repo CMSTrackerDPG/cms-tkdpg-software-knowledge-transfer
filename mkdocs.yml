@@ -134,6 +134,7 @@ nav:
       - Configuration:
           - mlplayground/config.md
       - Deploying &#128674;:
+          - Guide: mlplayground/deploying/guide.md
           - Deployments: mlplayground/deploying/deployments.md      
       - Connectivity &#128279;: mlplayground/connectivity.md
       - Apps &#129513;:

@@ -11,8 +11,10 @@ Deployed documentation available [here](https://cmstrackerdpg.github.io/cms-tkdp
 
 ## Deploy latest version to GitHub Pages
 
-- Activate the project's venv
-- Run: `mkdocs gh-deploy`
+**Deprecated**: done automatically via GitHub actions.
+
+- ~~Activate the project's venv~~
+- ~~Run: `mkdocs gh-deploy`~~
 
 ## GitHub configuration
 

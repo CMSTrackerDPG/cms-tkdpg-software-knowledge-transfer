@@ -10,7 +10,7 @@ as two separate deployments:
 ## `mlplayground`
 
 Due to the `root` dependency that opening `nanoDQM` files introduces, 
-a custom s2i image has been created using the procedure followed
+a custom s2i base image has been created using the procedure followed
 [here](https://paas.docs.cern.ch/2._Deploy_Applications/Deploy_From_Git_Repository/4-add-oracle-client-to-s2i/).
 
 See the [`Dockerfile`](https://github.com/CMSTrackerDPG/MLplayground/blob/master/Dockerfile) for
