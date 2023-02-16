@@ -29,7 +29,5 @@ See [here](apps/histogram_file_manager/management.md#discover_dqm_files).
 
 ### `DJANGO_ALLOWED_HOSTS`
 
-### `CERN_SSO_CLIENT_SECRET`
-
 ### `SITE_ID`
 

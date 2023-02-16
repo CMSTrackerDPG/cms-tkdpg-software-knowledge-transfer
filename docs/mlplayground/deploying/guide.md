@@ -331,7 +331,6 @@ This procedure takes place on PaaS, via the `Developer` view.
 		that are going to be searched for DQM files.
 	1. `DJANGO_DEBUG`: `False`, or `True` if you need to temporarily do some testing.
 	1. `CSRF_TRUSTED_ORIGINS`: Your full app's URL _with_ "https://", e.g. `https://ml4dqm-playground-develop.web.cern.ch`.
-	1. `CERN_SSO_CLIENT_SECRET`: Empty, until [this step](#single-sign-on) has been completed.
 	1. `SITE_ID`: Empty, until [Single Sign-On](#single-sign-on) is configured.
 
 3. Save the variables and rebuild the project:
