@@ -1,5 +1,9 @@
 # Management commands
 
+!!! note
+
+	Run these commands on [a PaaS terminal](../depoying/guide.md#open-a-terminal-in-the-running-pod).
+
 ## `discover_dqm_files`
 
 Location: `histogram_data_files/management/commands/disover_dqm_files.py`
