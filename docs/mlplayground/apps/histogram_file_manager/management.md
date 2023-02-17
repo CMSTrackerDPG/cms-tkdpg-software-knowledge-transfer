@@ -2,7 +2,7 @@
 
 !!! note
 
-	Run these commands on [a PaaS terminal](../depoying/guide.md#open-a-terminal-in-the-running-pod).
+	Run these commands on [a PaaS terminal](../../deploying/guide.md#open-a-terminal-in-the-running-pod).
 
 ## `discover_dqm_files`
 
