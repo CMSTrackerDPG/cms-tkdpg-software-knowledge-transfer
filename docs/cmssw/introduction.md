@@ -12,7 +12,8 @@ A usual split of the codebase is based on the hardware the sowftware
 is targeted:
 
 - [CPU code](#cpu-code) targets CPU-only execution.
-- [GPU code](#gpu-code) targets exexution on NVIDIA GPU-capable systems.
+- [GPU code](#gpu-code) targets execution on NVIDIA GPU-capable systems.
+- **Alpaka code** (under development) targets [all Alpaka-supported back-ends](https://alpaka.readthedocs.io/en/latest/dev/backends.html).
 
 
 ## Usage
