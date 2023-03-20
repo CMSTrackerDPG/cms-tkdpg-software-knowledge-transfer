@@ -549,6 +549,12 @@ args:
 
 A new pod will be created under the crontab schedule you configured, triggering a new build.
 
+!!! warning
+
+    It is generally not a good idea to have the CronJob running at all times, mainly due to the fact that PyPI libraries may be updated at any time; automatic deployment with the latest available libraries is going to be a risk, as they new versions may well contain bugs. 
+    
+    A safe approach is to enable the CronJob by setting `suspend: false` (see [here](https://docs.openshift.com/container-platform/3.11/dev_guide/cron_jobs.html#creating-a-cronjob)) only once you have pushed changes to the certifier repository. Then, once the changes are deployed, set `suspend: true` again.
+
 ## Exposing the app
 
 See the [PaaS docs](https://paas.docs.cern.ch/5._Exposing_The_Application/2-network-visibility/)
