@@ -128,7 +128,8 @@ nav:
                       - certhelper/apps/summary/views/SummaryView.md
       - Documentation &#128216;:
           - certhelper/docs.md                      
-              
+      - FAQ &#10067;:
+          - certhelper/faq.md              
   - MLPlayground &#129528;:
       - mlplayground/introduction.md
       - Configuration:
