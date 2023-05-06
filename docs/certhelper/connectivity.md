@@ -10,12 +10,14 @@ flowchart
 	ebutz[ebutz] <-- HTTP --> ch
 	rr[RunRegistry] <-- HTTP --> ch
 	oms[OMS API] <-- HTTP --> ch
+	redis[Redis] <-- HTTP --> ch
 
 ```
 
 ## Storage
 
 - PostgreSQL database (hosted by CERN's [DBoD service](https://dbod.web.cern.ch/))(__required__)
+- Redis server, as a backing store for Websockets (Deployed on Openshift).
 
 ## APIs
 
