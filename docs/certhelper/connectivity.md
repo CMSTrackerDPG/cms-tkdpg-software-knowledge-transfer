@@ -5,12 +5,12 @@ resources. An overview can be seen in the sketch below.
 
 ```mermaid
 flowchart
-	db[(DBoD)] <--> ch[CertHelper]
+	db[(DBoD)] <-- TCP --> ch[CertHelper]
 	vocms[vocms066] <-- SSH --> ch
 	ebutz[ebutz] <-- HTTP --> ch
 	rr[RunRegistry] <-- HTTP --> ch
 	oms[OMS API] <-- HTTP --> ch
-	redis[Redis] <-- HTTP --> ch
+	redis[Redis] <-- TCP --> ch
 
 ```
 
