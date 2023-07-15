@@ -1,10 +1,5 @@
 # Local Development
 
-!!! warning
-    
-    Those instructions are tested for Ubuntu machines (up to 22.10).
-
-
 To run CertHelper locally, you will need:
 
 - A Postgres instance:
