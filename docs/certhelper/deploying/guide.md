@@ -448,7 +448,7 @@ users of the certification helper do not have register manually, but can
 already use their existing CERN accounts.
 
 * Visit the [application portal](https://application-portal.web.cern.ch/).
-* Edit your application (e.g. `webframeworks-paas-certhelper`).
+* Add a new application registration.
 * Click on `SSO Registration` and generate an `OpenID Connect` provider.
 	* For `redirect_uri`, use `https://certhelper.web.cern.ch/accounts/cern/login/callback/` for
 	the production website and
