@@ -442,63 +442,50 @@ oc set volume dc/<your-chosen-name> --add --name=<volume-name> --type=persistent
 
 ### CERN Setup
 
-* Visit the [application portal](https://application-portal.web.cern.ch/).
-* Edit your application (e.g. `webframeworks-paas-certhelper`).
-* Click on `SSO Registration` and generate an `OpenID Connect` provider.
-* Note the `Client ID` and `Client Secrets`.
-
-### DEPRECATED VERSION
-
-OAuth2 is an authorization service which can be used to authenticate
+OIDC is an authorization service which can be used to authenticate
 CERN users. The advantage of using such an authorization service is that
 users of the certification helper do not have register manually, but can
 already use their existing CERN accounts.
 
-In order to integrate the CERN OAuth2 service with the website, the
-application has to be registered at the
-[SSO Managment site](https://sso-management.web.cern.ch/OAuth/RegisterOAuthClient.aspx).
+* Visit the [application portal](https://application-portal.web.cern.ch/).
+* Edit your application (e.g. `webframeworks-paas-certhelper`).
+* Click on `SSO Registration` and generate an `OpenID Connect` provider.
+	* For `redirect_uri`, use `https://certhelper.web.cern.ch/accounts/cern/login/callback/` for
+	the production website and
+	`https://dev-certhelper.web.cern.ch/accounts/cern/login/callback/`
+	for the development site.
+* Note the `Client ID` and `Client Secrets`.
 
-You can use the `Identifier` of the website found
-[here](https://application-portal.web.cern.ch/) as the `client_id`.
-
-When registering a `redirect\_uri` has to specified which in case of the
-certification helper is
-`https://certhelper.web.cern.ch/accounts/cern/login/callback/` for
-the production website and
-`https://dev-certhelper.web.cern.ch/accounts/cern/login/callback/`
-for the development site.
 
 !!! note
 
-	Each instance of certhelper requires a different OAuth2 authorization
+	Each instance of certhelper (production, development, training) requires a different SSO registration
 	key, so you cannot reuse an existing `client_id` and `secret` for a new
 	instance.
+
 
 ### Integration
 
 The single sign-on integration is very easy when using the
-`django-allauth` python package, which has build in CERN support.
+`django-allauth` python package, which has built-in OIDC support.
 
 Follow the installation procedure
 [here](https://django-allauth.readthedocs.io/en/latest/installation.html).
 
+Certhelper uses the `openid_connect` provider. There used to be CERN
+integration with `django-allauth`, but this has been deprecated after
+CERN's migration to a new SSO solution, and updating was [proved to be reduntant](https://github.com/pennersr/django-allauth/pull/3348).
+In its place, the `openid_connect` provider works fine.
+
+
 !!! note "Notes on the installation procedure"
 
 	* When adding a `Site`, use the complete URL of the app (e.g. `https://certhelper.web.cern.ch/`).
-	* Instead of adding the `SOCIALACCOUNT_PROVIDERS` in `settings.py`, do so from the admin
-	app by visiting	the `/admin/socialaccount/socialapp/` URL.
+	* Just in case, visit `/admin/socialaccount/socialapp/1/change/` to add the Client ID and secret there too.
 	* Verify the `SITE_ID` value by checking the database itself. E.g. it might ge `1` or `2`
 	* Add `ACCOUNT_EMAIL_VERIFICATION = "none"` in `settings.py` to disable sending 
 	a verification email on first signup.
 	
-Then, in your login HTML template, add a link, e.g.:
-
-```django
-{% load socialaccount %}
-{% block content %}
-  <a href="{% provider_login_url 'cern' %}">Login w/ CERN</a>
-{% endblock content %}
-```
 
 ## Deploying a new build
 
