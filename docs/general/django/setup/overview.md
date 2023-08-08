@@ -36,8 +36,11 @@ your project's root.
     - `python manage.py migrate --run-syncdb`
 8. **Create a superuser**:
 	- `python manage.py createsuperuser`
-9. **Run the developement server:** `python3 manage.py`. By default, you should
-be able to access [http://localhost:8000](http://localhost:8000). 
+9. **Run the developement server:** `python3 manage.py runserver`. By default, you should
+be able to access [http://localhost:8000](http://localhost:8000).
+    - If you want to run **with HTTPS:**
+        - `pip install Werkzeug`
+        - `python manage.py runserver_plus --cert cert`
 		
 !!! note "Why PostgreSQL?"
 	
