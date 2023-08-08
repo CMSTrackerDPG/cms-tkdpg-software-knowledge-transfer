@@ -41,7 +41,7 @@ stored on GPU memory.
 
 It is initialized by default in the `SiPixelDigisCUDA` constructor, and
 is then passed on as a parameter to initialize `m_view`.
-See the [Constructor](./#constructor) below for more information.
+See the [Constructor](#constructor) below for more information.
 
 ### `m_view`
 

@@ -20,7 +20,7 @@ as a column in the list of reference runs.
 	
 This information is acquired as a separate HTTP request to
 [ebutz.web.cern.ch](http://ebutz.web.cern.ch). Updated when
-model instance's [`update_apv_mode` method](./#update_apv_mode) is called.
+model instance's [`update_apv_mode` method](#update_apv_mode) is called.
 
 ### Methods
 

@@ -64,7 +64,7 @@ the Pixel Detector is part of the whole CMS detector.
 
 In the reconstruction code, the Pixel Detector is represented as a 2D matrix of
 pixels (`PixelDigi`s), with X and Y coordinates, each one having an
-[ADC](./#adc) value.
+[ADC](#adc) value.
 
 ### Pixel-local Reconstruction
 

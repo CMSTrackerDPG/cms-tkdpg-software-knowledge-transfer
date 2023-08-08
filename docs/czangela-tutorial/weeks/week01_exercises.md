@@ -93,7 +93,7 @@
 
 ??? example "02.a. Give an example of `global`, `device` and `host-device` functions in `CMSSW`."
 
-    For example see `__global__` kernel in [previous exercise](weeks/week01_exercises/#solution_1).
+    For example see `__global__` kernel in [previous exercise](#solution_1).
 
     `__device__` function in [RecoLocalTracker/SiPixelClusterizer/plugins/SiPixelRawToClusterGPUKernel.cu](https://cmssdt.cern.ch/dxr/CMSSW/source/RecoLocalTracker/SiPixelClusterizer/plugins/SiPixelRawToClusterGPUKernel.cu#57):
     ```cuda

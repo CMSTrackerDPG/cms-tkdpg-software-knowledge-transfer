@@ -3,15 +3,15 @@
 The following steps will guide you through the deployment procedure of the app on OpenShift.
 An overview of the steps is:
 
-1. [Create a new PaaS project](./#requesting-a-website)
-2. [Setup the base image & the repository that will be used](./#setup-procedure)
-4. [Setup a Database](./#setup-a-database)
-3. [Setup Environmental Variables](./#setup-environmental-variables)
+1. [Create a new PaaS project](#requesting-a-website)
+2. [Setup the base image & the repository that will be used](#setup-procedure)
+4. [Setup a Database](#setup-a-database)
+3. [Setup Environmental Variables](#setup-environmental-variables)
 4. [Setup a Django superuser](#create-a-superuser)
-5. [Mount EOS Storage](./#mount-eos-storage)
-6. [Single Sign-On](./#single-sign-on)
-7. [Deploy](./#deploying-a-new-build)
-8. [Expose the app](./#exposing-the-app)
+5. [Mount EOS Storage](#mount-eos-storage)
+6. [Single Sign-On](#single-sign-on)
+7. [Deploy](#deploying-a-new-build)
+8. [Expose the app](#exposing-the-app)
 
 The procedure can be done completely via the web UI provided by PaaS.
 
@@ -310,12 +310,22 @@ This procedure takes place on PaaS, via the `Developer` view.
      - `Key`: `password`
      - `Value`: Your PostgreSQL database's password.
      - Click `Create`.
+0. Under `Secrets`, click `Create`>`Key/value secret`:
+     - `Secret name`: `cern-sso-login-registration-credentials`
+     - `Key`: `CERN_SSO_REGISTRATION_CLIENT_ID`
+     - `Value`: Your SSO registration's `Client ID`.
+     - Click `Add key/value`.
+     - `Key`: `CERN_SSO_REGISTRATION_CLIENT_SECRET`
+     - `Value`: Your SSO registration's `Client Secret`.
+     - Click `Create`.
 1. Under `Builds --> Your project name --> Environment` use the
    `Add from ConfigMap or Secret` button to add the variables:
 
 	```
 	DJANGO_DATABASE_USER       <postgres-user/user>
 	DJANGO_DATABASE_PASSWORD   <postgres-user/password>
+  CERN_SSO_REGISTRATION_CLIENT_ID <cern-sso-login-registration-credentials/CERN_SSO_REGISTRATION_CLIENT_ID>
+  CERN_SSO_REGISTRATION_CLIENT_SECRET <cern-sso-login-registration-credentials/CERN_SSO_REGISTRATION_CLIENT_SECRET>
 	```
 
 2. Non-secret variables:
@@ -385,11 +395,6 @@ You will be asked for a `username`, a `password` and an `e-mail` (the latter is 
 
 ### CERN Setup
 
-<!-- While the following seems to be the "new" method to do it, it does not work -->
-<!-- * Visit the [application portal](https://application-portal.web.cern.ch/). -->
-<!-- * Edit your application (e.g. `webframeworks-paas-certhelper`). -->
-<!-- * Click on `SSO Registration` and generate an `OpenID Connect` provider. -->
-<!-- * Note the `Client ID` and `Client Secrets`. -->
 
 1. Visit the [application portal](https://application-portal.web.cern.ch/).
 2. Create a new application, giving it a meaningful `Application identifier` (e.g. `ml4dqm-playground`).

@@ -31,3 +31,10 @@ See [here](apps/histogram_file_manager/management.md#discover_dqm_files).
 
 ### `SITE_ID`
 
+### `CERN_SSO_REGISTRATION_CLIENT_ID`
+
+You can get this by registering the application in the [`Application Portal`](https://application-portal.web.cern.ch/) or reusing 
+
+### `CERN_SSO_REGISTRATION_CLIENT_SECRET`
+
+Same with `CERN_SSO_REGISTRATION_CLIENT_ID`.

@@ -112,7 +112,7 @@ When a `SiPixelDigisCUDASOAView` instance is created, pointers to the
 start of each SoA variable (`clus_`, `adc_` etc) are created. Those
 are calculated using the start of the memory requested (i.e. the pointer
 stored in [`m_store`](./SiPixelDigisCUDA.md#m_store)), the constant
-assigned to each variable in [`StorageLocation`](./#storagelocation) and
+assigned to each variable in [`StorageLocation`](#storagelocation) and
 the number of pixels available (`maxFedWords`).
 
 !!! note
@@ -158,13 +158,13 @@ Let's assume that it points to GPU memory location `0`.
 
 To find out where the first variable will be stored (i.e. the first
 constant in `StorageLocation`, `kCLUS`), we check the assignment done
-in the class' [constructor](./#constructor):
+in the class' [constructor](#constructor):
 
 ```c++ linenums="52"
 clus_ = getColumnAddress<int32_t>(StorageLocation::kCLUS, store, maxFedWords);
 ```
 
-The [`getColumnAddress`](./#getcolumnaddress) method is called, which will
+The [`getColumnAddress`](#getcolumnaddress) method is called, which will
 calculate the memory offset starting from the `store` pointer as:
 
 ```

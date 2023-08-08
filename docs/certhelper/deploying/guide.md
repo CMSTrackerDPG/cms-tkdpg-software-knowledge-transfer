@@ -3,16 +3,16 @@
 The following steps will guide you through the deployment procedure of the app on OpenShift.
 An overview of the steps is:
 
-1. [Create a new PaaS project](./#requesting-a-website)
-2. [Setup the repository that will be used](./#setup-procedure)
-3. [Setup Environmental Variables](./#setup-environmental-variables)
-4. [Setup a Database](./#setup-a-database)
-5. [Mount EOS Storage](./#mount-eos-storage)
-6. [Add Redis Server](./#add-redis-server)
-7. [Add nginx Server](./#add-nginx-server-not-working-for-now) (not working for now)
-8. [Single Sign-On](./#single-sign-on)
-9. [Deploy](./#deploying-a-new-build)
-10. [Expose the app](./#exposing-the-app)
+1. [Create a new PaaS project](#requesting-a-website)
+2. [Setup the repository that will be used](#setup-procedure)
+3. [Setup Environmental Variables](#setup-environmental-variables)
+4. [Setup a Database](#setup-a-database)
+5. [Mount EOS Storage](#mount-eos-storage)
+6. [Add Redis Server](#add-redis-server)
+7. [Add nginx Server](#add-nginx-server-not-working-for-now) (not working for now)
+8. [Single Sign-On](#single-sign-on)
+9. [Deploy](#deploying-a-new-build)
+10. [Expose the app](#exposing-the-app)
 
 The procedure can be done completely via the web UI provided by PaaS. However,
 the `oc` command line utility can prove very useful.

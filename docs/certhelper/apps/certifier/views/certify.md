@@ -132,7 +132,7 @@ combination of parameters, else create it.
 	```
 	Where `self.run` is the `OmsRun`instance created [before](#on-class-creation).
 
-??? danger "TRIGGER WARNING; NOT [DRY](../../../../../basic-concepts#dry)"
+??? danger "TRIGGER WARNING; NOT [DRY](../../../../basic-concepts.md#dry)"
 
 	This last step of the procedure has been :skull:COPIED-PASTED:skull: to the
 	[`UpdateRunView`](../../listruns/views/updaterun.md)
@@ -179,7 +179,7 @@ open runs.
 This can be caused either by:
 
 * CertHelper not having access to
-[RunRegistry](../../../../../basic-concepts#run-registry) or OMS API or
+[RunRegistry](../../../../basic-concepts.md#run-registry) or OMS API or
 * Run number/run reconstruction was not found in RunRegistry or OMS API.
 
 Input fields are presented to the user instead of a display, so that they can
