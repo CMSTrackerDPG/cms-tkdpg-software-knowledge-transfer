@@ -49,8 +49,11 @@ be able to access [http://localhost:8000](http://localhost:8000).
 	
 !!! note "Logging in"
 	
-	When running the project locally, CERN SSO will not be functioning,
-	so use the superuser you created to login to the app.
+	When running the project locally, CERN SSO will not be functioning by default.
+	One way to login is to use the superuser you created to login to the app.
+ 	If you need to test the SSO, make sure that:
+  	- You have added the correct Redirect URI in the SSO registrion [in the Application portal](https://application-portal.web.cern.ch/) (i.e. `https://localhost:8000/accounts/cern/login/callback/`)	
+   	- Run the local server with HTTPS just in case.
 	
 ## Usual workflow
 
