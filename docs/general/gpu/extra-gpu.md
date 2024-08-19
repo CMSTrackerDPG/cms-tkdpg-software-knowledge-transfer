@@ -35,11 +35,9 @@ An official NVIDIA introductory workshop.
 	This requires that you have access to a NVIDIA GPU-capable
 	computer with `nvcc` and `ncu` installed.
 
-
- !!! tip
+!!! tip
 
  	`ncu` is only supported by a limited GPUs as of writing (2024/08). You can replace all `ncu` calls you see in the notebooks with `nvprof` if `ncu` does not work for your card.
-
 
 * Download and extract [this](cuda_workshop.tar) file.
 * Create a `python3` virtual environment and activate it.
