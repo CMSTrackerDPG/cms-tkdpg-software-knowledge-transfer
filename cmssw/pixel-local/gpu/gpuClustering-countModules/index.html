@@ -1,0 +1,4885 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../gpuClustering-overview/">
+      
+      
+        <link rel="next" href="../gpuClustering-findClus/">
+      
+      
+      <link rel="icon" href="../../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
+    
+    
+      
+        <title>countModules - CMS Tracker DPG - Software Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#countmodules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="CMS Tracker DPG - Software Knowledge Base" class="md-header__button md-logo" aria-label="CMS Tracker DPG - Software Knowledge Base" data-md-component="logo">
+      
+  <img src="../../../../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CMS Tracker DPG - Software Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              countModules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CMSTrackerDPG/cms-tkdpg-software-knowledge-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="CMS Tracker DPG - Software Knowledge Base" class="md-nav__button md-logo" aria-label="CMS Tracker DPG - Software Knowledge Base" data-md-component="logo">
+      
+  <img src="../../../../img/favicon.ico" alt="logo">
+
+    </a>
+    CMS Tracker DPG - Software Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CMSTrackerDPG/cms-tkdpg-software-knowledge-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home &#127968;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../basic-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CMSSW &#128128;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CMSSW &#128128;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../introduction/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Releases
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../setup/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../available_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Available machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building the code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tools &#128295;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../workflows/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Workflows &#128200;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Workflows &#128200;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflows/usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    runTheMatrix Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflows/history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../throughput/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Throughput calculation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proposing-changes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a PR to CMSSW
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Code documentation &#128216;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            Code documentation &#128216;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Pixel-Local Reconstruction
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1" id="__nav_3_10_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_10_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            Pixel-Local Reconstruction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pixel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dataflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpu/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CPU &#129704;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_2" id="__nav_3_10_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_10_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            CPU &#129704;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10_1_2_1" id="__nav_3_10_1_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Formats
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_10_1_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Formats
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpu/DetSetVector-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DetSetVector
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpu/PixelDigi-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PixelDigi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpu/SiPixelCluster-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelCluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpu/PixelThresholdClusterizer-overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    PixelThresholdClusterizer
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_2_2" id="__nav_3_10_1_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_10_1_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10_1_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            PixelThresholdClusterizer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpu/PixelThresholdClusterizer-copytobuffer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    copy_to_buffer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpu/SiPixelArrayBuffer-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelArrayBuffer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    GPU &#128396;&#65039;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_3" id="__nav_3_10_1_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_10_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            GPU &#128396;&#65039;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10_1_3_1" id="__nav_3_10_1_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Formats
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_10_1_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10_1_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Formats
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SiPixelDigisCUDA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelDigisCUDA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SiPixelDigisCUDASOAView/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelDigisCUDASOAView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SiPixelClustersCUDA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelClustersCUDA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../SiPixelRawToClusterCUDA-overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    SiPixelRawToClusterCUDA.cc
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_3_2" id="__nav_3_10_1_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_10_1_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10_1_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            SiPixelRawToClusterCUDA.cc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3_2_1" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../SiPixelRawToClusterGPUKernel-overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    SiPixelRawToClusterGPUKernel.h
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_3_2_1" id="__nav_3_10_1_3_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_3_10_1_3_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10_1_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            SiPixelRawToClusterGPUKernel.h
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3_2_1_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../gpuCalibPixel/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    gpuCalibPixel.h
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_3_2_1_1" id="__nav_3_10_1_3_2_1_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_3_10_1_3_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10_1_3_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            gpuCalibPixel.h
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpuCalibPixel-calibDigis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    calibDigis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3_2_1_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../gpuClustering-overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    gpuClustering.h
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_3_2_1_2" id="__nav_3_10_1_3_2_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_3_10_1_3_2_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10_1_3_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            gpuClustering.h
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    countModules
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    countModules
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed explanation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#00-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0 Arguments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.0 Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uint16_t-const-__restrict__-id-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      uint16_t const* __restrict__ id [Input]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uint32_t-__restrict__-modulestart-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      uint32_t* __restrict__ moduleStart [Output]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#01-implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.1 Implementation Details
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-init-for-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Init for clustering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-digi-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Digi order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-look-for-boundary-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Look for boundary elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-set-modulestart-for-each-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. set moduleStart for each module
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpuClustering-findClus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    findClus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SiPixelDigisSoAFromCUDA-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelDigisSoAFromCUDA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SiPixelDigisClustersFromSoA-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelDigisClustersFromSoA.cc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/cmssw/extra-cmssw/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extra Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ &#10067;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/introduction/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Certhelper (a.k.a Certifier) &#9989;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Certhelper (a.k.a Certifier) &#9989;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developing &#129489;&#8205;&#128187;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Developing &#129489;&#8205;&#128187;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/developing/local-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/developing/branches/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Branches
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/deploying/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Deploying &#128674;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deploying &#128674;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/deploying/guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/deploying/deployments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/connectivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connectivity &#128279;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apps &#129513;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Apps &#129513;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/dqmhelper/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dqmhelper
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/certifier/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    certifier
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_2" id="__nav_4_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            certifier
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_2_1" id="__nav_4_4_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/certifier/views/certify/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CertifyView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/certifier/views/badreason/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    badReason
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/certifier/views/addbadreason/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    addBadReason
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/certifier/query/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Query
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/listruns/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    listruns
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_3" id="__nav_4_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            listruns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_3_1" id="__nav_4_4_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/listruns/views/updaterun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdateRunView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/addrefrun/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    addrefrun
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_4" id="__nav_4_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            addrefrun
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_4_1" id="__nav_4_4_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/addrefrun/views/update_refruns_info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    update_refruns_info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/oms/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    oms
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_5" id="__nav_4_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            oms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/oms/models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/omsapi/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    omsapi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/shiftleader/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    shiftleader
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_7" id="__nav_4_4_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            shiftleader
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_7_1" id="__nav_4_4_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/shiftleader/views/shiftleader_report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ShiftLeader Report
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/shiftleader/views/shiftleader_report_presentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ShiftLeader Report Presentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/shiftleader/obsolete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsolete code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/home/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/remotescripts/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    remotescripts
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_9" id="__nav_4_4_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            remotescripts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/remotescripts/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_9_2" id="__nav_4_4_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Consumers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Consumers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/remotescripts/consumers/script_output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScriptOutputConsumer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_9_3" id="__nav_4_4_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/remotescripts/views/script_execution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScriptExecution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/summary/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    summary
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_10" id="__nav_4_4_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            summary
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/summary/models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_10_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_10_2" id="__nav_4_4_10_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/summary/views/SummaryView/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SummaryView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation &#128216;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ &#10067;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../mlplayground/introduction/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MLPlayground &#129528;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            MLPlayground &#129528;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deploying &#128674;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deploying &#128674;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/deploying/guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/deploying/deployments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/connectivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connectivity &#128279;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apps &#129513;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Apps &#129513;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../mlplayground/apps/histogram_file_manager/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    histogram_file_manager
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_4_1" id="__nav_5_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            histogram_file_manager
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/apps/histogram_file_manager/models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/apps/histogram_file_manager/management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Management Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/apps/histogram_file_manager/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../mlplayground/apps/histograms/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    histograms
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_4_2" id="__nav_5_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            histograms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/apps/histograms/models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation &#128216;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ &#10067;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    General documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            General documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SSH
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/ssh/tunnel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tunnelling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/ssh/mounting_remote/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mounting remote filesystems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CUDA and GPU development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            CUDA and GPU development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../czangela-tutorial/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Angela's GPU primer
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2_1" id="__nav_6_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Angela's GPU primer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../czangela-tutorial/weeks/week01_material/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Week 1
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2_1_1" id="__nav_6_2_1_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Week 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../czangela-tutorial/weeks/week01_exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 01 Exercises
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../czangela-tutorial/weeks/week02_material/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Week 2
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2_1_2" id="__nav_6_2_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Week 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../czangela-tutorial/weeks/week02_exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 02 Exercises
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../czangela-tutorial/weeks/week03_material/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/gpu/extra-gpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA/GPU Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/gpu/cern-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CERN GPU Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../general/django/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Django
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Django
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/django/setup/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3_2" id="__nav_6_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/django/database/exporting_importing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exporting/Importing data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development General
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Development General
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/development/versioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Openshift
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Openshift
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/openshift/resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/openshift/routes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Routes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed explanation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#00-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.0 Arguments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.0 Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uint16_t-const-__restrict__-id-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      uint16_t const* __restrict__ id [Input]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uint32_t-__restrict__-modulestart-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      uint32_t* __restrict__ moduleStart [Output]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#01-implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.1 Implementation Details
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-init-for-clustering" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Init for clustering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-digi-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Digi order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-look-for-boundary-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Look for boundary elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-set-modulestart-for-each-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. set moduleStart for each module
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/CMSTrackerDPG/cms-tkdpg-software-knowledge-transfer/edit/master/docs/cmssw/pixel-local/gpu/gpuClustering-countModules.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/CMSTrackerDPG/cms-tkdpg-software-knowledge-transfer/raw/master/docs/cmssw/pixel-local/gpu/gpuClustering-countModules.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="countmodules">countModules</h1>
+<div class="admonition todo">
+<p class="admonition-title">Todo</p>
+<ul>
+<li>Add more detailed introduction</li>
+<li>How is the data split? How much works is done per thread? </li>
+</ul>
+</div>
+<p>CUDA kernel which implements the following purposes:</p>
+<ul>
+<li>Initialize the <code>clusterId</code> array, to be used in later code
+(in the <a href="../gpuClustering-findClus/"><code>findClus</code></a> kernel),</li>
+<li>Filter out invalid modules (<mark class="critic">TODO: what does it mean for
+a module to be invalid?</mark>)</li>
+<li>Fill the <code>moduleStart</code> array, which is an array of indices which
+point to the first element of the SoA data which corresponds to each module.
+Since data is stored in
+a SoA format, the data of all modules is stored in 
+<strong>a non-consecutive way, as far as modules are concerned,</strong> in a single
+1D array. The <code>moduleStart</code> indices are therefore required for
+accessing the data of each module. See the
+<a href="../#data-structure"><code>Data Structure</code></a> section for more information.</li>
+</ul>
+<h2 id="code">Code</h2>
+<details class="quote">
+<summary>Kernel code</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">countModules kernel</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="n">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">bool</span><span class="w"> </span><span class="n">isPhase2</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kr">__global__</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">countModules</span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="k">const</span><span class="o">*</span><span class="w"> </span><span class="kt">__restrict__</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+<span class="w">                               </span><span class="kt">uint32_t</span><span class="o">*</span><span class="w"> </span><span class="kt">__restrict__</span><span class="w"> </span><span class="n">moduleStart</span><span class="p">,</span>
+<span class="w">                               </span><span class="kt">int32_t</span><span class="o">*</span><span class="w"> </span><span class="kt">__restrict__</span><span class="w"> </span><span class="n">clusterId</span><span class="p">,</span>
+<span class="w">                               </span><span class="kt">int</span><span class="w"> </span><span class="n">numElements</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="n">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nMaxModules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isPhase2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">phase2PixelTopology</span><span class="o">::</span><span class="n">numberOfModules</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">phase1PixelTopology</span><span class="o">::</span><span class="n">numberOfModules</span><span class="p">;</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">nMaxModules</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxNumModules</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numElements</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nb">gridDim</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">clusterId</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">invalidModuleId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="w">        </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">      </span><span class="k">auto</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">id</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">invalidModuleId</span><span class="p">)</span>
+<span class="w">        </span><span class="o">--</span><span class="n">j</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">id</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// boundary...</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">loc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atomicInc</span><span class="p">(</span><span class="n">moduleStart</span><span class="p">,</span><span class="w"> </span><span class="n">nMaxModules</span><span class="p">);</span>
+<span class="w">        </span><span class="n">moduleStart</span><span class="p">[</span><span class="n">loc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="detailed-explanation">Detailed explanation</h2>
+<h3 id="0-introduction">0. Introduction</h3>
+<h4 id="00-arguments">0.0 Arguments</h4>
+<h6 id="uint16_t-const-__restrict__-id-input"><code>uint16_t const* __restrict__ id</code> [Input]</h6>
+<p>This is an array (with length equal to the total number of digis), which
+identifies the module id that each digi corresponds to.</p>
+<p>This <code>id</code> is <strong>NOT</strong> the same with the <code>DetId</code>, but it's a GPU-only identifier.</p>
+<h6 id="uint32_t-__restrict__-modulestart-output"><code>uint32_t* __restrict__ moduleStart</code> [Output]</h6>
+<p>An array of indices that <mark class="critic">????</mark>???</p>
+<h4 id="01-implementation-details">0.1 Implementation Details</h4>
+<ul>
+<li>The <code>first</code> variable contains the <strong>global thread id</strong> within
+  the kernel.</li>
+<li><code>numElements</code> == <code>wordCounter</code> <mark class="critic">???is this the same to the total number of digis???</mark></li>
+<li>Each thread is responsible for more than one digis, i.e. if there are less blocks than 
+  required to cover all the digis, each thread will also iterate with step equal to
+  <strong>number of blocks</strong> * <strong>threads per block</strong>. This is done with the <code>for</code> loop.</li>
+</ul>
+<h3 id="1-init-for-clustering">1. Init for clustering</h3>
+<p>We initialise the <code>clusterId</code>s for the <code>findClus</code> kernel.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numElements</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nb">gridDim</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">clusterId</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>This part of the code that has nothing to do with counting the modules yet.</p>
+<h3 id="2-digi-order">2. Digi order</h3>
+<p>Let's say we have a snippet from our <code>id</code> array.</p>
+<p>Instead of having numbers for the <code>id</code> we'll use letters, <code>A</code>, <code>B</code>, <code>C</code> and <code>D</code>, and mark
+<strong>invalid</strong> module ids with ❌.</p>
+<table>
+    <tr>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+    </tr>
+</table>
+
+<div class="admonition warning">
+<p class="admonition-title">Digis ordered by modules</p>
+<p>It is a prerequisite and we know that digis belonging to one module will appear 
+<strong>consecutive</strong> in our buffer. They might be separated by <strong>invalid digis/hits</strong>.</p>
+</div>
+<h3 id="3-look-for-boundary-elements">3. Look for boundary elements</h3>
+<p>Let's use our example digi array from the previous point.</p>
+<p>In the first row we'll show <code>id</code> and in the second column the <code>threadIdx.x</code>.</p>
+<table>
+    <tr>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+    </tr>
+    <tr>
+        <th><code>threadIdx.x</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+    </tr>
+</table>
+
+<p>Let's execute some of our code:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">invalidModuleId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="w">  </span><span class="k">continue</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>i</code> is the unique index of each digi.</p>
+<p><code>j</code> is the unique index of the previous (in regard to <code>i</code>) <strong>valid</strong> digi.</p>
+</div>
+<table>
+    <tr>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+    </tr>
+    <tr>
+        <th><code>threadIdx.x</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+    </tr>
+    <tr>
+        <th><code>i</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+    </tr>
+    <tr>
+        <th><code>j</code></th><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>3</td><td>4</td><td>❌</td><td>6</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>12</td>
+    </tr>
+</table>
+
+<p>Next:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">id</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">invalidModuleId</span><span class="p">)</span>
+<span class="w">  </span><span class="o">--</span><span class="n">j</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>This means that we keep going back, checking previous digis, <strong>until we stop finding
+digis which belong to invalid modules</strong>. In the end, <strong><code>j</code> will hold the index
+of <code>i</code>th digi's closest valid backward neighbour incremented by 1:</strong></p>
+<table>
+    <tr>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+    </tr>
+    <tr>
+        <th><code>threadIdx.x</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+    </tr>
+    <tr>
+        <th><code>i</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+    </tr>
+    <tr>
+        <th><code>j</code> before</th><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>3</td><td>4</td><td>❌</td><td>6</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>12</td>
+    </tr>
+    <tr>
+        <td>while</td><td></td><td></td><td></td><td></td><td>↓</td><td></td><td></td><td>↓</td><td></td><td></td><td></td><td></td><td></td><td>↓</td>
+    </tr>
+    <tr>
+        <th><code>j</code> after</th><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>1</td><td>4</td><td>❌</td><td>5</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>10</td>
+    </tr>
+</table>
+
+<p>It's now time to check at which index the <code>id</code> value changes (i.e.: the data of the next module
+begins):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">id</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// boundary...</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">loc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atomicInc</span><span class="p">(</span><span class="n">moduleStart</span><span class="p">,</span><span class="w"> </span><span class="n">nMaxModules</span><span class="p">);</span>
+<span class="w">  </span><span class="n">moduleStart</span><span class="p">[</span><span class="n">loc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Let's set <code>cond = (j &lt; 0 or id[j] != id[i])</code>. Check when this will be true (<code>T</code> is true, <code>F</code> is false, ❌ is not evaluated because that thread terminated early due to <code>id</code> being equal to <code>invalidModuleId</code>):</p>
+<table>
+    <tr>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+    </tr>
+    <tr>
+        <th><code>threadIdx.x</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+    </tr>
+    <tr>
+        <th><code>i</code></th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+    </tr>
+    <tr>
+        <th><code>j</code> after</th><td>-1</td><td>0</td><td>❌</td><td>❌</td><td>1</td><td>4</td><td>❌</td><td>5</td><td>7</td><td>8</td><td>9</td><td>❌</td><td>❌</td><td>10</td>
+    </tr>
+    <tr>
+        <th><code>cond</code></th><td>T</td><td>F</td><td>❌</td><td>❌</td><td>F</td><td>T</td><td>❌</td><td>F</td><td>F</td><td>T</td><td>F</td><td>❌</td><td>❌</td><td>T</td>
+    </tr>
+</table>
+
+<p>Now, let's look at the <code>id</code> and <code>cond</code>, getting rid of <code>False</code> <code>cond</code> and
+invalid <code>id</code>s to better see what is happening:</p>
+<table>
+    <tr>
+        <th><code>id</code></th><td>A</td><td>A</td><td>❌</td><td>❌</td><td>A</td><td>B</td><td>❌</td><td>B</td><td>B</td><td>C</td><td>C</td><td>❌</td><td>❌</td><td>D</td>
+    </tr>
+    <tr>
+        <th><code>cond</code></th><td>T</td><td></td><td></td><td></td><td></td><td>T</td><td></td><td></td><td></td><td>T</td><td></td><td></td><td></td><td>T</td>
+    </tr>
+</table>
+
+<p><mark class="critic">Wherever the <code>cond</code> is <code>T</code>, the data of a new module begins</mark>.</p>
+<h3 id="4-set-modulestart-for-each-module">4. set <code>moduleStart</code> for each module</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">loc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atomicInc</span><span class="p">(</span><span class="n">moduleStart</span><span class="p">,</span><span class="w"> </span><span class="n">nMaxModules</span><span class="p">);</span>
+<span class="n">moduleStart</span><span class="p">[</span><span class="n">loc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<details class="note">
+<summary><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#atomicinc"><code>atomicInc</code></a> documentation</summary>
+<p><div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">atomicInc</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">address</span><span class="p">,</span>
+<span class="w">                   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">);</span>
+</code></pre></div>
+reads the 32-bit word <code>old</code> located at the address <code>address</code> in global
+or shared memory, computes <code>((old &gt;= val) ? 0 : (old+1))</code>, and stores
+the result back to memory at the same address. These three operations
+are performed in one atomic transaction. The function returns <code>old</code>. </p>
+</details>
+<p>After execution of the lines above, the following takes place:</p>
+<ul>
+<li>Using <code>atomicInc()</code>, the value at <code>moduleStart[0]</code> is incremented
+  by one, i.e: <code>moduleStart[0] + 1</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
+<li><code>loc</code> will contain the value of <code>moduleStart[0]</code>, <strong>before</strong> the <code>atomicInc()</code> operation,
+  meaning it will be equal to <code>moduleStart[0]</code>.</li>
+</ul>
+<p>This, in effect, counts the total times that the <code>cond</code> mentioned above was
+evaluated to <code>True</code>, which, in effect, corresponds to the <strong>total number of modules
+encountered.</strong></p>
+<p>Since the value returned by the <code>atomicInc()</code> (stored in <code>loc</code>) 
+is the <code>moduleStart[0]</code> value prior
+to its incrementation, it acts, indirectly, as an index to store consecutively
+in the <code>moduleStart</code> array the indices of the elements where <code>cond == T</code>.</p>
+<p>Therefore, for each <code>cond == T</code> we are:</p>
+<ul>
+<li>Incrementing the <code>moduleStart[0]</code> element by 1.</li>
+<li>Storing the index <code>i</code> in the next available <code>moduleStart</code> array position.</li>
+</ul>
+<p>We fill the <code>moduleStart</code> array with starting module indices. Note that we can't make sure that the first module we mark is <code>A</code> and then <code>B</code>, etc. This code is executed competitively by all of the GPU threads
+so the final <code>moduleStart</code> array will differ from execution to execution, even if the input
+data is the same:</p>
+<table>
+    <tr>
+        <th>pos</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+    </tr>
+    <tr>
+        <th><code>moduleStart</code> (execution i)</th><td>4</td><td>0</td><td>5</td><td>9</td><td>13</td><td>0</td><td>0</td>
+    </tr>
+    <tr>
+        <th><code>moduleStart</code> (execution ii)</th><td>4</td><td>0</td><td>9</td><td>13</td><td>5</td><td>0</td><td>0</td>
+    </tr>
+    <tr>
+        <th><code>moduleStart</code> (execution iii)</th><td>4</td><td>13</td><td>0</td><td>9</td><td>5</td><td>0</td><td>0</td>
+    </tr>
+</table>
+
+<div class="admonition quote">
+<p class="admonition-title">The last row of the table above is read as follows:</p>
+<ul>
+<li>There is a total of <code>4</code> indices stored in this array.</li>
+<li>One module starts at index <code>13</code> (in our example, module <code>D</code>)</li>
+<li>One module starts at index <code>0</code> (in our example, module <code>A</code>)   </li>
+<li>One module starts at index <code>9</code> (in our example, module <code>C</code>)   </li>
+<li>One module starts at index <code>5</code> (in our example, module <code>B</code>)</li>
+</ul>
+</div>
+<p>The order that the indices are stored in <code>moduleStart</code> is determined by the order
+which threads reach line <code>18</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Important note 1</p>
+<p>In the end, <code>moduleStart[0]</code> records the total number of modules
+found in the array.</p>
+<p>Then, since we store the <strong>indices</strong> of the array elements where the module
+<code>id</code> changes, it means that the <code>moduleStart</code> array contains
+at most <code>nMaxModules + 1</code> elements (to account for <code>moduleStart[0]</code> which
+stores the number of indices contained in the array). </p>
+<p>It follows that the number of elements in <code>moduleStart</code> is <strong>less</strong> than
+the total number of digis.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Important note 2</p>
+<p>Not all modules contain the same number of pixels, since some will be invalid.</p>
+</div>
+<details class="note">
+<summary>Example contents of <code>moduleStart</code> (after sorting, starting from element 1)</summary>
+<p>In this example, the first element still represents the total number of modules. The
+rest are sorted indices to where the data of each module starts.</p>
+<p><code>0</code> does not seem to be included in this array, as it is always implied
+that data starts at 0.</p>
+<p><code>1727,8,28,49,59,63,68,81,194,198,206,233,243,270,306,401,427,436,444,453,479,512,528,589,597,612,627,631,639,777,824,857,890,912,955,980,990,1021,1034,1052,1137,1142,1182,1251,1267,1316,1324,1331,1425,1474,1656,1669,1689,1704,1754,1805,1828,1838,1848,1856,1866,2043,2067,2090,2112,2128,2131,2196,2226,2336,2367,2392,2573,2622,2676,3140,3173,3213,3219,3225,3233,3269,3290,3300,3303,3310,3358,3406,3460,3488,3512,3518,3521,3572,3597,3605,3619,3625,3665,3668,3688,3766,3773,3792,3831,3843,3857,3877,3946,4245,4271,4300,4310,4313,4325,4332,4513,4528,4537,4550,4562,4590,4612,4665,4683,4689,4692,4722,4907,4935,4969,4988,5002,5024,5029,5039,5091,5117,5138,5163,5166,5175,5225,5243,5276,5294,5315,5353,5368,5388,5414,5619,5638,5695,5709,5745,5758,5775,5849,5858,5873,5887,5905,5913,5930,5952,6011,6045,6052,6057,6090,6173,6189,6216,6224,6242,6248,6258,6265,6297,6328,6452,6524,6564,6566,6572,6578,6590,6700,6707,6720,6733,6748,6770,6800,6810,6848,6851,7055,7076,7095,7116,7138,7141,7144,7147,7157,7177,7208,7239,7263,7280,7297,7304,7336,7468,7502,7595,7641,7643,7676,7698,7825,7836,7856,7869,7879,7906,7964,8065,8098,8112,8118,8137,8162,8313,8422,8521,8531,8546,8559,8566,8574,8609,8658,8667,8711,8731,8762,8773,8795,8801,8988,9008,9048,9055,9062,9065,9068,9266,9274,9275,9280,9284,9342,9418,9482,9498,9502,9513,9528,9539,9718,9724,9738,9758,9764,9772,9779,9788,9809,9838,9900,9983,10018,10029,10085,10116,10131,10141,10156,10168,10185,10202,10236,10346,10399,10412,10425,10460,10463,10467,10598,10609,10612,10616,10622,10675,10730,10745,10756,10761,10772,10776,10784,10936,10976,11014,11024,11052,11066,11072,11086,11088,11136,11174,11333,11361,11391,11395,11406,11419,11422,11549,11557,11572,11577,11590,11665,11690,11706,11712,11725,11750,11870,11879,11906,11928,11964,11970,11983,12037,12056,12064,12079,12086,12113,12164,12172,12203,12210,12352,12381,12445,12577,12585,12608,12659,12697,12795,12828,12844,12866,12896,12923,12948,12973,12982,12993,13054,13082,13090,13097,13234,13281,13314,13316,13325,13350,13362,13526,13533,13548,13564,13574,13619,13692,13731,13754,13775,13784,13793,13802,13885,13916,13925,13936,13945,13963,13967,13984,14003,14040,14074,14089,14105,14108,14135,14139,14158,14175,14228,14246,14263,14287,14318,14359,14387,14391,14406,14417,14524,14540,14546,14571,14584,14629,14668,14711,14735,14743,14752,14776,14777,14973,15000,15045,15074,15075,15094,15096,15102,15117,15142,15260,15312,15359,15375,15393,15410,15447,15644,15717,15730,15737,15770,15826,15868,15893,15900,15914,16088,16107,16123,16139,16146,16181,16192,16197,16203,16224,16240,16266,16277,16291,16351,16368,16578,16605,16671,16683,16686,16701,16862,16867,16871,16875,16891,16939,16982,17085,17127,17143,17168,17184,17202,17343,17368,17408,17416,17458,17495,17501,17535,17564,17621,17660,17691,17720,17763,17779,17807,17817,17831,17948,17968,17994,18007,18014,18018,18027,18137,18143,18227,18230,18239,18256,18298,18327,18388,18403,18406,18420,18433,18443,18451,18475,18509,18521,18540,18574,18640,18674,18688,18701,18737,18775,18797,18815,18825,18867,18938,18966,18992,19082,19134,19161,19179,19190,19314,19318,19324,19332,19344,19370,19396,19463,19488,19506,19517,19539,19566,19785,19803,19812,19837,19840,19851,19869,19892,19931,19986,20122,20147,20187,20302,20305,20310,20318,20402,20414,20416,20422,20431,20691,20702,20709,20733,20762,20767,20777,20795,20796,20809,20853,20859,20878,20895,20911,20925,20950,21161,21239,21278,21279,21285,21290,21293,21414,21418,21419,21444,21466,21524,21553,21560,21571,21584,21592,21820,21836,21851,21871,21875,21877,21879,21882,21885,21921,21962,21991,22028,22036,22053,22060,22070,22102,22385,22406,22480,22488,22497,22512,22669,22681,22704,22707,22719,22763,22808,22870,22905,22920,22930,22939,23076,23120,23152,23170,23201,23214,23218,23231,23238,23278,23324,23354,23365,23375,23417,23440,23459,23471,23483,23498,23553,23566,23588,23756,23781,23809,23817,23825,23852,23853,24127,24136,24150,24166,24179,24201,24240,24315,24362,24378,24389,24427,24586,24618,24638,24650,24666,24671,24674,24737,24832,24903,24946,25088,25114,25125,25142,25150,25159,25351,25375,25380,25388,25401,25423,25506,25520,25537,25546,25793,25801,25822,25841,25884,25886,25896,25903,25955,25979,26003,26044,26089,26097,26113,26122,26178,26269,26292,26309,26339,26347,26393,26413,26505,26524,26533,26539,26554,26602,26615,26661,26676,26681,26692,26829,26838,26863,26877,26899,26900,26912,26914,26930,26979,27012,27048,27051,27067,27081,27092,27102,27104,27224,27229,27270,27284,27291,27307,27308,27492,27500,27501,27503,27517,27559,27596,27601,27621,27623,27643,27660,27880,27907,27918,27938,27963,27966,27971,27979,28002,28052,28100,28106,28128,28142,28147,28154,28178,28193,28212,28270,28325,28349,28393,28402,28407,28598,28613,28617,28632,28644,28667,28692,28726,28741,28744,28746,28755,28773,28937,28955,28956,29048,29054,29060,29063,29116,29136,29235,29253,29294,29306,29319,29326,29328,29481,29487,29492,29495,29498,29540,29564,29571,29584,29595,29716,29739,29744,29804,29814,29818,29853,29857,29877,29884,29911,29922,29940,29951,29966,30153,30203,30237,30252,30262,30267,30389,30401,30424,30434,30440,30460,30482,30527,30552,30559,30564,30587,30591,30841,30865,30881,30905,30919,30930,30953,31005,31036,31063,31083,31086,31094,31102,31115,31135,31269,31308,31331,31340,31345,31363,31382,31464,31470,31472,31481,31488,31530,31590,31595,31624,31631,31632,31640,31651,31790,31796,31807,31840,31845,31862,31868,31882,31895,31940,31960,31973,32015,32040,32058,32065,32077,32087,32096,32113,32155,32182,32333,32362,32380,32387,32420,32427,32433,32536,32542,32544,32557,32569,32624,32640,32684,32697,32704,32707,32718,32726,32912,32928,32943,32974,32987,33002,33022,33030,33037,33077,33102,33209,33248,33279,33283,33293,33298,33303,33513,33522,33534,33544,33551,33566,33584,33590,33600,33614,33796,33810,33844,33869,33880,33882,33890,33896,33904,33930,33931,33941,33945,33951,33973,34002,34024,34072,34120,34158,34169,34175,34181,34198,34354,34369,34379,34386,34432,34462,34491,34545,34549,34555,34561,34580,34685,34701,34737,34757,34766,34769,34773,34799,34816,34833,34854,34882,34932,34961,34980,35057,35099,35105,35232,35260,35269,35284,35325,35340,35353,35360,35433,35487,35500,35517,35547,35594,35603,35613,35678,35712,35738,35750,35784,35858,35876,35914,35952,36000,36008,36020,36060,36087,36097,36112,36139,36163,36199,36230,36245,36267,36440,36448,36464,36484,36500,36508,36512,36530,36548,36561,36565,36698,36726,36841,36868,36913,36935,36951,36980,37006,37017,37028,37046,37086,37102,37126,37141,37153,37163,37175,37219,37250,37275,37299,37322,37387,37394,37432,37499,37506,37543,37586,37635,37707,37740,37756,37817,37874,37882,37892,37923,37985,37994,38014,38028,38033,38042,38053,38083,38113,38144,38168,38201,38231,38239,38246,38276,38318,38335,38355,38402,38444,38501,38525,38552,38598,38625,38648,38663,38684,38700,38727,38741,38767,38823,38854,38880,38886,38902,38916,38940,38957,39008,39042,39077,39101,39161,39194,39214,39233,39291,39318,39349,39365,39416,39462,39473,39518,39541,39608,39624,39633,39660,39717,39731,39770,39804,39814,39823,39905,39966,39981,40008,40070,40102,40110,40137,40147,40192,40207,40222,40258,40313,40365,40374,40404,40452,40464,40474,40520,40551,40559,40579,40633,40663,40699,40721,40751,40808,40827,40859,40899,40919,40928,40949,40996,41010,41054,41068,41107,41124,41157,41162,41177,41204,41222,41244,41266,41311,41333,41348,41361,41374,41400,41445,41469,41516,41532,41544,41552,41575,41602,41608,41626,41635,41646,41672,41676,41699,41746,41795,41797,41825,41846,41876,41895,41914,41945,41977,42008,42030,42049,42151,42211,42242,42278,42318,42327,42358,42419,42431,42439,42466,42510,42522,42541,42599,42644,42650,42714,42734,42773,42790,42814,42875,42898,42905,42919,42971,43011,43079,43094,43115,43145,43152,43169,43194,43229,43236,43252,43279,43334,43357,43367,43374,43388,43400,43437,43452,43465,43478,43485,43494,43504,43546,43584,43597,43606,43638,43672,43698,43711,43761,43804,43836,43879,43904,43920,43942,43998,44008,44013,44047,44084,44094,44108,44141,44181,44231,44284,44298,44372,44384,44406,44434,44504,44514,44526,44555,44573,44644,44689,44728,44766,44827,44850,44871,44887,44938,44975,45002,45015,45062,45139,45158,45163,45211,45278,45316,45356,45448,45566,45583,45611,45648,45685,45693,45697,45774,45867,45877,45899,45951,46005,46034,46046,46054,46064,46141,46158,46160,46192,46223,46232,46264,46274,46302,46335,46352,46381,46445,46507,46527,46542,46586,46622,46648,46659,46675,46681,46705,46721,46740,46753,46768,46775,46778,46781,46790,46819,46845,46866,46876,46927,46975,46979,46993,47024,47068,47089,47107,47143,47151,47212,47281,47302,47345,47385,47389,47412,47454,47518,47554,47575,47604,47645,47653,47672,47701,47757,47766,47774,47810,47853,47869,47870,47886,47918,48010,48018,48051,48093,48111,48135,48175,48226,48228,48244,48250,48272,48286,48292,48298,48315,48334,48374,48414,48444,48499,48514,48515,48544,48604,48609,48620,48638,48669,48678,48692,48731,48760,48763,48792,48826,48835,48852,48905,48914,48935,48954,48977,49035,49053,49107,49188,49227,49269,49287,49331,49337,49348,49383,49408,49429,49453,49553,49587,49596,49653,49712,49783,49791,49809,49860,49888,49902,49909,49972,50015,50037,50087,50131,50155,50182,50223,50261,50279,50301,50340,50364,50386,50406,50459,50508,50551,50579,50595,50617,50639,50658,50671,50686,50718,50733,50747,50781,50812,50836,50882,50894,50957,51011,51032,51043,51084,51113,51157,51185,51262,51264,51266,51282,51304,51307,51311,51334,51336,51339,51361,51404,51407,51410,51471,51655,51667,51677,51727,51781,51830,51900,51949,52006,52050,52073,52091,52108,52156,52192,52203,52210,52224,52240,52252,52256,52264,52277,52283,52293,52309,52321,52331,52338,52342,52349,52357,52381,52412,52451,52459,52470,52538,52643,52645,52657,52729,52770,52781,52812,52852,52897,52912,52950,52974,52998,53008,53010,53018,53033,53073,53089,53117,53121,53143,53168,53181,53191,53266,53307,53350,53354,53387,53412,53421,53473,53503,53529,53542,53545,53562,53585,53591,53600,53621,53636,53640,53642,53677,53713,53727,53735,53781,53865,53883,53887</code></p>
+</details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">loc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atomicInc</span><span class="p">(</span><span class="n">moduleStart</span><span class="p">,</span><span class="w"> </span><span class="n">nMaxModules</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>The value will be set to <code>0</code> <strong>if the value stored  in <code>moduleStart[0]</code> exceeds the <code>nMaxModules</code> value</strong>, i.e. <code>3892</code> for Phase 2.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.sections", "content.tabs.link", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      
+    
+  </body>
+</html>

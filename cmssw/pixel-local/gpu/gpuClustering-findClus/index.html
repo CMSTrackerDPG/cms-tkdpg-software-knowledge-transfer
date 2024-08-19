@@ -1,0 +1,5318 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../gpuClustering-countModules/">
+      
+      
+        <link rel="next" href="../SiPixelDigisSoAFromCUDA-overview/">
+      
+      
+      <link rel="icon" href="../../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
+    
+    
+      
+        <title>findClus - CMS Tracker DPG - Software Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#findclus" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="CMS Tracker DPG - Software Knowledge Base" class="md-header__button md-logo" aria-label="CMS Tracker DPG - Software Knowledge Base" data-md-component="logo">
+      
+  <img src="../../../../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CMS Tracker DPG - Software Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              findClus
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CMSTrackerDPG/cms-tkdpg-software-knowledge-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="CMS Tracker DPG - Software Knowledge Base" class="md-nav__button md-logo" aria-label="CMS Tracker DPG - Software Knowledge Base" data-md-component="logo">
+      
+  <img src="../../../../img/favicon.ico" alt="logo">
+
+    </a>
+    CMS Tracker DPG - Software Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CMSTrackerDPG/cms-tkdpg-software-knowledge-transfer" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home &#127968;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../basic-concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CMSSW &#128128;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CMSSW &#128128;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../introduction/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Releases
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../setup/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../available_machines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Available machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../build/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building the code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tools &#128295;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../workflows/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Workflows &#128200;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Workflows &#128200;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflows/usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    runTheMatrix Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflows/history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Validation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../throughput/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Throughput calculation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proposing-changes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a PR to CMSSW
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Code documentation &#128216;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            Code documentation &#128216;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Pixel-Local Reconstruction
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1" id="__nav_3_10_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_10_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            Pixel-Local Reconstruction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pixel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dataflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpu/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CPU &#129704;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_2" id="__nav_3_10_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_10_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            CPU &#129704;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10_1_2_1" id="__nav_3_10_1_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Formats
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_10_1_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Formats
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpu/DetSetVector-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DetSetVector
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpu/PixelDigi-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PixelDigi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpu/SiPixelCluster-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelCluster
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cpu/PixelThresholdClusterizer-overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    PixelThresholdClusterizer
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_2_2" id="__nav_3_10_1_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_10_1_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10_1_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            PixelThresholdClusterizer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpu/PixelThresholdClusterizer-copytobuffer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    copy_to_buffer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpu/SiPixelArrayBuffer-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelArrayBuffer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    GPU &#128396;&#65039;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_3" id="__nav_3_10_1_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_10_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            GPU &#128396;&#65039;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10_1_3_1" id="__nav_3_10_1_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Formats
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_10_1_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10_1_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Formats
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SiPixelDigisCUDA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelDigisCUDA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SiPixelDigisCUDASOAView/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelDigisCUDASOAView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SiPixelClustersCUDA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelClustersCUDA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../SiPixelRawToClusterCUDA-overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    SiPixelRawToClusterCUDA.cc
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_3_2" id="__nav_3_10_1_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_3_10_1_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10_1_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            SiPixelRawToClusterCUDA.cc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3_2_1" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../SiPixelRawToClusterGPUKernel-overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    SiPixelRawToClusterGPUKernel.h
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_3_2_1" id="__nav_3_10_1_3_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_3_10_1_3_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10_1_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            SiPixelRawToClusterGPUKernel.h
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3_2_1_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../gpuCalibPixel/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    gpuCalibPixel.h
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_3_2_1_1" id="__nav_3_10_1_3_2_1_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_3_10_1_3_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10_1_3_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            gpuCalibPixel.h
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpuCalibPixel-calibDigis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    calibDigis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_1_3_2_1_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../gpuClustering-overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    gpuClustering.h
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_10_1_3_2_1_2" id="__nav_3_10_1_3_2_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="7" aria-labelledby="__nav_3_10_1_3_2_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_10_1_3_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            gpuClustering.h
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpuClustering-countModules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    countModules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    findClus
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    findClus
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arguments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wordcounter-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      wordCounter [Input]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculating-the-total-number-of-pixels-in-a-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating the total number of pixels in a module
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duplicate-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duplicate detection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#histogram-filling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histogram Filling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nearest-neighbours-and-counting-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nearest neighbours and counting them
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filling-nn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filling nn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assign-same-clusterid-to-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assign same clusterId to clusters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SiPixelDigisSoAFromCUDA-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelDigisSoAFromCUDA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SiPixelDigisClustersFromSoA-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SiPixelDigisClustersFromSoA.cc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/cmssw/extra-cmssw/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extra Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ &#10067;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/introduction/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Certhelper (a.k.a Certifier) &#9989;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Certhelper (a.k.a Certifier) &#9989;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developing &#129489;&#8205;&#128187;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Developing &#129489;&#8205;&#128187;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/developing/local-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/developing/branches/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Branches
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/deploying/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Deploying &#128674;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deploying &#128674;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/deploying/guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/deploying/deployments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/connectivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connectivity &#128279;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apps &#129513;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Apps &#129513;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/dqmhelper/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dqmhelper
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/certifier/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    certifier
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_2" id="__nav_4_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            certifier
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_2_1" id="__nav_4_4_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/certifier/views/certify/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CertifyView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/certifier/views/badreason/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    badReason
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/certifier/views/addbadreason/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    addBadReason
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/certifier/query/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Query
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/listruns/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    listruns
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_3" id="__nav_4_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            listruns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_3_1" id="__nav_4_4_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/listruns/views/updaterun/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UpdateRunView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/addrefrun/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    addrefrun
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_4" id="__nav_4_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            addrefrun
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_4_1" id="__nav_4_4_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/addrefrun/views/update_refruns_info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    update_refruns_info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/oms/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    oms
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_5" id="__nav_4_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            oms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/oms/models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/omsapi/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    omsapi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/shiftleader/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    shiftleader
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_7" id="__nav_4_4_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            shiftleader
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_7_1" id="__nav_4_4_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/shiftleader/views/shiftleader_report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ShiftLeader Report
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/shiftleader/views/shiftleader_report_presentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ShiftLeader Report Presentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/shiftleader/obsolete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsolete code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/home/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/remotescripts/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    remotescripts
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_9" id="__nav_4_4_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            remotescripts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/remotescripts/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_9_2" id="__nav_4_4_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Consumers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Consumers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/remotescripts/consumers/script_output/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScriptOutputConsumer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_9_3" id="__nav_4_4_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/remotescripts/views/script_execution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScriptExecution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../certhelper/apps/summary/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    summary
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4_10" id="__nav_4_4_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            summary
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/summary/models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_10_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_10_2" id="__nav_4_4_10_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Views
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            Views
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/apps/summary/views/SummaryView/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SummaryView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation &#128216;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../certhelper/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ &#10067;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../mlplayground/introduction/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    MLPlayground &#129528;
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            MLPlayground &#129528;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Deploying &#128674;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deploying &#128674;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/deploying/guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/deploying/deployments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/connectivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connectivity &#128279;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apps &#129513;
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Apps &#129513;
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../mlplayground/apps/histogram_file_manager/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    histogram_file_manager
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_4_1" id="__nav_5_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            histogram_file_manager
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/apps/histogram_file_manager/models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/apps/histogram_file_manager/management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Management Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/apps/histogram_file_manager/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../mlplayground/apps/histograms/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    histograms
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_4_2" id="__nav_5_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            histograms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/apps/histograms/models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation &#128216;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mlplayground/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ &#10067;
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    General documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            General documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    SSH
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/ssh/tunnel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tunnelling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/ssh/mounting_remote/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mounting remote filesystems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CUDA and GPU development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            CUDA and GPU development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../czangela-tutorial/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Angela's GPU primer
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2_1" id="__nav_6_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Angela's GPU primer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../czangela-tutorial/weeks/week01_material/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Week 1
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2_1_1" id="__nav_6_2_1_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Week 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../czangela-tutorial/weeks/week01_exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 01 Exercises
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../czangela-tutorial/weeks/week02_material/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Week 2
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2_1_2" id="__nav_6_2_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Week 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../czangela-tutorial/weeks/week02_exercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 02 Exercises
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../czangela-tutorial/weeks/week03_material/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Week 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/gpu/extra-gpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA/GPU Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/gpu/cern-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CERN GPU Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../general/django/overview/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Django
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Django
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/django/setup/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3_2" id="__nav_6_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/django/database/exporting_importing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exporting/Importing data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development General
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Development General
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/development/versioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Versioning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Openshift
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Openshift
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/openshift/resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../general/openshift/routes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Routes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arguments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wordcounter-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      wordCounter [Input]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculating-the-total-number-of-pixels-in-a-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating the total number of pixels in a module
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duplicate-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duplicate detection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#histogram-filling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histogram Filling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nearest-neighbours-and-counting-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nearest neighbours and counting them
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filling-nn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filling nn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assign-same-clusterid-to-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assign same clusterId to clusters
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/CMSTrackerDPG/cms-tkdpg-software-knowledge-transfer/edit/master/docs/cmssw/pixel-local/gpu/gpuClustering-findClus.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/CMSTrackerDPG/cms-tkdpg-software-knowledge-transfer/raw/master/docs/cmssw/pixel-local/gpu/gpuClustering-findClus.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="findclus">findClus</h1>
+<p>CUDA kernel for finding <a href="../../../../basic-concepts/#pixel-cluster">Clusters</a>
+given digis extracted from raw data.</p>
+<p>Taking advantage of the <a href="../../../../basic-concepts/#soaaos">SoA</a> data approach,
+it is meant to be executed
+with a 1D grid of blocks, each block being a 1D grid
+of threads. The number of blocks and threads used to launch this kernel
+is equal to the number of modules present in the detector which, in turn,
+depends on the Phase:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Blocks</th>
+<th style="text-align: left;">Threads</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Phase 1</td>
+<td style="text-align: left;">1856</td>
+<td style="text-align: left;">256</td>
+</tr>
+<tr>
+<td style="text-align: left;">Phase 2</td>
+<td style="text-align: left;">3892</td>
+<td style="text-align: left;">384</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The number of blocks is equal to the <strong>number of modules</strong>, which depend
+on the Phase. This number is found in the
+<a href="https://github.com/cms-sw/cmssw/blob/master/Geometry/CommonTopologies/interface/SimplePixelTopology.h">Geometry/CommonTopologies</a>
+CMSSW module which contains constants related to the Pixel Detector Topology.</p>
+</div>
+<h2 id="overview">Overview</h2>
+<p>This kernel is launched with <strong>1 block per module</strong>, meaning
+that each GPU block will be assigned the digis of 1 module. Then,
+each block's thread is assigned 1 or more digis to operate
+on.</p>
+<div class="admonition note">
+<p class="admonition-title">Note 1</p>
+<p>The case to launch this kernel with <strong>less</strong> blocks
+than there are modules is also accounted for, by running
+a first <code>for</code> loop in each thread which runs from <code>firstModule</code> (i.e.
+the thread's <strong>Block index</strong>) to <code>endModule</code> by increments
+of <code>gridDim.x</code> (i.e. total number of blocks).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note 2</p>
+<p>Since the number of threads per block will probably be 
+smaller than the number of digis per module, a single 
+thread will have to take care of doing the calculations
+for more than one digi. </p>
+<p>This is accounted for by a second <code>for</code> loop which starts
+at <code>first</code> (calculated by using the index stored in <code>moduleStart</code>
+and adding the <code>threadIdx.x</code>) and iterates up to <code>numElements</code> (i.e. total number
+of digis), with increments of <code>blockDim.x</code> (i.e. number of threads
+per block)</p>
+</div>
+<h2 id="arguments">Arguments</h2>
+<h3 id="wordcounter-input"><code>wordCounter</code> [Input]</h3>
+<p>The total number of pixels for <strong>all</strong> data.</p>
+<!-- ### Example -->
+
+<!-- Assuming the following: -->
+
+<!-- * Total number of digis = 10 -->
+<!-- * Total number of modules = 3 -->
+
+<!-- The `x` array would look something like: -->
+
+<!-- ![x array initial](img/data_assignment01.png) -->
+
+<!-- This means that the `moduleStart` array will contain -->
+<!-- the following (see [`countModules`](gpuClustering-countModules.md) -->
+<!-- to understand why): -->
+
+<!-- <table> -->
+<!--     <tr> -->
+<!--         <th>pos</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td> -->
+<!--     </tr> -->
+<!--     <tr> -->
+<!--         <th><code>moduleStart</code></th><td>3</td><td>3</td><td>0</td><td>6</td><td>0</td><td>0</td><td>0</td> -->
+<!--     </tr> -->
+<!-- </table> -->
+
+<!-- * Kernel is launched with: -->
+<!--    * 2 blocks -->
+<!--    * 2 threads per block -->
+
+<!-- This means that there are **less** blocks than there are modules,  -->
+<!-- and there are **less** threads per block than there are digis per -->
+<!-- module. -->
+
+<!-- The first block of threads (**Block 0**) will be assigned Module A: -->
+
+<!-- ![x array block 0](img/data_assignment02.png) -->
+
+<!-- Notice that each block has 2 threads, meaning that the  -->
+<!-- third element of module A is not directly assigned to  -->
+<!-- a dedicated thread.  -->
+
+<!-- Then, **Block 1** is assigned Module B: -->
+
+<!-- ![x array block 1](img/data_assignment03.png) -->
+
+<!-- The third module is not explicitly assigned to a block yet. -->
+
+<!-- Using a `for` loop which increments by `gridDim.x`[^1], we can assign -->
+<!-- the data of Module C to **Block 0**: -->
+
+<!-- ![x array block 0_2](img/data_assignment04.png) -->
+
+<!-- [^1]: `gridDim.x` is equal to the number of blocks for this kernel. -->
+
+<!-- By using a nested `for` loop which increments by `blockDim.x`[^2], -->
+<!-- we can assign a thread to more than one digi, within the same block: -->
+
+<!-- ![x array block 0_2](img/data_assignment05.png) -->
+
+<!-- The thread Ids are shown underneath each array element. -->
+
+<!-- [^2]: `blockDim.x` is equal to the number of threads per block for this kernel. -->
+
+<!-- ### Arguments -->
+
+<!-- #### `uint32_t* const* __restrict__ moduleStart` [Input] -->
+
+<!-- This is an array of indices, created by the -->
+<!-- [`countModules`](gpuClustering-countModules.md) kernel, -->
+<!-- which stores the indices that the data of the next module is stored in all -->
+<!-- other arrays (e.g. `x`, `y`). -->
+
+<!-- !!! note "Note 1" -->
+
+<!--    The only exception is the 0th element, which stores the **total number of -->
+<!--    modules**, i.e. the number of elements stored in the `moduleStart` array. -->
+
+<!--    It is used as the max number to execute a `for` loop for in the kernel. -->
+
+<!-- !!! note "Note 2" -->
+
+<!--    This array is expected to contain **less** elements than all other input -->
+<!--    arrays, e.g. `x`, since each module contains many digis.  -->
+
+<!--    The only case where its length would be the same as all other arrays -->
+<!--    would be if each module contained only one digi. -->
+
+<h2 id="calculating-the-total-number-of-pixels-in-a-module">Calculating the total number of pixels in a module</h2>
+<p>This is done by the code below:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numElements</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">invalidModuleId</span><span class="p">)</span><span class="w">  </span><span class="c1">// skip invalid pixels</span>
+<span class="w">    </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">thisModuleId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// find the first pixel in a different module</span>
+<span class="w">    </span><span class="n">atomicMin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msize</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Shared memory is used to store the <code>msize</code> variable. This is shared
+among the threads in the GPU block to calculate the total number of pixels
+that the <strong>current module</strong> has.</p>
+<p>In a nutshell, all threads in a GPU block are assigned elements in the
+<code>id</code> array, and, after skipping invalid <code>id</code>s, they try to find the 
+index in the <code>id</code> array where the <code>id</code> is <strong>different</strong> to the one 
+that the current block is assigned. </p>
+<p>Let's assume that the <code>id</code> array is as follows:</p>
+<p><img alt="" src="../img/msize_00.svg" /></p>
+<p>Then, a single block is assigned to <strong>Module Y</strong> data:</p>
+<p><img alt="" src="../img/msize_01.svg" /></p>
+<p>Let's assume that we are launching the kernel with <strong>2 threads
+per block</strong>. Those start iterating over the <code>id</code> array, starting
+from the index that the <code>moduleStart</code> array indicates for the
+module that has been assigned to the current block (in this example,
+this index is <code>15</code>):</p>
+<p><img alt="" src="../img/msize_02.svg" /></p>
+<p>They keep iterating, with step <code>blockDim.x</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.
+If <code>invalidModule</code> is found in the <code>id</code> array, they
+skip it (see <code>t1</code> below):</p>
+<p><img alt="" src="../img/msize_03.svg" /></p>
+<p>Next iteration:</p>
+<p><img alt="" src="../img/msize_04.svg" /></p>
+<p>Next iteration. Notice that <code>t1</code> is now assigned 
+an index which belongs to the next module, <strong>Module Z</strong>.
+This satisfies the <code>if (id[i] != thisModuleId)</code> condition, 
+so the <code>atomicMin(&amp;msize, i)</code> instruction is executed, meaning
+that the thread will store in <code>msize</code> the minimum between
+<code>msize</code> (which has been initialized with the value of the total
+number of pixels, i.e. the final index of the <code>id</code> array) and
+the current index it's assigned (<code>i</code> which is equal to <code>22</code>).
+<code>msize</code> is, therefore,
+assigned the value <code>22</code> and <code>t1</code> breaks from the loop.</p>
+<p><img alt="" src="../img/msize_05.svg" /></p>
+<p>Now, only <code>t0</code> is left to continue iterating,
+which, in turn, is assigned an index which belongs to 
+<strong>Module Z</strong>, index <code>23</code>. The condition mentioned above
+is satisfied again, so <code>t0</code> executes <code>atomicMin(&amp;msize, i)</code>
+with <code>i=23</code> and <code>msize=22</code>, so <code>msize</code> stays <code>22</code>.</p>
+<p><img alt="" src="../img/msize_06.svg" /></p>
+<p>We now know the last <strong>non-invalid</strong> index of the current module, and
+this index is stored in <code>msize</code>.</p>
+<h2 id="duplicate-detection">Duplicate detection</h2>
+<details class="quote">
+<summary>Alternative 1 (PR <a href="https://github.com/cms-sw/cmssw/pull/37359">#37359</a>, Not merged)</summary>
+<p>Similarly to <a href="#calculating-the-total-number-of-pixels-in-a-module">the total module pixels calculation</a>,
+to detect duplicate digis a similar iteration logic can be applied. </p>
+<p>Assumming 2 threads per block, <code>t0</code> starts with the first element
+of the module (with index <code>15</code>) and compares the <code>x</code> and <code>y</code> values
+between index <code>15</code> and the next one (assumming it's not invalid), i.e.
+index <code>16</code>:</p>
+<p><img alt="" src="../img/duplicate_00.svg" /></p>
+<p>If <strong>both</strong> <code>x</code> values are the same <strong>and</strong> <code>y</code> values are the same, the
+digi is considered a duplicate.</p>
+<p>Then, <code>t0</code> compares element <code>15</code> to <code>17</code>:</p>
+<p><img alt="" src="../img/duplicate_01.svg" /></p>
+<p>Elements <code>18</code> and <code>19</code> are invalid, so they're skipped and the <code>20</code>th is compared:</p>
+<p><img alt="" src="../img/duplicate_02.svg" /></p>
+<p>This goes on until the <code>msize</code>th element.</p>
+<p>Then, <code>t1</code> will start from the element at position <code>15 + threadIdx.x = 16</code> and compare
+the <code>x</code> and <code>y</code> values with the ones at position <code>17</code> and so on.</p>
+<p><code>t0</code> will then iterate to the next element with step size <code>blockDim.x</code> (in our case
+<code>2</code>), until the 2nd element from the end is reached (in our example, the element
+with index <code>20</code>; there's no comparison to be made once a thread reaches index <code>21</code>).</p>
+</details>
+<div class="admonition quote">
+<p class="admonition-title">Alternative 2 (PR <a href="https://github.com/cms-sw/cmssw/pull/38946">#38946</a>, Merged)</p>
+<p>This alternative approach uses <em>shared thread memory</em> to create a <code>status</code> array 
+where the number of times each pixel has been encountered in a module is stored. To make it
+as small as possible, <strong>2 bits</strong> are used per pixel, which, for Phase 1<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>, amounts
+to <strong>160x416x2 bits = 16640 bytes</strong> per module<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
+<p>A visual representation of the first array element of <code>status</code> (Pixel
+coordinates are in X,Y):</p>
+<p><img alt="" src="../img/duplicate_ab_00.svg" /></p>
+<p>In effect, we can store the status of 16 pixels per <code>status</code> array element.</p>
+<p>In the <code>status</code> array, one of the following values are stored:</p>
+<ul>
+<li><code>0x00</code>: Empty</li>
+<li><code>0x01</code>: Found</li>
+<li><code>0x03</code>: Duplicate</li>
+</ul>
+<p>A <code>getIndex</code> function is implemented, which maps a pixel's <code>x</code> and <code>y</code> coordinates
+to an index to the <code>status</code> array.</p>
+<p>A <code>getShift</code> function, which, once the index in the <code>status</code> array is found,
+finds the exact "sub-location" that the pixel should be stored in, in the 
+given <code>status</code> array element.</p>
+<p>For example, pixel with coordinates <code>x=2</code> and <code>y=0</code> be stored in:</p>
+<div class="highlight"><pre><span></span><code><span class="n">getIndex</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">))(</span><span class="n">pixelsPerModuleX</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">valuesPerWord</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">)((</span><span class="mi">160</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+</code></pre></div>
+<p>So the pixel(2,0) is stored in <code>status[0]</code>.</p>
+<p>To find the shift amount <strong>within</strong> <code>status[0]</code> where the pixel information
+will be stored in:
+<div class="highlight"><pre><span></span><code><span class="n">getShift</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">valuesPerWord</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+</code></pre></div>
+So, we have to shift by <code>4</code> bits within <code>status[0]</code> to store information
+for pixel(2,0).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>In <code>getShift</code>, the multiplication by <code>2</code> corresponds to the number
+of bits used to store the per-pixel information.</li>
+<li><code>getShift</code> will not work if the <code>pixelsPerModuleX</code> value is not a
+multiple of <code>valuesPerWord</code> (i.e. <code>16</code>) and would need to take <code>y</code> into
+account too.</li>
+</ul>
+</div>
+<p>To <strong>read</strong> a specific status for a specific pixel (see <code>getStatus()</code>),
+once we have determined
+the <code>index</code> and <code>shift</code>, we use the <code>mask</code> calculated (for <code>bits=2</code>, <code>mask</code>
+is <code>0x03</code>) to extract the data.</p>
+<p><img alt="" src="../img/duplicate_ab_01.svg" /></p>
+<p>Doing a bitwise <strong>AND</strong> (<code>&amp;</code>) of the <code>mask</code> with the <code>status[index]</code> value,
+after right-shifting (<code>&gt;&gt;</code>) the latter by the <code>shift</code> value calculated,
+we can read the 2 bits that refer to the specific pixel:</p>
+<p><img alt="" src="../img/duplicate_ab_02.svg" />            </p>
+<p>To <strong>write</strong> the status to a specific pixel (see <code>promote()</code>), we typecast
+the status to <code>uint32_t</code>:</p>
+<p><img alt="" src="../img/duplicate_ab_03.svg" />                </p>
+<p>Then left-shift it (<code>&lt;&lt;</code>) by <code>shift</code> bytes:</p>
+<p><img alt="" src="../img/duplicate_ab_04.svg" />                </p>
+<p>The <code>new_word</code> is then calculated:</p>
+<p><img alt="" src="../img/duplicate_ab_05.svg" />                </p>
+<p>And, finally, an <code>atomicCAS</code> (Compare And Swap) operation is done between
+<code>status[i]</code> and <code>new_word</code>, which stores the new value back in the <code>status</code> array,
+if <code>new_word</code> is different than <code>status[i]</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>atomicOR</code> could be used directly, instead of using <strong>OR</strong> (<code>|</code>) and then
+<code>atomicCAS</code>, but it seems it's a bit slower. </p>
+</div>
+<p>Documentation on <code>atomicCAS</code> can be found
+<a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#atomiccas">here</a>.</p>
+</div>
+<h2 id="histogram-filling">Histogram Filling</h2>
+<div class="admonition todo">
+<p class="admonition-title">Todo</p>
+<p>what the heckerino is histogram filling?</p>
+</div>
+<p>The <code>hist</code> histogram is stored in <strong>shared</strong> memory, so that its
+access from all threads is as fast as possible.</p>
+<p>Code:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// fill histo</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">msize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">invalidModuleId</span><span class="p">)</span><span class="w">  </span><span class="c1">// skip invalid pixels</span>
+<span class="w">    </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">  </span><span class="n">hist</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+<span class="nf">__syncthreads</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">32</span><span class="p">)</span>
+<span class="w">  </span><span class="n">ws</span><span class="p">[</span><span class="nb">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// used by prefix scan...</span>
+<span class="nf">__syncthreads</span><span class="p">();</span>
+<span class="n">hist</span><span class="p">.</span><span class="n">finalize</span><span class="p">(</span><span class="n">ws</span><span class="p">);</span>
+<span class="nf">__syncthreads</span><span class="p">();</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">msize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">invalidModuleId</span><span class="p">)</span><span class="w">  </span><span class="c1">// skip invalid pixels</span>
+<span class="w">    </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">  </span><span class="n">hist</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">firstPixel</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Competitive filling</p>
+<p>We will fill our histogram <code>hist</code> with the values <code>i-firstPixel</code>. We make sure that each pixel get's in the right bin, corresponding to their column in the module map.</p>
+<div class="highlight"><pre><span></span><code><span class="n">hist</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">firstPixel</span><span class="p">);</span>
+</code></pre></div>
+<p>Here as we know, <code>y</code> is the column value array of the digis. </p>
+<p>If we iterate through the histogram, pixels in the first column will be processed sooner to pixels in the next column, and so on.</p>
+<p>What we don't know however is what order we are going to process our pixels in one column/bin.
+Filling the histogram is competitive between the threads, the following image illustrates this.</p>
+</div>
+<p><img alt="Iteration order of pixels in cluster" src="../../../../img/documentation/m0.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Figure 1 - Order in histogram</p>
+<p>Not to misunderstand, we don't fill our histogram in this order, this is the iteration order of <code>cms::cuda::HistoContainer</code>.</p>
+<p>This iteration order can change, and most probably will change from reconstruction to reconstruction.</p>
+</div>
+<p>We see the relative positions of pixels in our cluster:</p>
+<p><img alt="Iteration order of pixels in cluster" src="../../../../img/documentation/m1.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Figure 2 - Our HistoContainer</p>
+<p>Our ordering will be defined as top to bottom inside bins and left to right between bins.</p>
+<p>At least for this example, it doesn't really matter if one imagines the order in one bin the other way around.</p>
+</div>
+<p><img alt="Id/position stored in histogram visualized" src="../../../../img/documentation/m2.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Figure 3 - What we store in the HistoContainer</p>
+<p>On the left, we see how we will later iterate through the histogram.</p>
+<p>In the middle and on the right we see what we are actually storing in the histogram.</p>
+<p>We are storing <code>i-firstPixel</code>. This is the <strong>relative position of our digis in the digi view/array</strong>.</p>
+<p>We don't need all data about digis stored there, just their position in the <code>digi array</code> or <code>digi view</code>.</p>
+<p>Actually, not even that. We only need their <strong>relative position</strong> and not the <strong>absolute</strong>. That is because all digis belonging to the same module are <strong>consecutive in the digi array</strong>.</p>
+<p>This way we can save precious space, because we would need <code>32 bits</code> to store the absolute position of a digi, however, this way we can use only <code>16 bits</code>.</p>
+<p>Hmm, <code>16 bits</code> means <code>2^16 = 65536</code> maximum possible relative positions. </p>
+<p>How do we know there are no more digis in the module?</p>
+<p>On one hand, it is very unlikely, since in <code>phase 1</code> our module dimensions are <code>80*2*52*8 = 66560</code>.</p>
+<p>Module occupancy is much lower than <code>0.98</code> in any layer, so we're good.</p>
+<p>Still, we're making constraints on the maximum number of digis in the mdodule. </p>
+<p>Currently, this is </p>
+<div class="highlight"><pre><span></span><code><span class="c1">//6000 max pixels required for HI operations with no measurable impact on pp performance</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">maxPixInModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6000</span><span class="p">;</span>
+</code></pre></div>
+<p>We actually don't use this here. We will use this for something else, namely iterating through the digis in the module. Why we will need this will be uncovered soon.</p>
+</div>
+<p>This example only contained one cluster, but in reality we will likely have some consecutive clusters. </p>
+<p><img alt="Iteration order of pixels in cluster" src="../../../../img/documentation/m3.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Figure 4 - Multiple clusters in one module</p>
+<p>Again, in reality our cluster will be more spread out, we are only drawing them this close together for the sake of the example.</p>
+<p>Adding multiple clusters to the game the iteration order will change.</p>
+</div>
+<h2 id="nearest-neighbours-and-counting-them">Nearest neighbours and counting them</h2>
+<p>A crucial part of the code is the following:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// allocate space for duplicate pixels: a pixel can appear more than once</span>
+<span class="c1">// with different charge in the same event</span>
+<span class="n">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxNeighbours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="n">assert</span><span class="p">((</span><span class="n">hist</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">maxiter</span><span class="p">);</span>
+<span class="c1">// nearest neighbour</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">nn</span><span class="p">[</span><span class="n">maxiter</span><span class="p">][</span><span class="n">maxNeighbours</span><span class="p">];</span>
+<span class="kt">uint8_t</span><span class="w"> </span><span class="n">nnn</span><span class="p">[</span><span class="n">maxiter</span><span class="p">];</span><span class="w">  </span><span class="c1">// number of nn</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxiter</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span>
+<span class="w">  </span><span class="n">nnn</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="nf">__syncthreads</span><span class="p">();</span><span class="w">  </span><span class="c1">// for hit filling!</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">nn or nearest neighbours</p>
+<p>We want to store the relative position of the nearest neighbours of every digi. <strong>Basically, that's why we created the histogram in the first place.</strong> With the histogram the job is half-done, we know the neighbours of every digi columnwise.</p>
+<p>We will create local arrays to store the neighbours.</p>
+<p>We consider neighbours to be <strong>8-connected</strong>.</p>
+<p><img alt="4-8-connected-image" src="https://sites.ualberta.ca/~ccwj/teaching/image/morph/Figs/PNG/connectivity.png" /></p>
+<p>This would max out the number of possible neighbours to be, well, 8. But as the comment above (and below) explains, due to some read-out inconsistencies or whatnot we can have duplicate digis. So we allocate some extra space for them, but we'll also use some <code>assertions</code> later on to make sure we don't exceed our self-made limit.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// allocate space for duplicate pixels: a pixel can appear more than once</span>
+<span class="c1">// with different charge in the same event</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxNeighbours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">How many digis?</p>
+<p>We finally get to answer why we have an upper limit on the number of digis that we get to check rigorously in our kernel.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">//6000 max pixels required for HI operations with no measurable impact on pp performance</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">maxPixInModule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6000</span><span class="p">;</span>
+</code></pre></div>
+It is connected to this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">assert</span><span class="p">((</span><span class="n">hist</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">maxiter</span><span class="p">);</span>
+</code></pre></div>
+<p>We want to store nearest neighbours for every digi/pixel, but we don't know in advance how many there are. But we do need to fix the number of threads in advance, that is compile time constant.</p>
+<p><code>nn</code> is thread local, so what we will do, is make it two dimensional and let the threads iterate through the module digis, always increasing the <code>position</code> by <code>blockDim.x</code>, and store nearest neighbours of the next digi in the next row of the <code>nn</code> array.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// nearest neighbour</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">nn</span><span class="p">[</span><span class="n">maxiter</span><span class="p">][</span><span class="n">maxNeighbours</span><span class="p">];</span>
+<span class="kt">uint8_t</span><span class="w"> </span><span class="n">nnn</span><span class="p">[</span><span class="n">maxiter</span><span class="p">];</span><span class="w">  </span><span class="c1">// number of nn</span>
+</code></pre></div>
+<p>For example, if <code>blockDim.x = 16</code> and we have <code>120</code> digis/hits in our event, then <code>thread 3</code> will process the following digis:</p>
+<table>
+<thead>
+<tr>
+<th>digi id</th>
+<th></th>
+<th>nn place</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>-&gt;</td>
+<td>nn[0]</td>
+</tr>
+<tr>
+<td>19</td>
+<td>-&gt;</td>
+<td>nn[1]</td>
+</tr>
+<tr>
+<td>35</td>
+<td>-&gt;</td>
+<td>nn[2]</td>
+</tr>
+<tr>
+<td>51</td>
+<td>-&gt;</td>
+<td>nn[3]</td>
+</tr>
+<tr>
+<td>67</td>
+<td>-&gt;</td>
+<td>nn[4]</td>
+</tr>
+<tr>
+<td>83</td>
+<td>-&gt;</td>
+<td>nn[5]</td>
+</tr>
+<tr>
+<td>99</td>
+<td>-&gt;</td>
+<td>nn[6]</td>
+</tr>
+<tr>
+<td>115</td>
+<td>-&gt;</td>
+<td>nn[7]</td>
+</tr>
+</tbody>
+</table>
+<p>We must decide  (or do we) the size of <code>nn</code> in compile time too, so that's why we have <code>maxiter</code> and this dangereous looking message:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#ifdef __CUDA_ARCH__</span>
+<span class="c1">// assume that we can cover the whole module with up to 16 blockDim.x-wide iterations</span>
+<span class="n">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">hist</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">maxiter</span><span class="p">)</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;THIS IS NOT SUPPOSED TO HAPPEN too many hits in module %d: %d for block size %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="n">thisModuleId</span><span class="p">,</span>
+<span class="w">         </span><span class="n">hist</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span>
+<span class="w">         </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+<span class="cp">#else</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">maxiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hist</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="cp">#endif</span>
+</code></pre></div>
+<p>It really isn't supposed to happen. Why?</p>
+<details class="question">
+<summary>Why? What would happen in our code if this were true?</summary>
+<div class="highlight"><pre><span></span><code><span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">hist</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">maxiter</span>
+</code></pre></div>
+<p>Let's say <code>hist.size() = 300</code>.</p>
+<p>Well, then <code>thread 3</code> would try to put the nearest neighbours of the following digis in the following non-existing places:</p>
+<table>
+<thead>
+<tr>
+<th>digi id</th>
+<th></th>
+<th>nn place</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>259</td>
+<td>-&gt;</td>
+<td><img alt="☠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2620.svg" title=":skull_and_crossbones:" /> nn[16] <img alt="☠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2620.svg" title=":skull_and_crossbones:" /></td>
+</tr>
+<tr>
+<td>275</td>
+<td>-&gt;</td>
+<td><img alt="☠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2620.svg" title=":skull_and_crossbones:" /> nn[17] <img alt="☠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2620.svg" title=":skull_and_crossbones:" /></td>
+</tr>
+<tr>
+<td>291</td>
+<td>-&gt;</td>
+<td><img alt="☠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2620.svg" title=":skull_and_crossbones:" /> nn[18] <img alt="☠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2620.svg" title=":skull_and_crossbones:" /></td>
+</tr>
+</tbody>
+</table>
+<p>We really don't want to have out of bounds indexing errors. It could happen in theory, that's why we run simulations and try to find out are expected (max) occupancy in advance and set <strong><code>maxiter</code></strong> accordingly.</p>
+</details>
+</div>
+<div class="admonition info">
+<p class="admonition-title">nnn or number of nearest neighbours</p>
+<p>We will keep track of the number of nearest neighbours as well in a separate array.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">uint8_t</span><span class="w"> </span><span class="n">nnn</span><span class="p">[</span><span class="n">maxiter</span><span class="p">];</span><span class="w">  </span><span class="c1">// number of nn</span>
+</code></pre></div>
+<p>We could actually get rid of this and follow a different approach, can you find out how?</p>
+<details class="question">
+<summary>How?</summary>
+<details class="question">
+<summary>No, but really, think about it</summary>
+<details class="question">
+<summary>I'm serious</summary>
+<p>Ok, well. Technically, when you create <code>nn</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// nearest neighbour</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">nn</span><span class="p">[</span><span class="n">maxiter</span><span class="p">][</span><span class="n">maxNeighbours</span><span class="p">];</span>
+</code></pre></div>
+<p>You could do this:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// nearest neighbour</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">nn</span><span class="p">[</span><span class="n">maxiter</span><span class="p">][</span><span class="n">maxNeighbours</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+</code></pre></div>
+<p>And save one field at the end of each row for a special value e.g. and initialize all values to <code>numeric_limits&lt;uint16_t&gt;::max()-1</code> and later only iterate until we reach this value.</p>
+<p>This solution actually uses a bit more space <code>16 vs 8 bits</code> and requires us to do some initialization.</p>
+</details>
+</details>
+</details>
+</div>
+<h2 id="filling-nn">Filling nn</h2>
+<p>Let's look at how we actually fill our nearest neighbours arrays:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// fill NN</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0U</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">hist</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nb">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxiter</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hist</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstPixel</span><span class="p">;</span>
+<span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">invalidModuleId</span><span class="p">);</span>
+<span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">thisModuleId</span><span class="p">);</span><span class="w">  </span><span class="c1">// same module</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Hist</span><span class="o">::</span><span class="n">bin</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hist</span><span class="p">.</span><span class="n">end</span><span class="p">(</span><span class="n">be</span><span class="p">);</span>
+<span class="w">  </span><span class="o">++</span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nnn</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstPixel</span><span class="p">;</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">m</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">m</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">m</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nnn</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxNeighbours</span><span class="p">);</span>
+<span class="w">    </span><span class="n">nn</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Current iteration, keeping track of <code>k</code></p>
+<p>We will use <code>k</code> to keep track of which iteration we are currently in:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0U</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">hist</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<p>It shall not overflow <code>maxiter</code>
+<div class="highlight"><pre><span></span><code><span class="n">assert</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxiter</span><span class="p">);</span>
+</code></pre></div></p>
+<p>There hasn't been any nearest neighbours added to <code>nn[k]</code> so our counter of them nnn[k] should be zero, we check this here:</p>
+<div class="highlight"><pre><span></span><code><span class="n">assert</span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nnn</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+</code></pre></div>
+<p>When we find a neighbour, we add it to <code>nn[k]</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nnn</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxNeighbours</span><span class="p">);</span>
+<span class="n">nn</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</code></pre></div>
+<p>We also check that our index <code>l</code> is within bounds.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Pointer to hist element <code>p</code></p>
+<p>We we look at the <code>j</code>th element in the histogram and set the pointer <code>p</code> to this element, <code>i</code> will be the absolute position of our digi.</p>
+<div class="highlight"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hist</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstPixel</span><span class="p">;</span>
+</code></pre></div>
+<p>We made sure of these conditions when we created and filled the histogram</p>
+<div class="highlight"><pre><span></span><code><span class="n">assert</span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">invalidModuleId</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">thisModuleId</span><span class="p">);</span><span class="w">  </span><span class="c1">// same module</span>
+</code></pre></div>
+<p>Let's find the pointer to the last element in the next bin, this will be <code>e</code>, probably short for <code>end</code>.</p>
+<p>Also, we increase <code>p</code> by one so we only start considering digis that come after <code>p</code></p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Hist</span><span class="o">::</span><span class="n">bin</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hist</span><span class="p">.</span><span class="n">end</span><span class="p">(</span><span class="n">be</span><span class="p">);</span>
+<span class="o">++</span><span class="n">p</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<div class="admonition success">
+<p class="admonition-title"><code>m</code>, or possible neighbours</p>
+<p>Finally we iterate over elements from <code>p++</code> until <code>e</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstPixel</span><span class="p">;</span>
+<span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>We know that our column is correct:</p>
+<div class="highlight"><pre><span></span><code><span class="n">assert</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">m</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">m</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+<p>So we only need to check whether our row value is <code>&lt;=1</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">m</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="k">continue</span><span class="p">;</span>
+</code></pre></div>
+<p>If our row is within bounds, we add <code>m</code> to <code>nn</code>.</p>
+</div>
+<details class="example" open="open">
+<summary>Example</summary>
+<p>In this example:</p>
+<p><img alt="Iteration order of pixels in cluster" src="../../../../img/documentation/m1.png" /></p>
+<p>For <code>m</code> we consider the following values</p>
+<table>
+<thead>
+<tr>
+<th>i - firstPixel</th>
+<th></th>
+<th>*(++p)</th>
+<th><code>m</code></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>-&gt;</td>
+<td>1</td>
+<td>9</td>
+<td>13</td>
+<td>12</td>
+<td>5</td>
+<td>2</td>
+<td>16</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-&gt;</td>
+<td>9</td>
+<td>13</td>
+<td>12</td>
+<td>5</td>
+<td>2</td>
+<td>26</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>-&gt;</td>
+<td>13</td>
+<td>12</td>
+<td>5</td>
+<td>2</td>
+<td>16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>-&gt;</td>
+<td>12</td>
+<td>5</td>
+<td>2</td>
+<td>16</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>And for the <code>nearest neighbours</code> we get:</p>
+<table>
+<thead>
+<tr>
+<th>i - firstPixel</th>
+<th></th>
+<th>nn values</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>-&gt;</td>
+<td>9</td>
+<td>12</td>
+<td>5</td>
+</tr>
+<tr>
+<td>1</td>
+<td>-&gt;</td>
+<td>9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>-&gt;</td>
+<td>12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>-&gt;</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="assign-same-clusterid-to-clusters">Assign same <code>clusterId</code> to clusters</h2>
+<p>Essentially, the following piece of code assigns the same <code>clusterId</code> to all pixels/digis in a cluster.</p>
+<p>These <code>clusterId</code>s won't be ordered, start from <code>0</code>, but they will be the same in for neighbouring pixels. They will also be in the range <code>0</code> to <code>numElements</code>, which is the maximum number of digis for this particular event.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">nloops</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">__syncthreads_or</span><span class="p">(</span><span class="n">more</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nloops</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0U</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">hist</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hist</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstPixel</span><span class="p">;</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clusterId</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">clusterId</span><span class="p">[</span><span class="n">m</span><span class="p">])</span>
+<span class="w">        </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clusterId</span><span class="p">[</span><span class="n">m</span><span class="p">];</span>
+<span class="w">        </span><span class="n">clusterId</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">more</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0U</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">hist</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hist</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstPixel</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nnn</span><span class="p">[</span><span class="n">k</span><span class="p">];</span><span class="w"> </span><span class="o">++</span><span class="n">kk</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nn</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">kk</span><span class="p">];</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstPixel</span><span class="p">;</span>
+<span class="w">        </span><span class="n">assert</span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">old</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atomicMin_block</span><span class="p">(</span><span class="o">&amp;</span><span class="n">clusterId</span><span class="p">[</span><span class="n">m</span><span class="p">],</span><span class="w"> </span><span class="n">clusterId</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="c1">// do we need memory fence?</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">old</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">clusterId</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// end the loop only if no changes were applied</span>
+<span class="w">            </span><span class="n">more</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">atomicMin_block</span><span class="p">(</span><span class="o">&amp;</span><span class="n">clusterId</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">old</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w">  </span><span class="c1">// nnloop</span>
+<span class="w">    </span><span class="p">}</span><span class="w">    </span><span class="c1">// pixel loop</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="o">++</span><span class="n">nloops</span><span class="p">;</span>
+<span class="p">}</span><span class="w">  </span><span class="c1">// end while</span>
+</code></pre></div>
+<p>We also get a bit of explanation, namely</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// for each pixel, look at all the pixels until the end of the module;</span>
+<span class="c1">// when two valid pixels within +/- 1 in x or y are found, set their id to the minimum;</span>
+<span class="c1">// after the loop, all the pixel in each cluster should have the id equeal to the lowest</span>
+<span class="c1">// pixel in the cluster ( clus[i] == i ).</span>
+</code></pre></div>
+<p>This is all true, but we don't see actually why though.</p>
+<p>We need to understand what <code>nn</code> and <code>nnn</code> and the <code>hist</code> is, and how everything is connected, and why our <code>while</code> loop is divided into two parts.</p>
+<p>So let's dig in.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">nloops</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+<p><code>more</code> will be set to true every loop if we updated the <code>cluterId</code> for the current pixel, and so it will tell us to terminate our loop or not</p>
+<p><code>nloops</code> or number of loops</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">__syncthreads_or</span><span class="p">(</span><span class="n">more</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</code></pre></div>
+<p>One can reason intuitavely what this does, or can consult the <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html">CUDA C Programming Guide</a>.</p>
+<div class="admonition quote">
+<p class="admonition-title">int __syncthreads_or(int predicate);</p>
+<p>is identical to __syncthreads() with the additional feature that it evaluates predicate for all threads of the block and returns non-zero if and only if predicate evaluates to non-zero for any of them.</p>
+</div>
+<p>So <code>more</code>, our local variable is scanned for every thread in the block. We terminate the loop if we didn't update any <code>cluterId</code>s in the previous iteration.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>This is equal to the number of threads per block the kernel 
+was launched with.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>See <a href="../../../../basic-concepts/#module">here</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>An NVIDIA T4 card has a limit of 64kB of shared memory,
+see <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">here</a>
+under <code>Maximum amount of shared memory per thread block</code>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.sections", "content.tabs.link", "content.code.annotate", "content.action.edit", "content.action.view"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      
+    
+  </body>
+</html>
