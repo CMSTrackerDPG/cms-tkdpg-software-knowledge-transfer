@@ -37,7 +37,7 @@ An official NVIDIA introductory workshop.
 
 * Download and extract [this](cuda_workshop.tar) file.
 * Create a `python3` virtual environment and activate it.
-* Run `pip install jupyter-lab`.
+* Run `pip install jupyterlab`.
 * Run `jupyter lab`.
 
 ### Angela's GPU programming primer
